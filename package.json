@@ -86,5 +86,5 @@
             "vendor/bin/phpstan analyse --no-progress"
         ]
     },
-    "name": "make-project"
+    "name": "mcp-manager"
 }

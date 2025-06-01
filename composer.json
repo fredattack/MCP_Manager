@@ -1,8 +1,8 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "make-test/make-project",
+    "name": "HDDEV/mcp-manager",
     "type": "project",
-    "description": "A make test project",
+    "description": "A mcp-manager application",
     "keywords": [
         "laravel",
         "framework"
