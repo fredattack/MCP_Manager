@@ -20,41 +20,88 @@ A modern, clean starter kit for building web applications with Laravel and React
 
 1. Clone the repository:
    ```bash
-   git clone git@github.com:fredattack/laravel-react-boilerplate.git
-   cd laravel-react-boilerplate
+   git clone git@github.com:fredattack/laravel-react-boilerplate.git my-project-name
+   cd my-project-name
    ```
 
-2. Install dependencies:
+   > Replace `my-project-name` with your desired project name.
+
+2. Rename the project:
+
+   **Option 1: Using the make command (recommended)**
+   ```bash
+   make rename-project VENDOR=yourvendor NAME=your-project-name
+   ```
+
+   You can also specify optional parameters:
+   ```bash
+   make rename-project VENDOR=yourvendor NAME=your-project-name DESCRIPTION="Your project description" DISPLAY_NAME="Your Display Name" DB_NAME=your_database_name
+   ```
+
+   > Replace `yourvendor` with your organization or username (e.g., `acme`). This is the "vendor" name in Composer terminology, which helps identify who created the package. It's typically your GitHub username, company name, or any unique identifier for you or your organization.
+   > Replace `your-project-name` with your project name (e.g., `invoice-app`).
+   > Replace `Your project description` with your project description.
+   > Replace `Your Display Name` with your project's display name.
+   > Replace `your_database_name` with your database name (use underscores instead of hyphens).
+
+   **Option 2: Manually**
+   ```bash
+   # Update composer.json with your project details
+   sed -i '' 's/"name": "laravel\/react-starter-kit"/"name": "yourvendor\/your-project-name"/' composer.json
+   sed -i '' 's/"description": "The skeleton application for the Laravel framework."/"description": "Your project description."/' composer.json
+
+   # Optional: Add a name to package.json (if you want to publish to npm)
+   sed -i '' '/"private": true,/a\
+   \ \ \ \ "name": "your-project-name",' package.json
+   ```
+
+   > Replace `yourvendor/your-project-name` with your organization/username and project name (e.g., `acme/invoice-app`). The first part is your "vendor" name in Composer terminology, which identifies who created the package.
+   > Replace `Your project description.` with your project description.
+   > Replace `your-project-name` with your project name for package.json.
+
+3. Install dependencies:
    ```bash
    make install
    ```
 
-3. Copy the environment file:
+4. Copy the environment file:
    ```bash
    cp .env.example .env
    ```
 
-4. Generate application key:
+5. Update the .env file with your project details:
+   ```bash
+   # Update APP_NAME in .env file
+   sed -i '' 's/APP_NAME=Laravel/APP_NAME="My Project Name"/' .env
+
+   # Update DB_DATABASE in .env file (if using PostgreSQL or MySQL)
+   sed -i '' 's/DB_DATABASE=laravel/DB_DATABASE=my_project_name/' .env
+   ```
+
+   > Replace `My Project Name` with your project's display name.
+   > Replace `my_project_name` with your database name (use underscores instead of hyphens).
+
+6. Generate application key:
    ```bash
    php artisan key:generate
    ```
 
-5. Configure your database in the `.env` file:
+7. Configure your database connection in the `.env` file:
    ```
    DB_CONNECTION=pgsql
    DB_HOST=127.0.0.1
    DB_PORT=5432
-   DB_DATABASE=laravel
+   # DB_DATABASE should already be updated in step 5
    DB_USERNAME=your_username
    DB_PASSWORD=your_password
    ```
 
-6. Run migrations:
+8. Run migrations:
    ```bash
    make migrate
    ```
 
-7. Start the application:
+9. Start the application:
    ```bash
    make start-all
    ```

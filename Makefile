@@ -62,6 +62,17 @@ install:
 	$(COMPOSER) install
 	$(NPM) install
 
+.PHONY: rename-project
+rename-project:
+	@echo "Renaming project..."
+	@echo "Usage: make rename-project VENDOR=your-organization NAME=your-project-name [DESCRIPTION=\"Your project description\"] [DISPLAY_NAME=\"Your Display Name\"] [DB_NAME=your_database_name]"
+	@if [ -z "$(VENDOR)" ] || [ -z "$(NAME)" ]; then \
+		echo "Error: VENDOR (your organization/username) and NAME parameters are required"; \
+		echo "Example: make rename-project VENDOR=acme NAME=invoice-app"; \
+		exit 1; \
+	fi
+	$(ARTISAN) app:rename $(VENDOR) $(NAME) $(if $(DESCRIPTION),--description="$(DESCRIPTION)") $(if $(DISPLAY_NAME),--display-name="$(DISPLAY_NAME)") $(if $(DB_NAME),--database-name="$(DB_NAME)")
+
 .PHONY: migrate
 migrate:
 	$(ARTISAN) migrate
@@ -87,6 +98,7 @@ help:
 	@echo "  make format           - Prettier format"
 	@echo "  make quality-check    - Run all static checks"
 	@echo "  make install          - Install dependencies"
+	@echo "  make rename-project    - Rename the project (VENDOR=your-organization NAME=your-project-name required)"
 	@echo "  make migrate          - Run migrations"
 	@echo "  make seed             - Run seeders"
 	@echo "  make fresh            - Fresh migration with seeding"

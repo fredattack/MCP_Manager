@@ -85,5 +85,6 @@
             "vendor/bin/rector process",
             "vendor/bin/phpstan analyse --no-progress"
         ]
-    }
+    },
+    "name": "make-project"
 }

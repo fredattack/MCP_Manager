@@ -1,8 +1,8 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/react-starter-kit",
+    "name": "make-test/make-project",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
+    "description": "A make test project",
     "keywords": [
         "laravel",
         "framework"
