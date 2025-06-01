@@ -1,14 +1,18 @@
-# EasyInvoice
+# Laravel React Boilerplate
 
-A prototype automated system capable of connecting to a supplier portal, downloading invoices, storing them, applying OCR, and exporting data, with a user-friendly React interface and a minimum test coverage of 80%.
+> **Last Updated:** May 2025
+>
+> Laravel 12 · React 19 · TailwindCSS 4 · Vite 6 · TypeScript 5.7 · PostgreSQL
+
+A modern, clean starter kit for building web applications with Laravel and React. This boilerplate provides a solid foundation with authentication, modern UI components, and comprehensive quality tools pre-configured.
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- PHP 8.4
+- PHP 8.2+
 - Composer
-- Node.js 22
+- Node.js 22+
 - npm
 - PostgreSQL
 
@@ -16,8 +20,8 @@ A prototype automated system capable of connecting to a supplier portal, downloa
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/fredattack/easyinvoice.git
-   cd easyinvoice
+   git clone git@github.com:fredattack/laravel-react-boilerplate.git
+   cd laravel-react-boilerplate
    ```
 
 2. Install dependencies:
@@ -40,7 +44,7 @@ A prototype automated system capable of connecting to a supplier portal, downloa
    DB_CONNECTION=pgsql
    DB_HOST=127.0.0.1
    DB_PORT=5432
-   DB_DATABASE=easyinvoice
+   DB_DATABASE=laravel
    DB_USERNAME=your_username
    DB_PASSWORD=your_password
    ```
@@ -52,44 +56,94 @@ A prototype automated system capable of connecting to a supplier portal, downloa
 
 7. Start the application:
    ```bash
-   make start
+   make start-all
    ```
 
 ## 🛠️ Development
 
 ### Available Commands
 
-- `make start` - Start the app locally (port 1978)
+- `make start` - Start the Laravel app locally (port 1978)
+- `make dev` - Start the Vite development server
+- `make start-all` - Start both Laravel and Vite servers
 - `make test` - Run all tests
-- `make lint` - Run ESLint
-- `make stan` - Run PHPStan
-- `make rector` - Run Rector
-- `make coverage` - Generate coverage reports
-- `make docs` - Generate API documentation
-- `make format` - Prettier format
-- `make quality-check` - Run all static checks
-- `make install` - Install dependencies
-- `make migrate` - Run migrations
-- `make seed` - Run seeders
+- `make lint` - Run ESLint on JavaScript/TypeScript files
+- `make stan` - Run PHPStan for PHP static analysis (max level)
+- `make rector` - Run Rector for PHP code quality and automatic refactoring
+- `make coverage` - Generate test coverage reports
+- `make docs` - Generate API documentation with Scramble
+- `make format` - Format code with Prettier
+- `make quality-check` - Run all static checks (test, lint, stan, rector, format)
+- `make install` - Install all dependencies (Composer and npm)
+- `make migrate` - Run database migrations
+- `make seed` - Run database seeders
 - `make fresh` - Fresh migration with seeding
 - `make help` - Show all available commands
 
-### Code Quality
+### Code Quality Tools
 
 This project uses several tools to ensure code quality:
 
-- **ESLint** - For JavaScript/TypeScript linting
-- **Prettier** - For code formatting
-- **PHPStan** - For PHP static analysis
-- **Rector** - For PHP code quality and automatic refactoring
-- **Pint** - For PHP code style
+#### PHP Quality Tools
 
-Pre-commit hooks are set up to run these tools automatically before each commit.
+- **PHPStan (v2.1)** - Static analysis tool that finds errors in your code without running it
+  - Configured at maximum level for strictest type checking
+  - Run with `make stan`
 
-### Testing
+- **Rector (v2.0)** - Automated refactoring tool
+  - Automatically upgrades your code to use newer PHP features
+  - Fixes code that would trigger PHPStan errors
+  - Run with `make rector`
 
-- Run tests with `make test`
-- Generate coverage reports with `make coverage`
+- **Laravel Pint (v1.18)** - PHP code style fixer
+  - Based on PHP-CS-Fixer with Laravel defaults
+  - Automatically formats your code to follow Laravel coding standards
+  - Run through pre-commit hooks
+
+#### JavaScript/TypeScript Quality Tools
+
+- **ESLint (v9.17)** - Linting utility for JavaScript and TypeScript
+  - Configured with React and React Hooks plugins
+  - Run with `make lint`
+
+- **Prettier (v3.4.2)** - Code formatter
+  - Ensures consistent code style
+  - Run with `make format`
+
+- **TypeScript (v5.7.2)** - Static type checking
+  - Provides better IDE support and catches errors early
+  - Run type checking with `npm run types`
+
+### Pre-commit Hooks
+
+Pre-commit hooks are set up with Husky (v9.0.11) and lint-staged (v15.2.2) to automatically run:
+
+- Prettier on JavaScript/TypeScript and CSS files
+- ESLint on JavaScript/TypeScript files
+- Pint on PHP files
+- Rector on PHP files
+- PHPStan on PHP files
+
+This ensures that all committed code meets the project's quality standards.
+
+## 📦 Main Package Versions
+
+### Backend (PHP)
+
+- **PHP**: ^8.2
+- **Laravel**: ^12.0
+- **Inertia.js**: ^2.0
+- **Laravel Tinker**: ^2.10.1
+- **Ziggy**: ^2.4
+
+### Frontend (JavaScript)
+
+- **React**: ^19.0.0
+- **React DOM**: ^19.0.0
+- **Vite**: ^6.0
+- **TailwindCSS**: ^4.0.0
+- **TypeScript**: ^5.7.2
+- **Inertia.js React**: ^2.0.0
 
 ## 📋 Project Structure
 
@@ -99,6 +153,8 @@ Pre-commit hooks are set up to run these tools automatically before each commit.
 /database       # Migrations, seeders, and factories
 /public         # Publicly accessible files
 /resources      # Frontend resources (React, CSS)
+  /js           # React components and pages
+  /css          # TailwindCSS styles
 /routes         # API and web routes
 /storage        # Application storage
 /tests          # Test files

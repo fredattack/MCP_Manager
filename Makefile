@@ -17,6 +17,14 @@ ESLINT=npx eslint
 start:
 	$(ARTISAN) serve --port=$(PORT)
 
+.PHONY: dev
+dev:
+	$(NPM) run dev
+
+.PHONY: start-all
+start-all:
+	$(MAKE) start & $(MAKE) dev
+
 .PHONY: test
 test:
 	$(PHPUNIT)

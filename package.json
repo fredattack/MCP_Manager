@@ -10,8 +10,7 @@
         "lint": "eslint . --fix",
         "types": "tsc --noEmit",
         "prepare": "husky",
-        "pre-commit": "lint-staged",
-        "fetch:adobe": "node --loader ./scripts/ts-node-esm-loader.mjs scripts/adobe-fetch.ts"
+        "pre-commit": "lint-staged"
     },
     "devDependencies": {
         "@eslint/js": "^9.19.0",
