@@ -1,0 +1,16 @@
+parameters:
+    level: max
+    paths:
+        - app
+        - config
+        - database
+        - routes
+        - tests
+    excludePaths:
+        - vendor
+        - node_modules
+        - app/Http/Controllers/Auth
+        - app/Http/Controllers/Settings
+        - app/Http/Middleware/HandleInertiaRequests.php
+        - app/Http/Requests/Settings/ProfileUpdateRequest.php
+    ignoreErrors:
