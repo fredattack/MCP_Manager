@@ -1,4 +1,4 @@
-# Laravel React Boilerplate
+# make installLaravel React Boilerplate
 
 > **Last Updated:** May 2025
 >
@@ -19,21 +19,24 @@ A modern, clean starter kit for building web applications with Laravel and React
 ### Installation
 
 1. Clone the repository:
+
    ```bash
    git clone git@github.com:fredattack/laravel-react-boilerplate.git my-project-name
    cd my-project-name
    ```
 
    > Replace `my-project-name` with your desired project name.
-
+   >
 2. Rename the project:
 
    **Option 1: Using the make command (recommended)**
+
    ```bash
    make rename-project VENDOR=yourvendor NAME=your-project-name
    ```
 
    You can also specify optional parameters:
+
    ```bash
    make rename-project VENDOR=yourvendor NAME=your-project-name DESCRIPTION="Your project description" DISPLAY_NAME="Your Display Name" DB_NAME=your_database_name
    ```
@@ -43,8 +46,10 @@ A modern, clean starter kit for building web applications with Laravel and React
    > Replace `Your project description` with your project description.
    > Replace `Your Display Name` with your project's display name.
    > Replace `your_database_name` with your database name (use underscores instead of hyphens).
+   >
 
    **Option 2: Manually**
+
    ```bash
    # Update composer.json with your project details
    sed -i '' 's/"name": "laravel\/react-starter-kit"/"name": "yourvendor\/your-project-name"/' composer.json
@@ -58,18 +63,19 @@ A modern, clean starter kit for building web applications with Laravel and React
    > Replace `yourvendor/your-project-name` with your organization/username and project name (e.g., `acme/invoice-app`). The first part is your "vendor" name in Composer terminology, which identifies who created the package.
    > Replace `Your project description.` with your project description.
    > Replace `your-project-name` with your project name for package.json.
-
+   >
 3. Install dependencies:
+
    ```bash
    make install
    ```
-
 4. Copy the environment file:
+
    ```bash
    cp .env.example .env
    ```
-
 5. Update the .env file with your project details:
+
    ```bash
    # Update APP_NAME in .env file
    sed -i '' 's/APP_NAME=Laravel/APP_NAME="My Project Name"/' .env
@@ -80,13 +86,14 @@ A modern, clean starter kit for building web applications with Laravel and React
 
    > Replace `My Project Name` with your project's display name.
    > Replace `my_project_name` with your database name (use underscores instead of hyphens).
-
+   >
 6. Generate application key:
+
    ```bash
    php artisan key:generate
    ```
-
 7. Configure your database connection in the `.env` file:
+
    ```
    DB_CONNECTION=pgsql
    DB_HOST=127.0.0.1
@@ -95,16 +102,24 @@ A modern, clean starter kit for building web applications with Laravel and React
    DB_USERNAME=your_username
    DB_PASSWORD=your_password
    ```
-
 8. Run migrations:
+
    ```bash
    make migrate
    ```
-
 9. Start the application:
+
    ```bash
    make start-all
    ```
+
+10. **Important**: build the frontend assets:
+
+   ```bash
+   make build
+   ```
+
+   This command generates the necessary Vite manifest file in the `public/build` directory, which is required for the application to run in production mode.
 
 ## 🛠️ Development
 
@@ -113,6 +128,7 @@ A modern, clean starter kit for building web applications with Laravel and React
 - `make start` - Start the Laravel app locally (port 1978)
 - `make dev` - Start the Vite development server
 - `make start-all` - Start both Laravel and Vite servers
+- `make build` - Build frontend assets for production (prevents "Vite manifest not found" error)
 - `make test` - Run all tests
 - `make lint` - Run ESLint on JavaScript/TypeScript files
 - `make stan` - Run PHPStan for PHP static analysis (max level)
@@ -134,15 +150,16 @@ This project uses several tools to ensure code quality:
 #### PHP Quality Tools
 
 - **PHPStan (v2.1)** - Static analysis tool that finds errors in your code without running it
+
   - Configured at maximum level for strictest type checking
   - Run with `make stan`
-
 - **Rector (v2.0)** - Automated refactoring tool
+
   - Automatically upgrades your code to use newer PHP features
   - Fixes code that would trigger PHPStan errors
   - Run with `make rector`
-
 - **Laravel Pint (v1.18)** - PHP code style fixer
+
   - Based on PHP-CS-Fixer with Laravel defaults
   - Automatically formats your code to follow Laravel coding standards
   - Run through pre-commit hooks
@@ -150,14 +167,15 @@ This project uses several tools to ensure code quality:
 #### JavaScript/TypeScript Quality Tools
 
 - **ESLint (v9.17)** - Linting utility for JavaScript and TypeScript
+
   - Configured with React and React Hooks plugins
   - Run with `make lint`
-
 - **Prettier (v3.4.2)** - Code formatter
+
   - Ensures consistent code style
   - Run with `make format`
-
 - **TypeScript (v5.7.2)** - Static type checking
+
   - Provides better IDE support and catches errors early
   - Run type checking with `npm run types`
 

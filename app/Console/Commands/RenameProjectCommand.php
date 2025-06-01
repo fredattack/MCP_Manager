@@ -29,13 +29,28 @@ class RenameProjectCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle()
+    public function handle(): void
     {
-        $vendor = $this->argument('vendor');
-        $name = $this->argument('name');
-        $description = $this->option('description') ?: "A {$name} application";
-        $displayName = $this->option('display-name') ?: str_replace(['-', '_'], ' ', ucwords($name));
-        $databaseName = $this->option('database-name') ?: str_replace('-', '_', $name);
+        $vendorArg = $this->argument('vendor');
+        $vendor = is_string($vendorArg) ? $vendorArg : '';
+
+        $nameArg = $this->argument('name');
+        $name = is_string($nameArg) ? $nameArg : '';
+
+        $descriptionOpt = $this->option('description');
+        $description = is_string($descriptionOpt) && $descriptionOpt !== ''
+            ? $descriptionOpt
+            : "A $name application";
+
+        $displayNameOpt = $this->option('display-name');
+        $displayName = is_string($displayNameOpt) && $displayNameOpt !== ''
+            ? $displayNameOpt
+            : str_replace(['-', '_'], ' ', ucwords($name));
+
+        $databaseNameOpt = $this->option('database-name');
+        $databaseName = is_string($databaseNameOpt) && $databaseNameOpt !== ''
+            ? $databaseNameOpt
+            : str_replace('-', '_', $name);
 
         $this->info('Renaming project...');
 
@@ -49,11 +64,11 @@ class RenameProjectCommand extends Command
         $this->updateEnvFile($displayName, $databaseName);
 
         $this->info('Project renamed successfully!');
-        $this->info('Vendor: ' . $vendor);
-        $this->info('Name: ' . $name);
-        $this->info('Description: ' . $description);
-        $this->info('Display Name: ' . $displayName);
-        $this->info('Database Name: ' . $databaseName);
+        $this->info("Vendor: $vendor");
+        $this->info("Name: $name");
+        $this->info("Description: $description");
+        $this->info("Display Name: $displayName");
+        $this->info("Database Name: $databaseName");
     }
 
     /**
@@ -63,24 +78,34 @@ class RenameProjectCommand extends Command
     {
         $composerJsonPath = base_path('composer.json');
 
-        if (!File::exists($composerJsonPath)) {
+        if (! File::exists($composerJsonPath)) {
             $this->error('composer.json file not found!');
+
             return;
         }
 
-        $composerJson = json_decode(File::get($composerJsonPath), true);
+        $composerContent = File::get($composerJsonPath);
+        $composerJson = json_decode($composerContent, true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            $this->error('Error parsing composer.json: ' . json_last_error_msg());
+        if (json_last_error() !== JSON_ERROR_NONE || ! is_array($composerJson)) {
+            $this->error('Error parsing composer.json: '.json_last_error_msg());
+
             return;
         }
 
         $composerJson['name'] = "{$vendor}/{$name}";
         $composerJson['description'] = $description;
 
+        $encodedJson = json_encode($composerJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        if ($encodedJson === false) {
+            $this->error('Error encoding composer.json');
+
+            return;
+        }
+
         File::put(
             $composerJsonPath,
-            json_encode($composerJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+            $encodedJson
         );
 
         $this->info('composer.json updated successfully.');
@@ -93,23 +118,33 @@ class RenameProjectCommand extends Command
     {
         $packageJsonPath = base_path('package.json');
 
-        if (!File::exists($packageJsonPath)) {
+        if (! File::exists($packageJsonPath)) {
             $this->error('package.json file not found!');
+
             return;
         }
 
-        $packageJson = json_decode(File::get($packageJsonPath), true);
+        $packageContent = File::get($packageJsonPath);
+        $packageJson = json_decode($packageContent, true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            $this->error('Error parsing package.json: ' . json_last_error_msg());
+        if (json_last_error() !== JSON_ERROR_NONE || ! is_array($packageJson)) {
+            $this->error('Error parsing package.json: '.json_last_error_msg());
+
             return;
         }
 
         $packageJson['name'] = $name;
 
+        $encodedJson = json_encode($packageJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        if ($encodedJson === false) {
+            $this->error('Error encoding package.json');
+
+            return;
+        }
+
         File::put(
             $packageJsonPath,
-            json_encode($packageJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+            $encodedJson
         );
 
         $this->info('package.json updated successfully.');
@@ -122,12 +157,13 @@ class RenameProjectCommand extends Command
     {
         $envPath = base_path('.env');
 
-        if (!File::exists($envPath)) {
+        if (! File::exists($envPath)) {
             $this->warn('.env file not found. Trying with .env.example...');
             $envPath = base_path('.env.example');
 
-            if (!File::exists($envPath)) {
+            if (! File::exists($envPath)) {
                 $this->error('.env and .env.example files not found!');
+
                 return;
             }
         }
@@ -135,12 +171,23 @@ class RenameProjectCommand extends Command
         $env = File::get($envPath);
 
         // Update APP_NAME
-        $env = preg_replace('/APP_NAME=.*/', 'APP_NAME="' . $displayName . '"', $env);
+        $updatedEnv = preg_replace('/APP_NAME=.*/', 'APP_NAME="'.$displayName.'"', $env);
+        if ($updatedEnv === null) {
+            $this->error('Error updating APP_NAME in .env file');
+
+            return;
+        }
+        $env = $updatedEnv;
 
         // Update DB_DATABASE
-        $env = preg_replace('/DB_DATABASE=.*/', 'DB_DATABASE=' . $databaseName, $env);
+        $updatedEnv = preg_replace('/DB_DATABASE=.*/', 'DB_DATABASE='.$databaseName, $env);
+        if ($updatedEnv === null) {
+            $this->error('Error updating DB_DATABASE in .env file');
 
-        File::put($envPath, $env);
+            return;
+        }
+
+        File::put($envPath, $updatedEnv);
 
         $this->info('.env file updated successfully.');
     }
