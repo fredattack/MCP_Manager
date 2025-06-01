@@ -85,10 +85,17 @@ seed:
 fresh:
 	$(ARTISAN) migrate:fresh --seed
 
+.PHONY: build
+build:
+	$(NPM) run build
+
 .PHONY: help
 help:
 	@echo "Available commands:"
 	@echo "  make start            - Start the app locally (port $(PORT))"
+	@echo "  make dev              - Start the Vite development server"
+	@echo "  make start-all        - Start both Laravel and Vite servers"
+	@echo "  make build            - Build frontend assets for production"
 	@echo "  make test             - Run all tests"
 	@echo "  make lint             - Run ESLint"
 	@echo "  make stan             - Run PHPStan"

@@ -5,9 +5,6 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-use function is_array;
-use function is_string;
-
 class RenameProjectCommand extends Command
 {
     /**
@@ -32,26 +29,18 @@ class RenameProjectCommand extends Command
     /**
      * Execute the console command.
      */
-    public function handle(): int
+    public function handle(): void
     {
-        // Get and validate arguments
         $vendorArg = $this->argument('vendor');
+        $vendor = is_string($vendorArg) ? $vendorArg : '';
+
         $nameArg = $this->argument('name');
+        $name = is_string($nameArg) ? $nameArg : '';
 
-        if (! is_string($vendorArg) || ! is_string($nameArg)) {
-            $this->error('Vendor and name must be strings');
-
-            return Command::FAILURE;
-        }
-
-        $vendor = $vendorArg;
-        $name = $nameArg;
-
-        // Get and validate options
         $descriptionOpt = $this->option('description');
         $description = is_string($descriptionOpt) && $descriptionOpt !== ''
             ? $descriptionOpt
-            : "A {$name} application";
+            : "A $name application";
 
         $displayNameOpt = $this->option('display-name');
         $displayName = is_string($displayNameOpt) && $displayNameOpt !== ''
@@ -75,13 +64,11 @@ class RenameProjectCommand extends Command
         $this->updateEnvFile($displayName, $databaseName);
 
         $this->info('Project renamed successfully!');
-        $this->info("Vendor: {$vendor}");
-        $this->info("Name: {$name}");
-        $this->info("Description: {$description}");
-        $this->info("Display Name: {$displayName}");
-        $this->info("Database Name: {$databaseName}");
-
-        return Command::SUCCESS;
+        $this->info("Vendor: $vendor");
+        $this->info("Name: $name");
+        $this->info("Description: $description");
+        $this->info("Display Name: $displayName");
+        $this->info("Database Name: $databaseName");
     }
 
     /**
@@ -97,19 +84,11 @@ class RenameProjectCommand extends Command
             return;
         }
 
-        // @var string $composerContent
         $composerContent = File::get($composerJsonPath);
-
         $composerJson = json_decode($composerContent, true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if (json_last_error() !== JSON_ERROR_NONE || ! is_array($composerJson)) {
             $this->error('Error parsing composer.json: '.json_last_error_msg());
-
-            return;
-        }
-
-        if (! is_array($composerJson)) {
-            $this->error('Invalid composer.json structure');
 
             return;
         }
@@ -119,7 +98,7 @@ class RenameProjectCommand extends Command
 
         $encodedJson = json_encode($composerJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         if ($encodedJson === false) {
-            $this->error('Failed to encode composer.json');
+            $this->error('Error encoding composer.json');
 
             return;
         }
@@ -145,19 +124,11 @@ class RenameProjectCommand extends Command
             return;
         }
 
-        // @var string $packageContent
         $packageContent = File::get($packageJsonPath);
-
         $packageJson = json_decode($packageContent, true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if (json_last_error() !== JSON_ERROR_NONE || ! is_array($packageJson)) {
             $this->error('Error parsing package.json: '.json_last_error_msg());
-
-            return;
-        }
-
-        if (! is_array($packageJson)) {
-            $this->error('Invalid package.json structure');
 
             return;
         }
@@ -166,7 +137,7 @@ class RenameProjectCommand extends Command
 
         $encodedJson = json_encode($packageJson, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
         if ($encodedJson === false) {
-            $this->error('Failed to encode package.json');
+            $this->error('Error encoding package.json');
 
             return;
         }
@@ -197,31 +168,26 @@ class RenameProjectCommand extends Command
             }
         }
 
-        // @var string $envContent
-        $envContent = File::get($envPath);
+        $env = File::get($envPath);
 
         // Update APP_NAME
-        $updatedEnv = preg_replace('/APP_NAME=.*/', 'APP_NAME="'.$displayName.'"', $envContent);
+        $updatedEnv = preg_replace('/APP_NAME=.*/', 'APP_NAME="'.$displayName.'"', $env);
         if ($updatedEnv === null) {
-            $this->error('Failed to update APP_NAME in .env file');
+            $this->error('Error updating APP_NAME in .env file');
 
             return;
         }
+        $env = $updatedEnv;
 
         // Update DB_DATABASE
-        $finalEnv = preg_replace('/DB_DATABASE=.*/', 'DB_DATABASE='.$databaseName, $updatedEnv);
-        if ($finalEnv === null) {
-            $this->error('Failed to update DB_DATABASE in .env file');
+        $updatedEnv = preg_replace('/DB_DATABASE=.*/', 'DB_DATABASE='.$databaseName, $env);
+        if ($updatedEnv === null) {
+            $this->error('Error updating DB_DATABASE in .env file');
 
             return;
         }
 
-        $result = File::put($envPath, $finalEnv);
-        if ($result === false) {
-            $this->error('Failed to write to .env file');
-
-            return;
-        }
+        File::put($envPath, $updatedEnv);
 
         $this->info('.env file updated successfully.');
     }
