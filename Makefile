@@ -89,6 +89,13 @@ fresh:
 build:
 	$(NPM) run build
 
+.PHONY: kill-all
+kill-all:
+	@echo "Killing all related processes..."
+	@pkill -f "$(ARTISAN) serve --port=$(PORT)" || true
+	@pkill -f "vite" || true
+	@echo "All processes killed."
+
 .PHONY: help
 help:
 	@echo "Available commands:"
@@ -109,4 +116,5 @@ help:
 	@echo "  make migrate          - Run migrations"
 	@echo "  make seed             - Run seeders"
 	@echo "  make fresh            - Fresh migration with seeding"
+	@echo "  make kill-all         - Kill all related processes (Laravel server, Vite)"
 	@echo "  make help             - Show this help"

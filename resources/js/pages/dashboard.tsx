@@ -11,7 +11,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 ];
 
 export default function Dashboard() {
-
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
@@ -27,8 +26,8 @@ export default function Dashboard() {
                         <PlaceholderPattern className="absolute inset-0 size-full stroke-neutral-900/20 dark:stroke-neutral-100/20" />
                     </div>
                 </div>
-                <div className="border-sidebar-border/70 dark:border-sidebar-border relative min-h-[50vh] flex-1 overflow-hidden rounded-xl border md:min-h-min p-4">
-                    <h2 className="text-xl font-semibold mb-4">Dashboard Content</h2>
+                <div className="border-sidebar-border/70 dark:border-sidebar-border relative min-h-[50vh] flex-1 overflow-hidden rounded-xl border p-4 md:min-h-min">
+                    <h2 className="mb-4 text-xl font-semibold">Dashboard Content</h2>
                     <p className="text-gray-500 dark:text-gray-400">Welcome to your dashboard. This is a clean starter template.</p>
                 </div>
             </div>

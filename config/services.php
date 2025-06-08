@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'mcp' => [
+        'url' => env('MCP_SERVER_URL'),
+        'token' => env('MCP_API_TOKEN'),
+        'default_page_id' => env('MCP_DEFAULT_PAGE_ID'),
+    ],
+
 ];

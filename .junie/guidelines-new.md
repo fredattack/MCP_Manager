@@ -6,6 +6,162 @@
 
 This guide defines the coding standards, architecture conventions, and development best practices to ensure consistency, readability, scalability, and testability across the project. It also serves as a reference for AI agents or new contributors.
 
+## 🚀 Build & Configuration Instructions
+
+### Initial Setup
+
+1. **Clone the repository**:
+   ```bash
+   git clone <repository-url>
+   cd mcp_manager
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   make install
+   ```
+   This will install both PHP (Composer) and JavaScript (npm) dependencies.
+
+3. **Environment configuration**:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+
+4. **Database setup**:
+   - The project uses SQLite by default for simplicity
+   - To use PostgreSQL (recommended for production):
+     ```bash
+     # Update .env file with PostgreSQL credentials
+     DB_CONNECTION=pgsql
+     DB_HOST=127.0.0.1
+     DB_PORT=5432
+     DB_DATABASE=mcp_manager
+     DB_USERNAME=postgres
+     DB_PASSWORD=your_password
+     ```
+
+5. **Run migrations**:
+   ```bash
+   make migrate
+   make seed  # Optional: seed the database with sample data
+   ```
+
+### Development Workflow
+
+1. **Start the application**:
+   ```bash
+   make start-all  # Starts both Laravel (port 1978) and Vite servers
+   ```
+
+2. **Development Cycle Requirements**:
+   - All development **must follow TDD**: write tests first, then implement logic.
+   - Each new **feature or unit must be covered** by one or more tests (unit or feature).
+   - At the **end of each cycle**, run:
+     ```bash
+     make test
+     make quality-check
+     ```
+   - If errors are detected (test failures, linting, static analysis), they **must be fixed immediately**.
+   - Commits should only be made if:
+     - All tests pass
+     - All quality checks pass (`stan`, `eslint`, `pint`, `prettier`, `rector`, etc.)
+     - Code coverage is maintained at **80%+**
+
+3. **Build for production**:
+   ```bash
+   make build
+   ```
+
+---
+
+## 🧪 Testing Guidelines
+
+### Configuring Tests
+
+1. **Test Environment**:
+   - Tests use SQLite in-memory database by default (configured in `phpunit.xml`)
+   - No additional configuration is needed for basic testing
+
+2. **Test Structure**:
+   - **Unit Tests**: Located in `tests/Unit/` - for testing isolated components
+   - **Feature Tests**: Located in `tests/Feature/` - for testing API endpoints and application features
+   - All tests extend `Tests\TestCase`
+
+### Running Tests
+
+1. **Run all tests**:
+   ```bash
+   make test
+   ```
+
+2. **Run specific test file**:
+   ```bash
+   ./vendor/bin/phpunit tests/Unit/StringUtilsTest.php
+   ```
+
+3. **Run tests with coverage report**:
+   ```bash
+   make coverage
+   ```
+   This generates HTML coverage reports in the `coverage/` directory.
+
+### Adding New Tests
+
+**TDD is mandatory.** Every piece of logic or feature **must begin with tests** before implementation. Skipping this step is not allowed under any circumstances.
+
+1. **Creating a Unit Test**:
+   - Create a new file in `tests/Unit/` directory
+   - Name the file with the suffix `Test.php` (e.g., `StringUtilsTest.php`)
+   - Extend the `Tests\TestCase` class
+   - Use the `RefreshDatabase` trait if your test interacts with the database
+
+2. **Creating a Feature Test**:
+   - Create a new file in `tests/Feature/` directory
+   - Follow the same naming convention as unit tests
+   - Use `$this->get()`, `$this->post()`, etc. for HTTP requests
+   - Use `$this->actingAs($user)` for authentication
+
+3. **Example Test**:
+   Here's a simple unit test example:
+
+   ```php
+   <?php
+
+   namespace Tests\Unit;
+
+   use Tests\TestCase;
+
+   class StringUtilsTest extends TestCase
+   {
+       /**
+        * Test the string reversal function.
+        */
+       public function test_string_reversal()
+       {
+           // Create a simple function to reverse a string
+           $reverseString = function (string $input): string {
+               return strrev($input);
+           };
+
+           // Test with a simple string
+           $input = "Hello, World!";
+           $expected = "!dlroW ,olleH";
+
+           $result = $reverseString($input);
+
+           $this->assertEquals($expected, $result);
+       }
+   }
+   ```
+
+4. **Best Practices**:
+   - Write descriptive test method names starting with `test_`
+   - Follow the AAA pattern: Arrange, Act, Assert
+   - Keep tests independent and isolated
+   - Mock external dependencies when necessary
+   - Aim for 80% code coverage minimum
+
 ---
 
 ## 🛠 Backend Guidelines (Laravel 12)
@@ -23,10 +179,10 @@ This guide defines the coding standards, architecture conventions, and developme
 
 ### 🧪 Testing
 
-- Unit tests: **PHPUnit** only.
-- Functional tests: **Pest** (optional).
-- Coverage goal: **80% minimum**.
-- Run all QA checks via `make quality-check`.
+- Unit tests: **PHPUnit** only, and **mandatory for each service/action**.
+- Feature tests: **Pest** or PHPUnit — **required for all API endpoints**.
+- Coverage goal: **80% minimum**; **must not drop** between commits.
+- QA checks (`stan`, `rector`, `pint`) must be run and fixed before merge or deploy.
 
 ### 📦 Tools & Quality
 
@@ -246,3 +402,14 @@ export const useInvoices = () =>
 - ✅ No critical bugs in production
 - never add ignore rules in ESLint or PHPStan
 - never edit the Makefile without user specific approval
+
+
+### Automation Rules
+
+- All branches must pass `make test` and `make quality-check` before merge.
+- CI will block any push with failing tests or linting errors.
+- Code reviews should verify:
+  - Tests were written first
+  - Coverage is sufficient
+  - No skip/ignore rules were added
+  - Quality tools (`PHPStan`, `ESLint`, etc.) pass clean
