@@ -1,4 +1,4 @@
-# 🧭 Project Guidelines – EasyInvoice Starter Kit
+# 🧭 Project Guidelines –  Starter Kit
 
 > Laravel 12 · React 19 · TailwindCSS 4 · Vite 6 · PostgreSQL
 
@@ -11,24 +11,26 @@ This guide defines the coding standards, architecture conventions, and developme
 ### Initial Setup
 
 1. **Clone the repository**:
+
    ```bash
    git clone <repository-url>
    cd mcp_manager
    ```
-
 2. **Install dependencies**:
+
    ```bash
    make install
    ```
-   This will install both PHP (Composer) and JavaScript (npm) dependencies.
 
+   This will install both PHP (Composer) and JavaScript (npm) dependencies.
 3. **Environment configuration**:
+
    ```bash
    cp .env.example .env
    php artisan key:generate
    ```
-
 4. **Database setup**:
+
    - The project uses SQLite by default for simplicity
    - To use PostgreSQL (recommended for production):
      ```bash
@@ -40,8 +42,8 @@ This guide defines the coding standards, architecture conventions, and developme
      DB_USERNAME=postgres
      DB_PASSWORD=your_password
      ```
-
 5. **Run migrations**:
+
    ```bash
    make migrate
    make seed  # Optional: seed the database with sample data
@@ -50,11 +52,12 @@ This guide defines the coding standards, architecture conventions, and developme
 ### Development Workflow
 
 1. **Start the application**:
+
    ```bash
    make start-all  # Starts both Laravel (port 1978) and Vite servers
    ```
-
 2. **Development Cycle Requirements**:
+
    - All development **must follow TDD**: write tests first, then implement logic.
    - Each new **feature or unit must be covered** by one or more tests (unit or feature).
    - At the **end of each cycle**, run:
@@ -67,8 +70,8 @@ This guide defines the coding standards, architecture conventions, and developme
      - All tests pass
      - All quality checks pass (`stan`, `eslint`, `pint`, `prettier`, `rector`, etc.)
      - Code coverage is maintained at **80%+**
-
 3. **Build for production**:
+
    ```bash
    make build
    ```
@@ -80,10 +83,11 @@ This guide defines the coding standards, architecture conventions, and developme
 ### Configuring Tests
 
 1. **Test Environment**:
+
    - Tests use SQLite in-memory database by default (configured in `phpunit.xml`)
    - No additional configuration is needed for basic testing
-
 2. **Test Structure**:
+
    - **Unit Tests**: Located in `tests/Unit/` - for testing isolated components
    - **Feature Tests**: Located in `tests/Feature/` - for testing API endpoints and application features
    - All tests extend `Tests\TestCase`
@@ -91,19 +95,21 @@ This guide defines the coding standards, architecture conventions, and developme
 ### Running Tests
 
 1. **Run all tests**:
+
    ```bash
    make test
    ```
-
 2. **Run specific test file**:
+
    ```bash
    ./vendor/bin/phpunit tests/Unit/StringUtilsTest.php
    ```
-
 3. **Run tests with coverage report**:
+
    ```bash
    make coverage
    ```
+
    This generates HTML coverage reports in the `coverage/` directory.
 
 ### Adding New Tests
@@ -111,17 +117,17 @@ This guide defines the coding standards, architecture conventions, and developme
 **TDD is mandatory.** Every piece of logic or feature **must begin with tests** before implementation. Skipping this step is not allowed under any circumstances.
 
 1. **Creating a Unit Test**:
+
    - Create a new file in `tests/Unit/` directory
    - Name the file with the suffix `Test.php` (e.g., `StringUtilsTest.php`)
    - Extend the `Tests\TestCase` class
    - Use the `RefreshDatabase` trait if your test interacts with the database
-
 2. **Creating a Feature Test**:
+
    - Create a new file in `tests/Feature/` directory
    - Follow the same naming convention as unit tests
    - Use `$this->get()`, `$this->post()`, etc. for HTTP requests
    - Use `$this->actingAs($user)` for authentication
-
 3. **Example Test**:
    Here's a simple unit test example:
 
@@ -154,8 +160,8 @@ This guide defines the coding standards, architecture conventions, and developme
        }
    }
    ```
-
 4. **Best Practices**:
+
    - Write descriptive test method names starting with `test_`
    - Follow the AAA pattern: Arrange, Act, Assert
    - Keep tests independent and isolated
@@ -171,7 +177,7 @@ This guide defines the coding standards, architecture conventions, and developme
 - Strict adherence to **PSR-12** coding standards.
 - Use **Laravel 12** with **PHP 8.4**.
 - Favor **type hints** and **return types** everywhere.
-- Use strict SOLID principles. 
+- Use strict SOLID principles.
 - Use **Service + Action Pattern** only (no repositories).
 - Stick to **PHP attributes** for routing, validation, etc.
 - Favor **typed DTOs** and **form request classes**.
@@ -193,13 +199,13 @@ This guide defines the coding standards, architecture conventions, and developme
 
 ### ✅ Naming Conventions
 
-| Element        | Convention              | Example                         |
-|----------------|--------------------------|----------------------------------|
-| Services       | `PascalCase`             | `InvoiceFetcherService`         |
-| Actions        | `Verb+NounAction`        | `DownloadInvoiceAction`         |
-| Controllers    | `PascalCaseController`   | `InvoiceController`             |
-| Models         | `Singular`               | `Invoice`, `Portal`             |
-| Routes         | RESTful (resource routes) | `Route::apiResource(...)`       |
+| Element     | Convention                | Example                     |
+| ----------- | ------------------------- | --------------------------- |
+| Services    | `PascalCase`            | `InvoiceFetcherService`   |
+| Actions     | `Verb+NounAction`       | `DownloadInvoiceAction`   |
+| Controllers | `PascalCaseController`  | `InvoiceController`       |
+| Models      | `Singular`              | `Invoice`, `Portal`     |
+| Routes      | RESTful (resource routes) | `Route::apiResource(...)` |
 
 ---
 
@@ -281,24 +287,23 @@ Modular structure inspired by feature-sliced design:
 
 ## 📱 Components Guidelines
 
-| Composant | Règle UI/UX |
-|----------|--------------|
-| **Button** | Taille min. `44x44px`, états : `hover`, `focus`, `disabled` |
-| **Input** | Label visible + placeholder explicite + `focus ring` |
-| **Modal** | `Scroll lock` + fermeture via `ESC` + fond semi-transparent |
-| **Table** | `Sticky header`, responsive (`collapse` ou `scroll`) |
-| **Card** | Ombres douces (`shadow-md`), padding cohérent (`p-4` ou `p-6`) |
+| Composant        | Règle UI/UX                                                          |
+| ---------------- | --------------------------------------------------------------------- |
+| **Button** | Taille min.`44x44px`, états : `hover`, `focus`, `disabled`   |
+| **Input**  | Label visible + placeholder explicite +`focus ring`                 |
+| **Modal**  | `Scroll lock` + fermeture via `ESC` + fond semi-transparent       |
+| **Table**  | `Sticky header`, responsive (`collapse` ou `scroll`)            |
+| **Card**   | Ombres douces (`shadow-md`), padding cohérent (`p-4` ou `p-6`) |
 
+### ✅ Naming Conventions psr-12
 
-### ✅ Naming Conventions psr-12 
-
-| Element     | Convention      | Example               |
-|-------------|------------------|------------------------|
-| Pages       | PascalCase       | `Dashboard.jsx`        |
-| Services    | camelCase        | `getInvoices.js`       |
-| Stores      | camelCase        | `useInvoiceStore.js`   |
-| UI          | PascalCase       | `InvoiceCard.jsx`      |
-| Folders     | kebab-case       | `invoice-history`      |
+| Element  | Convention | Example                |
+| -------- | ---------- | ---------------------- |
+| Pages    | PascalCase | `Dashboard.jsx`      |
+| Services | camelCase  | `getInvoices.js`     |
+| Stores   | camelCase  | `useInvoiceStore.js` |
+| UI       | PascalCase | `InvoiceCard.jsx`    |
+| Folders  | kebab-case | `invoice-history`    |
 
 ---
 
@@ -323,17 +328,17 @@ Modular structure inspired by feature-sliced design:
 
 ### Makefile Commands (key targets)
 
-| Command           | Purpose                         |
-|------------------|----------------------------------|
-| `make start`      | Start the app locally (port 1978) |
-| `make test`       | Run all tests                   |
-| `make lint`       | Run ESLint                      |
-| `make stan`       | Run PHPStan                     |
-| `make rector`     | Run Rector                      |
-| `make coverage`   | Generate coverage reports       |
-| `make docs`       | Generate API documentation      |
-| `make format`     | Prettier format                 |
-| `make quality-check` | Run all static checks       |
+| Command                | Purpose                           |
+| ---------------------- | --------------------------------- |
+| `make start`         | Start the app locally (port 1978) |
+| `make test`          | Run all tests                     |
+| `make lint`          | Run ESLint                        |
+| `make stan`          | Run PHPStan                       |
+| `make rector`        | Run Rector                        |
+| `make coverage`      | Generate coverage reports         |
+| `make docs`          | Generate API documentation        |
+| `make format`        | Prettier format                   |
+| `make quality-check` | Run all static checks             |
 
 ---
 
@@ -402,7 +407,6 @@ export const useInvoices = () =>
 - ✅ No critical bugs in production
 - never add ignore rules in ESLint or PHPStan
 - never edit the Makefile without user specific approval
-
 
 ### Automation Rules
 

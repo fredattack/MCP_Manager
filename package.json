@@ -45,13 +45,17 @@
         "@radix-ui/react-select": "^2.1.6",
         "@radix-ui/react-separator": "^1.1.2",
         "@radix-ui/react-slot": "^1.1.2",
+        "@radix-ui/react-toast": "^1.2.14",
         "@radix-ui/react-toggle": "^1.1.2",
         "@radix-ui/react-toggle-group": "^1.1.2",
         "@radix-ui/react-tooltip": "^1.1.8",
         "@tailwindcss/vite": "^4.0.6",
+        "@tanstack/react-query": "^5.81.2",
+        "@tanstack/react-query-devtools": "^5.81.2",
         "@types/react": "^19.0.3",
         "@types/react-dom": "^19.0.2",
         "@vitejs/plugin-react": "^4.3.4",
+        "axios": "^1.10.0",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "concurrently": "^9.0.1",
@@ -65,7 +69,8 @@
         "tailwindcss": "^4.0.0",
         "tailwindcss-animate": "^1.0.7",
         "typescript": "^5.7.2",
-        "vite": "^6.0"
+        "vite": "^6.0",
+        "zustand": "^5.0.5"
     },
     "optionalDependencies": {
         "@rollup/rollup-linux-x64-gnu": "4.9.5",
@@ -83,7 +88,7 @@
         "app/**/*.php": [
             "vendor/bin/pint",
             "vendor/bin/rector process",
-            "vendor/bin/phpstan analyse --no-progress"
+            "php -d memory_limit=1G vendor/bin/phpstan analyse --no-progress"
         ]
     },
     "name": "mcp-manager"

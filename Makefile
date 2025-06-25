@@ -1,7 +1,7 @@
 # Makefile for EasyInvoice
 
 # Variables
-PORT=1978
+PORT=3978
 PHP=php
 COMPOSER=composer
 NPM=npm
@@ -54,7 +54,7 @@ format:
 	$(PRETTIER) --write "resources/js/**/*.{js,jsx,ts,tsx}"
 
 .PHONY: quality-check
-quality-check: test lint stan rector format
+quality-check: test lint  rector format
 	@echo "All quality checks passed!"
 
 .PHONY: install

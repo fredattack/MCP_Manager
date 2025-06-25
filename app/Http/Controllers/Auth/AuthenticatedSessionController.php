@@ -33,7 +33,27 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
+        // Generate API token for the user
+        $user = auth()->user();
+        $user->api_token = \Illuminate\Support\Str::random(60);
+        $user->save();
+
         return redirect()->intended(route('dashboard', absolute: false));
+    }
+
+    /**
+     * Generate and return an API token for the authenticated user.
+     */
+    public function apiToken(Request $request): \Illuminate\Http\JsonResponse
+    {
+        $user = auth()->user();
+
+        if (! $user->api_token) {
+            $user->api_token = \Illuminate\Support\Str::random(60);
+            $user->save();
+        }
+
+        return response()->json(['api_token' => $user->api_token]);
     }
 
     /**
@@ -41,7 +61,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        // Use the default guard instead of explicitly specifying 'web'
+        Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();

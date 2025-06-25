@@ -22,6 +22,9 @@ return Application::configure(basePath: dirname(__DIR__))
             HandleInertiaRequests::class,
             AddLinkHeadersForPreloadedAssets::class,
         ]);
+        $middleware->alias([
+            'has.notion' => \App\Http\Middleware\HasActiveNotionIntegration::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //

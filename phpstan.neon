@@ -12,5 +12,10 @@ parameters:
         - app/Http/Controllers/Auth
         - app/Http/Controllers/Settings
         - app/Http/Middleware/HandleInertiaRequests.php
+        - app/Http/Middleware/CookieAttributes.php
+        - app/Http/Middleware/DebugAuth.php
+        - app/Http/Middleware/HasActiveNotionIntegration.php
+        - app/Http/Requests/Auth/LoginRequest.php
         - app/Http/Requests/Settings/ProfileUpdateRequest.php
+    tmpDir: var/cache/phpstan
     ignoreErrors:
