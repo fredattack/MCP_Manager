@@ -41,7 +41,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/tests/Unit/StringUtilsTest.php' => 
     array (
-      0 => '2c00f2119126aa58b3774842cd99f7b3039d1dab',
+      0 => 'dda1125e4c81d24303cc40b755d531d495c66cec',
       1 => 
       array (
         0 => 'tests\\unit\\stringutilstest',
@@ -56,7 +56,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/tests/Unit/Services/NotionServiceTest.php' => 
     array (
-      0 => 'd6b607e3525315f35efb4554153f3fd4de0a67be',
+      0 => '889d5143f651758ee8c5577e0585df7310507bd3',
       1 => 
       array (
         0 => 'tests\\unit\\services\\notionservicetest',
@@ -202,7 +202,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/NotionIntegrationTest.php' => 
     array (
-      0 => '13d50d5144f9ab83158bdfc5e19bad99051226ff',
+      0 => '1435a9aa5b0c04faf8939f68981264d331eba95d',
       1 => 
       array (
         0 => 'tests\\feature\\notionintegrationtest',
@@ -262,7 +262,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/NotionTest.php' => 
     array (
-      0 => '0cd90fa8f469dee84c4074c0ff29c9df3780dd24',
+      0 => 'a82d9ba12bc24c0e4295110d18bd232bb52966d4',
       1 => 
       array (
         0 => 'tests\\feature\\notiontest',

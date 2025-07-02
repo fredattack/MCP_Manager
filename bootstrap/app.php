@@ -24,6 +24,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
         $middleware->alias([
             'has.notion' => \App\Http\Middleware\HasActiveNotionIntegration::class,
+            'has.integration' => \App\Http\Middleware\HasActiveIntegration::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

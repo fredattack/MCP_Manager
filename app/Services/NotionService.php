@@ -22,7 +22,7 @@ class NotionService
      */
     public function __construct(?IntegrationAccount $integrationAccount = null)
     {
-        $mcpServerUrl = config('services.mcp.url');
+        $mcpServerUrl = config('services.mcp.server_url');
 
         if (! $mcpServerUrl) {
             throw new \Exception('MCP Server URL not configured');

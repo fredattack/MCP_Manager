@@ -1,4 +1,4 @@
-import axios from 'axios';
+import apiClient from '@/lib/api/client';
 import { useState } from 'react';
 import { IntegrationAccount, IntegrationStatus, IntegrationType } from '../types/integrations';
 import { useApiToken } from './use-api-token';
@@ -20,9 +20,8 @@ export function useIntegrations(options: UseIntegrationsOptions = {}) {
 
         try {
             const headers = apiToken ? { Authorization: `Bearer ${apiToken}` } : {};
-            const response = await axios.get<IntegrationAccount[]>('/api/integrations', {
+            const response = await apiClient.get<IntegrationAccount[]>('/api/integrations', {
                 headers,
-                withCredentials: true,
             });
             setIntegrations(response.data);
             options.onSuccess?.(response.data);
@@ -43,9 +42,8 @@ export function useIntegrations(options: UseIntegrationsOptions = {}) {
 
         try {
             const headers = apiToken ? { Authorization: `Bearer ${apiToken}` } : {};
-            const response = await axios.post<IntegrationAccount>('/api/integrations', data, {
+            const response = await apiClient.post<IntegrationAccount>('/api/integrations', data, {
                 headers,
-                withCredentials: true,
             });
             setIntegrations((prev) => [...prev, response.data]);
             options.onSuccess?.(response.data);
@@ -73,9 +71,8 @@ export function useIntegrations(options: UseIntegrationsOptions = {}) {
 
         try {
             const headers = apiToken ? { Authorization: `Bearer ${apiToken}` } : {};
-            const response = await axios.put<IntegrationAccount>(`/api/integrations/${id}`, data, {
+            const response = await apiClient.put<IntegrationAccount>(`/api/integrations/${id}`, data, {
                 headers,
-                withCredentials: true,
             });
             setIntegrations((prev) => prev.map((integration) => (integration.id === id ? response.data : integration)));
             options.onSuccess?.(response.data);
@@ -96,9 +93,8 @@ export function useIntegrations(options: UseIntegrationsOptions = {}) {
 
         try {
             const headers = apiToken ? { Authorization: `Bearer ${apiToken}` } : {};
-            await axios.delete(`/api/integrations/${id}`, {
+            await apiClient.delete(`/api/integrations/${id}`, {
                 headers,
-                withCredentials: true,
             });
             setIntegrations((prev) => prev.filter((integration) => integration.id !== id));
             options.onSuccess?.(id);

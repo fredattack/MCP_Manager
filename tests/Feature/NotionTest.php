@@ -49,7 +49,7 @@ class NotionTest extends TestCase
 
         // Assert the response
         $response->assertStatus(200)
-                ->assertJson($mockData);
+            ->assertJson($mockData);
     }
 
     public function test_api_returns_notion_pages_with_explicit_page_id()
@@ -74,7 +74,7 @@ class NotionTest extends TestCase
 
         // Assert the response
         $response->assertStatus(200)
-                ->assertJson($mockData);
+            ->assertJson($mockData);
     }
 
     public function test_api_handles_errors_with_default_page_id()
@@ -93,7 +93,7 @@ class NotionTest extends TestCase
 
         // Assert the response
         $response->assertStatus(500)
-                ->assertJson(['error' => 'Test error']);
+            ->assertJson(['error' => 'Test error']);
     }
 
     public function test_api_handles_errors_with_explicit_page_id()
@@ -112,7 +112,7 @@ class NotionTest extends TestCase
 
         // Assert the response
         $response->assertStatus(500)
-                ->assertJson(['error' => 'Test error with page_id']);
+            ->assertJson(['error' => 'Test error with page_id']);
     }
 
     protected function tearDown(): void

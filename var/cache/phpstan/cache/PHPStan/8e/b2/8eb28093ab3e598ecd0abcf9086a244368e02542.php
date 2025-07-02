@@ -46,7 +46,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/routes/web.php' => 
     array (
-      0 => 'ff03175dda29ba85acd433f5f608119af69ece01',
+      0 => 'd6011504689f6e37618d78de900696a04122a783',
       1 => 
       array (
       ),
@@ -59,7 +59,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/routes/api.php' => 
     array (
-      0 => '760ede94950b4ea2455c21ca8d44a43fbb2ca056',
+      0 => 'a68fc7b3b39c1cf1a87b5f9e270525be76763e5c',
       1 => 
       array (
       ),

@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { BarChart3, ChevronLeft, ChevronRight, Home, Plug, Settings } from 'lucide-react';
+import { BarChart3, ChevronLeft, ChevronRight, Home, MessageSquare, Plug, Settings, Brain } from 'lucide-react';
 import { useState } from 'react';
 import { SidebarItem } from './SidebarItem';
 import { SidebarSection } from './SidebarSection';
@@ -17,6 +17,8 @@ export function Sidebar({ className, defaultCollapsed = false }: SidebarProps) {
 
     const navigationItems = [
         { id: 'dashboard', label: 'Dashboard', icon: Home, href: '/dashboard' },
+        { id: 'claude-chat', label: 'Claude Chat', icon: MessageSquare, href: '/ai/claude-chat' },
+        { id: 'natural-language', label: 'Commandes Naturelles', icon: Brain, href: '/ai/natural-language' },
         { id: 'integrations', label: 'Integrations', icon: Plug, href: '/integrations' },
         { id: 'analytics', label: 'Analytics', icon: BarChart3, href: '/analytics' },
         { id: 'settings', label: 'Settings', icon: Settings, href: '/settings' },
@@ -24,6 +26,9 @@ export function Sidebar({ className, defaultCollapsed = false }: SidebarProps) {
 
     const integrationItems = [
         { id: 'todoist', label: 'Todoist', href: '/integrations/todoist', status: 'connected' },
+        { id: 'google', label: 'Google', href: '/integrations/google', status: 'disconnected' },
+        { id: 'gmail', label: 'Gmail', href: '/gmail', status: 'disconnected' },
+        { id: 'calendar', label: 'Calendar', href: '/calendar', status: 'disconnected' },
         { id: 'jira', label: 'JIRA', href: '/integrations/jira', status: 'disconnected' },
         { id: 'sentry', label: 'Sentry', href: '/integrations/sentry', status: 'error' },
         { id: 'notion', label: 'Notion', href: '/integrations/notion', status: 'connected' },

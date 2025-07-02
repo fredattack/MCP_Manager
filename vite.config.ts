@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/js/pages/integrations.tsx',
                 'resources/js/pages/notion.tsx',
                 'resources/js/pages/welcome.tsx',
+                'resources/js/pages/ai/claude-chat.tsx',
                 'resources/js/pages/integrations/todoist.tsx',
                 'resources/js/pages/auth/confirm-password.tsx',
                 'resources/js/pages/auth/forgot-password.tsx',

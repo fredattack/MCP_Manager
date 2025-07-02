@@ -35,7 +35,7 @@ class NotionServiceTest extends TestCase
         ]);
 
         // Create service and call method
-        $notionService = new NotionService();
+        $notionService = new NotionService;
         $result = $notionService->fetchNotionPages();
 
         // Assert HTTP request was made correctly
@@ -62,7 +62,7 @@ class NotionServiceTest extends TestCase
         ]);
 
         // Create service and call method with explicit page_id
-        $notionService = new NotionService();
+        $notionService = new NotionService;
         $result = $notionService->fetchNotionPages('explicit-page-id');
 
         // Assert HTTP request was made correctly with the explicit page_id
@@ -82,7 +82,7 @@ class NotionServiceTest extends TestCase
 
         // Create service and expect exception
         try {
-            $notionService = new NotionService();
+            $notionService = new NotionService;
             $this->fail('Expected exception was not thrown');
         } catch (\Exception $e) {
             $this->assertEquals('MCP Server URL not configured', $e->getMessage());
@@ -97,7 +97,7 @@ class NotionServiceTest extends TestCase
 
         // Create service and expect exception
         try {
-            $notionService = new NotionService();
+            $notionService = new NotionService;
             $this->fail('Expected exception was not thrown');
         } catch (\Exception $e) {
             $this->assertEquals('MCP API Token not configured', $e->getMessage());
@@ -112,7 +112,7 @@ class NotionServiceTest extends TestCase
         ]);
 
         // Create service
-        $notionService = new NotionService();
+        $notionService = new NotionService;
 
         // Assert exception is thrown
         $this->expectException(\Exception::class);
@@ -139,7 +139,7 @@ class NotionServiceTest extends TestCase
         ]);
 
         // Create service and call method
-        $notionService = new NotionService();
+        $notionService = new NotionService;
         $result = $notionService->fetchNotionPages();
 
         // Assert HTTP request was made correctly without page_id parameter
@@ -155,7 +155,7 @@ class NotionServiceTest extends TestCase
     public function test_fetch_notion_pages_with_integration_account()
     {
         // Create a mock integration account
-        $integrationAccount = new IntegrationAccount();
+        $integrationAccount = new IntegrationAccount;
         $integrationAccount->access_token = 'integration-token';
 
         // Mock response data
@@ -197,7 +197,7 @@ class NotionServiceTest extends TestCase
         ]);
 
         // Create service and call method
-        $notionService = new NotionService();
+        $notionService = new NotionService;
         $result = $notionService->fetchNotionDatabases();
 
         // Assert HTTP request was made correctly
@@ -225,7 +225,7 @@ class NotionServiceTest extends TestCase
         ]);
 
         // Create service and call method
-        $notionService = new NotionService();
+        $notionService = new NotionService;
         $result = $notionService->fetchNotionPage('page-id');
 
         // Assert HTTP request was made correctly
@@ -252,7 +252,7 @@ class NotionServiceTest extends TestCase
         ]);
 
         // Create service and call method
-        $notionService = new NotionService();
+        $notionService = new NotionService;
         $result = $notionService->fetchNotionBlocks('page-id');
 
         // Assert HTTP request was made correctly

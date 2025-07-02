@@ -2,8 +2,6 @@
 
 namespace Tests\Feature;
 
-use App\Enums\IntegrationStatus;
-use App\Enums\IntegrationType;
 use App\Models\IntegrationAccount;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;

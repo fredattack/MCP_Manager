@@ -6,6 +6,7 @@ enum IntegrationType: string
 {
     case NOTION = 'notion';
     case GMAIL = 'gmail';
+    case CALENDAR = 'calendar';
     case OPENAI = 'openai';
     case TODOIST = 'todoist';
 
@@ -17,6 +18,7 @@ enum IntegrationType: string
         return match ($this) {
             self::NOTION => 'Notion',
             self::GMAIL => 'Gmail',
+            self::CALENDAR => 'Google Calendar',
             self::OPENAI => 'OpenAI',
             self::TODOIST => 'Todoist',
         };
@@ -30,6 +32,7 @@ enum IntegrationType: string
         return match ($this) {
             self::NOTION => 'Connect to your Notion workspace',
             self::GMAIL => 'Connect to your Gmail account',
+            self::CALENDAR => 'Connect to your Google Calendar',
             self::OPENAI => 'Connect to OpenAI services',
             self::TODOIST => 'Connect to TodoIst services',
         };

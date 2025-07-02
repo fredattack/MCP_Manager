@@ -1,4 +1,4 @@
-import axios from 'axios';
+import apiClient from '@/lib/api/client';
 import { useCallback, useEffect, useState } from 'react';
 
 export function useApiToken() {
@@ -11,7 +11,7 @@ export function useApiToken() {
         setError(null);
 
         try {
-            const response = await axios.get('/api-token', { withCredentials: true });
+            const response = await apiClient.get('/api-token');
             const token = response.data.api_token;
 
             // Store the token in localStorage for persistence

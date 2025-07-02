@@ -46,7 +46,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/config/services.php' => 
     array (
-      0 => '62d6a5b35864e17b0751f744109b6a60e7f7517f',
+      0 => 'fdc45cc550bee36f7c97dafb4df8278d0ba60d10',
       1 => 
       array (
       ),

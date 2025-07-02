@@ -19,7 +19,7 @@ class EmailVerificationPromptController extends Controller
         if (! $request->user()) {
             return redirect()->route('login');
         }
-        ray($request->user())->red();
+        //        ray($request->user())->red();
 
         return $request->user()->hasVerifiedEmail()
                     ? redirect()->intended(route('dashboard', absolute: false))

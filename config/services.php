@@ -36,11 +36,17 @@ return [
     ],
 
     'mcp' => [
-        'url' => env('MCP_SERVER_URL', 'http://localhost:9978'),
+        'server_url' => env('MCP_SERVER_URL', 'http://localhost:9978'),
         'user' => env('MCP_SERVER_USER', 'admin@mcp-server.com'),
         'password' => env('MCP_SERVER_PASSWORD', 'Admin@123!'),
         'token' => env('MCP_API_TOKEN'),
         'default_page_id' => env('MCP_DEFAULT_PAGE_ID'),
+    ],
+
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URI', env('APP_URL').'/integrations/google/callback'),
     ],
 
 ];

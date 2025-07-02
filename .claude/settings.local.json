@@ -11,7 +11,14 @@
       "Bash(php artisan test:*)",
       "Bash(./vendor/bin/phpstan analyse:*)",
       "Bash(php:*)",
-      "Bash(make quality-check:*)"
+      "Bash(make quality-check:*)",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "mcp__full-productivity-server__notion_search",
+      "mcp__full-productivity-server__notion_get_page",
+      "mcp__full-productivity-server__notion_create_page",
+      "mcp__full-productivity-server__notion_update_page",
+      "Bash(./vendor/bin/pint)"
     ],
     "deny": []
   }

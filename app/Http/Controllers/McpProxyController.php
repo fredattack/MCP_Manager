@@ -13,7 +13,7 @@ class McpProxyController extends Controller
 
     public function __construct()
     {
-        $configUrl = config('services.mcp.url', env('MCP_SERVER_URL', 'http://localhost:9978'));
+        $configUrl = config('services.mcp.server_url', env('MCP_SERVER_URL', 'http://localhost:9978'));
         $this->mcpServerUrl = is_string($configUrl) ? $configUrl : 'http://localhost:9978';
     }
 

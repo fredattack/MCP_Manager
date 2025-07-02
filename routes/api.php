@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AiChatController;
 use App\Http\Controllers\IntegrationsController;
 use App\Http\Controllers\NotionController;
 use App\Http\Controllers\NotionIntegrationController;
@@ -7,6 +8,11 @@ use Illuminate\Support\Facades\Route;
 
 // Legacy route - will be deprecated
 Route::get('notion/fetch', [NotionController::class, 'fetch']);
+
+// AI Chat API routes (no auth required for now)
+Route::prefix('ai')->group(function () {
+    Route::post('chat', [AiChatController::class, 'chat']);
+});
 
 // Integration management routes
 Route::middleware(['auth:web'])->group(function () {

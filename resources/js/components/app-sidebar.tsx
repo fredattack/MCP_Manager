@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle } from 'lucide-react';
+import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle, MessageSquare, Brain, Mail, Calendar } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -23,6 +23,16 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: '/dashboard',
         icon: LayoutGrid,
+    },
+    {
+        title: 'Claude Chat',
+        href: '/ai/claude-chat',
+        icon: MessageSquare,
+    },
+    {
+        title: 'Commandes Naturelles',
+        href: '/ai/natural-language',
+        icon: Brain,
     },
     {
         title: 'Integrations',
@@ -42,6 +52,24 @@ const integrationItems: NavItem[] = [
         href: '/integrations/todoist',
         icon: CheckCircle2,
         status: 'connected',
+    },
+    {
+        title: 'Google',
+        href: '/integrations/google',
+        icon: Plug,
+        status: 'disconnected',
+    },
+    {
+        title: 'Gmail',
+        href: '/gmail',
+        icon: Mail,
+        status: 'disconnected',
+    },
+    {
+        title: 'Calendar',
+        href: '/calendar',
+        icon: Calendar,
+        status: 'disconnected',
     },
     {
         title: 'JIRA',

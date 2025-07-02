@@ -67,7 +67,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/database/migrations/2023_06_10_000000_add_api_token_to_users_table.php' => 
     array (
-      0 => 'a5006c625624ffacb627d091f8b8f4b5596e6b73',
+      0 => '6fe7898830fcf923a1585fac57e744361f579e7c',
       1 => 
       array (
       ),

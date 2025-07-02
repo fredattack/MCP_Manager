@@ -1,0 +1,1567 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
+			path: app/Http/Controllers/GmailController.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: app/Http/Controllers/GmailController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$code\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Http\\Request\:\:\$state\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/integrations…'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Contracts\\Auth\\Factory\:\:id\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Call to an undefined static method App\\Models\\IntegrationAccount\:\:updateOrCreate\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Cannot access offset ''access_token'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Cannot access offset ''email'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Cannot access offset ''expires_in'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Cannot access offset ''refresh_token'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Cannot access offset ''scope'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^If condition is always true\.$#'
+			identifier: if.alwaysTrue
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\GoogleIntegrationController\:\:getScopesForService\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Negated boolean expression is always false\.$#'
+			identifier: booleanNot.alwaysFalse
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$token of static method Illuminate\\Support\\Facades\\Http\:\:withToken\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Parameter \#1 \$value of method Carbon\\Carbon\:\:addSeconds\(\) expects float\|int, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between ''active''\|''inactive'' and ''error'' will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 2
+			path: app/Http/Controllers/GoogleIntegrationController.php
+
+		-
+			message: '#^Cannot access an offset on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Cannot access property \$id on Illuminate\\Contracts\\Auth\\Authenticatable\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\NaturalLanguageController\:\:saveToHistory\(\) has parameter \$result with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Method App\\Http\\Controllers\\NaturalLanguageController\:\:saveToHistory\(\) is unused\.$#'
+			identifier: method.unused
+			count: 1
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_reverse expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_slice expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Parameter \#1 \$command of method App\\Services\\NaturalLanguageService\:\:processCommand\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Parameter \#2 \$userId of method App\\Services\\NaturalLanguageService\:\:processCommand\(\) expects int, int\|string\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Part \$user\-\>id \(mixed\) of encapsed string cannot be cast to string\.$#'
+			identifier: encapsedStringPart.nonString
+			count: 2
+			path: app/Http/Controllers/NaturalLanguageController.php
+
+		-
+			message: '#^Cannot call method exists\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Middleware/HasActiveIntegration.php
+
+		-
+			message: '#^Cannot call method integrationAccounts\(\) on Illuminate\\Contracts\\Auth\\Authenticatable\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Http/Middleware/HasActiveIntegration.php
+
+		-
+			message: '#^Cannot call method where\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Http/Middleware/HasActiveIntegration.php
+
+		-
+			message: '#^Method App\\Http\\Middleware\\HasActiveIntegration\:\:handle\(\) should return Symfony\\Component\\HttpFoundation\\Response but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Http/Middleware/HasActiveIntegration.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\IntegrationAccount\:\:\$refresh_token\.$#'
+			identifier: property.notFound
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Binary operation "\.\=" between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: assignOp.invalid
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Http\\Client\\PendingRequest\|Illuminate\\Http\\Client\\Response\:\:body\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Http\\Client\\PendingRequest\|Illuminate\\Http\\Client\\Response\:\:failed\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Http\\Client\\PendingRequest\|Illuminate\\Http\\Client\\Response\:\:json\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Http\\Client\\PendingRequest\|Illuminate\\Http\\Client\\Response\:\:when\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Cannot access offset ''dateTime'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Cannot access offset ''headers'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Cannot access offset ''id'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Cannot access offset ''value'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:checkCalendarConflicts\(\) has parameter \$eventData with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:checkCalendarConflicts\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:createCalendarEvent\(\) has parameter \$eventData with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:createCalendarEvent\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:deleteCalendarEvent\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:getCalendarStatus\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:getGmailMessage\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:getGmailStatus\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:getTodayEvents\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:getWeekEvents\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:listCalendarEvents\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:listCalendarEvents\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:listCalendars\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:listGmailLabels\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:listGmailMessages\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:listGmailMessages\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:makeGoogleApiRequest\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:makeGoogleApiRequest\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:modifyGmailLabels\(\) has parameter \$labels with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:modifyGmailLabels\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:searchGmailMessages\(\) has parameter \$params with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:searchGmailMessages\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:sendGmailMessage\(\) has parameter \$messageData with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:sendGmailMessage\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:updateCalendarEvent\(\) has parameter \$eventData with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Method App\\Services\\GoogleService\:\:updateCalendarEvent\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_slice expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Parameter \#1 \$messageId of method App\\Services\\GoogleService\:\:getGmailMessage\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Parameter \#1 \$string of function strtolower expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Parameter \#1 \$value of function decrypt expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Part \$calendarId \(mixed\) of encapsed string cannot be cast to string\.$#'
+			identifier: encapsedStringPart.nonString
+			count: 3
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Part \$subject \(mixed\) of encapsed string cannot be cast to string\.$#'
+			identifier: encapsedStringPart.nonString
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Part \$to \(mixed\) of encapsed string cannot be cast to string\.$#'
+			identifier: encapsedStringPart.nonString
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Property App\\Services\\GoogleService\:\:\$accessToken \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Property App\\Services\\GoogleService\:\:\$refreshToken \(string\|null\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Services/GoogleService.php
+
+		-
+			message: '#^Cannot access offset ''access_token'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Services/McpAuthService.php
+
+		-
+			message: '#^Method App\\Services\\McpAuthService\:\:getAccessToken\(\) should return string but returns mixed\.$#'
+			identifier: return.type
+			count: 2
+			path: app/Services/McpAuthService.php
+
+		-
+			message: '#^Property App\\Services\\McpAuthService\:\:\$mcpServerUrl \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Services/McpAuthService.php
+
+		-
+			message: '#^Property App\\Services\\McpAuthService\:\:\$password \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Services/McpAuthService.php
+
+		-
+			message: '#^Property App\\Services\\McpAuthService\:\:\$username \(string\) does not accept mixed\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: app/Services/McpAuthService.php
+
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/claude/chat'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 2
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/notion/search'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/todoist/projects'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/todoist/tasks'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 4
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Call to an undefined static method App\\Models\\IntegrationAccount\:\:where\(\)\.$#'
+			identifier: staticMethod.notFound
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Cannot access offset ''content'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Cannot access offset ''patterns'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Cannot call method first\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Cannot call method where\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 3
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:countPages\(\) has parameter \$pages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:executeClaudeCommand\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:executeCommand\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:executeCommand\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:executeCommand\(\) should return array but returns mixed\.$#'
+			identifier: return.type
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:findPageByName\(\) has parameter \$pages with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:findPageByName\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:notionGetDatabases\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:notionGetDatabases\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:notionGetPageByName\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:notionGetPageByName\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:notionGetPages\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:notionGetPages\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:notionSearchNotion\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:notionSearchNotion\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:processCommand\(\) should return array\{success\: bool, message\: string, type\?\: string, data\?\: array\<string, mixed\>, suggestions\?\: array\<string, array\<string\>\>, requiresIntegration\?\: bool, integrationType\?\: string\} but returns array\.$#'
+			identifier: return.type
+			count: 2
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistCreateTask\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistCreateTask\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistGetProjects\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistGetProjects\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistGetTodayTasks\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistGetTodayTasks\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistGetTomorrowTasks\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistGetTomorrowTasks\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistGetWeekTasks\(\) has parameter \$matches with no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NaturalLanguageService\:\:todoistGetWeekTasks\(\) return type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NotionService\:\:fetchNotionDatabases\(\) invoked with 1 parameter, 0 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Method App\\Services\\NotionService\:\:fetchNotionPage\(\) invoked with 2 parameters, 1 required\.$#'
+			identifier: arguments.count
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Offset ''id'' does not exist on non\-empty\-array\{title\?\: string, children\?\: array\}\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#1 \$pageId of method App\\Services\\NotionService\:\:fetchNotionPage\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#1 \$pages of method App\\Services\\NaturalLanguageService\:\:countPages\(\) expects array\<int, array\{title\?\: string, children\?\: array\}\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#1 \$pages of method App\\Services\\NaturalLanguageService\:\:countPages\(\) expects array\<int, array\{title\?\: string, children\?\: array\}\>, array\<mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#1 \$pages of method App\\Services\\NaturalLanguageService\:\:findPageByName\(\) expects array\<int, array\{title\?\: string, children\?\: array\}\>, array given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#1 \$pages of method App\\Services\\NaturalLanguageService\:\:findPageByName\(\) expects array\<int, array\{title\?\: string, children\?\: array\}\>, array\<mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#1 \$pattern of function preg_match expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			identifier: argument.type
+			count: 11
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#2 \$method of method App\\Services\\NaturalLanguageService\:\:executeCommand\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Property App\\Services\\NaturalLanguageService\:\:\$commands type has no value type specified in iterable type array\.$#'
+			identifier: missingType.iterableValue
+			count: 1
+			path: app/Services/NaturalLanguageService.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: config/app.php
+
+		-
+			message: '#^Parameter \#1 \$title of static method Illuminate\\Support\\Str\:\:slug\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: config/cache.php
+
+		-
+			message: '#^Parameter \#1 \$title of static method Illuminate\\Support\\Str\:\:slug\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: config/database.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/storage'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: config/filesystems.php
+
+		-
+			message: '#^Binary operation "\." between ''tls\://'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: config/logging.php
+
+		-
+			message: '#^Binary operation "\." between non\-falsy\-string and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: config/logging.php
+
+		-
+			message: '#^Parameter \#2 \$string of function explode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: config/logging.php
+
+		-
+			message: '#^Parameter \#1 \$url of function parse_url expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: config/mail.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 3
+			path: config/queue.php
+
+		-
+			message: '#^Binary operation "\." between mixed and ''/integrations…'' results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: config/services.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 1
+			path: config/session.php
+
+		-
+			message: '#^Parameter \#1 \$title of static method Illuminate\\Support\\Str\:\:slug\(\) expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: config/session.php
+
+		-
+			message: '#^Method Database\\Factories\\IntegrationAccountFactory\:\:gmail\(\) return type with generic class Illuminate\\Database\\Eloquent\\Factories\\Factory does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: database/factories/IntegrationAccountFactory.php
+
+		-
+			message: '#^Method Database\\Factories\\IntegrationAccountFactory\:\:inactive\(\) return type with generic class Illuminate\\Database\\Eloquent\\Factories\\Factory does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: database/factories/IntegrationAccountFactory.php
+
+		-
+			message: '#^Method Database\\Factories\\IntegrationAccountFactory\:\:notion\(\) return type with generic class Illuminate\\Database\\Eloquent\\Factories\\Factory does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: database/factories/IntegrationAccountFactory.php
+
+		-
+			message: '#^Method Database\\Factories\\IntegrationAccountFactory\:\:openai\(\) return type with generic class Illuminate\\Database\\Eloquent\\Factories\\Factory does not specify its types\: TModel$#'
+			identifier: missingType.generics
+			count: 1
+			path: database/factories/IntegrationAccountFactory.php
+
+		-
+			message: '#^PHPDoc type string of property Database\\Factories\\IntegrationAccountFactory\:\:\$model is not covariant with PHPDoc type class\-string\<App\\Models\\IntegrationAccount\> of overridden property Illuminate\\Database\\Eloquent\\Factories\\Factory\<App\\Models\\IntegrationAccount\>\:\:\$model\.$#'
+			identifier: property.phpDocType
+			count: 1
+			path: database/factories/IntegrationAccountFactory.php
+
+		-
+			message: '#^Cannot call method name\(\) on array\|Illuminate\\Routing\\Route\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: routes/auth.php
+
+		-
+			message: '#^Cannot call method comment\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: routes/console.php
+
+		-
+			message: '#^Undefined variable\: \$this$#'
+			identifier: variable.undefined
+			count: 1
+			path: routes/console.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 2
+			path: tests/Feature/Auth/AuthenticationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\AuthenticationTest\:\:test_login_screen_can_be_rendered\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/AuthenticationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\AuthenticationTest\:\:test_users_can_authenticate_using_the_login_screen\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/AuthenticationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\AuthenticationTest\:\:test_users_can_logout\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/AuthenticationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\AuthenticationTest\:\:test_users_can_not_authenticate_with_invalid_password\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/AuthenticationTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/Auth/AuthenticationTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 1
+			path: tests/Feature/Auth/EmailVerificationTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 2
+			path: tests/Feature/Auth/EmailVerificationTest.php
+
+		-
+			message: '#^Cannot call method hasVerifiedEmail\(\) on App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/Auth/EmailVerificationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\EmailVerificationTest\:\:test_email_can_be_verified\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/EmailVerificationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\EmailVerificationTest\:\:test_email_is_not_verified_with_invalid_hash\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/EmailVerificationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\EmailVerificationTest\:\:test_email_verification_screen_can_be_rendered\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/EmailVerificationTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/Feature/Auth/EmailVerificationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\PasswordConfirmationTest\:\:test_confirm_password_screen_can_be_rendered\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/PasswordConfirmationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\PasswordConfirmationTest\:\:test_password_can_be_confirmed\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/PasswordConfirmationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\PasswordConfirmationTest\:\:test_password_is_not_confirmed_with_invalid_password\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/PasswordConfirmationTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 3
+			path: tests/Feature/Auth/PasswordConfirmationTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 4
+			path: tests/Feature/Auth/PasswordResetTest.php
+
+		-
+			message: '#^Binary operation "\." between ''/reset\-password/'' and mixed results in an error\.$#'
+			identifier: binaryOp.invalid
+			count: 1
+			path: tests/Feature/Auth/PasswordResetTest.php
+
+		-
+			message: '#^Cannot access property \$token on mixed\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: tests/Feature/Auth/PasswordResetTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\PasswordResetTest\:\:test_password_can_be_reset_with_valid_token\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/PasswordResetTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\PasswordResetTest\:\:test_reset_password_link_can_be_requested\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/PasswordResetTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\PasswordResetTest\:\:test_reset_password_link_screen_can_be_rendered\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/PasswordResetTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\PasswordResetTest\:\:test_reset_password_screen_can_be_rendered\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/PasswordResetTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\RegistrationTest\:\:test_new_users_can_register\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/RegistrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Auth\\RegistrationTest\:\:test_registration_screen_can_be_rendered\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Auth/RegistrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\DashboardTest\:\:test_authenticated_users_can_visit_the_dashboard\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/DashboardTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\DashboardTest\:\:test_guests_are_redirected_to_the_login_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/DashboardTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/DashboardTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 8
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Access to an undefined property Illuminate\\Database\\Eloquent\\Collection\<int, Illuminate\\Database\\Eloquent\\Model\>\|Illuminate\\Database\\Eloquent\\Model\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 10
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\IntegrationsTest\:\:test_user_can_create_an_integration\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\IntegrationsTest\:\:test_user_can_delete_their_integration\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\IntegrationsTest\:\:test_user_can_list_their_integrations\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\IntegrationsTest\:\:test_user_can_update_their_integration\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\IntegrationsTest\:\:test_user_cannot_create_duplicate_active_integration\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\IntegrationsTest\:\:test_user_cannot_delete_another_users_integration\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\IntegrationsTest\:\:test_user_cannot_update_another_users_integration\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 7
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Part \$integration\-\>id \(mixed\) of encapsed string cannot be cast to string\.$#'
+			identifier: encapsedStringPart.nonString
+			count: 4
+			path: tests/Feature/IntegrationsTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 6
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Database\\Eloquent\\Factories\\Factory\:\:inactive\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Cannot call method create\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Cannot call method hasHeader\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 5
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Cannot call method url\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 4
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionIntegrationTest\:\:test_unauthenticated_user_cannot_access_endpoints\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionIntegrationTest\:\:test_user_can_fetch_notion_blocks\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionIntegrationTest\:\:test_user_can_fetch_notion_databases\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionIntegrationTest\:\:test_user_can_fetch_notion_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionIntegrationTest\:\:test_user_can_fetch_notion_pages_tree\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionIntegrationTest\:\:test_user_can_fetch_notion_pages_tree_with_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionIntegrationTest\:\:test_user_with_inactive_notion_integration_cannot_access_endpoints\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionIntegrationTest\:\:test_user_without_notion_integration_cannot_access_endpoints\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 10
+			path: tests/Feature/NotionIntegrationTest.php
+
+		-
+			message: '#^Call to an undefined method Illuminate\\Testing\\TestResponse\:\:assertInertia\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Call to an undefined method Mockery\\ExpectationInterface\|Mockery\\HigherOrderMessage\:\:once\(\)\.$#'
+			identifier: method.notFound
+			count: 4
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Cannot call method andReturn\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Cannot call method andThrow\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Cannot call method component\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Cannot call method with\(\) on mixed\.$#'
+			identifier: method.nonObject
+			count: 4
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionTest\:\:test_api_handles_errors_with_default_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionTest\:\:test_api_handles_errors_with_explicit_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionTest\:\:test_api_returns_notion_pages_with_default_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionTest\:\:test_api_returns_notion_pages_with_explicit_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionTest\:\:test_authenticated_users_can_visit_the_notion_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\NotionTest\:\:test_guests_are_redirected_to_the_login_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: tests/Feature/NotionTest.php
+
+		-
+			message: '#^Call to an undefined method App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:refresh\(\)\.$#'
+			identifier: method.notFound
+			count: 1
+			path: tests/Feature/Settings/PasswordUpdateTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Settings\\PasswordUpdateTest\:\:test_correct_password_must_be_provided_to_update_password\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Settings/PasswordUpdateTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Settings\\PasswordUpdateTest\:\:test_password_can_be_updated\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Settings/PasswordUpdateTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 2
+			path: tests/Feature/Settings/PasswordUpdateTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$email\.$#'
+			identifier: property.notFound
+			count: 2
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$email_verified_at\.$#'
+			identifier: property.notFound
+			count: 1
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$name\.$#'
+			identifier: property.notFound
+			count: 1
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Call to an undefined method App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:refresh\(\)\.$#'
+			identifier: method.notFound
+			count: 2
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Settings\\ProfileUpdateTest\:\:test_correct_password_must_be_provided_to_delete_account\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Settings\\ProfileUpdateTest\:\:test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Settings\\ProfileUpdateTest\:\:test_profile_information_can_be_updated\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Settings\\ProfileUpdateTest\:\:test_profile_page_is_displayed\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Method Tests\\Feature\\Settings\\ProfileUpdateTest\:\:test_user_can_delete_their_account\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Parameter \#1 \$user of method Illuminate\\Foundation\\Testing\\TestCase\:\:actingAs\(\) expects Illuminate\\Contracts\\Auth\\Authenticatable, App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\> given\.$#'
+			identifier: argument.type
+			count: 5
+			path: tests/Feature/Settings/ProfileUpdateTest.php
+
+		-
+			message: '#^Call to method PHPUnit\\Framework\\Assert\:\:assertTrue\(\) with true will always evaluate to true\.$#'
+			identifier: method.alreadyNarrowedType
+			count: 1
+			path: tests/Unit/ExampleTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\ExampleTest\:\:test_that_true_is_true\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/ExampleTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\IntegrationAccount\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\IntegrationAccount\>\:\:\$meta\.$#'
+			identifier: property.notFound
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\IntegrationAccount\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\IntegrationAccount\>\:\:\$status\.$#'
+			identifier: property.notFound
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\IntegrationAccount\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\IntegrationAccount\>\:\:\$type\.$#'
+			identifier: property.notFound
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\IntegrationAccount\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\IntegrationAccount\>\:\:\$user\.$#'
+			identifier: property.notFound
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$id\.$#'
+			identifier: property.notFound
+			count: 4
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Access to an undefined property App\\Models\\User\|Illuminate\\Database\\Eloquent\\Collection\<int, App\\Models\\User\>\:\:\$integrationAccounts\.$#'
+			identifier: property.notFound
+			count: 3
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Models\\IntegrationAccountTest\:\:test_integration_account_belongs_to_user\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Models\\IntegrationAccountTest\:\:test_integration_account_casts_meta_to_array\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Models\\IntegrationAccountTest\:\:test_integration_account_casts_status_to_enum\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Models\\IntegrationAccountTest\:\:test_integration_account_casts_type_to_enum\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Models\\IntegrationAccountTest\:\:test_user_can_have_multiple_integration_accounts\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Models/IntegrationAccountTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_blocks\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_databases\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_page\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_pages_successful_with_default_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_pages_successful_with_explicit_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_pages_successful_without_page_id\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_pages_throws_exception_when_config_missing\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_pages_throws_exception_when_request_fails\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_pages_throws_exception_when_token_missing\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\Services\\NotionServiceTest\:\:test_fetch_notion_pages_with_integration_account\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/Services/NotionServiceTest.php
+
+		-
+			message: '#^Method Tests\\Unit\\StringUtilsTest\:\:test_string_reversal\(\) has no return type specified\.$#'
+			identifier: missingType.return
+			count: 1
+			path: tests/Unit/StringUtilsTest.php

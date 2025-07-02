@@ -1,5 +1,5 @@
 import { Head } from '@inertiajs/react';
-import axios from 'axios';
+import apiClient from '@/lib/api/client';
 import { useEffect, useState } from 'react';
 import { IntegrationForm } from '../components/integrations/integration-form';
 import { Button } from '../components/ui/button';
@@ -56,10 +56,9 @@ export default function Notion() {
             // Include page_id as a query parameter if provided
             const params = pageId ? { page_id: pageId } : {};
             const headers = apiToken ? { Authorization: `Bearer ${apiToken}` } : {};
-            const response = await axios.get('/api/notion/pages-tree', {
+            const response = await apiClient.get('/api/notion/pages-tree', {
                 params,
                 headers,
-                withCredentials: true,
             });
             setNotionPages(response.data);
         } catch (err) {

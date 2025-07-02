@@ -11,6 +11,7 @@ export interface IntegrationAccount {
 export enum IntegrationType {
     NOTION = 'notion',
     GMAIL = 'gmail',
+    CALENDAR = 'calendar',
     OPENAI = 'openai',
     TODOIST = 'todoist',
     JIRA = 'jira',
@@ -59,6 +60,12 @@ export const INTEGRATION_TYPES: Record<string, IntegrationTypeInfo> = {
         displayName: 'JIRA',
         description: 'Connect to your Atlassian JIRA',
         icon: 'jira',
+    },
+    [IntegrationType.CALENDAR]: {
+        value: IntegrationType.CALENDAR,
+        displayName: 'Google Calendar',
+        description: 'Connect to your Google Calendar',
+        icon: 'calendar',
     },
     [IntegrationType.SENTRY]: {
         value: IntegrationType.SENTRY,

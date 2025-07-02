@@ -17,8 +17,8 @@ class StringUtilsTest extends TestCase
         };
 
         // Test with a simple string
-        $input = "Hello, World!";
-        $expected = "!dlroW ,olleH";
+        $input = 'Hello, World!';
+        $expected = '!dlroW ,olleH';
 
         $result = $reverseString($input);
 
