@@ -23,7 +23,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationType.php' => 
     array (
-      0 => 'a532f5779e9780eced189e6739b4dfdbaa5a7b18',
+      0 => '58c29cbfdafddcfb1b677c87087b58c20a61511d',
       1 => 
       array (
         0 => 'app\\enums\\integrationtype',
@@ -71,7 +71,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php' => 
     array (
-      0 => '7f0ab3becb323a5e0533e470f08fa783bacee612',
+      0 => 'a54841722343e5587fe5eaa81259a239e085e3fe',
       1 => 
       array (
         0 => 'app\\models\\integrationaccount',
@@ -79,6 +79,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       2 => 
       array (
         0 => 'app\\models\\user',
+        1 => 'app\\models\\scopeactive',
       ),
       3 => 
       array (
@@ -254,7 +255,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/AiChatController.php' => 
     array (
-      0 => '89191e9fdc513866bbcb3c965962f1d9d6c5ddc5',
+      0 => 'd4aa56eea18753efd463f6be4545955cac00ef22',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aichatcontroller',
@@ -271,7 +272,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php' => 
     array (
-      0 => '9223352a2159007249e5125195269fd808d1305e',
+      0 => '7a6d0d8a7db155b56a25ac4cb104993e7573422e',
       1 => 
       array (
         0 => 'app\\http\\controllers\\naturallanguagecontroller',
@@ -290,7 +291,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php' => 
     array (
-      0 => 'ebe40a55b8efca497ee3c8bf431239ff8a002851',
+      0 => '18fe6412bbbdf4e186519a93a201c92e56b22a64',
       1 => 
       array (
         0 => 'app\\services\\mcpauthservice',
@@ -306,7 +307,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php' => 
     array (
-      0 => '7e782b26d82b2e6e6f99d758606060b1ac6d3dc5',
+      0 => '10d271592e6b13b29396f5ecde614fd10c368c3a',
       1 => 
       array (
         0 => 'app\\services\\naturallanguageservice',
@@ -351,7 +352,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php' => 
     array (
-      0 => '04de98498f05d6cc8552f0fcf31ce4bd4d0608ca',
+      0 => '46de4b27eb1caabd1fdf82908e328476ad061106',
       1 => 
       array (
         0 => 'app\\http\\controllers\\calendarcontroller',
@@ -374,7 +375,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php' => 
     array (
-      0 => 'c5ec4970be7130eda85eb8d4dc68307938db164a',
+      0 => '0a973657da9f5ae0beda2077c5f2070b92f0015e',
       1 => 
       array (
         0 => 'app\\http\\controllers\\gmailcontroller',
@@ -395,7 +396,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php' => 
     array (
-      0 => 'df4a525b23fe4b69ab266394c8aef46999f278db',
+      0 => '328ca84d81cb693c01d74046b3b0fe703c18f79c',
       1 => 
       array (
         0 => 'app\\services\\googleservice',
@@ -441,6 +442,293 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         4 => 'app\\http\\controllers\\getscopesforservice',
         5 => 'app\\http\\controllers\\callback',
         6 => 'app\\http\\controllers\\disconnect',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php' => 
+    array (
+      0 => '3ca682212dd4f78c3d9a8acf353d50c7f653d900',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\dailyplanningcontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\__construct',
+        1 => 'app\\http\\controllers\\index',
+        2 => 'app\\http\\controllers\\generate',
+        3 => 'app\\http\\controllers\\updatetasks',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php' => 
+    array (
+      0 => '9b688a0da94baecb328bc93d6c66bdf5adcac806',
+      1 => 
+      array (
+        0 => 'app\\actions\\actionresult',
+      ),
+      2 => 
+      array (
+        0 => 'app\\actions\\__construct',
+        1 => 'app\\actions\\success',
+        2 => 'app\\actions\\error',
+        3 => 'app\\actions\\validationerror',
+        4 => 'app\\actions\\unauthorized',
+        5 => 'app\\actions\\toarray',
+        6 => 'app\\actions\\toresponse',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php' => 
+    array (
+      0 => 'dfa1fbadfec3033fcbc86a200b66de194bfb157c',
+      1 => 
+      array (
+        0 => 'app\\actions\\dailyplanning\\createdailyplanningaction',
+      ),
+      2 => 
+      array (
+        0 => 'app\\actions\\dailyplanning\\__construct',
+        1 => 'app\\actions\\dailyplanning\\validate',
+        2 => 'app\\actions\\dailyplanning\\authorize',
+        3 => 'app\\actions\\dailyplanning\\execute',
+        4 => 'app\\actions\\dailyplanning\\afterexecute',
+        5 => 'app\\actions\\dailyplanning\\handleerror',
+        6 => 'app\\actions\\dailyplanning\\storeplanning',
+        7 => 'app\\actions\\dailyplanning\\generatemarkdown',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php' => 
+    array (
+      0 => 'c3914c0a4d3dee37017b0aaf13c7bf446a877a07',
+      1 => 
+      array (
+        0 => 'app\\actions\\dailyplanning\\updatetodoisttasksaction',
+      ),
+      2 => 
+      array (
+        0 => 'app\\actions\\dailyplanning\\__construct',
+        1 => 'app\\actions\\dailyplanning\\validate',
+        2 => 'app\\actions\\dailyplanning\\authorize',
+        3 => 'app\\actions\\dailyplanning\\execute',
+        4 => 'app\\actions\\dailyplanning\\afterexecute',
+        5 => 'app\\actions\\dailyplanning\\handleerror',
+        6 => 'app\\actions\\dailyplanning\\determineupdates',
+        7 => 'app\\actions\\dailyplanning\\applyupdates',
+        8 => 'app\\actions\\dailyplanning\\updatetaskschedule',
+        9 => 'app\\actions\\dailyplanning\\updatetaskduration',
+        10 => 'app\\actions\\dailyplanning\\updatetaskorder',
+        11 => 'app\\actions\\dailyplanning\\generatesuccessmessage',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php' => 
+    array (
+      0 => 'bee25a6d4d68f5c1385bf92afeea168f76008de6',
+      1 => 
+      array (
+        0 => 'app\\actions\\baseaction',
+      ),
+      2 => 
+      array (
+        0 => 'app\\actions\\handle',
+        1 => 'app\\actions\\validate',
+        2 => 'app\\actions\\authorize',
+        3 => 'app\\actions\\execute',
+        4 => 'app\\actions\\beforeexecute',
+        5 => 'app\\actions\\afterexecute',
+        6 => 'app\\actions\\handleerror',
+        7 => 'app\\actions\\logsuccess',
+        8 => 'app\\actions\\logerror',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php' => 
+    array (
+      0 => '48bf92cc4dc1622eee6cf5002270ea89bd1532ca',
+      1 => 
+      array (
+        0 => 'app\\services\\dailyplanningservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\generatedailyplanning',
+        2 => 'app\\services\\gettodaytasks',
+        3 => 'app\\services\\prioritizetasks',
+        4 => 'app\\services\\identifymit',
+        5 => 'app\\services\\createtimeblocks',
+        6 => 'app\\services\\createblock',
+        7 => 'app\\services\\checkalerts',
+        8 => 'app\\services\\findtimeconflicts',
+        9 => 'app\\services\\generatesummary',
+        10 => 'app\\services\\preparetodoistupdates',
+        11 => 'app\\services\\mappriority',
+        12 => 'app\\services\\extractenergy',
+        13 => 'app\\services\\extractscheduledtime',
+        14 => 'app\\services\\extractduration',
+        15 => 'app\\services\\getprojectname',
+        16 => 'app\\services\\list',
+        17 => 'app\\services\\find',
+        18 => 'app\\services\\create',
+        19 => 'app\\services\\update',
+        20 => 'app\\services\\delete',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php' => 
+    array (
+      0 => '3c7cbfdf53f4d0889d77578ca9da03dda2dfe5da',
+      1 => 
+      array (
+        0 => 'app\\services\\todoistservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\setuser',
+        2 => 'app\\services\\gettodaytasks',
+        3 => 'app\\services\\gettomorrowtasks',
+        4 => 'app\\services\\getweektasks',
+        5 => 'app\\services\\gettask',
+        6 => 'app\\services\\createtask',
+        7 => 'app\\services\\updatetask',
+        8 => 'app\\services\\completetask',
+        9 => 'app\\services\\deletetask',
+        10 => 'app\\services\\getprojects',
+        11 => 'app\\services\\getproject',
+        12 => 'app\\services\\bulkupdatetasks',
+        13 => 'app\\services\\quickaddtask',
+        14 => 'app\\services\\getactiveaccount',
+        15 => 'app\\services\\list',
+        16 => 'app\\services\\find',
+        17 => 'app\\services\\create',
+        18 => 'app\\services\\update',
+        19 => 'app\\services\\delete',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Exceptions/IntegrationException.php' => 
+    array (
+      0 => 'd8f23eb49cd4bfdd4d42fb881b18229a8b313aab',
+      1 => 
+      array (
+        0 => 'app\\exceptions\\integrationexception',
+      ),
+      2 => 
+      array (
+        0 => 'app\\exceptions\\__construct',
+        1 => 'app\\exceptions\\getservice',
+        2 => 'app\\exceptions\\report',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/JiraController.php' => 
+    array (
+      0 => 'c1ff8522f90ac0e32e2f2e631e2e8781b719f396',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\jiracontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\__construct',
+        1 => 'app\\http\\controllers\\getjiraintegration',
+        2 => 'app\\http\\controllers\\listprojects',
+        3 => 'app\\http\\controllers\\getproject',
+        4 => 'app\\http\\controllers\\listboards',
+        5 => 'app\\http\\controllers\\getboard',
+        6 => 'app\\http\\controllers\\listboardissues',
+        7 => 'app\\http\\controllers\\searchissues',
+        8 => 'app\\http\\controllers\\getissue',
+        9 => 'app\\http\\controllers\\createissue',
+        10 => 'app\\http\\controllers\\updateissue',
+        11 => 'app\\http\\controllers\\transitionissue',
+        12 => 'app\\http\\controllers\\gettransitions',
+        13 => 'app\\http\\controllers\\assignissue',
+        14 => 'app\\http\\controllers\\createepic',
+        15 => 'app\\http\\controllers\\getepicprogress',
+        16 => 'app\\http\\controllers\\getepicissues',
+        17 => 'app\\http\\controllers\\listsprints',
+        18 => 'app\\http\\controllers\\getsprint',
+        19 => 'app\\http\\controllers\\startsprint',
+        20 => 'app\\http\\controllers\\completesprint',
+        21 => 'app\\http\\controllers\\getsprintvelocity',
+        22 => 'app\\http\\controllers\\createfromsentry',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpProxyService.php' => 
+    array (
+      0 => 'a23950071d0cacea0f98d0a7ba98b09e520bf833',
+      1 => 
+      array (
+        0 => 'app\\services\\mcpproxyservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\request',
+        2 => 'app\\services\\callmcptool',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/JiraService.php' => 
+    array (
+      0 => 'd934e885b5d22d9144e494515c1748a574d1573f',
+      1 => 
+      array (
+        0 => 'app\\services\\jiraservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\calltool',
+        2 => 'app\\services\\listprojects',
+        3 => 'app\\services\\getproject',
+        4 => 'app\\services\\listboards',
+        5 => 'app\\services\\getboard',
+        6 => 'app\\services\\listboardissues',
+        7 => 'app\\services\\searchissues',
+        8 => 'app\\services\\getissue',
+        9 => 'app\\services\\createissue',
+        10 => 'app\\services\\updateissue',
+        11 => 'app\\services\\transitionissue',
+        12 => 'app\\services\\gettransitions',
+        13 => 'app\\services\\assignissue',
+        14 => 'app\\services\\createepic',
+        15 => 'app\\services\\getepicprogress',
+        16 => 'app\\services\\getepicissues',
+        17 => 'app\\services\\listsprints',
+        18 => 'app\\services\\getsprint',
+        19 => 'app\\services\\startsprint',
+        20 => 'app\\services\\completesprint',
+        21 => 'app\\services\\getsprintvelocity',
+        22 => 'app\\services\\createfromsentry',
       ),
       3 => 
       array (
