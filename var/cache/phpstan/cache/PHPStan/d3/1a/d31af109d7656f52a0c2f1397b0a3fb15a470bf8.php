@@ -295,5 +295,161 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
+    '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/Http/Controllers/AiChatControllerTest.php' => 
+    array (
+      0 => '0aee50af628461ca64e42ee7e3ca692af052109a',
+      1 => 
+      array (
+        0 => 'tests\\feature\\http\\controllers\\aichatcontrollertest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\feature\\http\\controllers\\setup',
+        1 => 'tests\\feature\\http\\controllers\\test_chat_requires_authentication',
+        2 => 'tests\\feature\\http\\controllers\\test_chat_validates_request_data',
+        3 => 'tests\\feature\\http\\controllers\\test_chat_validates_message_structure',
+        4 => 'tests\\feature\\http\\controllers\\test_chat_validates_model_parameter',
+        5 => 'tests\\feature\\http\\controllers\\test_chat_successful_non_streaming_response',
+        6 => 'tests\\feature\\http\\controllers\\test_chat_handles_mcp_server_error',
+        7 => 'tests\\feature\\http\\controllers\\test_chat_handles_authentication_failure',
+        8 => 'tests\\feature\\http\\controllers\\test_chat_extracts_last_message_content',
+        9 => 'tests\\feature\\http\\controllers\\test_chat_returns_streamed_response_when_enabled',
+        10 => 'tests\\feature\\http\\controllers\\test_chat_respects_temperature_parameter',
+        11 => 'tests\\feature\\http\\controllers\\test_chat_respects_max_tokens_parameter',
+        12 => 'tests\\feature\\http\\controllers\\test_chat_handles_network_exception',
+        13 => 'tests\\feature\\http\\controllers\\test_chat_validates_empty_messages_array',
+        14 => 'tests\\feature\\http\\controllers\\test_chat_validates_message_content_exists',
+        15 => 'tests\\feature\\http\\controllers\\teardown',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/Http/Controllers/TodoistIntegrationControllerTest.php' => 
+    array (
+      0 => '39da4c452cab7b37fa37bd7d9fc84aad81fe3248',
+      1 => 
+      array (
+        0 => 'tests\\feature\\http\\controllers\\todoistintegrationcontrollertest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\feature\\http\\controllers\\setup',
+        1 => 'tests\\feature\\http\\controllers\\test_show_displays_setup_page',
+        2 => 'tests\\feature\\http\\controllers\\test_show_displays_existing_integration',
+        3 => 'tests\\feature\\http\\controllers\\test_connect_requires_api_token',
+        4 => 'tests\\feature\\http\\controllers\\test_disconnect_removes_active_integration',
+        5 => 'tests\\feature\\http\\controllers\\test_test_connection_requires_active_integration',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/Http/Controllers/DailyPlanningControllerTest.php' => 
+    array (
+      0 => 'f9c14f83d37273b442f33951319217ddc671bb14',
+      1 => 
+      array (
+        0 => 'tests\\feature\\http\\controllers\\dailyplanningcontrollertest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\feature\\http\\controllers\\setup',
+        1 => 'tests\\feature\\http\\controllers\\test_index_requires_authentication',
+        2 => 'tests\\feature\\http\\controllers\\test_index_requires_active_todoist_integration',
+        3 => 'tests\\feature\\http\\controllers\\test_index_returns_daily_planning_page',
+        4 => 'tests\\feature\\http\\controllers\\test_generate_creates_new_daily_plan',
+        5 => 'tests\\feature\\http\\controllers\\test_generate_handles_todoist_api_error',
+        6 => 'tests\\feature\\http\\controllers\\test_update_tasks_updates_todoist_tasks',
+        7 => 'tests\\feature\\http\\controllers\\test_update_tasks_requires_existing_plan',
+        8 => 'tests\\feature\\http\\controllers\\test_generate_applies_ivy_lee_method',
+        9 => 'tests\\feature\\http\\controllers\\test_generate_prioritizes_p1_tasks_first',
+        10 => 'tests\\feature\\http\\controllers\\test_generate_includes_breaks_in_time_blocks',
+        11 => 'tests\\feature\\http\\controllers\\test_generate_detects_time_conflicts',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/tests/Unit/Actions/DailyPlanning/UpdateTodoistTasksActionTest.php' => 
+    array (
+      0 => '54cea2d996d0a43b075588f9957c0ec03768c59f',
+      1 => 
+      array (
+        0 => 'tests\\unit\\actions\\dailyplanning\\updatetodoisttasksactiontest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\unit\\actions\\dailyplanning\\setup',
+        1 => 'tests\\unit\\actions\\dailyplanning\\test_updates_all_tasks_successfully',
+        2 => 'tests\\unit\\actions\\dailyplanning\\test_updates_partial_tasks_with_selected_types',
+        3 => 'tests\\unit\\actions\\dailyplanning\\test_handles_none_update_type',
+        4 => 'tests\\unit\\actions\\dailyplanning\\test_validates_update_parameters',
+        5 => 'tests\\unit\\actions\\dailyplanning\\test_requires_existing_planning',
+        6 => 'tests\\unit\\actions\\dailyplanning\\test_requires_active_todoist_integration',
+        7 => 'tests\\unit\\actions\\dailyplanning\\test_handles_todoist_api_errors_gracefully',
+        8 => 'tests\\unit\\actions\\dailyplanning\\test_handles_planning_not_found_error',
+        9 => 'tests\\unit\\actions\\dailyplanning\\test_updates_task_schedule_correctly',
+        10 => 'tests\\unit\\actions\\dailyplanning\\test_generates_success_message_with_counts',
+        11 => 'tests\\unit\\actions\\dailyplanning\\createplanningdata',
+        12 => 'tests\\unit\\actions\\dailyplanning\\teardown',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/tests/Unit/Actions/DailyPlanning/CreateDailyPlanningActionTest.php' => 
+    array (
+      0 => 'ec54ee4c010f0337e63b29feac2441c958512a03',
+      1 => 
+      array (
+        0 => 'tests\\unit\\actions\\dailyplanning\\createdailyplanningactiontest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\unit\\actions\\dailyplanning\\setup',
+        1 => 'tests\\unit\\actions\\dailyplanning\\test_creates_daily_planning_successfully',
+        2 => 'tests\\unit\\actions\\dailyplanning\\test_handles_no_tasks_found',
+        3 => 'tests\\unit\\actions\\dailyplanning\\test_validates_input_parameters',
+        4 => 'tests\\unit\\actions\\dailyplanning\\test_accepts_valid_preferences',
+        5 => 'tests\\unit\\actions\\dailyplanning\\test_handles_service_exception',
+        6 => 'tests\\unit\\actions\\dailyplanning\\test_generates_markdown_output',
+        7 => 'tests\\unit\\actions\\dailyplanning\\test_stores_planning_with_unique_id',
+        8 => 'tests\\unit\\actions\\dailyplanning\\test_planning_cache_expires_after_24_hours',
+        9 => 'tests\\unit\\actions\\dailyplanning\\teardown',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/tests/Unit/Services/DailyPlanningServiceTest.php' => 
+    array (
+      0 => 'dbcf51d703996a2e36a31a3e7f6b0139691ee466',
+      1 => 
+      array (
+        0 => 'tests\\unit\\services\\dailyplanningservicetest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\unit\\services\\setup',
+        1 => 'tests\\unit\\services\\test_generates_daily_planning_with_tasks',
+        2 => 'tests\\unit\\services\\test_returns_no_tasks_message_when_empty',
+        3 => 'tests\\unit\\services\\test_throws_exception_when_no_active_integration',
+        4 => 'tests\\unit\\services\\test_applies_ivy_lee_method_limiting_to_6_tasks',
+        5 => 'tests\\unit\\services\\test_prioritizes_p1_tasks_first',
+        6 => 'tests\\unit\\services\\test_identifies_mit_correctly',
+        7 => 'tests\\unit\\services\\test_creates_time_blocks_with_breaks',
+        8 => 'tests\\unit\\services\\test_generates_alerts_for_p1_overload',
+        9 => 'tests\\unit\\services\\test_generates_alerts_for_duration_overload',
+        10 => 'tests\\unit\\services\\test_extracts_energy_levels_from_labels',
+        11 => 'tests\\unit\\services\\test_respects_scheduled_times',
+        12 => 'tests\\unit\\services\\test_generates_summary_statistics',
+        13 => 'tests\\unit\\services\\test_prepares_todoist_updates',
+        14 => 'tests\\unit\\services\\teardown',
+      ),
+      3 => 
+      array (
+      ),
+    ),
   ),
 ));

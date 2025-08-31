@@ -62,6 +62,170 @@ export function useClaudeChat(options: UseChatOptions = {}) {
     setMessages(prev => [...prev, message]);
   }, []);
 
+  const handleStreamingResponse = useCallback(async (messageId: string, request: ChatRequest, retryCount = 0) => {
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 1000; // Start with 1 second
+    
+    console.log('🔄 [CLAUDE-CHAT] handleStreamingResponse started:', { messageId, request, retryCount });
+    
+    // Get CSRF token from meta tag
+    const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    console.log('🔐 [CLAUDE-CHAT] CSRF token found:', !!token);
+    
+    // Get base URL from environment or default
+    const baseURL = import.meta.env.VITE_API_URL || window.location.origin;
+    const url = `${baseURL}/api/ai/chat`;
+    console.log('🌐 [CLAUDE-CHAT] Making streaming request to:', url);
+    
+    try {
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'text/event-stream',
+          'X-CSRF-TOKEN': token || '',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        credentials: 'include',
+        body: JSON.stringify(request),
+        signal: abortControllerRef.current?.signal,
+      });
+
+      console.log('📡 [CLAUDE-CHAT] Fetch response received:', { 
+        status: response.status, 
+        statusText: response.statusText, 
+        ok: response.ok,
+        headers: Object.fromEntries(response.headers.entries())
+      });
+
+      if (!response.ok) {
+        console.error('❌ [CLAUDE-CHAT] Streaming response failed:', response.status, response.statusText);
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const reader = response.body?.getReader();
+      if (!reader) {
+        throw new Error('No response body');
+      }
+
+      const decoder = new TextDecoder();
+      let buffer = '';
+      let fullContent = '';
+      let hasReceivedData = false;
+
+      try {
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+
+          buffer += decoder.decode(value, { stream: true });
+          const lines = buffer.split('\n');
+          buffer = lines.pop() || '';
+
+          for (const line of lines) {
+            if (line.startsWith('data: ')) {
+              const data = line.slice(6).trim();
+              if (data === '[DONE]') break;
+
+              try {
+                const chunk: StreamChunk = JSON.parse(data);
+                // Log pour débugger le format
+                console.log('Received chunk:', chunk);
+                
+                // Use standardized format
+                const content = chunk.content || '';
+                
+                if (content) {
+                  hasReceivedData = true;
+                  fullContent += content;
+                  updateMessage(messageId, { 
+                    content: fullContent, 
+                    status: 'sent' 
+                  });
+                }
+              } catch (e) {
+                console.warn('Failed to parse chunk:', data, e);
+              }
+            }
+          }
+        }
+      } finally {
+        reader.releaseLock();
+      }
+
+      // If no data was received and we haven't exceeded retries, retry
+      if (!hasReceivedData && retryCount < MAX_RETRIES) {
+        console.log(`🔁 [CLAUDE-CHAT] No data received, retrying... (${retryCount + 1}/${MAX_RETRIES})`);
+        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY * Math.pow(2, retryCount)));
+        return handleStreamingResponse(messageId, request, retryCount + 1);
+      }
+
+      updateMessage(messageId, { status: 'sent' });
+    } catch (error) {
+      // If it's an abort error, don't retry
+      if (error instanceof Error && error.name === 'AbortError') {
+        throw error;
+      }
+
+      // If we haven't exceeded retries, retry with exponential backoff
+      if (retryCount < MAX_RETRIES) {
+        console.log(`🔁 [CLAUDE-CHAT] Stream error, retrying... (${retryCount + 1}/${MAX_RETRIES})`, error);
+        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY * Math.pow(2, retryCount)));
+        return handleStreamingResponse(messageId, request, retryCount + 1);
+      }
+
+      // If all retries failed, throw the error
+      throw error;
+    }
+  }, [updateMessage]);
+
+  const handleRegularResponse = useCallback(async (messageId: string, request: ChatRequest) => {
+    console.log('📨 [CLAUDE-CHAT] handleRegularResponse started:', { messageId, request });
+    
+    // Get CSRF token from meta tag
+    const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+    console.log('🔐 [CLAUDE-CHAT] CSRF token found:', !!token);
+    console.log('🌐 [CLAUDE-CHAT] API client baseURL:', apiClient.defaults.baseURL);
+    
+    const response = await apiClient.post('/api/ai/chat', request, {
+      signal: abortControllerRef.current?.signal,
+      headers: {
+        'X-CSRF-TOKEN': token || '',
+      },
+    });
+
+    console.log('📡 [CLAUDE-CHAT] API response received:', {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+      data: response.data
+    });
+
+    const data = response.data;
+    
+    // Use standardized format
+    const content = data.content || 'No response received';
+    
+    console.log('📝 [CLAUDE-CHAT] Extracted content:', { 
+      contentFound: !!content, 
+      contentLength: content?.length, 
+      contentPreview: content?.substring(0, 100) + '...',
+      dataKeys: Object.keys(data)
+    });
+    
+    updateMessage(messageId, { 
+      content, 
+      status: 'sent',
+      metadata: {
+        model: currentModel,
+        tokens: data.usage?.total_tokens,
+        ...data.metadata,
+      }
+    });
+    
+    console.log('✅ [CLAUDE-CHAT] Message updated successfully');
+  }, [updateMessage, currentModel]);
+
   const sendMessage = useCallback(async (content: string, model?: AIModel) => {
     console.log('🚀 [CLAUDE-CHAT] sendMessage called with:', { content: content.trim(), model, isLoading });
     
@@ -138,148 +302,6 @@ export function useClaudeChat(options: UseChatOptions = {}) {
       abortControllerRef.current = null;
     }
   }, [messages, isLoading, currentModel, createMessage, addMessage, updateMessage, enableStreaming, handleRegularResponse, handleStreamingResponse]);
-
-  const handleStreamingResponse = useCallback(async (messageId: string, request: ChatRequest) => {
-    console.log('🔄 [CLAUDE-CHAT] handleStreamingResponse started:', { messageId, request });
-    
-    // Get CSRF token from meta tag
-    const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-    console.log('🔐 [CLAUDE-CHAT] CSRF token found:', !!token);
-    
-    // Get base URL from environment or default
-    const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:3978';
-    const url = `${baseURL}/api/ai/chat`;
-    console.log('🌐 [CLAUDE-CHAT] Making streaming request to:', url);
-    
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'text/event-stream',
-        'X-CSRF-TOKEN': token || '',
-        'X-Requested-With': 'XMLHttpRequest',
-      },
-      credentials: 'include',
-      body: JSON.stringify(request),
-      signal: abortControllerRef.current?.signal,
-    });
-
-    console.log('📡 [CLAUDE-CHAT] Fetch response received:', { 
-      status: response.status, 
-      statusText: response.statusText, 
-      ok: response.ok,
-      headers: Object.fromEntries(response.headers.entries())
-    });
-
-    if (!response.ok) {
-      console.error('❌ [CLAUDE-CHAT] Streaming response failed:', response.status, response.statusText);
-      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-    }
-
-    const reader = response.body?.getReader();
-    if (!reader) {
-      throw new Error('No response body');
-    }
-
-    const decoder = new TextDecoder();
-    let buffer = '';
-    let fullContent = '';
-
-    try {
-      while (true) {
-        const { done, value } = await reader.read();
-        if (done) break;
-
-        buffer += decoder.decode(value, { stream: true });
-        const lines = buffer.split('\n');
-        buffer = lines.pop() || '';
-
-        for (const line of lines) {
-          if (line.startsWith('data: ')) {
-            const data = line.slice(6).trim();
-            if (data === '[DONE]') break;
-
-            try {
-              const chunk: StreamChunk = JSON.parse(data);
-              // Log pour débugger le format
-              console.log('Received chunk:', chunk);
-              
-              // Essayer différents formats de réponse possibles
-              const content = chunk.choices?.[0]?.delta?.content || 
-                             chunk.delta?.content || 
-                             chunk.content || 
-                             '';
-              
-              if (content) {
-                fullContent += content;
-                updateMessage(messageId, { 
-                  content: fullContent, 
-                  status: 'sent' 
-                });
-              }
-            } catch (e) {
-              console.warn('Failed to parse chunk:', data, e);
-            }
-          }
-        }
-      }
-    } finally {
-      reader.releaseLock();
-    }
-
-    updateMessage(messageId, { status: 'sent' });
-  }, [updateMessage]);
-
-  const handleRegularResponse = useCallback(async (messageId: string, request: ChatRequest) => {
-    console.log('📨 [CLAUDE-CHAT] handleRegularResponse started:', { messageId, request });
-    
-    // Get CSRF token from meta tag
-    const token = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-    console.log('🔐 [CLAUDE-CHAT] CSRF token found:', !!token);
-    console.log('🌐 [CLAUDE-CHAT] API client baseURL:', apiClient.defaults.baseURL);
-    
-    const response = await apiClient.post('/api/ai/chat', request, {
-      signal: abortControllerRef.current?.signal,
-      headers: {
-        'X-CSRF-TOKEN': token || '',
-      },
-    });
-
-    console.log('📡 [CLAUDE-CHAT] API response received:', {
-      status: response.status,
-      statusText: response.statusText,
-      headers: response.headers,
-      data: response.data
-    });
-
-    const data = response.data;
-    
-    // Essayer différents formats de réponse possibles
-    const content = data.content ||
-                   data.choices?.[0]?.message?.content || 
-                   data.message?.content ||
-                   data.response ||
-                   data.text ||
-                   'No response received';
-    
-    console.log('📝 [CLAUDE-CHAT] Extracted content:', { 
-      contentFound: !!content, 
-      contentLength: content?.length, 
-      contentPreview: content?.substring(0, 100) + '...',
-      dataKeys: Object.keys(data)
-    });
-    
-    updateMessage(messageId, { 
-      content, 
-      status: 'sent',
-      metadata: {
-        model: currentModel,
-        tokens: data.usage?.total_tokens,
-      }
-    });
-    
-    console.log('✅ [CLAUDE-CHAT] Message updated successfully');
-  }, [updateMessage, currentModel]);
 
   const regenerateMessage = useCallback(async (messageId: string) => {
     const messageIndex = messages.findIndex(msg => msg.id === messageId);

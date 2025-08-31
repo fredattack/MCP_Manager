@@ -4,6 +4,10 @@ import { Head } from '@inertiajs/react';
 import { useClaudeChat } from '@/hooks/ai/use-claude-chat';
 import { AIModel, CanvasContent } from '@/types/ai/claude.types';
 import { cn } from '@/lib/utils';
+import { ChatInputWithNLP } from '@/components/ai/chat/ChatInputWithNLP';
+import { ParsedCommand } from '@/lib/nlp';
+import { useToast } from '@/hooks/ui/use-toast';
+import { VirtualizedMessageList } from '@/components/ai/chat/VirtualizedMessageList';
 
 export default function ClaudeChatPage() {
   console.log('🎬 [CLAUDE-CHAT-PAGE] Component rendering');
@@ -35,6 +39,12 @@ export default function ClaudeChatPage() {
   const [selectedMessageId, setSelectedMessageId] = useState<string | null>(null);
   const [canvasContent, setCanvasContent] = useState<CanvasContent | null>(null);
   const [isCanvasVisible, setIsCanvasVisible] = useState(true);
+  const [useVirtualization, setUseVirtualization] = useState(false);
+
+  // Enable virtualization automatically for large message lists
+  useEffect(() => {
+    setUseVirtualization(messages.length > 50);
+  }, [messages.length]);
 
   // Extract canvas content from selected message
   useEffect(() => {
@@ -104,6 +114,19 @@ export default function ClaudeChatPage() {
       cancelGeneration();
     }
   }, [clearMessages, isLoading, cancelGeneration]);
+
+  const { toast } = useToast();
+
+  const handleNLPCommand = useCallback((command: ParsedCommand) => {
+    console.log('🤖 [CLAUDE-CHAT-PAGE] NLP Command received:', command);
+    
+    // Show command interpretation in chat
+    const commandMessage = `Command detected: ${command.intent.intent} for ${command.intent.service || 'general'}`;
+    toast.info('Command Detected', commandMessage);
+    
+    // You can add custom handling here if needed
+    // For now, the command will be executed by the NLP engine
+  }, [toast]);
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
@@ -178,6 +201,21 @@ export default function ClaudeChatPage() {
                   </p>
                 </div>
               </div>
+            ) : useVirtualization ? (
+              <div className="h-full">
+                <VirtualizedMessageList
+                  messages={messages}
+                  onRegenerate={regenerateMessage}
+                  onEdit={(id, content) => console.log('Edit not implemented yet', id, content)}
+                  streamingMessageId={streamingMessageId}
+                  className="h-full"
+                />
+                {isLoading && streamingMessageId === null && (
+                  <div className="p-4">
+                    <TypingIndicator />
+                  </div>
+                )}
+              </div>
             ) : (
               <div className="space-y-4">
                 {messages.map((message) => (
@@ -203,10 +241,14 @@ export default function ClaudeChatPage() {
 
           {/* Input Area */}
           <div className="border-t border-gray-200 dark:border-gray-700 p-4">
-            <ChatInput
+            <ChatInputWithNLP
               onSend={sendMessage}
+              onCommand={handleNLPCommand}
               disabled={isLoading}
               placeholder={`Message ${currentModel}...`}
+              currentModel={currentModel}
+              onModelChange={setCurrentModel}
+              showModelSelector={false}
             />
           </div>
         </div>
@@ -332,79 +374,6 @@ function TypingIndicator() {
   );
 }
 
-interface ChatInputProps {
-  onSend: (message: string) => void;
-  disabled: boolean;
-  placeholder: string;
-}
-
-function ChatInput({ onSend, disabled, placeholder }: ChatInputProps) {
-  const [value, setValue] = useState('');
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
-
-  console.log('⌨️ [CHAT-INPUT] Rendering:', { 
-    valueLength: value.length, 
-    disabled, 
-    placeholder 
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('📤 [CHAT-INPUT] Submit attempted:', { 
-      value: value.trim(), 
-      disabled, 
-      canSend: value.trim() && !disabled 
-    });
-    
-    if (value.trim() && !disabled) {
-      console.log('✅ [CHAT-INPUT] Sending message:', value.trim());
-      onSend(value);
-      setValue('');
-    } else {
-      console.log('❌ [CHAT-INPUT] Cannot send - empty or disabled');
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      console.log('⏎ [CHAT-INPUT] Enter key pressed');
-      e.preventDefault();
-      handleSubmit(e);
-    }
-  };
-
-  useEffect(() => {
-    if (textareaRef.current) {
-      textareaRef.current.style.height = 'auto';
-      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-    }
-  }, [value]);
-
-  return (
-    <form onSubmit={handleSubmit} className="relative">
-      <textarea
-        ref={textareaRef}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onKeyDown={handleKeyDown}
-        placeholder={placeholder}
-        disabled={disabled}
-        rows={1}
-        className="w-full resize-none rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 px-4 py-3 pr-12 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:opacity-50"
-      />
-      <button
-        type="submit"
-        disabled={disabled || !value.trim()}
-        className="absolute bottom-3 right-3 rounded-md bg-blue-600 p-1.5 text-white hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-      >
-        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-        </svg>
-      </button>
-    </form>
-  );
-}
-
 interface CanvasPanelProps {
   selectedMessage?: { id: string; role: string; content: string; timestamp: Date };
   content?: CanvasContent | null;
@@ -480,5 +449,3 @@ function CanvasPanel({ selectedMessage, content }: CanvasPanelProps) {
   );
 }
 
-// Add missing import
-import { useRef } from 'react';

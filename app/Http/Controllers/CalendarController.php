@@ -26,7 +26,7 @@ class CalendarController extends Controller
         $auth = auth();
         /** @var User $user */
         $user = $auth->user();
-        
+
         return $user->integrationAccounts()
             ->where('type', IntegrationType::CALENDAR)
             ->where('status', 'active')
@@ -35,9 +35,9 @@ class CalendarController extends Controller
 
     public function index(): \Inertia\Response|\Illuminate\Http\RedirectResponse
     {
-        $integration = $this->getGoogleIntegration();
+        $integrationAccount = $this->getGoogleIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $status = $this->googleService->getCalendarStatus();
@@ -56,9 +56,9 @@ class CalendarController extends Controller
 
     public function events(Request $request): \Illuminate\Http\JsonResponse
     {
-        $integration = $this->getGoogleIntegration();
+        $integrationAccount = $this->getGoogleIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $params = [];
@@ -98,9 +98,9 @@ class CalendarController extends Controller
             'attendees.*.email' => 'email',
         ]);
 
-        $integration = $this->getGoogleIntegration();
+        $integrationAccount = $this->getGoogleIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $result = $this->googleService->createCalendarEvent($request->all());
@@ -126,9 +126,9 @@ class CalendarController extends Controller
             'attendees.*.email' => 'email',
         ]);
 
-        $integration = $this->getGoogleIntegration();
+        $integrationAccount = $this->getGoogleIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $result = $this->googleService->updateCalendarEvent($eventId, $request->all());
@@ -141,9 +141,9 @@ class CalendarController extends Controller
 
     public function destroy(string $eventId): \Illuminate\Http\JsonResponse
     {
-        $integration = $this->getGoogleIntegration();
+        $integrationAccount = $this->getGoogleIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $result = $this->googleService->deleteCalendarEvent($eventId);
@@ -163,9 +163,9 @@ class CalendarController extends Controller
             'end.dateTime' => 'required|date|after:start.dateTime',
         ]);
 
-        $integration = $this->getGoogleIntegration();
+        $integrationAccount = $this->getGoogleIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $result = $this->googleService->checkCalendarConflicts($request->all());
@@ -178,9 +178,9 @@ class CalendarController extends Controller
 
     public function weekEvents(): \Illuminate\Http\JsonResponse
     {
-        $integration = $this->getGoogleIntegration();
+        $integrationAccount = $this->getGoogleIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $events = $this->googleService->getWeekEvents();

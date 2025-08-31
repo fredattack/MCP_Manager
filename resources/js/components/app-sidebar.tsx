@@ -13,9 +13,9 @@ import {
     SidebarMenuButton,
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
-import { type NavItem } from '@/types';
+import { type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle, MessageSquare, Brain, Mail, Calendar } from 'lucide-react';
+import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle, MessageSquare, Brain, Mail, Calendar, CalendarDays, Kanban } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -35,6 +35,11 @@ const mainNavItems: NavItem[] = [
         icon: Brain,
     },
     {
+        title: 'Daily Planning',
+        href: '/daily-planning',
+        icon: CalendarDays,
+    },
+    {
         title: 'Integrations',
         href: '/integrations',
         icon: Plug,
@@ -43,6 +48,11 @@ const mainNavItems: NavItem[] = [
         title: 'Notion Pages',
         href: '/notion',
         icon: FileText,
+    },
+    {
+        title: 'JIRA',
+        href: '/jira',
+        icon: Kanban,
     },
 ];
 
@@ -134,6 +144,22 @@ function IntegrationsNav({ items }: { items: NavItem[] }) {
 }
 
 export function AppSidebar() {
+    const page = usePage();
+    const integrationStatuses = (page.props as SharedData).integrationStatuses || {};
+    
+    // Update integration items with dynamic statuses
+    const dynamicIntegrationItems = integrationItems.map(item => {
+        let statusKey = '';
+        if (item.title === 'Todoist') statusKey = 'todoist';
+        else if (item.title === 'Gmail') statusKey = 'gmail';
+        else if (item.title === 'Calendar') statusKey = 'calendar';
+        
+        return {
+            ...item,
+            status: integrationStatuses[statusKey] || 'disconnected',
+        };
+    });
+    
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>
@@ -150,7 +176,7 @@ export function AppSidebar() {
 
             <SidebarContent>
                 <NavMain items={mainNavItems} />
-                <IntegrationsNav items={integrationItems} />
+                <IntegrationsNav items={dynamicIntegrationItems} />
             </SidebarContent>
 
             <SidebarFooter>

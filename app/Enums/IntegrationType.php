@@ -9,6 +9,8 @@ enum IntegrationType: string
     case CALENDAR = 'calendar';
     case OPENAI = 'openai';
     case TODOIST = 'todoist';
+    case JIRA = 'jira';
+    case SENTRY = 'sentry';
 
     /**
      * Get the display name for the integration type.
@@ -21,6 +23,8 @@ enum IntegrationType: string
             self::CALENDAR => 'Google Calendar',
             self::OPENAI => 'OpenAI',
             self::TODOIST => 'Todoist',
+            self::JIRA => 'JIRA',
+            self::SENTRY => 'Sentry',
         };
     }
 
@@ -35,6 +39,8 @@ enum IntegrationType: string
             self::CALENDAR => 'Connect to your Google Calendar',
             self::OPENAI => 'Connect to OpenAI services',
             self::TODOIST => 'Connect to TodoIst services',
+            self::JIRA => 'Connect to your JIRA instance for issue tracking',
+            self::SENTRY => 'Connect to Sentry for error monitoring',
         };
     }
 }

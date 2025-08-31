@@ -258,3 +258,6 @@ export type ExportFormat = 'pdf' | 'md' | 'html' | 'json';
 export type ConversationSortOrder = 'newest' | 'oldest' | 'mostActive' | 'alphabetical';
 export type ThemeMode = 'light' | 'dark' | 'system';
 export type CanvasLayout = 'side' | 'bottom' | 'overlay' | 'fullscreen';
+
+// Re-export NLP types
+export type { ParsedCommand, ParsedIntent, Entity } from '@/lib/nlp';

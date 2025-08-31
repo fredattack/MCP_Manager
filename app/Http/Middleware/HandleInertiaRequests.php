@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\IntegrationStatus;
+use App\Enums\IntegrationType;
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
@@ -39,6 +41,19 @@ class HandleInertiaRequests extends Middleware
     {
         [$message, $author] = str(Inspiring::quotes()->random())->explode('-');
 
+        $integrationStatuses = [];
+        
+        if ($request->user()) {
+            // Get integration statuses for the current user
+            $integrations = $request->user()->integrationAccounts()
+                ->whereIn('type', [IntegrationType::TODOIST, IntegrationType::GMAIL, IntegrationType::CALENDAR])
+                ->get();
+            
+            foreach ($integrations as $integration) {
+                $integrationStatuses[$integration->type->value] = $integration->status === IntegrationStatus::ACTIVE ? 'connected' : 'disconnected';
+            }
+        }
+
         return [
             ...parent::share($request),
             'name' => config('app.name'),
@@ -51,6 +66,13 @@ class HandleInertiaRequests extends Middleware
                 'location' => $request->url(),
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'integrationStatuses' => $integrationStatuses,
+            'flash' => [
+                'success' => $request->session()->get('success'),
+                'error' => $request->session()->get('error'),
+                'warning' => $request->session()->get('warning'),
+                'info' => $request->session()->get('info'),
+            ],
         ];
     }
 }

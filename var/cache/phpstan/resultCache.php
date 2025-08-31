@@ -1,7 +1,7 @@
 <?php declare(strict_types = 1);
 
 return [
-	'lastFullAnalysisTime' => 1751536560,
+	'lastFullAnalysisTime' => 1751607643,
 	'meta' => array (
   'cacheVersion' => 'v12-linesToIgnore',
   'phpstanVersion' => '2.1.17',
@@ -12,39 +12,10 @@ return [
   'projectConfig' => '{parameters: {level: max, paths: [/Users/fred/PhpstormProjects/mcp_manager/app, /Users/fred/PhpstormProjects/mcp_manager/config, /Users/fred/PhpstormProjects/mcp_manager/database, /Users/fred/PhpstormProjects/mcp_manager/routes, /Users/fred/PhpstormProjects/mcp_manager/tests], excludePaths: {analyseAndScan: [/Users/fred/PhpstormProjects/mcp_manager/vendor, /Users/fred/PhpstormProjects/mcp_manager/node_modules, /Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/Auth, /Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/Settings, /Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HandleInertiaRequests.php, /Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/CookieAttributes.php, /Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/DebugAuth.php, /Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveNotionIntegration.php, /Users/fred/PhpstormProjects/mcp_manager/app/Http/Requests/Auth/LoginRequest.php, /Users/fred/PhpstormProjects/mcp_manager/app/Http/Requests/Settings/ProfileUpdateRequest.php], analyse: []}, tmpDir: /Users/fred/PhpstormProjects/mcp_manager/var/cache/phpstan}}',
   'analysedPaths' => 
   array (
-    0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php',
-    1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-    2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-    3 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning',
-    4 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-    5 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
+    0 => '/Users/fred/PhpstormProjects/mcp_manager/app',
   ),
   'scannedFiles' => 
   array (
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Console/Commands/RenameProjectCommand.php' => 'ae78ce2b1a0f3909f8669c320de903edf5401b09',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationStatus.php' => '421116c15a24e70db84d44592d004542c32f1be9',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationType.php' => 'a532f5779e9780eced189e6739b4dfdbaa5a7b18',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/AiChatController.php' => '89191e9fdc513866bbcb3c965962f1d9d6c5ddc5',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php' => '04de98498f05d6cc8552f0fcf31ce4bd4d0608ca',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/Controller.php' => 'a33a5105f92c73a309c9f8a549905dcdf6dccbae',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php' => 'c5ec4970be7130eda85eb8d4dc68307938db164a',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php' => 'ef4bdcef2abd495053cb18970ba5843deb185c64',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/IntegrationsController.php' => 'dec7f34f5caf31df5904b41d70aafd511d1f08f8',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/McpProxyController.php' => '1b186f57430e85612a60a56d0f193b29ba757b71',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php' => '9223352a2159007249e5125195269fd808d1305e',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionController.php' => 'e5d76fda1a93e89bfe2398bca4c8f618a8fcabf3',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionIntegrationController.php' => '097b5475565d2000bc98758d5dcf4fe32d518540',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/Authenticate.php' => 'aa7a909ab8e4a8d509f2cecfe890fd7f19df8938',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HandleAppearance.php' => '919b506864fbdf2567a2e1c71b3583c418b06a86',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php' => 'ad84ecb0bff5fb8f755cbc59b9744594390091fa',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/VerifyCsrfToken.php' => 'cd7982fbca8319ce828d330f06be6b2131101ff2',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php' => '7f0ab3becb323a5e0533e470f08fa783bacee612',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Models/User.php' => '254b4547d8d7443a538f26fb79cb39be7d8a4023',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Providers/AppServiceProvider.php' => '01bf9e5cf5bb666446625056b618445ae4749675',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php' => 'df4a525b23fe4b69ab266394c8aef46999f278db',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php' => 'ebe40a55b8efca497ee3c8bf431239ff8a002851',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php' => '7e782b26d82b2e6e6f99d758606060b1ac6d3dc5',
-    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NotionService.php' => '753e6e750598e8e1da0cf7b434f2bcbd5bc731c0',
     '/Users/fred/PhpstormProjects/mcp_manager/config/app.php' => 'be30e3c7d232c4616f527cdab9a00333e072d0d5',
     '/Users/fred/PhpstormProjects/mcp_manager/config/auth.php' => 'a36d9e309e8385c9a6dab6cefa28475cc469a81c',
     '/Users/fred/PhpstormProjects/mcp_manager/config/cache.php' => '2b9663d1fa1e080d4c8acdfb58bb61740c6995da',
@@ -65,11 +36,11 @@ return [
     '/Users/fred/PhpstormProjects/mcp_manager/database/migrations/2023_06_10_000000_add_api_token_to_users_table.php' => '6fe7898830fcf923a1585fac57e744361f579e7c',
     '/Users/fred/PhpstormProjects/mcp_manager/database/migrations/2025_06_08_105450_create_integration_accounts_table.php' => '7ccae720da6f2b86e46ca6ffe7f6881692b95135',
     '/Users/fred/PhpstormProjects/mcp_manager/database/seeders/DatabaseSeeder.php' => '236a134dfcbb745a5a54b19f9647c3734106fd87',
-    '/Users/fred/PhpstormProjects/mcp_manager/routes/api.php' => 'a68fc7b3b39c1cf1a87b5f9e270525be76763e5c',
+    '/Users/fred/PhpstormProjects/mcp_manager/routes/api.php' => 'ae19388d580e0ecd3f2ad518e919e35ae1b0c58b',
     '/Users/fred/PhpstormProjects/mcp_manager/routes/auth.php' => '300ce76172c5954e85bf59b80c08b6b34f85369b',
     '/Users/fred/PhpstormProjects/mcp_manager/routes/console.php' => '302bdfc3b87dd1b70c1dc59645e1235395c9c0e3',
     '/Users/fred/PhpstormProjects/mcp_manager/routes/settings.php' => '2698384be23da6af0e0824b630f147ee047b366f',
-    '/Users/fred/PhpstormProjects/mcp_manager/routes/web.php' => '18a9fec4415417c4cc5674817e5ba7a4ac749a78',
+    '/Users/fred/PhpstormProjects/mcp_manager/routes/web.php' => 'c711e7e5c77bd142f433b5626c32d0903f1eb7d0',
     '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/Auth/AuthenticationTest.php' => 'cc810dbfdbc4e8458f3be441003682a1a8d01c85',
     '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/Auth/EmailVerificationTest.php' => '52ab0195c3ce6089cbea9751454943220af6f767',
     '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/Auth/PasswordConfirmationTest.php' => '3d1f8a8685b1aa7df2607b16f3f7d57ec4747244',
@@ -2097,325 +2068,34 @@ return [
 	'projectExtensionFiles' => array (
 ),
 	'errorsCallback' => static function (): array { return array (
-  '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php' => 
-  array (
-    0 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\ActionResult::__construct() has parameter $errors with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'line' => 9,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 9,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Deprecated in PHP 8.4: Parameter #2 $message (string) is implicitly nullable via default value null.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'line' => 17,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 17,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'parameter.implicitlyNullable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\ActionResult::success() has parameter $data with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'line' => 17,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 17,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\ActionResult::error() has parameter $errors with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'line' => 27,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 27,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\ActionResult::validationError() has parameter $errors with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'line' => 37,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 37,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\ActionResult::toArray() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'line' => 56,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 56,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\ActionResult::toResponse() has no return type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.return',
-       'metadata' => 
-      array (
-      ),
-    )),
-  ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php' => 
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::handle() has parameter $parameters with no type specified.',
+       'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::user().',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 15,
+       'line' => 125,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 15,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::validate() has parameter $parameters with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 59,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 59,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::validate() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 59,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 59,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::authorize() has parameter $parameters with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 64,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::execute() has no return type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 69,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 69,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.return',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::execute() has parameter $parameters with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 69,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 69,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::execute() has parameter $validated with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 69,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 69,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::beforeExecute() has parameter $validated with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 74,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 74,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::afterExecute() has parameter $result with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 79,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 79,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::afterExecute() has parameter $validated with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 79,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 79,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\BaseAction::logSuccess() has parameter $result with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 95,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 95,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::id().',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 98,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 98,
+       'nodeLine' => 125,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'method.notFound',
        'metadata' => 
       array (
       ),
     )),
-    12 => 
+    1 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::id().',
+       'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::user().',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
-       'line' => 109,
+       'line' => 138,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 109,
+       'nodeLine' => 138,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'method.notFound',
        'metadata' => 
@@ -2427,398 +2107,398 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::validate() has parameter $parameters with no type specified.',
+       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::validate() should return array<string, mixed> but returns array.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 20,
+       'line' => 42,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 20,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    1 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::validate() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 20,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 20,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    2 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Contracts\\Validation\\Factory|Illuminate\\Contracts\\Validation\\Validator::validate().',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    3 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $data of function validator expects array|null, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 24,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 24,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    4 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::authorize() has parameter $parameters with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 36,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 36,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    5 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method exists() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 41,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method integrationAccounts() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 41,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method where() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 41,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    8 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method where() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 41,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    9 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::authorize() should return bool but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 41,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 41,
+       'nodeLine' => 42,
        'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
        'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::execute() has no return type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 47,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 47,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.return',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::execute() has parameter $parameters with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 47,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 47,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::execute() has parameter $validated with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 47,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 47,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $user of method App\\Services\\DailyPlanningService::generateDailyPlanning() expects App\\Models\\User, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 53,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 53,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $user of method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::storePlanning() expects App\\Models\\User, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 64,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 64,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access property $id on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 74,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 74,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::afterExecute() has parameter $result with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 83,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 83,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::afterExecute() has parameter $validated with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 83,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 83,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'success\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 85,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 85,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method causedBy() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 87,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 87,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method log() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 87,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 87,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method withProperties() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 87,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 87,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Function activity not found.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 87,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 87,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    23 => 
+    1 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::user().',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 88,
+       'line' => 117,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 88,
+       'nodeLine' => 117,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'method.notFound',
        'metadata' => 
       array (
       ),
     )),
-    24 => 
+    2 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'planning_id\' on mixed.',
+       'message' => 'Cannot call method causedBy() on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 90,
+       'line' => 119,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 90,
+       'nodeLine' => 119,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method log() on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 119,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 119,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method withProperties() on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 119,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 119,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'top_tasks\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 123,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 123,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 123,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 123,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'mit\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 124,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 124,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $content (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 175,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 175,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    9 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $priority (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 175,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 175,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    10 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $projectName (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 175,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 175,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    11 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $content (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 190,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 190,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    12 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $duration (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 190,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 190,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    13 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $priority (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 190,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 190,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    14 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $projectName (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 190,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 190,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    15 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function is_array() with non-empty-array will always evaluate to true.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 206,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 206,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.alreadyNarrowedType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    16 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $end (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 210,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 210,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    17 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $start (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 210,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 210,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    18 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $title (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 210,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 210,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    19 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to function is_array() with non-empty-array will always evaluate to true.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 219,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 219,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.alreadyNarrowedType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    20 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $end (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 223,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 223,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    21 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $start (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 223,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 223,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    22 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $title (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 223,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 223,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    23 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 239,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 239,
+       'nodeType' => 'PHPStan\\Node\\InForeachNode',
+       'identifier' => 'foreach.nonIterable',
+       'metadata' => 
+      array (
+      ),
+    )),
+    24 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'content\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'line' => 240,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 240,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -2827,14 +2507,14 @@ return [
     )),
     25 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'planning\' on mixed.',
+       'message' => 'Cannot access offset \'priority\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 91,
+       'line' => 240,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 91,
+       'nodeLine' => 240,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -2843,926 +2523,110 @@ return [
     )),
     26 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'top_tasks\' on mixed.',
+       'message' => 'Part $task[\'content\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 91,
+       'line' => 240,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 91,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'nodeLine' => 240,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
     27 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'message' => 'Part $task[\'priority\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 91,
+       'line' => 240,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 91,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
+       'nodeLine' => 240,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
     28 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'mit\' on mixed.',
+       'message' => 'Part $message (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 92,
+       'line' => 262,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 92,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'nodeLine' => 262,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
     29 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'planning\' on mixed.',
+       'message' => 'Part $type (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 92,
+       'line' => 262,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 92,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'nodeLine' => 262,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
     30 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Exceptions\\IntegrationException not found.',
+       'message' => 'Part $task1 (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 100,
+       'line' => 270,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 100,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Instanceof_',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 270,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
     31 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::storePlanning() has parameter $planning with no value type specified in iterable type array.',
+       'message' => 'Part $task2 (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 111,
+       'line' => 270,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 111,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 270,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
     32 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\CreateDailyPlanningAction::generateMarkdown() has parameter $planning with no value type specified in iterable type array.',
+       'message' => 'Part $time (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 124,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 124,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    33 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 133,
+       'line' => 270,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    34 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    35 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'project_name\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    36 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $mit[\'content\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    37 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $mit[\'priority\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    38 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $mit[\'project_name\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 133,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 133,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    39 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 139,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 139,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    40 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Binary operation "+" between mixed and 1 results in an error.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 140,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 140,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Plus',
-       'identifier' => 'binaryOp.invalid',
-       'metadata' => 
-      array (
-      ),
-    )),
-    41 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 141,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 141,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    42 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    43 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    44 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'project_name\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    45 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $duration (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    46 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $task[\'content\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    47 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $task[\'priority\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    48 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $task[\'project_name\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 142,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 142,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    49 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'period\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 149,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 149,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    50 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $array of function array_filter expects array, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 149,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 149,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    51 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'period\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 150,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 150,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    52 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $array of function array_filter expects array, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 150,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 150,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    53 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'end\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 155,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    54 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'start\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 155,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    55 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'title\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 155,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    56 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $block[\'end\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 155,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    57 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $block[\'start\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 155,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    58 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $block[\'title\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 155,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 155,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    59 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'end\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 163,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 163,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    60 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'start\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 163,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 163,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    61 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'title\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 163,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 163,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    62 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $block[\'end\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 163,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 163,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    63 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $block[\'start\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 163,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 163,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    64 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $block[\'title\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 163,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 163,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    65 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 178,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 178,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    66 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 179,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 179,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    67 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 179,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 179,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    68 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $task[\'content\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 179,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 179,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    69 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $task[\'priority\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 179,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 179,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    70 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 194,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 194,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    71 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'severity\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 195,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 195,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    72 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'message\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 196,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 196,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    73 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'type\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 196,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 196,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    74 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $alert[\'message\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 196,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 196,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    75 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $alert[\'type\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 196,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 196,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    76 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'details\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 197,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 197,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    77 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 198,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 198,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    78 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'task1\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 199,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 199,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    79 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'task2\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 199,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 199,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    80 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 199,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 199,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    81 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $detail[\'task1\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 199,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 199,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    82 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $detail[\'task2\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 199,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 199,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    83 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $detail[\'time\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'line' => 199,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 199,
+       'nodeLine' => 270,
        'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
        'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
@@ -3774,62 +2638,62 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::validate() has parameter $parameters with no type specified.',
+       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::validate() should return array<string, mixed> but returns array.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 22,
+       'line' => 25,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 22,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
+       'nodeLine' => 25,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     1 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::validate() return type has no value type specified in iterable type array.',
+       'message' => 'Cannot call method exists() on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 22,
+       'line' => 42,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 22,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 42,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
        'metadata' => 
       array (
       ),
     )),
     2 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::authorize() has parameter $parameters with no type specified.',
+       'message' => 'Cannot call method integrationAccounts() on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 38,
+       'line' => 42,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 38,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
+       'nodeLine' => 42,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
        'metadata' => 
       array (
       ),
     )),
     3 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method exists() on mixed.',
+       'message' => 'Cannot call method where() on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 43,
+       'line' => 42,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 43,
+       'nodeLine' => 42,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'method.nonObject',
        'metadata' => 
@@ -3838,14 +2702,14 @@ return [
     )),
     4 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method integrationAccounts() on mixed.',
+       'message' => 'Cannot call method where() on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 43,
+       'line' => 42,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 43,
+       'nodeLine' => 42,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'method.nonObject',
        'metadata' => 
@@ -3854,78 +2718,78 @@ return [
     )),
     5 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method where() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 43,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 43,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    6 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method where() on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 43,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 43,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    7 => 
-    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot access property $id on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 51,
+       'line' => 50,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 51,
+       'nodeLine' => 50,
        'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
        'identifier' => 'property.nonObject',
        'metadata' => 
       array (
       ),
     )),
-    8 => 
+    6 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Part $planningId (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 51,
+       'line' => 50,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 51,
+       'nodeLine' => 50,
        'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
        'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
-    9 => 
+    7 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Part $user->id (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 51,
+       'line' => 50,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 51,
+       'nodeLine' => 50,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access property $id on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'line' => 63,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 63,
+       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
+       'identifier' => 'property.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    9 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $planningId (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'line' => 63,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 63,
        'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
        'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
@@ -3934,126 +2798,126 @@ return [
     )),
     10 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::execute() has no return type specified.',
+       'message' => 'Part $user->id (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 55,
+       'line' => 63,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 55,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.return',
+       'nodeLine' => 63,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
     11 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::execute() has parameter $parameters with no type specified.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 55,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 55,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::execute() has parameter $validated with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 55,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 55,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access property $id on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 60,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 60,
-       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
-       'identifier' => 'property.nonObject',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $planningId (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 60,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 60,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $user->id (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 60,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 60,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot access offset \'type\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 66,
+       'line' => 69,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 66,
+       'nodeLine' => 69,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
       array (
       ),
     )),
-    17 => 
+    12 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot access offset \'selected\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 77,
+       'line' => 80,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 77,
+       'nodeLine' => 80,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    13 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $type of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::determineUpdates() expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'line' => 80,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 80,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    14 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $selected of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::determineUpdates() expects array, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'line' => 80,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 80,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    15 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $user of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() expects App\\Models\\User, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'line' => 83,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 83,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    16 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $planning of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() expects array, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'line' => 83,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 83,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    17 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'success\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'line' => 95,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 95,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4062,110 +2926,110 @@ return [
     )),
     18 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $type of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::determineUpdates() expects string, mixed given.',
+       'message' => 'Cannot call method causedBy() on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 77,
+       'line' => 97,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 77,
+       'nodeLine' => 97,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
+       'identifier' => 'method.nonObject',
        'metadata' => 
       array (
       ),
     )),
     19 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $selected of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::determineUpdates() expects array, mixed given.',
+       'message' => 'Cannot call method log() on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 77,
+       'line' => 97,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 77,
+       'nodeLine' => 97,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
+       'identifier' => 'method.nonObject',
        'metadata' => 
       array (
       ),
     )),
     20 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $user of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() expects App\\Models\\User, mixed given.',
+       'message' => 'Cannot call method withProperties() on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 80,
+       'line' => 97,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 80,
+       'nodeLine' => 97,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
+       'identifier' => 'method.nonObject',
        'metadata' => 
       array (
       ),
     )),
     21 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $planning of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() expects array, mixed given.',
+       'message' => 'Function activity not found.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 80,
+       'line' => 97,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 80,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
+       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
+       'nodeLine' => 97,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'function.notFound',
        'metadata' => 
       array (
       ),
     )),
     22 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::afterExecute() has parameter $result with no type specified.',
+       'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::user().',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 90,
+       'line' => 98,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 90,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.parameter',
+       'nodeLine' => 98,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
        'metadata' => 
       array (
       ),
     )),
     23 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::afterExecute() has parameter $validated with no value type specified in iterable type array.',
+       'message' => 'Cannot access offset \'type\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 90,
+       'line' => 100,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 90,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 100,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
       array (
       ),
     )),
     24 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'success\' on mixed.',
+       'message' => 'Cannot access offset \'updates_applied\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 92,
+       'line' => 101,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 92,
+       'nodeLine' => 101,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4174,110 +3038,110 @@ return [
     )),
     25 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method causedBy() on mixed.',
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 94,
+       'line' => 101,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 94,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
+       'nodeLine' => 101,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
     26 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method log() on mixed.',
+       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::determineUpdates() has parameter $selected with no value type specified in iterable type array.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 94,
+       'line' => 128,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 94,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 128,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
     27 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot call method withProperties() on mixed.',
+       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::determineUpdates() return type has no value type specified in iterable type array.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 94,
+       'line' => 128,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 94,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.nonObject',
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 128,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
     28 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Function activity not found.',
+       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() has parameter $planning with no value type specified in iterable type array.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 94,
+       'line' => 137,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 94,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'function.notFound',
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 137,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
     29 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::user().',
+       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() has parameter $updatesToApply with no value type specified in iterable type array.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 95,
+       'line' => 137,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 95,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'method.notFound',
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 137,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
     30 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'type\' on mixed.',
+       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() return type has no value type specified in iterable type array.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 97,
+       'line' => 137,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 97,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 137,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
     31 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'updates_applied\' on mixed.',
+       'message' => 'Cannot access offset \'schedule_updates\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 98,
+       'line' => 153,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 98,
+       'nodeLine' => 153,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4286,126 +3150,126 @@ return [
     )),
     32 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 98,
+       'line' => 154,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 98,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
+       'nodeLine' => 154,
+       'nodeType' => 'PHPStan\\Node\\InForeachNode',
+       'identifier' => 'foreach.nonIterable',
        'metadata' => 
       array (
       ),
     )),
     33 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Exceptions\\IntegrationException not found.',
+       'message' => 'Cannot access offset \'task_id\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 114,
+       'line' => 156,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 114,
-       'nodeType' => 'PhpParser\\Node\\Expr\\Instanceof_',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 156,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
       array (
       ),
     )),
     34 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::determineUpdates() has parameter $selected with no value type specified in iterable type array.',
+       'message' => 'Cannot access offset \'time\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 125,
+       'line' => 156,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 125,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 156,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
       array (
       ),
     )),
     35 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::determineUpdates() return type has no value type specified in iterable type array.',
+       'message' => 'Parameter #1 $taskId of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskSchedule() expects string, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 125,
+       'line' => 156,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 125,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 156,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
     36 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() has parameter $planning with no value type specified in iterable type array.',
+       'message' => 'Parameter #2 $time of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskSchedule() expects string, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 134,
+       'line' => 156,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 134,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 156,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
     37 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() has parameter $updatesToApply with no value type specified in iterable type array.',
+       'message' => 'Cannot access offset \'task_name\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 134,
+       'line' => 159,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 134,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 159,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
       array (
       ),
     )),
     38 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::applyUpdates() return type has no value type specified in iterable type array.',
+       'message' => 'Part $update[\'task_name\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 134,
+       'line' => 159,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 134,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 159,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
       array (
       ),
     )),
     39 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'schedule_updates\' on mixed.',
+       'message' => 'Cannot access offset \'duration_updates\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 150,
+       'line' => 165,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 150,
+       'nodeLine' => 165,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4416,12 +3280,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 151,
+       'line' => 166,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 151,
+       'nodeLine' => 166,
        'nodeType' => 'PHPStan\\Node\\InForeachNode',
        'identifier' => 'foreach.nonIterable',
        'metadata' => 
@@ -4430,14 +3294,14 @@ return [
     )),
     41 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'task_id\' on mixed.',
+       'message' => 'Cannot access offset \'duration\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 153,
+       'line' => 168,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 153,
+       'nodeLine' => 168,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4446,14 +3310,14 @@ return [
     )),
     42 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'time\' on mixed.',
+       'message' => 'Cannot access offset \'task_id\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 153,
+       'line' => 168,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 153,
+       'nodeLine' => 168,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4462,14 +3326,14 @@ return [
     )),
     43 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $taskId of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskSchedule() expects string, mixed given.',
+       'message' => 'Parameter #1 $taskId of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskDuration() expects string, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 153,
+       'line' => 168,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 153,
+       'nodeLine' => 168,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
        'metadata' => 
@@ -4478,14 +3342,14 @@ return [
     )),
     44 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $time of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskSchedule() expects string, mixed given.',
+       'message' => 'Parameter #2 $duration of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskDuration() expects int, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 153,
+       'line' => 168,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 153,
+       'nodeLine' => 168,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
        'metadata' => 
@@ -4496,12 +3360,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot access offset \'task_name\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 156,
+       'line' => 171,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 156,
+       'nodeLine' => 171,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4512,12 +3376,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Part $update[\'task_name\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 156,
+       'line' => 171,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 156,
+       'nodeLine' => 171,
        'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
        'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
@@ -4526,14 +3390,14 @@ return [
     )),
     47 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration_updates\' on mixed.',
+       'message' => 'Cannot access offset \'order_updates\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 162,
+       'line' => 177,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 162,
+       'nodeLine' => 177,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4544,12 +3408,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 163,
+       'line' => 179,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 163,
+       'nodeLine' => 179,
        'nodeType' => 'PHPStan\\Node\\InForeachNode',
        'identifier' => 'foreach.nonIterable',
        'metadata' => 
@@ -4558,14 +3422,14 @@ return [
     )),
     49 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
+       'message' => 'Cannot access offset \'order\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 165,
+       'line' => 181,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 165,
+       'nodeLine' => 181,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4576,12 +3440,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot access offset \'task_id\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 165,
+       'line' => 181,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 165,
+       'nodeLine' => 181,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4590,14 +3454,14 @@ return [
     )),
     51 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $taskId of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskDuration() expects string, mixed given.',
+       'message' => 'Parameter #1 $taskId of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskOrder() expects string, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 165,
+       'line' => 181,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 165,
+       'nodeLine' => 181,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
        'metadata' => 
@@ -4606,14 +3470,14 @@ return [
     )),
     52 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $duration of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskDuration() expects int, mixed given.',
+       'message' => 'Parameter #2 $order of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskOrder() expects int, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 165,
+       'line' => 181,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 165,
+       'nodeLine' => 181,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
        'metadata' => 
@@ -4624,12 +3488,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Cannot access offset \'task_name\' on mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 168,
+       'line' => 184,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 168,
+       'nodeLine' => 184,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -4640,12 +3504,12 @@ return [
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Part $update[\'task_name\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 168,
+       'line' => 184,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 168,
+       'nodeLine' => 184,
        'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
        'identifier' => 'encapsedStringPart.nonString',
        'metadata' => 
@@ -4654,231 +3518,87 @@ return [
     )),
     55 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'order_updates\' on mixed.',
+       'message' => 'Parameter #3 $subject of function preg_replace expects array<float|int|string>|string, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 174,
+       'line' => 215,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 174,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'nodeLine' => 215,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
     56 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 176,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 176,
-       'nodeType' => 'PHPStan\\Node\\InForeachNode',
-       'identifier' => 'foreach.nonIterable',
-       'metadata' => 
-      array (
-      ),
-    )),
-    57 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'order\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 178,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 178,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    58 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'task_id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 178,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 178,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    59 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $taskId of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskOrder() expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 178,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 178,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    60 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $order of method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::updateTaskOrder() expects int, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 178,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 178,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    61 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'task_name\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 181,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 181,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    62 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $update[\'task_name\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 181,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 181,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    63 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #3 $subject of function preg_replace expects array<float|int|string>|string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 212,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 212,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    64 => 
-    \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Binary operation "." between list<string>|string|null and non-falsy-string results in an error.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 216,
+       'line' => 219,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 216,
+       'nodeLine' => 219,
        'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
        'identifier' => 'binaryOp.invalid',
        'metadata' => 
       array (
       ),
     )),
-    65 => 
+    57 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #1 $string of function trim expects string, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 216,
+       'line' => 219,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 216,
+       'nodeLine' => 219,
        'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
        'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
-    66 => 
+    58 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #3 $subject of function preg_replace expects array<float|int|string>|string, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 230,
+       'line' => 233,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 230,
+       'nodeLine' => 233,
        'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
        'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
-    67 => 
+    59 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Method App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction::generateSuccessMessage() has parameter $results with no value type specified in iterable type array.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 240,
+       'line' => 243,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 240,
+       'nodeLine' => 243,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
        'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
-    68 => 
+    60 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Part $results[\'schedule\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 245,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 245,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    69 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $results[\'duration\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'line' => 248,
        'canBeIgnored' => true,
@@ -4892,9 +3612,9 @@ return [
       array (
       ),
     )),
-    70 => 
+    61 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $results[\'order\'] (mixed) of encapsed string cannot be cast to string.',
+       'message' => 'Part $results[\'duration\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'line' => 251,
        'canBeIgnored' => true,
@@ -4908,17 +3628,103 @@ return [
       array (
       ),
     )),
-    71 => 
+    62 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'message' => 'Part $results[\'order\'] (mixed) of encapsed string cannot be cast to string.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
-       'line' => 261,
+       'line' => 254,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 261,
+       'nodeLine' => 254,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    63 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'line' => 264,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 264,
        'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Exceptions/IntegrationException.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::id().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Exceptions/IntegrationException.php',
+       'line' => 30,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Exceptions/IntegrationException.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 30,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $eventData of method App\\Services\\GoogleService::createCalendarEvent() expects array<string, mixed>, array given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+       'line' => 106,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 106,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $eventData of method App\\Services\\GoogleService::updateCalendarEvent() expects array<string, mixed>, array given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+       'line' => 134,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 134,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $eventData of method App\\Services\\GoogleService::checkCalendarConflicts() expects array<string, mixed>, array given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+       'line' => 171,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 171,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
        'metadata' => 
       array (
@@ -5008,130 +3814,165 @@ return [
       ),
     )),
   ),
-  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php' => 
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php' => 
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Services\\DailyPlanningService extends unknown class App\\Services\\BaseService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 14,
-       'canBeIgnored' => false,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'message' => 'Cannot cast mixed to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
+       'line' => 113,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 14,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Class_',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 113,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\String_',
+       'identifier' => 'cast.string',
        'metadata' => 
       array (
       ),
     )),
     1 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Constant App\\Services\\DailyPlanningService::BUFFER_DURATION is unused.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 18,
+       'message' => 'Cannot cast mixed to int.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
+       'line' => 116,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/developing-extensions/always-used-class-constants',
-       'nodeLine' => 14,
-       'nodeType' => 'PHPStan\\Node\\ClassConstantsNode',
-       'identifier' => 'classConstant.unused',
+       'tip' => NULL,
+       'nodeLine' => 116,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\Int_',
+       'identifier' => 'cast.int',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'If condition is always true.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 31,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 31,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\If_',
+       'identifier' => 'if.alwaysTrue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Strict comparison using === between \'active\'|\'inactive\' and \'error\' will always evaluate to false.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 48,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 48,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Identical',
+       'identifier' => 'identical.alwaysFalse',
        'metadata' => 
       array (
       ),
     )),
     2 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::generateDailyPlanning() has parameter $options with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 28,
+       'message' => 'Strict comparison using === between \'active\'|\'inactive\' and \'error\' will always evaluate to false.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 59,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 28,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 59,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Identical',
+       'identifier' => 'identical.alwaysFalse',
        'metadata' => 
       array (
       ),
     )),
     3 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::generateDailyPlanning() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 28,
+       'message' => 'Binary operation "." between mixed and \'/integrations…\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 81,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 28,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 81,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
        'metadata' => 
       array (
       ),
     )),
     4 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::getTodayTasks() return type with generic class Illuminate\\Support\\Collection does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 71,
+       'message' => 'Method App\\Http\\Controllers\\GoogleIntegrationController::getScopesForService() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 124,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 71,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 124,
        'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
     5 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 87,
+       'message' => 'Access to an undefined property Illuminate\\Http\\Request::$state.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 144,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 87,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
+       'nodeLine' => 144,
+       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
+       'identifier' => 'property.notFound',
        'metadata' => 
       array (
       ),
     )),
     6 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 88,
+       'message' => 'Access to an undefined property Illuminate\\Http\\Request::$code.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 164,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 88,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
+       'nodeLine' => 164,
+       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
+       'identifier' => 'property.notFound',
        'metadata' => 
       array (
       ),
     )),
     7 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'project_id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 89,
+       'message' => 'Cannot access offset \'access_token\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 176,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 89,
+       'nodeLine' => 176,
        'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
        'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
@@ -5140,715 +3981,91 @@ return [
     )),
     8 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'project_id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 90,
+       'message' => 'Parameter #1 $token of static method Illuminate\\Support\\Facades\\Http::withToken() expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 176,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 90,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'nodeLine' => 176,
+       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
+       'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
     9 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $projectId of method App\\Services\\DailyPlanningService::getProjectName() expects string|null, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 90,
+       'message' => 'Call to an undefined static method App\\Models\\IntegrationAccount::updateOrCreate().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 189,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 90,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
+       'nodeLine' => 189,
+       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
+       'identifier' => 'staticMethod.notFound',
        'metadata' => 
       array (
       ),
     )),
     10 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 91,
+       'message' => 'Call to an undefined method Illuminate\\Contracts\\Auth\\Factory::id().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 191,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 91,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'nodeLine' => 191,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
        'metadata' => 
       array (
       ),
     )),
     11 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $todoistPriority of method App\\Services\\DailyPlanningService::mapPriority() expects int, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 91,
+       'message' => 'Cannot access offset \'access_token\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 195,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 91,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
+       'nodeLine' => 195,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
       array (
       ),
     )),
     12 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $task of method App\\Services\\DailyPlanningService::extractEnergy() expects array, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 92,
+       'message' => 'Cannot access offset \'refresh_token\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 196,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 92,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
+       'nodeLine' => 196,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
        'metadata' => 
       array (
       ),
     )),
     13 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $task of method App\\Services\\DailyPlanningService::extractScheduledTime() expects array, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 93,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 93,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $task of method App\\Services\\DailyPlanningService::extractDuration() expects array, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 94,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 94,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'description\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 95,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 95,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'labels\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 96,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 96,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::prioritizeTasks() has parameter $tasks with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 101,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 101,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::prioritizeTasks() return type with generic class Illuminate\\Support\\Collection does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 101,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 101,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 105,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 105,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 105,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 105,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 108,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 108,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 108,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 108,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'project_name\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 113,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 113,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $string of function strtolower expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 113,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 113,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    25 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'project_name\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 114,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 114,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    26 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $string of function strtolower expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 114,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 114,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 125,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 125,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    28 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 125,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 125,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    29 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'energy\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 131,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 131,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    30 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'energy\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 131,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 131,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    31 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'scheduled_time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 137,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 137,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    32 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'scheduled_time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 137,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 137,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    33 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'scheduled_time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 140,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 140,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    34 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'scheduled_time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 140,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 140,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    35 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 145,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 145,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    36 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 145,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 145,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    37 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 148,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 148,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    38 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 148,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 148,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    39 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::identifyMIT() has parameter $tasks with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 156,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 156,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    40 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::identifyMIT() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 156,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 156,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    41 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::identifyMIT() should return array|null but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 159,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 159,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    42 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'priority\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 160,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 160,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    43 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'energy\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 161,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 161,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    44 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::createTimeBlocks() has parameter $mit with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 165,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 165,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    45 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::createTimeBlocks() has parameter $tasks with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 165,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 165,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    46 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::createTimeBlocks() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 165,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 165,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    47 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $duration of method App\\Services\\DailyPlanningService::createBlock() expects int, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 177,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 177,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    48 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #4 $taskId of method App\\Services\\DailyPlanningService::createBlock() expects string|null, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 177,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 177,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    49 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Part $mit[\'content\'] (mixed) of encapsed string cannot be cast to string.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 177,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 177,
-       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
-       'identifier' => 'encapsedStringPart.nonString',
-       'metadata' => 
-      array (
-      ),
-    )),
-    50 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of method Carbon\\Carbon::addMinutes() expects float|int, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 178,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 178,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    51 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 188,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 188,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    52 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'message' => 'Cannot access offset \'email\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'line' => 199,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
        'nodeLine' => 199,
@@ -5858,13 +4075,61 @@ return [
       array (
       ),
     )),
-    53 => 
+    14 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'scheduled_time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'message' => 'Cannot access offset \'name\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 200,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 200,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    15 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'expires_in\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 201,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 201,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    16 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of method Carbon\\Carbon::addSeconds() expects float|int, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 201,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 201,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    17 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'scope\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'line' => 202,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
        'nodeLine' => 202,
@@ -5874,32 +4139,2418 @@ return [
       array (
       ),
     )),
-    54 => 
+    18 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $time of static method Carbon\\Carbon::parse() expects Carbon\\Month|Carbon\\WeekDay|DateTimeInterface|float|int|string|null, mixed given.',
+       'message' => 'Cannot cast mixed to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 211,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 211,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\String_',
+       'identifier' => 'cast.string',
+       'metadata' => 
+      array (
+      ),
+    )),
+    19 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Negated boolean expression is always false.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'line' => 226,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Because the type is coming from a PHPDoc, you can turn off this check by setting <fg=cyan>treatPhpDocTypesAsCertain: false</> in your <fg=cyan>%configurationFile%</>.',
+       'nodeLine' => 226,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BooleanNot',
+       'identifier' => 'booleanNot.alwaysFalse',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $command of method App\\Services\\NaturalLanguageService::processCommand() expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 24,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 24,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $userId of method App\\Services\\NaturalLanguageService::processCommand() expects int, int|string|null given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 24,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 24,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access property $id on Illuminate\\Contracts\\Auth\\Authenticatable|null.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 61,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 61,
+       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
+       'identifier' => 'property.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $user->id (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 61,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 61,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $array of function array_reverse expects array, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 65,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 65,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Http\\Controllers\\NaturalLanguageController::saveToHistory() has parameter $result with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 69,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 69,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Http\\Controllers\\NaturalLanguageController::saveToHistory() is unused.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 69,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 11,
+       'nodeType' => 'PHPStan\\Node\\ClassMethodsNode',
+       'identifier' => 'method.unused',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access property $id on Illuminate\\Contracts\\Auth\\Authenticatable|null.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 72,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 72,
+       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
+       'identifier' => 'property.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $user->id (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 72,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 72,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    9 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access an offset on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 76,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 76,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    10 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 82,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 82,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    11 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $array of function array_slice expects array, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'line' => 83,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 83,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method exists() on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'line' => 20,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 20,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method integrationAccounts() on Illuminate\\Contracts\\Auth\\Authenticatable|null.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'line' => 20,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 20,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method where() on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'line' => 20,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 20,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method where() on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'line' => 20,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 20,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Http\\Middleware\\HasActiveIntegration::handle() should return Symfony\\Component\\HttpFoundation\\Response but returns mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'line' => 31,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 31,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $projectId of method App\\Services\\DailyPlanningService::getProjectName() expects string|null, mixed given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 203,
+       'line' => 97,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 203,
+       'nodeLine' => 97,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $todoistPriority of method App\\Services\\DailyPlanningService::mapPriority() expects int, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 98,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 98,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $string of function strtolower expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 123,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 123,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $string of function strtolower expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 124,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 124,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $duration of method App\\Services\\DailyPlanningService::createBlock() expects int, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 194,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 194,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #4 $taskId of method App\\Services\\DailyPlanningService::createBlock() expects string|null, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 194,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 194,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $mit[\'content\'] (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 194,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 194,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of method Carbon\\Carbon::addMinutes() expects float|int, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 195,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 195,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $time of static method Carbon\\Carbon::parse() expects Carbon\\Month|Carbon\\WeekDay|DateTimeInterface|float|int|string|null, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 220,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 220,
        'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
        'identifier' => 'argument.type',
        'metadata' => 
       array (
       ),
     )),
-    55 => 
+    9 => 
     \PHPStan\Analyser\Error::__set_state(array(
        'message' => 'Parameter #2 $duration of method App\\Services\\DailyPlanningService::createBlock() expects int, float given.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 208,
+       'line' => 225,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
+       'nodeLine' => 225,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    10 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $duration of method App\\Services\\DailyPlanningService::createBlock() expects int, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 231,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 231,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    11 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #3 $title of method App\\Services\\DailyPlanningService::createBlock() expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 231,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 231,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    12 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #4 $taskId of method App\\Services\\DailyPlanningService::createBlock() expects string|null, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 231,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 231,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    13 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of method Carbon\\Carbon::addMinutes() expects float|int, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 232,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 232,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    14 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Anonymous function should return int but returns mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 300,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 300,
+       'nodeType' => 'PHPStan\\Node\\InArrowFunctionNode',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    15 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot cast mixed to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 351,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 351,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\String_',
+       'identifier' => 'cast.string',
+       'metadata' => 
+      array (
+      ),
+    )),
+    16 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot cast mixed to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 351,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 351,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\String_',
+       'identifier' => 'cast.string',
+       'metadata' => 
+      array (
+      ),
+    )),
+    17 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $string of function strtolower expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 359,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 359,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    18 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\DailyPlanningService::extractEnergy() never returns null so it can be removed from the return type.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 424,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 424,
+       'nodeType' => 'PHPStan\\Node\\MethodReturnStatementsNode',
+       'identifier' => 'return.unusedType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    19 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \' \' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 427,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 427,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    20 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $array of function implode expects array|null, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 427,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 427,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    21 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'datetime\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 445,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 445,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    22 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $time of static method Carbon\\Carbon::parse() expects Carbon\\Month|Carbon\\WeekDay|DateTimeInterface|float|int|string|null, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 446,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 446,
+       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    23 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $subject of function preg_match expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 460,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 460,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    24 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $subject of function preg_match expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'line' => 464,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 464,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property App\\Services\\GoogleService::$accessToken (string) does not accept mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 20,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 20,
+       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
+       'identifier' => 'assign.propertyType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Access to an undefined property App\\Models\\IntegrationAccount::$refresh_token.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 21,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'Learn more: <fg=cyan>https://phpstan.org/blog/solving-phpstan-access-to-undefined-property</>',
+       'nodeLine' => 21,
+       'nodeType' => 'PhpParser\\Node\\Expr\\PropertyFetch',
+       'identifier' => 'property.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function decrypt expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 21,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 21,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property App\\Services\\GoogleService::$refreshToken (string|null) does not accept mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 21,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 21,
+       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
+       'identifier' => 'assign.propertyType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::makeGoogleApiRequest() has parameter $params with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 27,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 27,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::makeGoogleApiRequest() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 27,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 27,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined method Illuminate\\Http\\Client\\PendingRequest|Illuminate\\Http\\Client\\Response::when().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 29,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 29,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined method Illuminate\\Http\\Client\\PendingRequest|Illuminate\\Http\\Client\\Response::when().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 29,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 29,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined method Illuminate\\Http\\Client\\PendingRequest|Illuminate\\Http\\Client\\Response::failed().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 34,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 34,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    9 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined method Illuminate\\Http\\Client\\PendingRequest|Illuminate\\Http\\Client\\Response::body().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 35,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 35,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    10 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined method Illuminate\\Http\\Client\\PendingRequest|Illuminate\\Http\\Client\\Response::json().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 38,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 38,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    11 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::getGmailStatus() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 44,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 44,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    12 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::listGmailMessages() has parameter $params with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 60,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 60,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    13 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::listGmailMessages() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 60,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 60,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    14 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $array of function array_slice expects array, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 75,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 75,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    15 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'id\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 77,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 77,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    16 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $messageId of method App\\Services\\GoogleService::getGmailMessage() expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 77,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 77,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    17 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::getGmailMessage() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 93,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 93,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    18 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'headers\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 100,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 100,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    19 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 101,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 101,
+       'nodeType' => 'PHPStan\\Node\\InForeachNode',
+       'identifier' => 'foreach.nonIterable',
+       'metadata' => 
+      array (
+      ),
+    )),
+    20 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'name\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 102,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 102,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    21 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'value\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 102,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 102,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    22 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot cast mixed to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 102,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 102,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\String_',
+       'identifier' => 'cast.string',
+       'metadata' => 
+      array (
+      ),
+    )),
+    23 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::sendGmailMessage() has parameter $messageData with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 119,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 119,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    24 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::sendGmailMessage() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 119,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 119,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    25 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $to (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 126,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 126,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    26 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $subject (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 127,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 127,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    27 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation ".=" between non-falsy-string and mixed results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 129,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 129,
+       'nodeType' => 'PhpParser\\Node\\Expr\\AssignOp\\Concat',
+       'identifier' => 'assignOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    28 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::listGmailLabels() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 141,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 141,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    29 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::modifyGmailLabels() has parameter $labels with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 146,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 146,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    30 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::modifyGmailLabels() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 146,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 146,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    31 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::searchGmailMessages() should return array<string, mixed> but returns array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 162,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 162,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    32 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 176,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 176,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    33 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::listCalendars() should return array<string, mixed> but returns array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 188,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 188,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    34 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $calendarId (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 206,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 206,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    35 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::listCalendarEvents() should return array<string, mixed> but returns array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 208,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
        'nodeLine' => 208,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    36 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $calendarId (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 218,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 218,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    37 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::createCalendarEvent() should return array<string, mixed> but returns array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 220,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 220,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    38 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Part $calendarId (mixed) of encapsed string cannot be cast to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 230,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 230,
+       'nodeType' => 'PhpParser\\Node\\Scalar\\InterpolatedString',
+       'identifier' => 'encapsedStringPart.nonString',
+       'metadata' => 
+      array (
+      ),
+    )),
+    39 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::updateCalendarEvent() should return array<string, mixed> but returns array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 232,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 232,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    40 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'dateTime\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 256,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 256,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    41 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'dateTime\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 257,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 257,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    42 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 263,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 263,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    43 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\GoogleService::getWeekEvents() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'line' => 283,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 283,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property App\\Services\\McpAuthService::$mcpServerUrl (string) does not accept mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'line' => 19,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 19,
+       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
+       'identifier' => 'assign.propertyType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property App\\Services\\McpAuthService::$username (string) does not accept mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'line' => 20,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 20,
+       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
+       'identifier' => 'assign.propertyType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property App\\Services\\McpAuthService::$password (string) does not accept mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'line' => 21,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 21,
+       'nodeType' => 'PHPStan\\Node\\PropertyAssignNode',
+       'identifier' => 'assign.propertyType',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\McpAuthService::getAccessToken() should return string but returns mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'line' => 30,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 30,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'access_token\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'line' => 49,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 49,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\McpAuthService::getAccessToken() should return string but returns mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'line' => 59,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 59,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php' => 
+  array (
+    0 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Property App\\Services\\NaturalLanguageService::$commands type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 12,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 12,
+       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    1 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Argument of an invalid type mixed supplied for foreach, only iterables are supported.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 52,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 52,
+       'nodeType' => 'PHPStan\\Node\\InForeachNode',
+       'identifier' => 'foreach.nonIterable',
+       'metadata' => 
+      array (
+      ),
+    )),
+    2 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'patterns\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 52,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 52,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    3 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $pattern of function preg_match expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 53,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 53,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    4 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::processCommand() should return array{success: bool, message: string, type?: string, data?: array<string, mixed>, suggestions?: array<string, array<string>>, requiresIntegration?: bool, integrationType?: string} but returns array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 54,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 54,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    5 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #2 $method of method App\\Services\\NaturalLanguageService::executeCommand() expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 54,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 54,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    6 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::processCommand() should return array{success: bool, message: string, type?: string, data?: array<string, mixed>, suggestions?: array<string, array<string>>, requiresIntegration?: bool, integrationType?: string} but returns array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 61,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 61,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    7 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::executeClaudeCommand() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 64,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 64,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    8 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \'/claude/chat\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 86,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 86,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    9 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \'/claude/chat\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 92,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 92,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    10 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot access offset \'content\' on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 107,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 107,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'metadata' => 
+      array (
+      ),
+    )),
+    11 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::executeCommand() has parameter $matches with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 123,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 123,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    12 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::executeCommand() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 123,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 123,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    13 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Call to an undefined static method App\\Models\\IntegrationAccount::where().',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 126,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 126,
+       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
+       'identifier' => 'staticMethod.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    14 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method first() on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 126,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 126,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    15 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method where() on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 126,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 126,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    16 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot call method where() on mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 126,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 126,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'method.nonObject',
+       'metadata' => 
+      array (
+      ),
+    )),
+    17 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::executeCommand() should return array but returns mixed.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 145,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 145,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    18 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::todoistGetTodayTasks() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 161,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 161,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    19 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \'/todoist/tasks\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 174,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 174,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    20 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 194,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 194,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    21 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 197,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 197,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    22 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 198,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 198,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    23 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::todoistGetTomorrowTasks() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 203,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 203,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    24 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \'/todoist/tasks\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 216,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 216,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    25 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 236,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 236,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    26 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 239,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 239,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    27 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 240,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 240,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    28 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::todoistGetWeekTasks() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 245,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 245,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    29 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \'/todoist/tasks\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 258,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 258,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    30 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 278,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 278,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    31 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 281,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 281,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    32 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 282,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 282,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    33 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::todoistGetProjects() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 287,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 287,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    34 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \'/todoist/projects\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 300,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 300,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    35 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 318,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 318,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    36 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $value of function count expects array|Countable, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 320,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 320,
+       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    37 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::todoistCreateTask() has parameter $matches with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 324,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 324,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    38 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::todoistCreateTask() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 324,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 324,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    39 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot cast mixed to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 326,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 326,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\String_',
+       'identifier' => 'cast.string',
+       'metadata' => 
+      array (
+      ),
+    )),
+    40 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \'/todoist/tasks\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 346,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 346,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    41 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::notionGetPages() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 372,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 372,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    42 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $pages of method App\\Services\\NaturalLanguageService::countPages() expects array<int, array{title?: string, children?: array}>, array<mixed> given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 381,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 381,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    43 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::notionGetPageByName() has parameter $matches with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 387,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 387,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    44 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::notionGetPageByName() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 387,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 387,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    45 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot cast mixed to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 389,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 389,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\String_',
+       'identifier' => 'cast.string',
+       'metadata' => 
+      array (
+      ),
+    )),
+    46 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $pages of method App\\Services\\NaturalLanguageService::findPageByName() expects array<int, array{title?: string, children?: array}>, array<mixed> given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 399,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 399,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    47 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Offset \'id\' does not exist on non-empty-array{title?: string, children?: array}.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 408,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 408,
+       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
+       'identifier' => 'offsetAccess.notFound',
+       'metadata' => 
+      array (
+      ),
+    )),
+    48 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $pageId of method App\\Services\\NotionService::fetchNotionPage() expects string, mixed given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 408,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 408,
+       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
+       'identifier' => 'argument.type',
+       'metadata' => 
+      array (
+      ),
+    )),
+    49 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::notionGetDatabases() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 420,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 420,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    50 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::notionSearchNotion() has parameter $matches with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 435,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 435,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    51 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::notionSearchNotion() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 435,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 435,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    52 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Cannot cast mixed to string.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 437,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 437,
+       'nodeType' => 'PhpParser\\Node\\Expr\\Cast\\String_',
+       'identifier' => 'cast.string',
+       'metadata' => 
+      array (
+      ),
+    )),
+    53 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Binary operation "." between mixed and \'/notion/search\' results in an error.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 451,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 451,
+       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
+       'identifier' => 'binaryOp.invalid',
+       'metadata' => 
+      array (
+      ),
+    )),
+    54 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Method App\\Services\\NaturalLanguageService::countPages() has parameter $pages with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 499,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 499,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
+       'metadata' => 
+      array (
+      ),
+    )),
+    55 => 
+    \PHPStan\Analyser\Error::__set_state(array(
+       'message' => 'Parameter #1 $pages of method App\\Services\\NaturalLanguageService::countPages() expects array<int, array{title?: string, children?: array}>, array given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 505,
+       'canBeIgnored' => true,
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'traitFilePath' => NULL,
+       'tip' => NULL,
+       'nodeLine' => 505,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
        'metadata' => 
@@ -5908,896 +6559,48 @@ return [
     )),
     56 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 214,
+       'message' => 'Method App\\Services\\NaturalLanguageService::findPageByName() has parameter $pages with no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 516,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 214,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 516,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
     57 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 214,
+       'message' => 'Method App\\Services\\NaturalLanguageService::findPageByName() return type has no value type specified in iterable type array.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 516,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
        'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 214,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
+       'nodeLine' => 516,
+       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
+       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
     )),
     58 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $duration of method App\\Services\\DailyPlanningService::createBlock() expects int, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 214,
+       'message' => 'Parameter #1 $pages of method App\\Services\\NaturalLanguageService::findPageByName() expects array<int, array{title?: string, children?: array}>, array given.',
+       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+       'line' => 523,
        'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 214,
+       'nodeLine' => 523,
        'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
        'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    59 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #3 $title of method App\\Services\\DailyPlanningService::createBlock() expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 214,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 214,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    60 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #4 $taskId of method App\\Services\\DailyPlanningService::createBlock() expects string|null, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 214,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 214,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    61 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $value of method Carbon\\Carbon::addMinutes() expects float|int, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 215,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 215,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    62 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::createBlock() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 234,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 234,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    63 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::checkAlerts() has parameter $allTasks with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 248,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 248,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    64 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::checkAlerts() has parameter $topTasks with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 248,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 248,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    65 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::checkAlerts() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 248,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 248,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    66 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'scheduled_time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 263,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 263,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    67 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 275,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 275,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    68 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::findTimeConflicts() has parameter $scheduledTasks with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 287,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 287,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    69 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::findTimeConflicts() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 287,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 287,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    70 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'scheduled_time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 297,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 297,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    71 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'scheduled_time\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 297,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 297,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    72 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 299,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 299,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    73 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 300,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 300,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    74 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::generateSummary() has parameter $timeBlocks with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 310,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 310,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    75 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::generateSummary() has parameter $topTasks with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 310,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 310,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    76 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::generateSummary() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 310,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 310,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    77 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'task_id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 313,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 313,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    78 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'title\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 317,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 317,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    79 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'title\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 317,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 317,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    80 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $haystack of function str_contains expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 317,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 317,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    81 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $haystack of function str_contains expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 317,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 317,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    82 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'project_name\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 325,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 325,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    83 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $string of function strtolower expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 325,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 325,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    84 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::prepareTodoistUpdates() has parameter $tasks with generic class Illuminate\\Support\\Collection but does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 329,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 329,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    85 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::prepareTodoistUpdates() has parameter $timeBlocks with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 329,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 329,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    86 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::prepareTodoistUpdates() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 329,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 329,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    87 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'task_id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 338,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 338,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    88 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 341,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 341,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    89 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 346,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 346,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    90 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 347,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 347,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    91 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'start\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 348,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 348,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    92 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 352,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 352,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    93 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 354,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 354,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    94 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 355,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 355,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    95 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'duration\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 356,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 356,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    96 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'id\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 363,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 363,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    97 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'content\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 364,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 364,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    98 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::extractEnergy() has parameter $task with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 382,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 382,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    99 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::extractEnergy() never returns null so it can be removed from the return type.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 382,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 382,
-       'nodeType' => 'PHPStan\\Node\\MethodReturnStatementsNode',
-       'identifier' => 'return.unusedType',
-       'metadata' => 
-      array (
-      ),
-    )),
-    100 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Binary operation "." between mixed and \' \' results in an error.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 385,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 385,
-       'nodeType' => 'PhpParser\\Node\\Expr\\BinaryOp\\Concat',
-       'identifier' => 'binaryOp.invalid',
-       'metadata' => 
-      array (
-      ),
-    )),
-    101 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $array of function implode expects array|null, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 385,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 385,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    102 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::extractScheduledTime() has parameter $task with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 397,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 397,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    103 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'datetime\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 400,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 400,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    104 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #1 $time of static method Carbon\\Carbon::parse() expects Carbon\\Month|Carbon\\WeekDay|DateTimeInterface|float|int|string|null, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 401,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 401,
-       'nodeType' => 'PhpParser\\Node\\Expr\\StaticCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    105 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::extractDuration() has parameter $task with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 407,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 407,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    106 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $subject of function preg_match expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 412,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 412,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    107 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter #2 $subject of function preg_match expects string, mixed given.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 416,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 416,
-       'nodeType' => 'PhpParser\\Node\\Expr\\FuncCall',
-       'identifier' => 'argument.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    108 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::list() has parameter $filters with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 434,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 434,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    109 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::list() return type with generic class Illuminate\\Pagination\\LengthAwarePaginator does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 434,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 434,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    110 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::create() has parameter $data with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 446,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 446,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    111 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\DailyPlanningService::update() has parameter $data with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'line' => 452,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 452,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
@@ -6807,110 +6610,110 @@ return [
   array (
     0 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Class App\\Services\\TodoistService extends unknown class App\\Services\\BaseService.',
+       'message' => 'Method App\\Services\\TodoistService::getTodayTasks() should return array<int, array<string, mixed>> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 16,
-       'canBeIgnored' => false,
+       'line' => 40,
+       'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 16,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Class_',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 40,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     1 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Parameter $mcpProxy of method App\\Services\\TodoistService::__construct() has invalid type App\\Services\\McpProxyService.',
+       'message' => 'Method App\\Services\\TodoistService::getTomorrowTasks() should return array<int, array<string, mixed>> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 21,
+       'line' => 53,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 20,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'class.notFound',
+       'nodeLine' => 53,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     2 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Property App\\Services\\TodoistService::$mcpProxy has unknown class App\\Services\\McpProxyService as its type.',
+       'message' => 'Method App\\Services\\TodoistService::getWeekTasks() should return array<int, array<string, mixed>> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 21,
+       'line' => 66,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 21,
-       'nodeType' => 'PHPStan\\Node\\ClassPropertyNode',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 66,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     3 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getTodayTasks() return type has no value type specified in iterable type array.',
+       'message' => 'Method App\\Services\\TodoistService::getTask() should return array<string, mixed> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 31,
+       'line' => 81,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 31,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 81,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     4 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
+       'message' => 'Method App\\Services\\TodoistService::createTask() should return array<string, mixed> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 35,
+       'line' => 95,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 35,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 95,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     5 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
+       'message' => 'Method App\\Services\\TodoistService::updateTask() should return array<string, mixed> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 37,
+       'line' => 111,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 37,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
+       'nodeLine' => 111,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     6 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getTodayTasks() should return array but returns mixed.',
+       'message' => 'Method App\\Services\\TodoistService::getProjects() should return array<int, array<string, mixed>> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 37,
+       'line' => 158,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 37,
+       'nodeLine' => 158,
        'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
        'identifier' => 'return.type',
        'metadata' => 
@@ -6919,736 +6722,48 @@ return [
     )),
     7 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getTomorrowTasks() return type has no value type specified in iterable type array.',
+       'message' => 'Method App\\Services\\TodoistService::getProject() should return array<string, mixed> but returns mixed.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 40,
+       'line' => 172,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 40,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
+       'tip' => NULL,
+       'nodeLine' => 172,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     8 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
+       'message' => 'Method App\\Services\\TodoistService::bulkUpdateTasks() should return array<string, mixed> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 44,
+       'line' => 194,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 44,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
+       'tip' => NULL,
+       'nodeLine' => 194,
+       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
+       'identifier' => 'return.type',
        'metadata' => 
       array (
       ),
     )),
     9 => 
     \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
+       'message' => 'Method App\\Services\\TodoistService::quickAddTask() should return array<string, mixed> but returns array<mixed>.',
        'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 46,
+       'line' => 209,
        'canBeIgnored' => true,
        'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
        'traitFilePath' => NULL,
        'tip' => NULL,
-       'nodeLine' => 46,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    10 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getTomorrowTasks() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 46,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 46,
+       'nodeLine' => 209,
        'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
        'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    11 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getWeekTasks() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 49,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 49,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    12 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 53,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 53,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    13 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 55,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 55,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    14 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getWeekTasks() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 55,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 55,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    15 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getTask() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 58,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 58,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    16 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 62,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 62,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    17 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    18 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getTask() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 66,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 66,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    19 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::createTask() has parameter $data with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 69,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 69,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    20 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::createTask() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 69,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 69,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    21 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 73,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 73,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    22 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 75,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 75,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    23 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::createTask() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 75,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 75,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    24 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::updateTask() has parameter $data with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 78,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 78,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    25 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::updateTask() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 78,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 78,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    26 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 82,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 82,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    27 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 86,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 86,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    28 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::updateTask() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 86,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 86,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    29 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 94,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 94,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    30 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 110,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 110,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    31 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getProjects() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 121,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 121,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    32 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 125,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 125,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    33 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 127,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 127,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    34 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getProjects() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 127,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 127,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    35 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getProject() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 130,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 130,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    36 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 134,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 134,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    37 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 138,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 138,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    38 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::getProject() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 138,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 138,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    39 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::bulkUpdateTasks() has parameter $taskIds with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 141,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 141,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    40 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::bulkUpdateTasks() has parameter $updates with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 141,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 141,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    41 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::bulkUpdateTasks() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 141,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 141,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    42 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 145,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 145,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    43 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 149,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 149,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    44 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::bulkUpdateTasks() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 149,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 149,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    45 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::quickAddTask() return type has no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 152,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 152,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    46 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Call to method request() on an unknown class App\\Services\\McpProxyService.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 156,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'Learn more at https://phpstan.org/user-guide/discovering-symbols',
-       'nodeLine' => 156,
-       'nodeType' => 'PhpParser\\Node\\Expr\\MethodCall',
-       'identifier' => 'class.notFound',
-       'metadata' => 
-      array (
-      ),
-    )),
-    47 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Cannot access offset \'data\' on mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 160,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 160,
-       'nodeType' => 'PhpParser\\Node\\Expr\\ArrayDimFetch',
-       'identifier' => 'offsetAccess.nonOffsetAccessible',
-       'metadata' => 
-      array (
-      ),
-    )),
-    48 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::quickAddTask() should return array but returns mixed.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 160,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 160,
-       'nodeType' => 'PhpParser\\Node\\Stmt\\Return_',
-       'identifier' => 'return.type',
-       'metadata' => 
-      array (
-      ),
-    )),
-    49 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::list() has parameter $filters with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 182,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 182,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    50 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::list() return type with generic class Illuminate\\Pagination\\LengthAwarePaginator does not specify its types: TKey, TValue',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 182,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => NULL,
-       'nodeLine' => 182,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.generics',
-       'metadata' => 
-      array (
-      ),
-    )),
-    51 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::create() has parameter $data with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 192,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 192,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
-       'metadata' => 
-      array (
-      ),
-    )),
-    52 => 
-    \PHPStan\Analyser\Error::__set_state(array(
-       'message' => 'Method App\\Services\\TodoistService::update() has parameter $data with no value type specified in iterable type array.',
-       'file' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'line' => 197,
-       'canBeIgnored' => true,
-       'filePath' => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
-       'traitFilePath' => NULL,
-       'tip' => 'See: https://phpstan.org/blog/solving-phpstan-no-value-type-specified-in-iterable-type',
-       'nodeLine' => 197,
-       'nodeType' => 'PHPStan\\Node\\InClassMethodNode',
-       'identifier' => 'missingType.iterableValue',
        'metadata' => 
       array (
       ),
@@ -7692,6 +6807,159 @@ return [
       ),
     ),
   ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Console/Commands/RenameProjectCommand.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 106,
+      ),
+      1 => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 145,
+      ),
+      2 => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\File',
+        1 => 'put',
+        2 => 190,
+      ),
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationStatus.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'App\\Enums\\IntegrationStatus',
+        1 => 'displayName',
+        2 => 'App\\Enums\\IntegrationStatus',
+      ),
+      1 => 
+      array (
+        0 => 'App\\Enums\\IntegrationStatus',
+        1 => 'isActive',
+        2 => 'App\\Enums\\IntegrationStatus',
+      ),
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationType.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'App\\Enums\\IntegrationType',
+        1 => 'displayName',
+        2 => 'App\\Enums\\IntegrationType',
+      ),
+      1 => 
+      array (
+        0 => 'App\\Enums\\IntegrationType',
+        1 => 'description',
+        2 => 'App\\Enums\\IntegrationType',
+      ),
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Exceptions/IntegrationException.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'App\\Exceptions\\IntegrationException',
+        1 => 'getService',
+        2 => 'App\\Exceptions\\IntegrationException',
+      ),
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/AiChatController.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\Http\\Controllers\\AiChatController',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'App\\Http\\Controllers\\GoogleIntegrationController',
+        1 => 'getScopesForService',
+        2 => 'App\\Http\\Controllers\\GoogleIntegrationController',
+      ),
+    ),
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureFuncCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'session',
+        1 => 102,
+      ),
+      1 => 
+      array (
+        0 => 'session',
+        1 => 103,
+      ),
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\Http\\Controllers\\NaturalLanguageController',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HandleAppearance.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\View',
+        1 => 'share',
+        2 => 19,
+      ),
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php' => 
+  array (
+    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+      ),
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Models/User.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'App\\Models\\User',
+        1 => 'casts',
+        2 => 'App\\Models\\User',
+      ),
+    ),
+    'PHPStan\\Rules\\Traits\\TraitUseCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+        1 => 'Illuminate\\Notifications\\Notifiable',
+      ),
+    ),
+  ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php' => 
   array (
     'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
@@ -7714,6 +6982,34 @@ return [
       ),
     ),
   ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\PossiblyPureStaticCallCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'Illuminate\\Support\\Facades\\Cache',
+        1 => 'put',
+        2 => 55,
+      ),
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php' => 
+  array (
+    'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
+    array (
+      0 => 'App\\Services\\NaturalLanguageService',
+    ),
+    'PHPStan\\Rules\\DeadCode\\MethodWithoutImpurePointsCollector' => 
+    array (
+      0 => 
+      array (
+        0 => 'App\\Services\\NaturalLanguageService',
+        1 => 'getSuggestions',
+        2 => 'App\\Services\\NaturalLanguageService',
+      ),
+    ),
+  ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php' => 
   array (
     'PHPStan\\Rules\\DeadCode\\ConstructorWithoutImpurePointsCollector' => 
@@ -7725,7 +7021,7 @@ return [
 	'dependencies' => array (
   '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php' => 
   array (
-    'fileHash' => 'ef35dccbb1d23c3da2c3d9933d1b4d8421c21f7e',
+    'fileHash' => 'dfc3e6c95f9fdc1c5f530098b7879a2165ec00a3',
     'dependentFiles' => 
     array (
       0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
@@ -7736,7 +7032,7 @@ return [
   ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php' => 
   array (
-    'fileHash' => 'b8e3f1bd3b1e95065a1a2c180ed0fa6c717eff75',
+    'fileHash' => '271c2efd922b305d1dd400b726156a27c06655e2',
     'dependentFiles' => 
     array (
       0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
@@ -7746,7 +7042,7 @@ return [
   ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php' => 
   array (
-    'fileHash' => '16f20f331b9adbfb78530b5090c21384787e2a7e',
+    'fileHash' => 'fd5f73e547391488ae94575f1a704b8a990e5fa8',
     'dependentFiles' => 
     array (
       0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php',
@@ -7754,30 +7050,322 @@ return [
   ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php' => 
   array (
-    'fileHash' => 'd7f5d5d3c59af944d8fee5836e6525b73847b793',
+    'fileHash' => 'c3914c0a4d3dee37017b0aaf13c7bf446a877a07',
     'dependentFiles' => 
     array (
       0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php',
     ),
   ),
-  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php' => 
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Console/Commands/RenameProjectCommand.php' => 
   array (
-    'fileHash' => '91cbfd08e0b0fee99f9d865ef7d2eba1b36c3f13',
+    'fileHash' => 'ae78ce2b1a0f3909f8669c320de903edf5401b09',
     'dependentFiles' => 
     array (
     ),
   ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationStatus.php' => 
+  array (
+    'fileHash' => '421116c15a24e70db84d44592d004542c32f1be9',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+      2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+      3 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
+      4 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+      5 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/IntegrationsController.php',
+      6 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/JiraController.php',
+      7 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionIntegrationController.php',
+      8 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+      9 => '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php',
+      10 => '/Users/fred/PhpstormProjects/mcp_manager/app/Models/User.php',
+      11 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+      12 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+      13 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/JiraService.php',
+      14 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpProxyService.php',
+      15 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+      16 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NotionService.php',
+      17 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationType.php' => 
+  array (
+    'fileHash' => '58c29cbfdafddcfb1b677c87087b58c20a61511d',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+      2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+      3 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php',
+      4 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
+      5 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+      6 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/IntegrationsController.php',
+      7 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/JiraController.php',
+      8 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionIntegrationController.php',
+      9 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php',
+      10 => '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php',
+      11 => '/Users/fred/PhpstormProjects/mcp_manager/app/Models/User.php',
+      12 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+      13 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+      14 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/JiraService.php',
+      15 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpProxyService.php',
+      16 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+      17 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NotionService.php',
+      18 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Exceptions/IntegrationException.php' => 
+  array (
+    'fileHash' => 'd8f23eb49cd4bfdd4d42fb881b18229a8b313aab',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+      2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/JiraService.php',
+      3 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpProxyService.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/AiChatController.php' => 
+  array (
+    'fileHash' => 'd4aa56eea18753efd463f6be4545955cac00ef22',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php' => 
+  array (
+    'fileHash' => '46de4b27eb1caabd1fdf82908e328476ad061106',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/Controller.php' => 
+  array (
+    'fileHash' => 'a33a5105f92c73a309c9f8a549905dcdf6dccbae',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/AiChatController.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php',
+      2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/McpProxyController.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php' => 
+  array (
+    'fileHash' => '3ca682212dd4f78c3d9a8acf353d50c7f653d900',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php' => 
+  array (
+    'fileHash' => '0a973657da9f5ae0beda2077c5f2070b92f0015e',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php' => 
+  array (
+    'fileHash' => 'ef4bdcef2abd495053cb18970ba5843deb185c64',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/IntegrationsController.php' => 
+  array (
+    'fileHash' => 'dec7f34f5caf31df5904b41d70aafd511d1f08f8',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/JiraController.php' => 
+  array (
+    'fileHash' => 'c1ff8522f90ac0e32e2f2e631e2e8781b719f396',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/McpProxyController.php' => 
+  array (
+    'fileHash' => '1b186f57430e85612a60a56d0f193b29ba757b71',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php' => 
+  array (
+    'fileHash' => '7a6d0d8a7db155b56a25ac4cb104993e7573422e',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionController.php' => 
+  array (
+    'fileHash' => 'e5d76fda1a93e89bfe2398bca4c8f618a8fcabf3',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionIntegrationController.php' => 
+  array (
+    'fileHash' => '097b5475565d2000bc98758d5dcf4fe32d518540',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/Authenticate.php' => 
+  array (
+    'fileHash' => 'aa7a909ab8e4a8d509f2cecfe890fd7f19df8938',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HandleAppearance.php' => 
+  array (
+    'fileHash' => '919b506864fbdf2567a2e1c71b3583c418b06a86',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php' => 
+  array (
+    'fileHash' => 'ad84ecb0bff5fb8f755cbc59b9744594390091fa',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/VerifyCsrfToken.php' => 
+  array (
+    'fileHash' => 'cd7982fbca8319ce828d330f06be6b2131101ff2',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php' => 
+  array (
+    'fileHash' => 'a54841722343e5587fe5eaa81259a239e085e3fe',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+      2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+      3 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+      4 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
+      5 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+      6 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/IntegrationsController.php',
+      7 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/JiraController.php',
+      8 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionIntegrationController.php',
+      9 => '/Users/fred/PhpstormProjects/mcp_manager/app/Models/User.php',
+      10 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+      11 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php',
+      12 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/JiraService.php',
+      13 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpProxyService.php',
+      14 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+      15 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NotionService.php',
+      16 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Models/User.php' => 
+  array (
+    'fileHash' => '254b4547d8d7443a538f26fb79cb39be7d8a4023',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+      2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+      3 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+      4 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
+      5 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php',
+      6 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/IntegrationsController.php',
+      7 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/JiraController.php',
+      8 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionIntegrationController.php',
+      9 => '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php',
+      10 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+      11 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Providers/AppServiceProvider.php' => 
+  array (
+    'fileHash' => '01bf9e5cf5bb666446625056b618445ae4749675',
+    'dependentFiles' => 
+    array (
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/BaseService.php' => 
+  array (
+    'fileHash' => '202e93348ac11a29879b978f17b2bcbc5d1a5f79',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
+      2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php',
+      3 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
+    ),
+  ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php' => 
   array (
-    'fileHash' => '26721833af672a8779b8aab05a6f8974bc49d379',
+    'fileHash' => 'a1f338ce62b6e6f585c18e8977b6a2e5f5e74ee9',
     'dependentFiles' => 
     array (
       0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php',
     ),
   ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php' => 
+  array (
+    'fileHash' => 'f7de2f8aa836238bf034dd278478927fc6dcd4ed',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/JiraService.php' => 
+  array (
+    'fileHash' => 'd934e885b5d22d9144e494515c1748a574d1573f',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/JiraController.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php' => 
+  array (
+    'fileHash' => '18fe6412bbbdf4e186519a93a201c92e56b22a64',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/AiChatController.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpProxyService.php' => 
+  array (
+    'fileHash' => 'a23950071d0cacea0f98d0a7ba98b09e520bf833',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/JiraService.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php' => 
+  array (
+    'fileHash' => '10d271592e6b13b29396f5ecde614fd10c368c3a',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php',
+    ),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NotionService.php' => 
+  array (
+    'fileHash' => '753e6e750598e8e1da0cf7b434f2bcbd5bc731c0',
+    'dependentFiles' => 
+    array (
+      0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionController.php',
+      1 => '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionIntegrationController.php',
+      2 => '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php',
+    ),
+  ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php' => 
   array (
-    'fileHash' => 'aa55fb3537985e1aac931e5b1473dc283bd114c2',
+    'fileHash' => '6ce2b85df68359868a77f48698b79d14630861de',
     'dependentFiles' => 
     array (
       0 => '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php',
@@ -7822,7 +7410,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'data',
-               'type' => NULL,
+               'type' => '?mixed',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => true,
@@ -7849,7 +7437,19 @@ return [
         1 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'error',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $errors
+     */',
+             'namespace' => 'App\\Actions',
+             'uses' => 
+            array (
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -7900,7 +7500,19 @@ return [
         2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'validationError',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $errors
+     */',
+             'namespace' => 'App\\Actions',
+             'uses' => 
+            array (
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -7958,7 +7570,19 @@ return [
         4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'toArray',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Actions',
+             'uses' => 
+            array (
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -7983,7 +7607,7 @@ return [
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => NULL,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
            'parameters' => 
           array (
           ),
@@ -8023,7 +7647,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Execute the action with transaction handling
+     * @param mixed ...$parameters
      */',
              'namespace' => 'App\\Actions',
              'uses' => 
@@ -8047,7 +7671,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'parameters',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => true,
                'hasDefault' => false,
@@ -8066,7 +7690,8 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Validate input data
+     * @param mixed ...$parameters
+     * @return array<string, mixed>
      */',
              'namespace' => 'App\\Actions',
              'uses' => 
@@ -8090,7 +7715,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'parameters',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => true,
                'hasDefault' => false,
@@ -8109,7 +7734,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Check authorization
+     * @param mixed ...$parameters
      */',
              'namespace' => 'App\\Actions',
              'uses' => 
@@ -8133,7 +7758,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'parameters',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => true,
                'hasDefault' => false,
@@ -8152,7 +7777,9 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Main business logic
+     * @param array<string, mixed> $validated
+     * @param mixed ...$parameters
+     * @return mixed
      */',
              'namespace' => 'App\\Actions',
              'uses' => 
@@ -8170,7 +7797,7 @@ return [
            'abstract' => true,
            'final' => false,
            'static' => false,
-           'returnType' => NULL,
+           'returnType' => 'mixed',
            'parameters' => 
           array (
             0 => 
@@ -8187,7 +7814,7 @@ return [
             1 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'parameters',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => true,
                'hasDefault' => false,
@@ -8206,7 +7833,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Hook before execution (optional)
+     * @param array<string, mixed> $validated
      */',
              'namespace' => 'App\\Actions',
              'uses' => 
@@ -8249,7 +7876,8 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Hook after execution (optional)
+     * @param mixed $result
+     * @param array<string, mixed> $validated
      */',
              'namespace' => 'App\\Actions',
              'uses' => 
@@ -8273,7 +7901,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'result',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -8326,8 +7954,8 @@ return [
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'e',
-               'type' => 'Exception',
+               'name' => 'throwable',
+               'type' => 'Throwable',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -8346,7 +7974,7 @@ return [
            'phpDoc' => 
           \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
              'phpDocString' => '/**
-     * Log successful execution
+     * @param mixed $result
      */',
              'namespace' => 'App\\Actions',
              'uses' => 
@@ -8370,7 +7998,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'result',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -8412,7 +8040,7 @@ return [
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'e',
+               'name' => 'exception',
                'type' => 'Exception',
                'byRef' => false,
                'variadic' => false,
@@ -8467,7 +8095,7 @@ return [
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'planningService',
+               'name' => 'dailyPlanningService',
                'type' => 'App\\Services\\DailyPlanningService',
                'byRef' => false,
                'variadic' => false,
@@ -8484,7 +8112,25 @@ return [
         1 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'validate',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param mixed ...$parameters
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Actions\\DailyPlanning',
+             'uses' => 
+            array (
+              'actionresult' => 'App\\Actions\\ActionResult',
+              'baseaction' => 'App\\Actions\\BaseAction',
+              'user' => 'App\\Models\\User',
+              'dailyplanningservice' => 'App\\Services\\DailyPlanningService',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => false,
            'private' => false,
@@ -8497,7 +8143,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'parameters',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => true,
                'hasDefault' => false,
@@ -8513,7 +8159,24 @@ return [
         2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'authorize',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param mixed ...$parameters
+     */',
+             'namespace' => 'App\\Actions\\DailyPlanning',
+             'uses' => 
+            array (
+              'actionresult' => 'App\\Actions\\ActionResult',
+              'baseaction' => 'App\\Actions\\BaseAction',
+              'user' => 'App\\Models\\User',
+              'dailyplanningservice' => 'App\\Services\\DailyPlanningService',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => false,
            'private' => false,
@@ -8526,7 +8189,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'parameters',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => true,
                'hasDefault' => false,
@@ -8542,14 +8205,33 @@ return [
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'execute',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $validated
+     * @param mixed ...$parameters
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Actions\\DailyPlanning',
+             'uses' => 
+            array (
+              'actionresult' => 'App\\Actions\\ActionResult',
+              'baseaction' => 'App\\Actions\\BaseAction',
+              'user' => 'App\\Models\\User',
+              'dailyplanningservice' => 'App\\Services\\DailyPlanningService',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => false,
            'private' => false,
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => NULL,
+           'returnType' => 'array',
            'parameters' => 
           array (
             0 => 
@@ -8566,7 +8248,7 @@ return [
             1 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'parameters',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => true,
                'hasDefault' => false,
@@ -8582,7 +8264,25 @@ return [
         4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'afterExecute',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param mixed $result
+     * @param array<string, mixed> $validated
+     */',
+             'namespace' => 'App\\Actions\\DailyPlanning',
+             'uses' => 
+            array (
+              'actionresult' => 'App\\Actions\\ActionResult',
+              'baseaction' => 'App\\Actions\\BaseAction',
+              'user' => 'App\\Models\\User',
+              'dailyplanningservice' => 'App\\Services\\DailyPlanningService',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => false,
            'private' => false,
@@ -8595,7 +8295,7 @@ return [
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
                'name' => 'result',
-               'type' => NULL,
+               'type' => 'mixed',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -8634,8 +8334,8 @@ return [
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'e',
-               'type' => 'Exception',
+               'name' => 'throwable',
+               'type' => 'Throwable',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -8689,7 +8389,7 @@ return [
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'todoist',
+               'name' => 'todoistService',
                'type' => 'App\\Services\\TodoistService',
                'byRef' => false,
                'variadic' => false,
@@ -8764,14 +8464,33 @@ return [
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'execute',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return mixed[]
+     */',
+             'namespace' => 'App\\Actions\\DailyPlanning',
+             'uses' => 
+            array (
+              'actionresult' => 'App\\Actions\\ActionResult',
+              'baseaction' => 'App\\Actions\\BaseAction',
+              'user' => 'App\\Models\\User',
+              'todoistservice' => 'App\\Services\\TodoistService',
+              'carbon' => 'Carbon\\Carbon',
+              'db' => 'Illuminate\\Support\\Facades\\DB',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => false,
            'private' => false,
            'abstract' => false,
            'final' => false,
            'static' => false,
-           'returnType' => NULL,
+           'returnType' => 'array',
            'parameters' => 
           array (
             0 => 
@@ -8856,8 +8575,8 @@ return [
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'e',
-               'type' => 'Exception',
+               'name' => 'throwable',
+               'type' => 'Throwable',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -8870,6 +8589,851 @@ return [
           array (
           ),
         )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Console/Commands/RenameProjectCommand.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Console\\Commands\\RenameProjectCommand',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Console\\Command',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'signature',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */',
+             'namespace' => 'App\\Console\\Commands',
+             'uses' => 
+            array (
+              'command' => 'Illuminate\\Console\\Command',
+              'file' => 'Illuminate\\Support\\Facades\\File',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'description',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The console command description.
+     *
+     * @var string
+     */',
+             'namespace' => 'App\\Console\\Commands',
+             'uses' => 
+            array (
+              'command' => 'Illuminate\\Console\\Command',
+              'file' => 'Illuminate\\Support\\Facades\\File',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'handle',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Execute the console command.
+     */',
+             'namespace' => 'App\\Console\\Commands',
+             'uses' => 
+            array (
+              'command' => 'Illuminate\\Console\\Command',
+              'file' => 'Illuminate\\Support\\Facades\\File',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationStatus.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedEnumNode::__set_state(array(
+       'name' => 'App\\Enums\\IntegrationStatus',
+       'scalarType' => 'string',
+       'phpDoc' => NULL,
+       'implements' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'ACTIVE',
+           'value' => '\'active\'',
+           'phpDoc' => NULL,
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'INACTIVE',
+           'value' => '\'inactive\'',
+           'phpDoc' => NULL,
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'displayName',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the display name for the integration status.
+     */',
+             'namespace' => 'App\\Enums',
+             'uses' => 
+            array (
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'isActive',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Check if the integration is active.
+     */',
+             'namespace' => 'App\\Enums',
+             'uses' => 
+            array (
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Enums/IntegrationType.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedEnumNode::__set_state(array(
+       'name' => 'App\\Enums\\IntegrationType',
+       'scalarType' => 'string',
+       'phpDoc' => NULL,
+       'implements' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'NOTION',
+           'value' => '\'notion\'',
+           'phpDoc' => NULL,
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'GMAIL',
+           'value' => '\'gmail\'',
+           'phpDoc' => NULL,
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'CALENDAR',
+           'value' => '\'calendar\'',
+           'phpDoc' => NULL,
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'OPENAI',
+           'value' => '\'openai\'',
+           'phpDoc' => NULL,
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'TODOIST',
+           'value' => '\'todoist\'',
+           'phpDoc' => NULL,
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'JIRA',
+           'value' => '\'jira\'',
+           'phpDoc' => NULL,
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedEnumCaseNode::__set_state(array(
+           'name' => 'SENTRY',
+           'value' => '\'sentry\'',
+           'phpDoc' => NULL,
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'displayName',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the display name for the integration type.
+     */',
+             'namespace' => 'App\\Enums',
+             'uses' => 
+            array (
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'description',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the description for the integration type.
+     */',
+             'namespace' => 'App\\Enums',
+             'uses' => 
+            array (
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Exceptions/IntegrationException.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Exceptions\\IntegrationException',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Exception',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'service',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'message',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'code',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+            3 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'throwable',
+               'type' => '?Throwable',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getService',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'report',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/AiChatController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\AiChatController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'App\\Http\\Controllers\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'mcpAuthService',
+               'type' => 'App\\Services\\McpAuthService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'chat',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse|Symfony\\Component\\HttpFoundation\\StreamedResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/CalendarController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\CalendarController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Routing\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'googleService',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'App\\Services\\GoogleService',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'index',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Inertia\\Response|Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'events',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'store',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'eventId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'destroy',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'eventId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'checkConflicts',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'weekEvents',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/Controller.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\Controller',
+       'phpDoc' => NULL,
+       'abstract' => true,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
       ),
        'attributes' => 
       array (
@@ -8958,7 +9522,7 @@ return [
             )),
             1 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'action',
+               'name' => 'createDailyPlanningAction',
                'type' => 'App\\Actions\\DailyPlanning\\CreateDailyPlanningAction',
                'byRef' => false,
                'variadic' => false,
@@ -8998,8 +9562,3630 @@ return [
             )),
             1 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'action',
+               'name' => 'updateTodoistTasksAction',
                'type' => 'App\\Actions\\DailyPlanning\\UpdateTodoistTasksAction',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GmailController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\GmailController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Routing\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'googleService',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'App\\Services\\GoogleService',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'index',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Inertia\\Response|Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'show',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Inertia\\Response|Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'messageId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'send',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'search',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'modifyLabels',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'messageId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\GoogleIntegrationController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Routing\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'index',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Inertia\\Response',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'setup',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Inertia\\Response',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'connect',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'service',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'callback',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'disconnect',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\RedirectResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'service',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/IntegrationsController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\IntegrationsController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Routing\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'index',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get all integration accounts for the authenticated user.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'enum' => 'Illuminate\\Validation\\Rules\\Enum',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'store',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Store a new integration account.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'enum' => 'Illuminate\\Validation\\Rules\\Enum',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Update an existing integration account.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'enum' => 'Illuminate\\Validation\\Rules\\Enum',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'integrationAccount',
+               'type' => 'App\\Models\\IntegrationAccount',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'destroy',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Delete an integration account.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+              'enum' => 'Illuminate\\Validation\\Rules\\Enum',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'integrationAccount',
+               'type' => 'App\\Models\\IntegrationAccount',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/JiraController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\JiraController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Routing\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listProjects',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * List all JIRA projects.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getProject',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get a specific project.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'projectKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listBoards',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * List all boards.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getBoard',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get a specific board.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'boardId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listBoardIssues',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * List issues for a board.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'boardId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'searchIssues',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Search issues using JQL.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get a specific issue.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create a new issue.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        9 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'updateIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Update an issue.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        10 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'transitionIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Transition an issue to a different status.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        11 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getTransitions',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get available transitions for an issue.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        12 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'assignIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Assign an issue to a user.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        13 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createEpic',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create an epic.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        14 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getEpicProgress',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get epic progress.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'epicKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        15 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getEpicIssues',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get issues in an epic.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'epicKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        16 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listSprints',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * List sprints for a board.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'boardId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        17 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getSprint',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get a specific sprint.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sprintId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        18 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'startSprint',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Start a sprint.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sprintId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        19 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'completeSprint',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Complete a sprint.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sprintId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        20 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getSprintVelocity',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get sprint velocity.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sprintId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        21 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createFromSentry',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create a JIRA issue from a Sentry error.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'jiraservice' => 'App\\Services\\JiraService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/McpProxyController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\McpProxyController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'App\\Http\\Controllers\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'login',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Handle authentication with the MCP server
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'me',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get current user info from MCP server
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getTodayTasks',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get today\'s tasks from MCP server
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getUpcomingTasks',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get upcoming tasks from MCP server
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'todoistProxy',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Proxy Todoist requests to MCP server
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'path',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NaturalLanguageController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\NaturalLanguageController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Routing\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'naturalLanguageService',
+               'type' => 'App\\Services\\NaturalLanguageService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'processCommand',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getSuggestions',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getCommandHistory',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\NotionController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Routing\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fetch',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch Notion pages from the MCP Server.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'notionservice' => 'App\\Services\\NotionService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'controller' => 'Illuminate\\Routing\\Controller',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'notionService',
+               'type' => 'App\\Services\\NotionService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/NotionIntegrationController.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Controllers\\NotionIntegrationController',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Routing\\Controller',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getNotionIntegration',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the user\'s active Notion integration account.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'notionservice' => 'App\\Services\\NotionService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?App\\Models\\IntegrationAccount',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'pagesTree',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch the Notion pages tree.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'notionservice' => 'App\\Services\\NotionService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'databases',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch Notion databases.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'notionservice' => 'App\\Services\\NotionService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'page',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch a specific Notion page.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'notionservice' => 'App\\Services\\NotionService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'pageId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'blocks',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch blocks for a specific Notion page.
+     */',
+             'namespace' => 'App\\Http\\Controllers',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'notionservice' => 'App\\Services\\NotionService',
+              'jsonresponse' => 'Illuminate\\Http\\JsonResponse',
+              'request' => 'Illuminate\\Http\\Request',
+              'controller' => 'Illuminate\\Routing\\Controller',
+              'auth' => 'Illuminate\\Support\\Facades\\Auth',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Http\\JsonResponse',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'pageId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/Authenticate.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Middleware\\Authenticate',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Auth\\Middleware\\Authenticate',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'redirectTo',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the path the user should be redirected to when they are not authenticated.
+     */',
+             'namespace' => 'App\\Http\\Middleware',
+             'uses' => 
+            array (
+              'middleware' => 'Illuminate\\Auth\\Middleware\\Authenticate',
+              'request' => 'Illuminate\\Http\\Request',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?string',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HandleAppearance.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Middleware\\HandleAppearance',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'handle',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Handle an incoming request.
+     *
+     * @param  \\Closure(\\Illuminate\\Http\\Request): (\\Symfony\\Component\\HttpFoundation\\Response)  $next
+     */',
+             'namespace' => 'App\\Http\\Middleware',
+             'uses' => 
+            array (
+              'closure' => 'Closure',
+              'request' => 'Illuminate\\Http\\Request',
+              'view' => 'Illuminate\\Support\\Facades\\View',
+              'response' => 'Symfony\\Component\\HttpFoundation\\Response',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Symfony\\Component\\HttpFoundation\\Response',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'next',
+               'type' => 'Closure',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Middleware\\HasActiveIntegration',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'handle',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Symfony\\Component\\HttpFoundation\\Response',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'request',
+               'type' => 'Illuminate\\Http\\Request',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'next',
+               'type' => 'Closure',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'integrationType',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/VerifyCsrfToken.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Http\\Middleware\\VerifyCsrfToken',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'except',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The URIs that should be excluded from CSRF verification.
+     *
+     * @var array<int, string>
+     */',
+             'namespace' => 'App\\Http\\Middleware',
+             'uses' => 
+            array (
+              'middleware' => 'Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Models\\IntegrationAccount',
+       'phpDoc' => 
+      \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+         'phpDocString' => '/**
+ * @property int $id
+ * @property int $user_id
+ * @property IntegrationType $type
+ * @property string $access_token
+ * @property array<string, mixed>|null $meta
+ * @property IntegrationStatus $status
+ * @property \\Carbon\\Carbon $created_at
+ * @property \\Carbon\\Carbon $updated_at
+ */',
+         'namespace' => 'App\\Models',
+         'uses' => 
+        array (
+          'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+          'integrationtype' => 'App\\Enums\\IntegrationType',
+          'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+          'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+          'model' => 'Illuminate\\Database\\Eloquent\\Model',
+          'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+        ),
+         'constUses' => 
+        array (
+        ),
+      )),
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Database\\Eloquent\\Model',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'fillable',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'casts',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'user',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the user that owns the integration account.
+     *
+     * @return BelongsTo<User, $this>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'scopeActive',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Scope a query to only include active integration accounts.
+     *
+     * @param  Builder<IntegrationAccount>  $builder
+     * @return Builder<IntegrationAccount>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'builder' => 'Illuminate\\Database\\Eloquent\\Builder',
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'belongsto' => 'Illuminate\\Database\\Eloquent\\Relations\\BelongsTo',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Builder',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'builder',
+               'type' => 'Illuminate\\Database\\Eloquent\\Builder',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Models/User.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Models\\User',
+       'phpDoc' => 
+      \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+         'phpDocString' => '/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property \\Carbon\\Carbon|null $email_verified_at
+ * @property string $password
+ * @property string|null $remember_token
+ * @property string|null $api_token
+ * @property \\Carbon\\Carbon $created_at
+ * @property \\Carbon\\Carbon $updated_at
+ * @property-read \\Illuminate\\Database\\Eloquent\\Collection<int, IntegrationAccount> $integrationAccounts
+ */',
+         'namespace' => 'App\\Models',
+         'uses' => 
+        array (
+          'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+          'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+          'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
+          'notifiable' => 'Illuminate\\Notifications\\Notifiable',
+        ),
+         'constUses' => 
+        array (
+        ),
+      )),
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Foundation\\Auth\\User',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+        0 => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+        1 => 'Illuminate\\Notifications\\Notifiable',
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'fillable',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The attributes that are mass assignable.
+     *
+     * @var list<string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
+              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'hidden',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var list<string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
+              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => NULL,
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'casts',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
+              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'integrationAccounts',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get the integration accounts for the user.
+     *
+     * @return HasMany<IntegrationAccount, $this>
+     */',
+             'namespace' => 'App\\Models',
+             'uses' => 
+            array (
+              'hasfactory' => 'Illuminate\\Database\\Eloquent\\Factories\\HasFactory',
+              'hasmany' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+              'authenticatable' => 'Illuminate\\Foundation\\Auth\\User',
+              'notifiable' => 'Illuminate\\Notifications\\Notifiable',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Relations\\HasMany',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Providers/AppServiceProvider.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Providers\\AppServiceProvider',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => 'Illuminate\\Support\\ServiceProvider',
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'register',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Register any application services.
+     */',
+             'namespace' => 'App\\Providers',
+             'uses' => 
+            array (
+              'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'boot',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Bootstrap any application services.
+     */',
+             'namespace' => 'App\\Providers',
+             'uses' => 
+            array (
+              'serviceprovider' => 'Illuminate\\Support\\ServiceProvider',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'void',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/BaseService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\BaseService',
+       'phpDoc' => NULL,
+       'abstract' => true,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'list',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $filters
+     * @return LengthAwarePaginator<int, Model>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => true,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'filters',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'find',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => true,
+           'final' => false,
+           'static' => false,
+           'returnType' => '?Illuminate\\Database\\Eloquent\\Model',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int|string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'create',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $data
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => true,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Model',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'update',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $data
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => true,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'Illuminate\\Database\\Eloquent\\Model',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int|string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'delete',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => true,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'bool',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'id',
+               'type' => 'int|string',
                'byRef' => false,
                'variadic' => false,
                'hasDefault' => false,
@@ -9053,7 +13239,7 @@ return [
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'todoist',
+               'name' => 'todoistService',
                'type' => 'App\\Services\\TodoistService',
                'byRef' => false,
                'variadic' => false,
@@ -9070,7 +13256,25 @@ return [
         1 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'generateDailyPlanning',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $options
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'user' => 'App\\Models\\User',
+              'carbon' => 'Carbon\\Carbon',
+              'collection' => 'Illuminate\\Support\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9110,7 +13314,25 @@ return [
         2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'list',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $filters
+     * @return \\Illuminate\\Pagination\\LengthAwarePaginator<int, \\Illuminate\\Database\\Eloquent\\Model>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'user' => 'App\\Models\\User',
+              'carbon' => 'Carbon\\Carbon',
+              'collection' => 'Illuminate\\Support\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9168,7 +13390,24 @@ return [
         4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'create',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $data
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'user' => 'App\\Models\\User',
+              'carbon' => 'Carbon\\Carbon',
+              'collection' => 'Illuminate\\Support\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9197,7 +13436,24 @@ return [
         5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'update',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $data
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'user' => 'App\\Models\\User',
+              'carbon' => 'Carbon\\Carbon',
+              'collection' => 'Illuminate\\Support\\Collection',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9269,6 +13525,2752 @@ return [
       ),
     )),
   ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\GoogleService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'accessToken',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'refreshToken',
+          ),
+           'phpDoc' => NULL,
+           'type' => '?string',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'integrationAccount',
+               'type' => '?App\\Models\\IntegrationAccount',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'makeGoogleApiRequest',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Make a request to Google API
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'url',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'params',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'method',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getGmailStatus',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listGmailMessages',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'params',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getGmailMessage',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'messageId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'sendGmailMessage',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'messageData',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listGmailLabels',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        9 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'modifyGmailLabels',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'messageId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'labels',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        10 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'searchGmailMessages',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $params
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'query',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'params',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        11 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getCalendarStatus',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        12 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listCalendars',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        13 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listCalendarEvents',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $params
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'params',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        14 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createCalendarEvent',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $eventData
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'eventData',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        15 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'updateCalendarEvent',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $eventData
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'eventId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'eventData',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        16 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'deleteCalendarEvent',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'eventId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        17 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'checkCalendarConflicts',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $eventData
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'eventData',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        18 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getTodayEvents',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        19 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getWeekEvents',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/JiraService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\JiraService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'mcpProxy',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'App\\Services\\McpProxyService',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'integrationAccount',
+          ),
+           'phpDoc' => NULL,
+           'type' => 'App\\Models\\IntegrationAccount',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create a new JiraService instance.
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'integrationAccount',
+               'type' => 'App\\Models\\IntegrationAccount',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'callTool',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Call MCP tool and ensure array return.
+     *
+     * @param  array<string, mixed>  $params
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tool',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'params',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listProjects',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * List all JIRA projects.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getProject',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get a specific project.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'projectKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listBoards',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * List all boards.
+     *
+     * @param  array<string, mixed>  $filters
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'filters',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getBoard',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get a specific board.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'boardId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        8 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listBoardIssues',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * List issues for a board.
+     *
+     * @param  array<string, mixed>  $filters
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'boardId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'filters',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        9 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'searchIssues',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Search issues using JQL.
+     *
+     * @param  array<string, mixed>  $options
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'jql',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        10 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get a specific issue.
+     *
+     * @param  array<string, mixed>  $options
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        11 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create a new issue.
+     *
+     * @param  array<string, mixed>  $data
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        12 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'updateIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Update an issue.
+     *
+     * @param  array<string, mixed>  $data
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        13 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'transitionIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Transition an issue to a different status.
+     *
+     * @param  array<string, mixed>  $options
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'transitionId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        14 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getTransitions',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get available transitions for an issue.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        15 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'assignIssue',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Assign an issue to a user.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'issueKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'assignee',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        16 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createEpic',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create an epic.
+     *
+     * @param  array<string, mixed>  $options
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'projectKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'summary',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        17 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getEpicProgress',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get epic progress.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'epicKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        18 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getEpicIssues',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get issues in an epic.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'epicKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        19 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'listSprints',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * List sprints for a board.
+     *
+     * @param  array<string, mixed>  $filters
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'boardId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'filters',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        20 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getSprint',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get a specific sprint.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sprintId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        21 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'startSprint',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Start a sprint.
+     *
+     * @param  array<string, mixed>  $data
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sprintId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'data',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        22 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'completeSprint',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Complete a sprint.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sprintId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        23 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getSprintVelocity',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Get sprint velocity.
+     *
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sprintId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        24 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'createFromSentry',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create a JIRA issue from a Sentry error.
+     *
+     * @param  array<string, mixed>  $options
+     * @return array<mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationexception' => 'App\\Exceptions\\IntegrationException',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'sentryIssueId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'projectKey',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'options',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuthService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\McpAuthService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'getAccessToken',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'string',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpProxyService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\McpProxyService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'request',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param  array<string, mixed>  $params
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'integrationAccount',
+               'type' => 'App\\Models\\IntegrationAccount',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'method',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'params',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'callMcpTool',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Call an MCP tool method.
+     *
+     * @param  array<string, mixed>  $params
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'mixed',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'integrationAccount',
+               'type' => 'App\\Models\\IntegrationAccount',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'tool',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            2 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'params',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NaturalLanguageService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\NaturalLanguageService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => NULL,
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'notionService',
+               'type' => 'App\\Services\\NotionService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'mcpAuthService',
+               'type' => 'App\\Services\\McpAuthService',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'processCommand',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array{success: bool, message: string, type?: string, data?: array<string, mixed>, suggestions?: array<string, string[]>, requiresIntegration?: bool, integrationType?: string}
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'command',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'userId',
+               'type' => 'int',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
+  '/Users/fred/PhpstormProjects/mcp_manager/app/Services/NotionService.php' => 
+  array (
+    0 => 
+    \PHPStan\Dependency\ExportedNode\ExportedClassNode::__set_state(array(
+       'name' => 'App\\Services\\NotionService',
+       'phpDoc' => NULL,
+       'abstract' => false,
+       'final' => false,
+       'extends' => NULL,
+       'implements' => 
+      array (
+      ),
+       'usedTraits' => 
+      array (
+      ),
+       'traitUseAdaptations' => 
+      array (
+      ),
+       'statements' => 
+      array (
+        0 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'serverUrl',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The MCP Server URL.
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        1 => 
+        \PHPStan\Dependency\ExportedNode\ExportedPropertiesNode::__set_state(array(
+           'names' => 
+          array (
+            0 => 'apiToken',
+          ),
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * The API token for authentication.
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'type' => 'string',
+           'public' => false,
+           'private' => false,
+           'static' => false,
+           'readonly' => false,
+           'abstract' => false,
+           'final' => false,
+           'publicSet' => false,
+           'protectedSet' => false,
+           'privateSet' => false,
+           'virtual' => false,
+           'attributes' => 
+          array (
+          ),
+           'hooks' => 
+          array (
+          ),
+        )),
+        2 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => '__construct',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Create a new NotionService instance.
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => NULL,
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'integrationAccount',
+               'type' => '?App\\Models\\IntegrationAccount',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        3 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'makeRequest',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Make an authenticated request to the MCP Server.
+     *
+     * @param  string  $endpoint  The API endpoint
+     * @param  array<string, mixed>  $params  The query parameters
+     * @return array<mixed> The response data
+     *
+     * @throws \\Exception If the request fails
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => false,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'endpoint',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+            1 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'params',
+               'type' => 'array',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        4 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fetchNotionPages',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch Notion pages from the MCP Server.
+     *
+     * @param  string|null  $pageId  The ID of the page to fetch, or null to use the default from config
+     * @return array<mixed> The Notion pages data
+     *
+     * @throws \\Exception If the request fails
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'pageId',
+               'type' => '?string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => true,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        5 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fetchNotionDatabases',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch Notion databases from the MCP Server.
+     *
+     * @return array<mixed> The Notion databases data
+     *
+     * @throws \\Exception If the request fails
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        6 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fetchNotionPage',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch a specific Notion page from the MCP Server.
+     *
+     * @param  string  $pageId  The ID of the page to fetch
+     * @return array<mixed> The Notion page data
+     *
+     * @throws \\Exception If the request fails
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'pageId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+        7 => 
+        \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
+           'name' => 'fetchNotionBlocks',
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * Fetch blocks for a specific Notion page from the MCP Server.
+     *
+     * @param  string  $pageId  The ID of the page to fetch blocks for
+     * @return array<mixed> The Notion blocks data
+     *
+     * @throws \\Exception If the request fails
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'http' => 'Illuminate\\Support\\Facades\\Http',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
+           'byRef' => false,
+           'public' => true,
+           'private' => false,
+           'abstract' => false,
+           'final' => false,
+           'static' => false,
+           'returnType' => 'array',
+           'parameters' => 
+          array (
+            0 => 
+            \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
+               'name' => 'pageId',
+               'type' => 'string',
+               'byRef' => false,
+               'variadic' => false,
+               'hasDefault' => false,
+               'attributes' => 
+              array (
+              ),
+            )),
+          ),
+           'attributes' => 
+          array (
+          ),
+        )),
+      ),
+       'attributes' => 
+      array (
+      ),
+    )),
+  ),
   '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php' => 
   array (
     0 => 
@@ -9304,7 +16306,7 @@ return [
           array (
             0 => 
             \PHPStan\Dependency\ExportedNode\ExportedParameterNode::__set_state(array(
-               'name' => 'mcpProxy',
+               'name' => 'mcpProxyService',
                'type' => 'App\\Services\\McpProxyService',
                'byRef' => false,
                'variadic' => false,
@@ -9350,7 +16352,26 @@ return [
         2 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getTodayTasks',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<int, array<string, mixed>>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9368,7 +16389,26 @@ return [
         3 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getTomorrowTasks',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<int, array<string, mixed>>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9386,7 +16426,26 @@ return [
         4 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getWeekTasks',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<int, array<string, mixed>>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9404,7 +16463,26 @@ return [
         5 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getTask',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9433,7 +16511,27 @@ return [
         6 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'createTask',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $data
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9462,7 +16560,27 @@ return [
         7 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'updateTask',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $data
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9560,7 +16678,26 @@ return [
         10 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getProjects',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<int, array<string, mixed>>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9578,7 +16715,26 @@ return [
         11 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'getProject',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9607,7 +16763,28 @@ return [
         12 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'bulkUpdateTasks',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<int, string> $taskIds
+     * @param array<string, mixed> $updates
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9647,7 +16824,26 @@ return [
         13 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'quickAddTask',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @return array<string, mixed>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9676,7 +16872,27 @@ return [
         14 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'list',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $filters
+     * @return LengthAwarePaginator<int, Model>
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9734,7 +16950,26 @@ return [
         16 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'create',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $data
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,
@@ -9763,7 +16998,26 @@ return [
         17 => 
         \PHPStan\Dependency\ExportedNode\ExportedMethodNode::__set_state(array(
            'name' => 'update',
-           'phpDoc' => NULL,
+           'phpDoc' => 
+          \PHPStan\Dependency\ExportedNode\ExportedPhpDocNode::__set_state(array(
+             'phpDocString' => '/**
+     * @param array<string, mixed> $data
+     */',
+             'namespace' => 'App\\Services',
+             'uses' => 
+            array (
+              'integrationstatus' => 'App\\Enums\\IntegrationStatus',
+              'integrationtype' => 'App\\Enums\\IntegrationType',
+              'integrationaccount' => 'App\\Models\\IntegrationAccount',
+              'user' => 'App\\Models\\User',
+              'model' => 'Illuminate\\Database\\Eloquent\\Model',
+              'lengthawarepaginator' => 'Illuminate\\Pagination\\LengthAwarePaginator',
+              'log' => 'Illuminate\\Support\\Facades\\Log',
+            ),
+             'constUses' => 
+            array (
+            ),
+          )),
            'byRef' => false,
            'public' => true,
            'private' => false,

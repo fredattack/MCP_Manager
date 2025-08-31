@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useState, useEffect, useRef } from 'react';
 import { CodeBlock } from './CodeBlock';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { TableRenderer } from './TableRenderer';
@@ -8,6 +8,8 @@ import {
   ExportFormat 
 } from '@/types/ai/claude.types';
 import { cn } from '@/lib/utils';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 export const CanvasPanel: FC<CanvasPanelProps> = ({
   className,
@@ -17,6 +19,7 @@ export const CanvasPanel: FC<CanvasPanelProps> = ({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [zoom, setZoom] = useState(100);
   const [extractedContent, setExtractedContent] = useState<CanvasContent | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (selectedMessage && selectedMessage.role === 'assistant') {
@@ -136,9 +139,7 @@ export const CanvasPanel: FC<CanvasPanelProps> = ({
         break;
       
       case 'pdf':
-        // For PDF export, we'd typically use a library like jsPDF
-        // For now, we'll just show an alert
-        alert('PDF export is not yet implemented');
+        await exportToPDF();
         return;
       
       default:
@@ -161,6 +162,69 @@ export const CanvasPanel: FC<CanvasPanelProps> = ({
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+  };
+
+  const exportToPDF = async () => {
+    if (!contentRef.current || !selectedMessage) return;
+
+    try {
+      // Show loading state
+      const loadingDiv = document.createElement('div');
+      loadingDiv.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+      loadingDiv.innerHTML = '<div class="bg-white p-4 rounded-lg">Generating PDF...</div>';
+      document.body.appendChild(loadingDiv);
+
+      // Capture the content as canvas
+      const canvas = await html2canvas(contentRef.current, {
+        scale: 2,
+        logging: false,
+        backgroundColor: '#ffffff',
+        windowWidth: contentRef.current.scrollWidth,
+        windowHeight: contentRef.current.scrollHeight,
+      });
+
+      // Calculate PDF dimensions
+      const imgWidth = 210; // A4 width in mm
+      const pageHeight = 297; // A4 height in mm
+      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      let heightLeft = imgHeight;
+
+      // Create PDF
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+
+      // Add content to PDF
+      const imgData = canvas.toDataURL('image/png');
+      pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+      heightLeft -= pageHeight;
+
+      // Add additional pages if needed
+      while (heightLeft >= 0) {
+        position = heightLeft - imgHeight;
+        pdf.addPage();
+        pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
+        heightLeft -= pageHeight;
+      }
+
+      // Add metadata
+      pdf.setProperties({
+        title: 'Claude Assistant Export',
+        subject: 'Canvas Content',
+        author: 'Claude Assistant',
+        keywords: 'ai, assistant, export',
+        creator: 'MCP Manager',
+      });
+
+      // Save the PDF
+      const filename = `canvas_export_${new Date().toISOString().slice(0, 10)}.pdf`;
+      pdf.save(filename);
+
+      // Remove loading state
+      document.body.removeChild(loadingDiv);
+    } catch (error) {
+      console.error('Error exporting to PDF:', error);
+      alert('Failed to export PDF. Please try again.');
+    }
   };
 
   const convertToHtml = (content: CanvasContent): string => {
@@ -336,6 +400,7 @@ export const CanvasPanel: FC<CanvasPanelProps> = ({
 
       {/* Content */}
       <div 
+        ref={contentRef}
         className="flex-1 overflow-auto p-6"
         style={{ fontSize: `${zoom}%` }}
       >

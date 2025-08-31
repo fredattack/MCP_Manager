@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Enums\IntegrationStatus;
 use App\Enums\IntegrationType;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -45,6 +46,7 @@ class IntegrationAccount extends Model
         'type' => IntegrationType::class,
         'status' => IntegrationStatus::class,
         'meta' => 'array',
+        'access_token' => 'encrypted',
     ];
 
     /**
@@ -55,5 +57,16 @@ class IntegrationAccount extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Scope a query to only include active integration accounts.
+     *
+     * @param  Builder<IntegrationAccount>  $builder
+     * @return Builder<IntegrationAccount>
+     */
+    public function scopeActive(Builder $builder): Builder
+    {
+        return $builder->where('status', IntegrationStatus::ACTIVE);
     }
 }

@@ -82,7 +82,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/database/seeders/DatabaseSeeder.php' => 
     array (
-      0 => '236a134dfcbb745a5a54b19f9647c3734106fd87',
+      0 => 'c90b770306bb3c134b97c2332ee96b19b41d0087',
       1 => 
       array (
         0 => 'database\\seeders\\databaseseeder',
@@ -97,7 +97,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/database/factories/IntegrationAccountFactory.php' => 
     array (
-      0 => 'b9c5b99e48d080ff345ee2c72a97630827c05e0e',
+      0 => '742c1089503ed6339665beb51400575814695d0e',
       1 => 
       array (
         0 => 'database\\factories\\integrationaccountfactory',
@@ -108,7 +108,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         1 => 'database\\factories\\notion',
         2 => 'database\\factories\\gmail',
         3 => 'database\\factories\\openai',
-        4 => 'database\\factories\\inactive',
+        4 => 'database\\factories\\todoist',
+        5 => 'database\\factories\\inactive',
       ),
       3 => 
       array (
@@ -125,6 +126,22 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'database\\factories\\definition',
         1 => 'database\\factories\\unverified',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/database/seeders/DevelopmentSeeder.php' => 
+    array (
+      0 => 'c19b1d0dc37a0461e3ae8fa4678d21309c6f6dbe',
+      1 => 
+      array (
+        0 => 'database\\seeders\\developmentseeder',
+      ),
+      2 => 
+      array (
+        0 => 'database\\seeders\\run',
+        1 => 'database\\seeders\\createsampleintegrations',
       ),
       3 => 
       array (

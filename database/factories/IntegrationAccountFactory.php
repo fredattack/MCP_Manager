@@ -82,6 +82,20 @@ class IntegrationAccountFactory extends Factory
     }
 
     /**
+     * Indicate that the integration account is for Todoist.
+     *
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function todoist()
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'type' => IntegrationType::TODOIST,
+            ];
+        });
+    }
+
+    /**
      * Indicate that the integration account is inactive.
      *
      * @return \Illuminate\Database\Eloquent\Factories\Factory

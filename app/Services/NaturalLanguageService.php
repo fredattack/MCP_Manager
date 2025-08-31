@@ -34,15 +34,7 @@ class NaturalLanguageService
         ],
     ];
 
-    private NotionService $notionService;
-
-    private McpAuthService $mcpAuthService;
-
-    public function __construct(NotionService $notionService, McpAuthService $mcpAuthService)
-    {
-        $this->notionService = $notionService;
-        $this->mcpAuthService = $mcpAuthService;
-    }
+    public function __construct(private readonly NotionService $notionService, private readonly McpAuthService $mcpAuthService) {}
 
     /**
      * @return array{success: bool, message: string, type?: string, data?: array<string, mixed>, suggestions?: array<string, string[]>, requiresIntegration?: bool, integrationType?: string}
@@ -66,16 +58,16 @@ class NaturalLanguageService
 
         // If no specific command matched, use Claude as fallback
         // We don't need an integration for Claude since it's handled by MCP Server
-        return $this->executeClaudeCommand($command, $userId);
+        return $this->executeClaudeCommand($command);
     }
 
-    private function executeClaudeCommand(string $command, int $userId): array
+    private function executeClaudeCommand(string $command): array
     {
         try {
             $mcpServerUrl = config('services.mcp.server_url');
             $mcpToken = $this->mcpAuthService->getAccessToken();
 
-            if (! $mcpToken) {
+            if ($mcpToken === '' || $mcpToken === '0') {
                 throw new \Exception('Impossible de s\'authentifier auprès du serveur MCP');
             }
 
@@ -166,18 +158,18 @@ class NaturalLanguageService
         }
     }
 
-    private function todoistGetTodayTasks(IntegrationAccount $integration, array $matches): array
+    private function todoistGetTodayTasks(IntegrationAccount $integrationAccount): array
     {
         $mcpServerUrl = config('services.mcp.server_url');
         $mcpToken = $this->mcpAuthService->getAccessToken();
 
-        if (! $mcpToken) {
+        if ($mcpToken === '' || $mcpToken === '0') {
             throw new \Exception('Impossible de s\'authentifier auprès du serveur MCP');
         }
 
         $response = Http::timeout(10)->withHeaders([
             'Authorization' => 'Bearer '.$mcpToken,
-            'X-Todoist-Token' => $integration->access_token,
+            'X-Todoist-Token' => $integrationAccount->access_token,
             'Content-Type' => 'application/json',
         ])->get($mcpServerUrl.'/todoist/tasks', [
             'filter' => 'today | overdue',
@@ -208,18 +200,18 @@ class NaturalLanguageService
         ];
     }
 
-    private function todoistGetTomorrowTasks(IntegrationAccount $integration, array $matches): array
+    private function todoistGetTomorrowTasks(IntegrationAccount $integrationAccount): array
     {
         $mcpServerUrl = config('services.mcp.server_url');
         $mcpToken = $this->mcpAuthService->getAccessToken();
 
-        if (! $mcpToken) {
+        if ($mcpToken === '' || $mcpToken === '0') {
             throw new \Exception('Impossible de s\'authentifier auprès du serveur MCP');
         }
 
         $response = Http::timeout(10)->withHeaders([
             'Authorization' => 'Bearer '.$mcpToken,
-            'X-Todoist-Token' => $integration->access_token,
+            'X-Todoist-Token' => $integrationAccount->access_token,
             'Content-Type' => 'application/json',
         ])->get($mcpServerUrl.'/todoist/tasks', [
             'filter' => 'tomorrow',
@@ -250,18 +242,18 @@ class NaturalLanguageService
         ];
     }
 
-    private function todoistGetWeekTasks(IntegrationAccount $integration, array $matches): array
+    private function todoistGetWeekTasks(IntegrationAccount $integrationAccount): array
     {
         $mcpServerUrl = config('services.mcp.server_url');
         $mcpToken = $this->mcpAuthService->getAccessToken();
 
-        if (! $mcpToken) {
+        if ($mcpToken === '' || $mcpToken === '0') {
             throw new \Exception('Impossible de s\'authentifier auprès du serveur MCP');
         }
 
         $response = Http::timeout(10)->withHeaders([
             'Authorization' => 'Bearer '.$mcpToken,
-            'X-Todoist-Token' => $integration->access_token,
+            'X-Todoist-Token' => $integrationAccount->access_token,
             'Content-Type' => 'application/json',
         ])->get($mcpServerUrl.'/todoist/tasks', [
             'filter' => '7 days',
@@ -292,18 +284,18 @@ class NaturalLanguageService
         ];
     }
 
-    private function todoistGetProjects(IntegrationAccount $integration, array $matches): array
+    private function todoistGetProjects(IntegrationAccount $integrationAccount): array
     {
         $mcpServerUrl = config('services.mcp.server_url');
         $mcpToken = $this->mcpAuthService->getAccessToken();
 
-        if (! $mcpToken) {
+        if ($mcpToken === '' || $mcpToken === '0') {
             throw new \Exception('Impossible de s\'authentifier auprès du serveur MCP');
         }
 
         $response = Http::timeout(10)->withHeaders([
             'Authorization' => 'Bearer '.$mcpToken,
-            'X-Todoist-Token' => $integration->access_token,
+            'X-Todoist-Token' => $integrationAccount->access_token,
             'Content-Type' => 'application/json',
         ])->get($mcpServerUrl.'/todoist/projects');
 
@@ -329,11 +321,11 @@ class NaturalLanguageService
         ];
     }
 
-    private function todoistCreateTask(IntegrationAccount $integration, array $matches): array
+    private function todoistCreateTask(IntegrationAccount $integrationAccount, array $matches): array
     {
         $taskContent = (string) ($matches[1] ?? '');
 
-        if (empty($taskContent)) {
+        if ($taskContent === '' || $taskContent === '0') {
             return [
                 'success' => false,
                 'message' => 'Le contenu de la tâche ne peut pas être vide',
@@ -343,13 +335,13 @@ class NaturalLanguageService
         $mcpServerUrl = config('services.mcp.server_url');
         $mcpToken = $this->mcpAuthService->getAccessToken();
 
-        if (! $mcpToken) {
+        if ($mcpToken === '' || $mcpToken === '0') {
             throw new \Exception('Impossible de s\'authentifier auprès du serveur MCP');
         }
 
         $response = Http::timeout(10)->withHeaders([
             'Authorization' => 'Bearer '.$mcpToken,
-            'X-Todoist-Token' => $integration->access_token,
+            'X-Todoist-Token' => $integrationAccount->access_token,
             'Content-Type' => 'application/json',
         ])->post($mcpServerUrl.'/todoist/tasks', [
             'content' => $taskContent,
@@ -377,9 +369,9 @@ class NaturalLanguageService
         ];
     }
 
-    private function notionGetPages(IntegrationAccount $integration, array $matches): array
+    private function notionGetPages(IntegrationAccount $integrationAccount): array
     {
-        $pages = $this->notionService->fetchNotionPages($integration);
+        $pages = $this->notionService->fetchNotionPages($integrationAccount);
 
         return [
             'success' => true,
@@ -392,18 +384,18 @@ class NaturalLanguageService
         ];
     }
 
-    private function notionGetPageByName(IntegrationAccount $integration, array $matches): array
+    private function notionGetPageByName(IntegrationAccount $integrationAccount, array $matches): array
     {
         $pageName = (string) ($matches[1] ?? '');
 
-        if (empty($pageName)) {
+        if ($pageName === '' || $pageName === '0') {
             return [
                 'success' => false,
                 'message' => 'Veuillez spécifier le nom de la page',
             ];
         }
 
-        $pages = $this->notionService->fetchNotionPages($integration);
+        $pages = $this->notionService->fetchNotionPages($integrationAccount);
         $foundPage = $this->findPageByName($pages, $pageName);
 
         if (! $foundPage) {
@@ -413,7 +405,7 @@ class NaturalLanguageService
             ];
         }
 
-        $pageContent = $this->notionService->fetchNotionPage($foundPage['id'], $integration);
+        $pageContent = $this->notionService->fetchNotionPage($foundPage['id']);
 
         return [
             'success' => true,
@@ -425,9 +417,9 @@ class NaturalLanguageService
         ];
     }
 
-    private function notionGetDatabases(IntegrationAccount $integration, array $matches): array
+    private function notionGetDatabases(IntegrationAccount $integrationAccount): array
     {
-        $databases = $this->notionService->fetchNotionDatabases($integration);
+        $databases = $this->notionService->fetchNotionDatabases();
 
         return [
             'success' => true,
@@ -440,11 +432,11 @@ class NaturalLanguageService
         ];
     }
 
-    private function notionSearchNotion(IntegrationAccount $integration, array $matches): array
+    private function notionSearchNotion(IntegrationAccount $integrationAccount, array $matches): array
     {
         $searchTerm = (string) ($matches[1] ?? '');
 
-        if (empty($searchTerm)) {
+        if ($searchTerm === '' || $searchTerm === '0') {
             return [
                 'success' => false,
                 'message' => 'Veuillez spécifier un terme de recherche',
@@ -454,7 +446,7 @@ class NaturalLanguageService
         $mcpServerUrl = config('services.mcp.server_url');
 
         $response = Http::timeout(10)->withHeaders([
-            'Authorization' => 'Bearer '.$integration->access_token,
+            'Authorization' => 'Bearer '.$integrationAccount->access_token,
             'Content-Type' => 'application/json',
         ])->post($mcpServerUrl.'/notion/search', [
             'query' => $searchTerm,
@@ -502,7 +494,7 @@ class NaturalLanguageService
     }
 
     /**
-     * @param array<int, array{title?: string, children?: array}> $pages
+     * @param  array<int, array{title?: string, children?: array}>  $pages
      */
     private function countPages(array $pages): int
     {
@@ -518,7 +510,7 @@ class NaturalLanguageService
     }
 
     /**
-     * @param array<int, array{title?: string, children?: array}> $pages
+     * @param  array<int, array{title?: string, children?: array}>  $pages
      * @return array{title?: string, children?: array}|null
      */
     private function findPageByName(array $pages, string $name): ?array

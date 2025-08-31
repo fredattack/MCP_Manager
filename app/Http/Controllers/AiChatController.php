@@ -11,12 +11,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 
 class AiChatController extends Controller
 {
-    private McpAuthService $mcpAuthService;
-
-    public function __construct(McpAuthService $mcpAuthService)
-    {
-        $this->mcpAuthService = $mcpAuthService;
-    }
+    public function __construct(private readonly McpAuthService $mcpAuthService) {}
 
     public function chat(Request $request): JsonResponse|StreamedResponse
     {
@@ -38,7 +33,7 @@ class AiChatController extends Controller
 
         // Convert messages array to single message string for MCP server
         $messages = $request->input('messages');
-        if (! is_array($messages) || empty($messages)) {
+        if (! is_array($messages) || $messages === []) {
             return response()->json(['error' => 'Invalid messages format'], 400);
         }
         $lastMessage = end($messages);
@@ -57,7 +52,7 @@ class AiChatController extends Controller
 
         try {
             $accessToken = $this->mcpAuthService->getAccessToken();
-            if (! $accessToken) {
+            if ($accessToken === '' || $accessToken === '0') {
                 return response()->json([
                     'error' => 'Failed to authenticate with AI service',
                 ], 500);
@@ -87,7 +82,21 @@ class AiChatController extends Controller
             $responseData = $response->json();
             Log::info('AI Chat API response', ['data' => $responseData]);
 
-            return response()->json($responseData);
+            // Standardize response format
+            $standardizedResponse = [
+                'content' => $responseData['content'] ?? 
+                            $responseData['response'] ?? 
+                            $responseData['choices'][0]['message']['content'] ?? 
+                            'No response received',
+                'model' => $request->input('model', 'claude-3-opus'),
+                'usage' => $responseData['usage'] ?? null,
+                'metadata' => [
+                    'timestamp' => now()->toIso8601String(),
+                    'request_id' => $responseData['id'] ?? null,
+                ],
+            ];
+
+            return response()->json($standardizedResponse);
 
         } catch (\Exception $e) {
             Log::error('AI Chat exception', [
@@ -107,7 +116,7 @@ class AiChatController extends Controller
      */
     private function streamResponse(string $endpoint, array $payload, string $accessToken): StreamedResponse
     {
-        return new StreamedResponse(function () use ($endpoint, $payload, $accessToken) {
+        return new StreamedResponse(function () use ($endpoint, $payload, $accessToken): void {
             $context = stream_context_create([
                 'http' => [
                     'method' => 'POST',
@@ -131,7 +140,37 @@ class AiChatController extends Controller
             while (! feof($stream)) {
                 $line = fgets($stream);
                 if ($line !== false) {
-                    echo $line;
+                    // Parse the SSE line and standardize format
+                    if (str_starts_with($line, 'data: ')) {
+                        $data = substr($line, 6);
+                        $data = trim($data);
+                        
+                        if ($data === '[DONE]') {
+                            echo $line;
+                        } else {
+                            try {
+                                $parsed = json_decode($data, true);
+                                if ($parsed !== null) {
+                                    // Standardize the chunk format
+                                    $standardizedChunk = [
+                                        'content' => $parsed['content'] ?? 
+                                                   $parsed['choices'][0]['delta']['content'] ?? 
+                                                   $parsed['delta']['content'] ?? 
+                                                   '',
+                                        'type' => 'delta',
+                                    ];
+                                    echo 'data: '.json_encode($standardizedChunk)."\n\n";
+                                } else {
+                                    echo $line;
+                                }
+                            } catch (\Exception $e) {
+                                // If parsing fails, pass through original line
+                                echo $line;
+                            }
+                        }
+                    } else {
+                        echo $line;
+                    }
                     ob_flush();
                     flush();
                 }

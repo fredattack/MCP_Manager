@@ -13,7 +13,7 @@ class GoogleService
 
     public function __construct(?IntegrationAccount $integrationAccount = null)
     {
-        if (! $integrationAccount) {
+        if (! $integrationAccount instanceof \App\Models\IntegrationAccount) {
             throw new \Exception('Integration account required');
         }
 
@@ -27,17 +27,9 @@ class GoogleService
     protected function makeGoogleApiRequest(string $url, array $params = [], string $method = 'GET'): array
     {
         $response = Http::withToken($this->accessToken)
-            ->when($method === 'POST', function ($http) use ($url, $params) {
-                return $http->post($url, $params);
-            })
-            ->when($method === 'PUT', function ($http) use ($url, $params) {
-                return $http->put($url, $params);
-            })
-            ->when($method === 'DELETE', function ($http) use ($url, $params) {
-                return $http->delete($url, $params);
-            }, function ($http) use ($url, $params) {
-                return $http->get($url, $params);
-            });
+            ->when($method === 'POST', fn ($http) => $http->post($url, $params))
+            ->when($method === 'PUT', fn ($http) => $http->put($url, $params))
+            ->when($method === 'DELETE', fn ($http) => $http->delete($url, $params), fn ($http) => $http->get($url, $params));
 
         if ($response->failed()) {
             throw new \Exception('Google API request failed: '.$response->body());
@@ -84,7 +76,7 @@ class GoogleService
                 try {
                     $messageDetail = $this->getGmailMessage($message['id']);
                     $messages[] = $messageDetail;
-                } catch (\Exception $e) {
+                } catch (\Exception) {
                     // Skip messages that can't be fetched
                     continue;
                 }
@@ -107,7 +99,7 @@ class GoogleService
         $headers = [];
         if (isset($message['payload']['headers'])) {
             foreach ($message['payload']['headers'] as $header) {
-                $headers[strtolower($header['name'])] = $header['value'];
+                $headers[strtolower((string) $header['name'])] = $header['value'];
             }
         }
 
@@ -161,12 +153,19 @@ class GoogleService
         ], 'POST');
     }
 
+    /**
+     * @param array<string, mixed> $params
+     * @return array<string, mixed>
+     */
     public function searchGmailMessages(string $query, array $params = []): array
     {
         return $this->listGmailMessages(array_merge($params, ['query' => $query]));
     }
 
     // Calendar Methods
+    /**
+     * @return array<string, mixed>
+     */
     public function getCalendarStatus(): array
     {
         try {
@@ -181,11 +180,18 @@ class GoogleService
         }
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function listCalendars(): array
     {
         return $this->makeGoogleApiRequest('https://www.googleapis.com/calendar/v3/users/me/calendarList');
     }
 
+    /**
+     * @param array<string, mixed> $params
+     * @return array<string, mixed>
+     */
     public function listCalendarEvents(array $params = []): array
     {
         $calendarId = $params['calendar_id'] ?? 'primary';
@@ -202,6 +208,10 @@ class GoogleService
         return $this->makeGoogleApiRequest($url);
     }
 
+    /**
+     * @param array<string, mixed> $eventData
+     * @return array<string, mixed>
+     */
     public function createCalendarEvent(array $eventData): array
     {
         $calendarId = $eventData['calendar_id'] ?? 'primary';
@@ -210,6 +220,10 @@ class GoogleService
         return $this->makeGoogleApiRequest($url, $eventData, 'POST');
     }
 
+    /**
+     * @param array<string, mixed> $eventData
+     * @return array<string, mixed>
+     */
     public function updateCalendarEvent(string $eventId, array $eventData): array
     {
         $calendarId = $eventData['calendar_id'] ?? 'primary';
@@ -218,6 +232,9 @@ class GoogleService
         return $this->makeGoogleApiRequest($url, $eventData, 'PUT');
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function deleteCalendarEvent(string $eventId): array
     {
         $calendarId = 'primary';
@@ -228,6 +245,10 @@ class GoogleService
         return ['success' => true];
     }
 
+    /**
+     * @param array<string, mixed> $eventData
+     * @return array<string, mixed>
+     */
     public function checkCalendarConflicts(array $eventData): array
     {
         // Check for conflicts by querying events in the same time range
@@ -244,6 +265,9 @@ class GoogleService
         ];
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getTodayEvents(): array
     {
         $today = now()->startOfDay();

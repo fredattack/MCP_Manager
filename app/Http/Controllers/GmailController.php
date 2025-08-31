@@ -26,7 +26,7 @@ class GmailController extends Controller
         $auth = auth();
         /** @var User $user */
         $user = $auth->user();
-        
+
         return $user->integrationAccounts()
             ->where('type', IntegrationType::GMAIL)
             ->where('status', 'active')
@@ -35,9 +35,9 @@ class GmailController extends Controller
 
     public function index(): \Inertia\Response|\Illuminate\Http\RedirectResponse
     {
-        $integration = $this->getGmailIntegration();
+        $integrationAccount = $this->getGmailIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $status = $this->googleService->getGmailStatus();
@@ -56,9 +56,9 @@ class GmailController extends Controller
 
     public function show(string $messageId): \Inertia\Response|\Illuminate\Http\RedirectResponse
     {
-        $integration = $this->getGmailIntegration();
+        $integrationAccount = $this->getGmailIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $message = $this->googleService->getGmailMessage($messageId);
@@ -80,9 +80,9 @@ class GmailController extends Controller
             'body_type' => 'in:text,html',
         ]);
 
-        $integration = $this->getGmailIntegration();
+        $integrationAccount = $this->getGmailIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $result = $this->googleService->sendGmailMessage([
@@ -105,9 +105,9 @@ class GmailController extends Controller
             'max_results' => 'integer|min:1|max:100',
         ]);
 
-        $integration = $this->getGmailIntegration();
+        $integrationAccount = $this->getGmailIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $query = (string) $request->input('query', '');
@@ -129,9 +129,9 @@ class GmailController extends Controller
             'remove_labels' => 'array',
         ]);
 
-        $integration = $this->getGmailIntegration();
+        $integrationAccount = $this->getGmailIntegration();
 
-        $this->googleService = new GoogleService($integration);
+        $this->googleService = new GoogleService($integrationAccount);
 
         try {
             $result = $this->googleService->modifyGmailLabels($messageId, [

@@ -71,7 +71,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Models/IntegrationAccount.php' => 
     array (
-      0 => 'a54841722343e5587fe5eaa81259a239e085e3fe',
+      0 => 'c00794e8178dc386e92cd582942103ab518bd5b7',
       1 => 
       array (
         0 => 'app\\models\\integrationaccount',
@@ -255,7 +255,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/AiChatController.php' => 
     array (
-      0 => 'd4aa56eea18753efd463f6be4545955cac00ef22',
+      0 => '7b9e6685925cc489c09cc8e483fe9ac3e4c8de9f',
       1 => 
       array (
         0 => 'app\\http\\controllers\\aichatcontroller',
@@ -337,7 +337,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/HasActiveIntegration.php' => 
     array (
-      0 => 'ad84ecb0bff5fb8f755cbc59b9744594390091fa',
+      0 => '1bc2da318b4826c5bcbb3dd74b0090cd655dd1b4',
       1 => 
       array (
         0 => 'app\\http\\middleware\\hasactiveintegration',
@@ -396,7 +396,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Services/GoogleService.php' => 
     array (
-      0 => '328ca84d81cb693c01d74046b3b0fe703c18f79c',
+      0 => 'f7de2f8aa836238bf034dd278478927fc6dcd4ed',
       1 => 
       array (
         0 => 'app\\services\\googleservice',
@@ -428,7 +428,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/GoogleIntegrationController.php' => 
     array (
-      0 => 'ef4bdcef2abd495053cb18970ba5843deb185c64',
+      0 => '86473621489c70710e3a61453d6028540d150648',
       1 => 
       array (
         0 => 'app\\http\\controllers\\googleintegrationcontroller',
@@ -449,14 +449,14 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/DailyPlanningController.php' => 
     array (
-      0 => '3ca682212dd4f78c3d9a8acf353d50c7f653d900',
+      0 => 'e50c5c66a676a999aa21fde74d08fd2358684e1f',
       1 => 
       array (
         0 => 'app\\http\\controllers\\dailyplanningcontroller',
       ),
       2 => 
       array (
-        0 => 'app\\http\\controllers\\__construct',
+        0 => 'app\\http\\controllers\\middleware',
         1 => 'app\\http\\controllers\\index',
         2 => 'app\\http\\controllers\\generate',
         3 => 'app\\http\\controllers\\updatetasks',
@@ -467,7 +467,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/ActionResult.php' => 
     array (
-      0 => '9b688a0da94baecb328bc93d6c66bdf5adcac806',
+      0 => 'dfc3e6c95f9fdc1c5f530098b7879a2165ec00a3',
       1 => 
       array (
         0 => 'app\\actions\\actionresult',
@@ -488,7 +488,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/CreateDailyPlanningAction.php' => 
     array (
-      0 => 'dfa1fbadfec3033fcbc86a200b66de194bfb157c',
+      0 => 'fd5f73e547391488ae94575f1a704b8a990e5fa8',
       1 => 
       array (
         0 => 'app\\actions\\dailyplanning\\createdailyplanningaction',
@@ -510,7 +510,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/DailyPlanning/UpdateTodoistTasksAction.php' => 
     array (
-      0 => 'c3914c0a4d3dee37017b0aaf13c7bf446a877a07',
+      0 => '3ec5f6efada6a18c5e88371f267ff04921927314',
       1 => 
       array (
         0 => 'app\\actions\\dailyplanning\\updatetodoisttasksaction',
@@ -536,7 +536,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Actions/BaseAction.php' => 
     array (
-      0 => 'bee25a6d4d68f5c1385bf92afeea168f76008de6',
+      0 => '271c2efd922b305d1dd400b726156a27c06655e2',
       1 => 
       array (
         0 => 'app\\actions\\baseaction',
@@ -559,7 +559,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php' => 
     array (
-      0 => '48bf92cc4dc1622eee6cf5002270ea89bd1532ca',
+      0 => 'a1f338ce62b6e6f585c18e8977b6a2e5f5e74ee9',
       1 => 
       array (
         0 => 'app\\services\\dailyplanningservice',
@@ -594,7 +594,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php' => 
     array (
-      0 => '3c7cbfdf53f4d0889d77578ca9da03dda2dfe5da',
+      0 => '878e11899583b4ca5a72aeebfbfb0b26f545304e',
       1 => 
       array (
         0 => 'app\\services\\todoistservice',
@@ -603,24 +603,25 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'app\\services\\__construct',
         1 => 'app\\services\\setuser',
-        2 => 'app\\services\\gettodaytasks',
-        3 => 'app\\services\\gettomorrowtasks',
-        4 => 'app\\services\\getweektasks',
-        5 => 'app\\services\\gettask',
-        6 => 'app\\services\\createtask',
-        7 => 'app\\services\\updatetask',
-        8 => 'app\\services\\completetask',
-        9 => 'app\\services\\deletetask',
-        10 => 'app\\services\\getprojects',
-        11 => 'app\\services\\getproject',
-        12 => 'app\\services\\bulkupdatetasks',
-        13 => 'app\\services\\quickaddtask',
-        14 => 'app\\services\\getactiveaccount',
-        15 => 'app\\services\\list',
-        16 => 'app\\services\\find',
-        17 => 'app\\services\\create',
-        18 => 'app\\services\\update',
-        19 => 'app\\services\\delete',
+        2 => 'app\\services\\validatetoken',
+        3 => 'app\\services\\gettodaytasks',
+        4 => 'app\\services\\gettomorrowtasks',
+        5 => 'app\\services\\getweektasks',
+        6 => 'app\\services\\gettask',
+        7 => 'app\\services\\createtask',
+        8 => 'app\\services\\updatetask',
+        9 => 'app\\services\\completetask',
+        10 => 'app\\services\\deletetask',
+        11 => 'app\\services\\getprojects',
+        12 => 'app\\services\\getproject',
+        13 => 'app\\services\\bulkupdatetasks',
+        14 => 'app\\services\\quickaddtask',
+        15 => 'app\\services\\getactiveaccount',
+        16 => 'app\\services\\list',
+        17 => 'app\\services\\find',
+        18 => 'app\\services\\create',
+        19 => 'app\\services\\update',
+        20 => 'app\\services\\delete',
       ),
       3 => 
       array (
@@ -729,6 +730,93 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         20 => 'app\\services\\completesprint',
         21 => 'app\\services\\getsprintvelocity',
         22 => 'app\\services\\createfromsentry',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/BaseService.php' => 
+    array (
+      0 => '202e93348ac11a29879b978f17b2bcbc5d1a5f79',
+      1 => 
+      array (
+        0 => 'app\\services\\baseservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\list',
+        1 => 'app\\services\\find',
+        2 => 'app\\services\\create',
+        3 => 'app\\services\\update',
+        4 => 'app\\services\\delete',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/TodoistIntegrationController.php' => 
+    array (
+      0 => 'd907a838202f84b23663f9889cd405965c9d84c7',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\todoistintegrationcontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\__construct',
+        1 => 'app\\http\\controllers\\show',
+        2 => 'app\\http\\controllers\\connect',
+        3 => 'app\\http\\controllers\\disconnect',
+        4 => 'app\\http\\controllers\\test',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/SecurityHeaders.php' => 
+    array (
+      0 => '5fd32b9648f6dcd7564506b9a5d11fad439420ee',
+      1 => 
+      array (
+        0 => 'app\\http\\middleware\\securityheaders',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\middleware\\handle',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/ApiRateLimiter.php' => 
+    array (
+      0 => '1945ae834d0ebec024b84f810724a7a44c3c469a',
+      1 => 
+      array (
+        0 => 'app\\http\\middleware\\apiratelimiter',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\middleware\\handle',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Console/Commands/CreateAdminUser.php' => 
+    array (
+      0 => '61421d324d11fcb39ddfef42cbfd32028e0ee720',
+      1 => 
+      array (
+        0 => 'app\\console\\commands\\createadminuser',
+      ),
+      2 => 
+      array (
+        0 => 'app\\console\\commands\\handle',
+        1 => 'app\\console\\commands\\getnameinput',
+        2 => 'app\\console\\commands\\getemailinput',
+        3 => 'app\\console\\commands\\getpasswordinput',
+        4 => 'app\\console\\commands\\generatesecurepassword',
       ),
       3 => 
       array (

@@ -24,7 +24,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('integrations/todoist', function () {
         return Inertia::render('integrations/todoist');
-    })->name('integrations.todoist');
+    })->middleware('has.integration:todoist')->name('integrations.todoist');
+    
+    // Todoist Integration Setup routes
+    Route::prefix('integrations/todoist')->group(function () {
+        Route::get('/setup', [App\Http\Controllers\TodoistIntegrationController::class, 'show'])
+            ->name('integrations.todoist.setup');
+        Route::post('/connect', [App\Http\Controllers\TodoistIntegrationController::class, 'connect'])
+            ->name('integrations.todoist.connect');
+        Route::post('/disconnect', [App\Http\Controllers\TodoistIntegrationController::class, 'disconnect'])
+            ->name('integrations.todoist.disconnect');
+        Route::post('/test', [App\Http\Controllers\TodoistIntegrationController::class, 'test'])
+            ->name('integrations.todoist.test');
+    });
 
     Route::get('notion', function () {
         return Inertia::render('notion');
@@ -37,6 +49,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('ai/natural-language', function () {
         return Inertia::render('ai/natural-language');
     })->name('ai.natural-language');
+
+    Route::get('jira', function () {
+        $user = auth()->user();
+        $hasIntegration = $user->integrationAccounts()
+            ->where('type', \App\Enums\IntegrationType::JIRA)
+            ->active()
+            ->exists();
+        
+        return Inertia::render('jira', [
+            'hasIntegration' => $hasIntegration
+        ]);
+    })->name('jira');
+
+    // Daily Planning routes
+    Route::prefix('daily-planning')->group(function () {
+        Route::get('/', [App\Http\Controllers\DailyPlanningController::class, 'index'])->name('daily-planning.index');
+        Route::post('/generate', [App\Http\Controllers\DailyPlanningController::class, 'generate'])->name('daily-planning.generate');
+        Route::post('/update-tasks', [App\Http\Controllers\DailyPlanningController::class, 'updateTasks'])->name('daily-planning.update-tasks');
+    });
 
     // Gmail routes
     Route::prefix('gmail')->middleware('has.integration:gmail')->group(function () {
@@ -58,7 +89,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/events/week', [App\Http\Controllers\CalendarController::class, 'weekEvents'])->name('calendar.week');
     });
     
-    // Natural Language API routes
+    // Natural Language routes
+    Route::get('/nlp-demo', function () {
+        return Inertia::render('ai/nlp-demo');
+    })->name('nlp-demo');
+    
     Route::prefix('api/natural-language')->group(function () {
         Route::post('command', [App\Http\Controllers\NaturalLanguageController::class, 'processCommand']);
         Route::get('suggestions', [App\Http\Controllers\NaturalLanguageController::class, 'getSuggestions']);

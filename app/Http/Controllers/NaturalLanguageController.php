@@ -10,12 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class NaturalLanguageController extends BaseController
 {
-    private NaturalLanguageService $naturalLanguageService;
-
-    public function __construct(NaturalLanguageService $naturalLanguageService)
-    {
-        $this->naturalLanguageService = $naturalLanguageService;
-    }
+    public function __construct(private readonly NaturalLanguageService $naturalLanguageService) {}
 
     public function processCommand(Request $request): JsonResponse
     {

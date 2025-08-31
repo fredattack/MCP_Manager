@@ -1,10 +1,12 @@
 import React from 'react';
-import { INTEGRATION_TYPES, IntegrationAccount, IntegrationStatus } from '../../types/integrations';
+import { INTEGRATION_TYPES, IntegrationAccount, IntegrationStatus, IntegrationType } from '../../types/integrations';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { IntegrationForm } from './integration-form';
+import { Link } from '@inertiajs/react';
+import { Settings } from 'lucide-react';
 
 interface IntegrationCardProps {
     integration: IntegrationAccount;
@@ -58,30 +60,39 @@ export function IntegrationCard({ integration, onUpdate, onDelete }: Integration
                 </div>
 
                 <div className="mt-4 flex space-x-2">
-                    <Dialog open={isUpdateDialogOpen} onOpenChange={setIsUpdateDialogOpen}>
-                        <DialogTrigger asChild>
+                    {integration.type === IntegrationType.TODOIST ? (
+                        <Link href={route('integrations.todoist.setup')}>
                             <Button variant="outline" size="sm">
-                                Edit
+                                <Settings className="mr-1 h-3 w-3" />
+                                Configure
                             </Button>
-                        </DialogTrigger>
-                        <DialogContent>
-                            <DialogHeader>
-                                <DialogTitle>Update {integrationType?.displayName} Integration</DialogTitle>
-                            </DialogHeader>
-                            <IntegrationForm
-                                type={integration.type}
-                                initialValues={{
-                                    access_token: integration.access_token,
-                                    meta: integration.meta,
-                                }}
-                                onSubmit={async (data) => {
-                                    await onUpdate(integration.id, data);
-                                    setIsUpdateDialogOpen(false);
-                                }}
-                                submitLabel="Update Integration"
-                            />
-                        </DialogContent>
-                    </Dialog>
+                        </Link>
+                    ) : (
+                        <Dialog open={isUpdateDialogOpen} onOpenChange={setIsUpdateDialogOpen}>
+                            <DialogTrigger asChild>
+                                <Button variant="outline" size="sm">
+                                    Edit
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent>
+                                <DialogHeader>
+                                    <DialogTitle>Update {integrationType?.displayName} Integration</DialogTitle>
+                                </DialogHeader>
+                                <IntegrationForm
+                                    type={integration.type}
+                                    initialValues={{
+                                        access_token: integration.access_token,
+                                        meta: integration.meta,
+                                    }}
+                                    onSubmit={async (data) => {
+                                        await onUpdate(integration.id, data);
+                                        setIsUpdateDialogOpen(false);
+                                    }}
+                                    submitLabel="Update Integration"
+                                />
+                            </DialogContent>
+                        </Dialog>
+                    )}
 
                     <Button variant={isActive ? 'destructive' : 'default'} size="sm" onClick={handleStatusToggle} disabled={isLoading}>
                         {isActive ? 'Deactivate' : 'Activate'}

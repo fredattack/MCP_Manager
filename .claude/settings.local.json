@@ -18,7 +18,11 @@
       "mcp__full-productivity-server__notion_get_page",
       "mcp__full-productivity-server__notion_create_page",
       "mcp__full-productivity-server__notion_update_page",
-      "Bash(./vendor/bin/pint)"
+      "Bash(./vendor/bin/pint)",
+      "Bash(./vendor/bin/rector process app)",
+      "Bash(find:*)",
+      "Bash(lsof:*)",
+      "Bash(git restore:*)"
     ],
     "deny": []
   }
