@@ -100,6 +100,36 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('history', [App\Http\Controllers\NaturalLanguageController::class, 'getCommandHistory']);
     });
     
+    // Integration Manager routes (New simplified system)
+    Route::prefix('integrations/manager')->name('integrations.manager.')->middleware('App\Http\Middleware\EnsureMcpConnection')->group(function () {
+        Route::get('/', [App\Http\Controllers\IntegrationManagerController::class, 'index'])->name('index');
+        Route::get('/{service}/configure', [App\Http\Controllers\IntegrationManagerController::class, 'configure'])->name('configure');
+        Route::post('/{service}', [App\Http\Controllers\IntegrationManagerController::class, 'store'])->name('store');
+        Route::post('/{service}/test', [App\Http\Controllers\IntegrationManagerController::class, 'test'])->name('test');
+        Route::delete('/{service}', [App\Http\Controllers\IntegrationManagerController::class, 'destroy'])->name('destroy');
+    });
+    
+    // MCP Server Management routes
+    Route::prefix('mcp')->name('mcp.')->group(function () {
+        Route::get('dashboard', [App\Http\Controllers\McpIntegrationController::class, 'index'])->name('dashboard');
+        Route::get('server/config', [App\Http\Controllers\McpServerConfigController::class, 'show'])->name('server.config');
+        Route::post('server/config', [App\Http\Controllers\McpServerConfigController::class, 'store'])->name('server.store');
+        Route::post('server/test', [App\Http\Controllers\McpServerConfigController::class, 'test'])->name('server.test');
+        Route::post('server/disconnect', [App\Http\Controllers\McpServerConfigController::class, 'disconnect'])->name('server.disconnect');
+        Route::delete('server', [App\Http\Controllers\McpServerConfigController::class, 'destroy'])->name('server.destroy');
+        Route::get('integrations/{service}/configure', [App\Http\Controllers\McpIntegrationController::class, 'configure'])->name('integrations.configure');
+        Route::post('integrations/{service}', [App\Http\Controllers\McpIntegrationController::class, 'store'])->name('integrations.store');
+        Route::delete('integrations/{service}', [App\Http\Controllers\McpIntegrationController::class, 'destroy'])->name('integrations.destroy');
+        
+        // Monitoring routes
+        Route::get('monitoring', [App\Http\Controllers\McpMonitoringController::class, 'dashboard'])->name('monitoring');
+        Route::get('monitoring/metrics', [App\Http\Controllers\McpMonitoringController::class, 'metrics'])->name('monitoring.metrics');
+        Route::get('monitoring/logs', [App\Http\Controllers\McpMonitoringController::class, 'logs'])->name('monitoring.logs');
+        Route::get('monitoring/logs/export', [App\Http\Controllers\McpMonitoringController::class, 'exportLogs'])->name('monitoring.logs.export');
+        Route::get('monitoring/health', [App\Http\Controllers\McpMonitoringController::class, 'health'])->name('monitoring.health');
+        Route::get('monitoring/stream', [App\Http\Controllers\McpMonitoringController::class, 'stream'])->name('monitoring.stream');
+    });
+
     // MCP Proxy routes
     Route::prefix('api/mcp')->group(function () {
         Route::post('auth/login', [App\Http\Controllers\McpProxyController::class, 'login']);
@@ -166,3 +196,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+
+// Temporary test route
+require __DIR__.'/test-planning.php';

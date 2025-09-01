@@ -11,8 +11,9 @@ export const mcpClient = axios.create({
 });
 
 // Laravel API client for internal APIs
+// Use the current origin to avoid CORS issues
 const apiClient = axios.create({
-    baseURL: import.meta.env.VITE_API_URL || 'http://localhost:3978',
+    baseURL: import.meta.env.VITE_API_URL || window.location.origin,
     timeout: 30000,
     headers: {
         'Content-Type': 'application/json',

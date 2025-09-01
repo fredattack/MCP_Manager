@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -19,6 +20,8 @@ use Illuminate\Notifications\Notifiable;
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, IntegrationAccount> $integrationAccounts
+ * @property-read McpServer|null $mcpServer
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, McpIntegration> $mcpIntegrations
  */
 class User extends Authenticatable
 {
@@ -69,5 +72,25 @@ class User extends Authenticatable
     public function integrationAccounts(): HasMany
     {
         return $this->hasMany(IntegrationAccount::class);
+    }
+
+    /**
+     * Get the MCP server for the user.
+     *
+     * @return HasOne<McpServer, $this>
+     */
+    public function mcpServer(): HasOne
+    {
+        return $this->hasOne(McpServer::class);
+    }
+
+    /**
+     * Get the MCP integrations for the user.
+     *
+     * @return HasMany<McpIntegration, $this>
+     */
+    public function mcpIntegrations(): HasMany
+    {
+        return $this->hasMany(McpIntegration::class);
     }
 }

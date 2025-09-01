@@ -5,6 +5,7 @@ use App\Http\Controllers\IntegrationsController;
 use App\Http\Controllers\JiraController;
 use App\Http\Controllers\NotionController;
 use App\Http\Controllers\NotionIntegrationController;
+use App\Http\Controllers\McpIntegrationController;
 use Illuminate\Support\Facades\Route;
 
 // Legacy route - will be deprecated
@@ -61,6 +62,13 @@ Route::middleware(['auth:web'])->group(function () {
         
         // Cross-service
         Route::post('issues/from-sentry', [JiraController::class, 'createFromSentry']);
+    });
+
+    // MCP Integration API routes
+    Route::prefix('mcp')->group(function () {
+        Route::get('integrations/status', [McpIntegrationController::class, 'status']);
+        Route::post('integrations/{service}/test', [McpIntegrationController::class, 'test']);
+        Route::post('integrations/{service}/toggle', [McpIntegrationController::class, 'toggle']);
     });
 
 });

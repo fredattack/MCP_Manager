@@ -147,5 +147,100 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
+    '/Users/fred/PhpstormProjects/mcp_manager/database/migrations/2025_08_31_061210_create_mcp_integrations_table.php' => 
+    array (
+      0 => '503f93498661c96341bd6eeb36762ec6da825bb1',
+      1 => 
+      array (
+      ),
+      2 => 
+      array (
+        0 => 'up',
+        1 => 'down',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/database/migrations/2025_08_31_061034_create_mcp_servers_table.php' => 
+    array (
+      0 => '519ebb87ea2c623243d8cd5b692d63ca400ac6c9',
+      1 => 
+      array (
+      ),
+      2 => 
+      array (
+        0 => 'up',
+        1 => 'down',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/database/migrations/2025_08_31_073932_create_mcp_audit_logs_table.php' => 
+    array (
+      0 => 'a6ef3311a40b01e76545f91f394b2b6595a691e6',
+      1 => 
+      array (
+      ),
+      2 => 
+      array (
+        0 => 'up',
+        1 => 'down',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/database/migrations/2025_08_31_073927_create_mcp_metrics_table.php' => 
+    array (
+      0 => 'c8f5796cefec439e8965a1582dd308dcdb21f259',
+      1 => 
+      array (
+      ),
+      2 => 
+      array (
+        0 => 'up',
+        1 => 'down',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/database/factories/McpServerFactory.php' => 
+    array (
+      0 => '437654da3fc0510d3aec64161b3d85695464cf03',
+      1 => 
+      array (
+        0 => 'database\\factories\\mcpserverfactory',
+      ),
+      2 => 
+      array (
+        0 => 'database\\factories\\definition',
+        1 => 'database\\factories\\active',
+        2 => 'database\\factories\\witherror',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/database/factories/McpIntegrationFactory.php' => 
+    array (
+      0 => 'df23355d294327f9dca45c34f318cc8768753796',
+      1 => 
+      array (
+        0 => 'database\\factories\\mcpintegrationfactory',
+      ),
+      2 => 
+      array (
+        0 => 'database\\factories\\definition',
+        1 => 'database\\factories\\active',
+        2 => 'database\\factories\\witherror',
+        3 => 'database\\factories\\forservice',
+      ),
+      3 => 
+      array (
+      ),
+    ),
   ),
 ));

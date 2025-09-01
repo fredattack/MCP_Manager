@@ -37,8 +37,10 @@ return [
 
     'mcp' => [
         'server_url' => env('MCP_SERVER_URL', 'http://localhost:9978'),
-        'user' => env('MCP_SERVER_USER'),
+        'email' => env('MCP_SERVER_EMAIL'),
         'password' => env('MCP_SERVER_PASSWORD'),
+        'jwt_token' => env('MCP_SERVER_JWT_TOKEN'),
+        'user' => env('MCP_SERVER_USER'),
         'token' => env('MCP_API_TOKEN'),
         'default_page_id' => env('MCP_DEFAULT_PAGE_ID'),
     ],

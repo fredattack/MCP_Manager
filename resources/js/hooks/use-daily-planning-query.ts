@@ -76,11 +76,13 @@ export function useGenerateDailyPlanning() {
             invalidateQueries: [queryKeys.dailyPlanning()] as const,
             successMessage: 'Daily planning generated successfully',
             onSuccess: (data) => {
-                // Cache the generated planning
+                // Cache the generated planning if it exists
                 // Dynamic import to avoid circular dependency
-                import('@/lib/react-query').then(({ queryClient }) => {
-                    queryClient.setQueryData(queryKeys.dailyPlan(data.planning.date), data);
-                });
+                if (data?.planning?.date) {
+                    import('@/lib/react-query').then(({ queryClient }) => {
+                        queryClient.setQueryData(queryKeys.dailyPlan(data.planning.date), data);
+                    });
+                }
             },
         }
     );
@@ -107,7 +109,8 @@ export function useDailyPlanningFeature() {
 
     const generatePlanning = async (options?: Record<string, unknown>) => {
         const result = await generateMutation.mutateAsync(options || {});
-        return { success: true, data: result, planning: result };
+        // The result is the planning data directly from the API
+        return result;
     };
 
     const updateTodoistTasks = async (
@@ -118,8 +121,11 @@ export function useDailyPlanningFeature() {
         return { success: true, data: result };
     };
 
+    // Use the mutation data if available (after generation), otherwise use query data
+    const currentPlanning = generateMutation.data || planningQuery.data || null;
+
     return {
-        planning: planningQuery.data || null,
+        planning: currentPlanning,
         loading: planningQuery.isLoading,
         generating: generateMutation.isPending,
         updating: updateTasksMutation.isPending,

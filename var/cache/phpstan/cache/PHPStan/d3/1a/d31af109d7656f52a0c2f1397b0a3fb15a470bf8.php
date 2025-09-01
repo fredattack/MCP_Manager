@@ -451,5 +451,49 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
       ),
     ),
+    '/Users/fred/PhpstormProjects/mcp_manager/tests/Unit/Services/CryptoServiceTest.php' => 
+    array (
+      0 => 'aa9349f5e7a3d787be8ac5b5ae6467d09903b904',
+      1 => 
+      array (
+        0 => 'tests\\unit\\services\\cryptoservicetest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\unit\\services\\setup',
+        1 => 'tests\\unit\\services\\test_generates_key_pair',
+        2 => 'tests\\unit\\services\\test_encrypts_and_decrypts_data',
+        3 => 'tests\\unit\\services\\test_signs_and_verifies_data',
+        4 => 'tests\\unit\\services\\test_generates_secure_token',
+        5 => 'tests\\unit\\services\\test_symmetric_encryption',
+        6 => 'tests\\unit\\services\\test_validates_ssl_certificate',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/tests/Feature/McpServerManagementTest.php' => 
+    array (
+      0 => 'b52255dc512bc62033b833d4599ec3bafd698128',
+      1 => 
+      array (
+        0 => 'tests\\feature\\mcpservermanagementtest',
+      ),
+      2 => 
+      array (
+        0 => 'tests\\feature\\setup',
+        1 => 'tests\\feature\\test_user_can_view_mcp_server_config_page',
+        2 => 'tests\\feature\\test_user_can_configure_mcp_server',
+        3 => 'tests\\feature\\test_user_can_view_integrations_dashboard',
+        4 => 'tests\\feature\\test_user_without_server_sees_no_server_page',
+        5 => 'tests\\feature\\test_user_can_configure_integration',
+        6 => 'tests\\feature\\test_user_can_test_integration',
+        7 => 'tests\\feature\\test_user_can_toggle_integration',
+        8 => 'tests\\feature\\test_user_can_delete_integration',
+      ),
+      3 => 
+      array (
+      ),
+    ),
   ),
 ));

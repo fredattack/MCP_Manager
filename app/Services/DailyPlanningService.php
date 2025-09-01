@@ -60,7 +60,7 @@ class DailyPlanningService extends BaseService
         // Check for conflicts and overload
         $alerts = $this->checkAlerts($topTasks, $tasks);
 
-        return [
+        $result = [
             'has_tasks' => true,
             'date' => now()->format('Y-m-d'),
             'mit' => $mit,
@@ -71,6 +71,14 @@ class DailyPlanningService extends BaseService
             'summary' => $this->generateSummary($topTasks, $timeBlocks),
             'todoist_updates' => $this->prepareTodoistUpdates($topTasks, $timeBlocks),
         ];
+        
+        \Log::info('Daily planning generated', [
+            'has_tasks' => $result['has_tasks'],
+            'top_tasks_count' => count($result['top_tasks']),
+            'has_mit' => isset($result['mit']),
+        ]);
+        
+        return $result;
     }
 
     /**

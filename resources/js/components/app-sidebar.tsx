@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/sidebar';
 import { type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle, MessageSquare, Brain, Mail, Calendar, CalendarDays, Kanban } from 'lucide-react';
+import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle, MessageSquare, Brain, Mail, Calendar, CalendarDays, Kanban, Server, Shield } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -23,6 +23,16 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: '/dashboard',
         icon: LayoutGrid,
+    },
+    {
+        title: 'MCP Dashboard',
+        href: '/mcp/dashboard',
+        icon: Server,
+    },
+    {
+        title: 'MCP Server Config',
+        href: '/mcp/server/config',
+        icon: Shield,
     },
     {
         title: 'Claude Chat',
@@ -40,7 +50,13 @@ const mainNavItems: NavItem[] = [
         icon: CalendarDays,
     },
     {
-        title: 'Integrations',
+        title: 'Integration Manager',
+        href: '/integrations/manager',
+        icon: Plug,
+        badge: 'New',
+    },
+    {
+        title: 'Integrations (Old)',
         href: '/integrations',
         icon: Plug,
     },

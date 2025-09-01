@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/ui/use-toast';
-import api from '@/lib/axios';
+import { api } from '@/lib/api';
 
 interface JiraProject {
     id: string;

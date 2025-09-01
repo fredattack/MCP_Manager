@@ -7,7 +7,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
   array (
     '/Users/fred/PhpstormProjects/mcp_manager/app/Providers/AppServiceProvider.php' => 
     array (
-      0 => '01bf9e5cf5bb666446625056b618445ae4749675',
+      0 => '25348724a4648ae382c6637dbf0d4ac1dea8fac7',
       1 => 
       array (
         0 => 'app\\providers\\appserviceprovider',
@@ -55,7 +55,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Models/User.php' => 
     array (
-      0 => '254b4547d8d7443a538f26fb79cb39be7d8a4023',
+      0 => '4cadbbde1d60685bd5a8391430aeac0fd2dd524e',
       1 => 
       array (
         0 => 'app\\models\\user',
@@ -64,6 +64,8 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
       array (
         0 => 'app\\models\\casts',
         1 => 'app\\models\\integrationaccounts',
+        2 => 'app\\models\\mcpserver',
+        3 => 'app\\models\\mcpintegrations',
       ),
       3 => 
       array (
@@ -559,7 +561,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Services/DailyPlanningService.php' => 
     array (
-      0 => 'a1f338ce62b6e6f585c18e8977b6a2e5f5e74ee9',
+      0 => '6acff4c690e51df5457ccb9c85fbf2f746cb04ee',
       1 => 
       array (
         0 => 'app\\services\\dailyplanningservice',
@@ -594,7 +596,7 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
     ),
     '/Users/fred/PhpstormProjects/mcp_manager/app/Services/TodoistService.php' => 
     array (
-      0 => '878e11899583b4ca5a72aeebfbfb0b26f545304e',
+      0 => '679ba75bad9f7ae47bda6dccb73f8731efd59b16',
       1 => 
       array (
         0 => 'app\\services\\todoistservice',
@@ -817,6 +819,453 @@ return \PHPStan\Cache\CacheItem::__set_state(array(
         2 => 'app\\console\\commands\\getemailinput',
         3 => 'app\\console\\commands\\getpasswordinput',
         4 => 'app\\console\\commands\\generatesecurepassword',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Models/McpServer.php' => 
+    array (
+      0 => '681999b0c72d64c7ee15d8171a08914f0b8e4c44',
+      1 => 
+      array (
+        0 => 'app\\models\\mcpserver',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\user',
+        1 => 'app\\models\\integrations',
+        2 => 'app\\models\\privatekey',
+        3 => 'app\\models\\sessiontoken',
+        4 => 'app\\models\\isactive',
+        5 => 'app\\models\\haserror',
+        6 => 'app\\models\\gethealthstatus',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Models/McpIntegration.php' => 
+    array (
+      0 => '46fe83c9ef925f0d1ce6a62a276221274bdc7cc3',
+      1 => 
+      array (
+        0 => 'app\\models\\mcpintegration',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\user',
+        1 => 'app\\models\\mcpserver',
+        2 => 'app\\models\\isactive',
+        3 => 'app\\models\\haserror',
+        4 => 'app\\models\\getstatusdetails',
+        5 => 'app\\models\\markassynced',
+        6 => 'app\\models\\markasfailed',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Exceptions/McpConnectionException.php' => 
+    array (
+      0 => 'fdfefbf14cc376e9e0836ced63d15c7bafa4ac7d',
+      1 => 
+      array (
+        0 => 'app\\exceptions\\mcpconnectionexception',
+      ),
+      2 => 
+      array (
+        0 => 'app\\exceptions\\__construct',
+        1 => 'app\\exceptions\\report',
+        2 => 'app\\exceptions\\render',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/McpIntegrationController.php' => 
+    array (
+      0 => '021fde05fff2a9f1fff5407099b85fe0c10bf05f',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\mcpintegrationcontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\__construct',
+        1 => 'app\\http\\controllers\\index',
+        2 => 'app\\http\\controllers\\configure',
+        3 => 'app\\http\\controllers\\store',
+        4 => 'app\\http\\controllers\\test',
+        5 => 'app\\http\\controllers\\toggle',
+        6 => 'app\\http\\controllers\\status',
+        7 => 'app\\http\\controllers\\destroy',
+        8 => 'app\\http\\controllers\\mergeintegrationdata',
+        9 => 'app\\http\\controllers\\getserviceconfig',
+        10 => 'app\\http\\controllers\\validateservicecredentials',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/McpServerConfigController.php' => 
+    array (
+      0 => 'bd2dbba2609e3557e19175a4961717f779db26b1',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\mcpserverconfigcontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\__construct',
+        1 => 'app\\http\\controllers\\show',
+        2 => 'app\\http\\controllers\\store',
+        3 => 'app\\http\\controllers\\test',
+        4 => 'app\\http\\controllers\\disconnect',
+        5 => 'app\\http\\controllers\\destroy',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpServerManager.php' => 
+    array (
+      0 => '231a163d936e3d5715db5f6aebd6ef0178fdbd32',
+      1 => 
+      array (
+        0 => 'app\\services\\mcpservermanager',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\discoverserver',
+        2 => 'app\\services\\establishsecureconnection',
+        3 => 'app\\services\\configureintegration',
+        4 => 'app\\services\\getintegrationsstatus',
+        5 => 'app\\services\\testintegration',
+        6 => 'app\\services\\getserverstatus',
+        7 => 'app\\services\\disconnect',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/CryptoService.php' => 
+    array (
+      0 => '8d59eb06ae951b499b7d249d527d45bbb2f6b3ab',
+      1 => 
+      array (
+        0 => 'app\\services\\cryptoservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\generatekeypair',
+        1 => 'app\\services\\encrypt',
+        2 => 'app\\services\\decrypt',
+        3 => 'app\\services\\sign',
+        4 => 'app\\services\\verify',
+        5 => 'app\\services\\generatesecuretoken',
+        6 => 'app\\services\\hashpassword',
+        7 => 'app\\services\\verifypassword',
+        8 => 'app\\services\\encryptsymmetric',
+        9 => 'app\\services\\decryptsymmetric',
+        10 => 'app\\services\\getmaxencryptionlength',
+        11 => 'app\\services\\validatesslcertificate',
+        12 => 'app\\services\\verifyhostname',
+        13 => 'app\\services\\matchhostname',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/WebSocketController.php' => 
+    array (
+      0 => 'b655fb150f1ced0fc9687daff866172dfe11a627',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\websocketcontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\__construct',
+        1 => 'app\\http\\controllers\\onopen',
+        2 => 'app\\http\\controllers\\onmessage',
+        3 => 'app\\http\\controllers\\onclose',
+        4 => 'app\\http\\controllers\\onerror',
+        5 => 'app\\http\\controllers\\sendtouser',
+        6 => 'app\\http\\controllers\\broadcast',
+        7 => 'app\\http\\controllers\\sendintegrationupdate',
+        8 => 'app\\http\\controllers\\sendserverstatusupdate',
+        9 => 'app\\http\\controllers\\sendalert',
+        10 => 'app\\http\\controllers\\sendmetricsupdate',
+        11 => 'app\\http\\controllers\\handleauth',
+        12 => 'app\\http\\controllers\\handlesubscribe',
+        13 => 'app\\http\\controllers\\storependingnotification',
+        14 => 'app\\http\\controllers\\sendpendingnotifications',
+        15 => 'app\\http\\controllers\\validatetoken',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/McpMonitoringController.php' => 
+    array (
+      0 => '8691d395729bc22ef68cea58d5bd0ec497f78ec8',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\mcpmonitoringcontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\__construct',
+        1 => 'app\\http\\controllers\\dashboard',
+        2 => 'app\\http\\controllers\\metrics',
+        3 => 'app\\http\\controllers\\logs',
+        4 => 'app\\http\\controllers\\exportlogs',
+        5 => 'app\\http\\controllers\\health',
+        6 => 'app\\http\\controllers\\stream',
+        7 => 'app\\http\\controllers\\getmetricshistory',
+        8 => 'app\\http\\controllers\\formatmetricsforcharts',
+        9 => 'app\\http\\controllers\\calculatehealthscore',
+        10 => 'app\\http\\controllers\\checkintegrationshealth',
+        11 => 'app\\http\\controllers\\calculateerrorrate',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpAuditService.php' => 
+    array (
+      0 => 'bd97124d35b766ca4d0fec8c4a30e90bb9825972',
+      1 => 
+      array (
+        0 => 'app\\services\\mcpauditservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\log',
+        1 => 'app\\services\\logconfigurationchange',
+        2 => 'app\\services\\logauthentication',
+        3 => 'app\\services\\logconnection',
+        4 => 'app\\services\\logintegrationtest',
+        5 => 'app\\services\\logcredentialupdate',
+        6 => 'app\\services\\logsyncoperation',
+        7 => 'app\\services\\logsecurityevent',
+        8 => 'app\\services\\getuserlogs',
+        9 => 'app\\services\\getactivitysummary',
+        10 => 'app\\services\\searchlogs',
+        11 => 'app\\services\\exportlogs',
+        12 => 'app\\services\\cleanoldlogs',
+        13 => 'app\\services\\calculatechanges',
+        14 => 'app\\services\\sanitizedata',
+        15 => 'app\\services\\sanitizevalue',
+        16 => 'app\\services\\sendsecurityalert',
+        17 => 'app\\services\\gettotalactions',
+        18 => 'app\\services\\getactionbreakdown',
+        19 => 'app\\services\\getstatusbreakdown',
+        20 => 'app\\services\\getentitybreakdown',
+        21 => 'app\\services\\getactivitytimeline',
+        22 => 'app\\services\\getrecentfailures',
+        23 => 'app\\services\\exporttocsv',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpMetricsService.php' => 
+    array (
+      0 => 'fc517dc10b3cd5bfdecd1a3335c0c52aa8e4abcf',
+      1 => 
+      array (
+        0 => 'app\\services\\mcpmetricsservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\collectmetrics',
+        1 => 'app\\services\\getservermetrics',
+        2 => 'app\\services\\getintegrationmetrics',
+        3 => 'app\\services\\getperformancemetrics',
+        4 => 'app\\services\\getusagemetrics',
+        5 => 'app\\services\\getactivealerts',
+        6 => 'app\\services\\recordmetric',
+        7 => 'app\\services\\recordlatency',
+        8 => 'app\\services\\calculateuptime',
+        9 => 'app\\services\\getcurrentlatency',
+        10 => 'app\\services\\getlatencyhistory',
+        11 => 'app\\services\\getaveragelatency',
+        12 => 'app\\services\\getconnectioncount',
+        13 => 'app\\services\\calculatesuccessrate',
+        14 => 'app\\services\\getapicallcount',
+        15 => 'app\\services\\getsuccessfulapicallcount',
+        16 => 'app\\services\\getfailedapicallcount',
+        17 => 'app\\services\\getaverageresponsetime',
+        18 => 'app\\services\\getsyncoperationcount',
+        19 => 'app\\services\\getsuccessfulsynccount',
+        20 => 'app\\services\\getfailedsynccount',
+        21 => 'app\\services\\calculateerrorrate',
+        22 => 'app\\services\\calculatethroughput',
+        23 => 'app\\services\\geterrorcount',
+        24 => 'app\\services\\getusagetrend',
+        25 => 'app\\services\\getrecentsyncfailures',
+        26 => 'app\\services\\updatemetricscache',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Models/McpMetric.php' => 
+    array (
+      0 => '5a80f6f755da091290e9f4c20441ba226d398916',
+      1 => 
+      array (
+        0 => 'app\\models\\mcpmetric',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\user',
+        1 => 'app\\models\\scopeforuser',
+        2 => 'app\\models\\scopebytype',
+        3 => 'app\\models\\scopedaterange',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Models/McpAuditLog.php' => 
+    array (
+      0 => '3e1d7abb1beeeee53fa5b23792fe4596ab3f9758',
+      1 => 
+      array (
+        0 => 'app\\models\\mcpauditlog',
+      ),
+      2 => 
+      array (
+        0 => 'app\\models\\user',
+        1 => 'app\\models\\scopeforuser',
+        2 => 'app\\models\\scopebystatus',
+        3 => 'app\\models\\scoperecent',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Middleware/EnsureMcpConnection.php' => 
+    array (
+      0 => 'b4f6890cb497e403ee5cdaa45b687f4c25d60f44',
+      1 => 
+      array (
+        0 => 'app\\http\\middleware\\ensuremcpconnection',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\middleware\\__construct',
+        1 => 'app\\http\\middleware\\handle',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Http/Controllers/IntegrationManagerController.php' => 
+    array (
+      0 => '78cba2d06e752be428a0c36238b12fbdaeafe09e',
+      1 => 
+      array (
+        0 => 'app\\http\\controllers\\integrationmanagercontroller',
+      ),
+      2 => 
+      array (
+        0 => 'app\\http\\controllers\\__construct',
+        1 => 'app\\http\\controllers\\index',
+        2 => 'app\\http\\controllers\\configure',
+        3 => 'app\\http\\controllers\\store',
+        4 => 'app\\http\\controllers\\test',
+        5 => 'app\\http\\controllers\\destroy',
+        6 => 'app\\http\\controllers\\validatecredentials',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/RealMcpServerManager.php' => 
+    array (
+      0 => '53fc932024c91329faf1efacc1c0d05ba99d25b9',
+      1 => 
+      array (
+        0 => 'app\\services\\realmcpservermanager',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\configureintegration',
+        2 => 'app\\services\\testintegration',
+        3 => 'app\\services\\getintegrationstatus',
+        4 => 'app\\services\\getallintegrationsstatus',
+        5 => 'app\\services\\removeintegration',
+        6 => 'app\\services\\proxytointegration',
+        7 => 'app\\services\\synctointegrationaccount',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/McpConnectionService.php' => 
+    array (
+      0 => '1e3b34e3c15de8f48db5c76180c6ef9a8124b202',
+      1 => 
+      array (
+        0 => 'app\\services\\mcpconnectionservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\getauthtoken',
+        2 => 'app\\services\\authenticate',
+        3 => 'app\\services\\validatetoken',
+        4 => 'app\\services\\ensureserverconfigured',
+        5 => 'app\\services\\request',
+        6 => 'app\\services\\configureintegration',
+        7 => 'app\\services\\getintegrationstatus',
+        8 => 'app\\services\\testintegration',
+        9 => 'app\\services\\getallintegrationsstatus',
+        10 => 'app\\services\\forwardtointegration',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Services/MockMcpServerService.php' => 
+    array (
+      0 => '14954bcaf2737b0e0845af15f9d1666dad743442',
+      1 => 
+      array (
+        0 => 'app\\services\\mockmcpserverservice',
+      ),
+      2 => 
+      array (
+        0 => 'app\\services\\__construct',
+        1 => 'app\\services\\discoverserver',
+        2 => 'app\\services\\establishsecureconnection',
+        3 => 'app\\services\\configureintegration',
+        4 => 'app\\services\\getintegrationsstatus',
+        5 => 'app\\services\\testconnection',
+        6 => 'app\\services\\generatemockpublickey',
+        7 => 'app\\services\\disconnect',
+        8 => 'app\\services\\removeintegration',
+      ),
+      3 => 
+      array (
+      ),
+    ),
+    '/Users/fred/PhpstormProjects/mcp_manager/app/Console/Commands/SyncMcpIntegrations.php' => 
+    array (
+      0 => '4e70bd70d60a9b85d7a8b521bcdacffaccc83b78',
+      1 => 
+      array (
+        0 => 'app\\console\\commands\\syncmcpintegrations',
+      ),
+      2 => 
+      array (
+        0 => 'app\\console\\commands\\handle',
       ),
       3 => 
       array (

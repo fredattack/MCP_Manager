@@ -29,17 +29,28 @@ export default function DailyPlanning({ today }: DailyPlanningProps) {
     const [showUpdateDialog, setShowUpdateDialog] = useState(false);
     const [selectedView, setSelectedView] = useState<'visual' | 'markdown'>('visual');
 
+    // Debug logging
+    console.log('Planning data:', planning);
+    if (planning) {
+        console.log('Has planning.planning?', !!planning.planning);
+        if (planning.planning) {
+            console.log('Has tasks?', planning.planning.has_tasks);
+            console.log('Planning structure:', planning.planning);
+        }
+    }
+
     const handleGeneratePlanning = async () => {
         const result = await generatePlanning();
-        if (result?.success && result.planning) {
-            // Planning generated successfully
-        }
+        console.log('Generation result:', result);
+        // The planning will be automatically updated via the hook
     };
 
     const handleUpdateTasks = async (updateType: 'all' | 'partial' | 'none', selected?: string[]) => {
-        if (!planning?.planning_id) return;
+        // Get planning_id from the response data structure
+        const planningId = planning?.planning_id || planning?.data?.planning_id;
+        if (!planningId) return;
 
-        const result = await updateTodoistTasks(planning.planning_id, {
+        const result = await updateTodoistTasks(planningId, {
             type: updateType,
             selected
         });
@@ -103,7 +114,7 @@ export default function DailyPlanning({ today }: DailyPlanningProps) {
                 )}
 
                 {/* Planning Display */}
-                {planning && planning.planning && (
+                {planning && planning.planning && planning.planning.has_tasks && (
                     <>
                         {/* View Toggle */}
                         <div className="flex justify-end gap-2">
@@ -233,13 +244,27 @@ export default function DailyPlanning({ today }: DailyPlanningProps) {
                 )}
 
                 {/* No tasks message */}
-                {planning && !planning.planning && (
+                {planning && planning.planning && !planning.planning.has_tasks && (
                     <Alert>
                         <AlertCircle className="h-4 w-4" />
                         <AlertDescription>
                             No tasks found for today. Add some tasks to your Todoist to generate a planning.
                         </AlertDescription>
                     </Alert>
+                )}
+
+                {/* Debug info */}
+                {planning && (
+                    <Card className="mt-4">
+                        <CardHeader>
+                            <CardTitle>Debug Info</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <pre className="text-xs overflow-auto">
+                                {JSON.stringify(planning, null, 2)}
+                            </pre>
+                        </CardContent>
+                    </Card>
                 )}
             </div>
 
