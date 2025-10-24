@@ -22,7 +22,8 @@
       "Bash(./vendor/bin/rector process app)",
       "Bash(find:*)",
       "Bash(lsof:*)",
-      "Bash(git restore:*)"
+      "Bash(git restore:*)",
+      "Bash(wc:*)"
     ],
     "deny": []
   }
