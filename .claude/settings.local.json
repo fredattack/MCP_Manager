@@ -23,7 +23,11 @@
       "Bash(find:*)",
       "Bash(lsof:*)",
       "Bash(git restore:*)",
-      "Bash(wc:*)"
+      "Bash(wc:*)",
+      "Bash(for file in tests/Unit/Services/Git/*.php tests/Unit/Services/Git/Clients/*.php tests/Unit/Jobs/*.php tests/Unit/Models/Git*.php tests/Feature/Git/*.php)",
+      "Bash(do:*)",
+      "Bash(echo:*)",
+      "Bash(done)"
     ],
     "deny": []
   }

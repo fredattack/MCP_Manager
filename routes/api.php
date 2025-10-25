@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AiChatController;
+use App\Http\Controllers\Api\GitCloneController;
+use App\Http\Controllers\Api\GitOAuthController;
+use App\Http\Controllers\Api\GitRepositoryController;
 use App\Http\Controllers\IntegrationsController;
 use App\Http\Controllers\JiraController;
 use App\Http\Controllers\NotionController;
@@ -69,6 +72,30 @@ Route::middleware(['auth:web'])->group(function () {
         Route::get('integrations/status', [McpIntegrationController::class, 'status']);
         Route::post('integrations/{service}/test', [McpIntegrationController::class, 'test']);
         Route::post('integrations/{service}/toggle', [McpIntegrationController::class, 'toggle']);
+    });
+
+    // Git Provider OAuth routes
+    Route::prefix('git/{provider}/oauth')->group(function () {
+        Route::post('start', [GitOAuthController::class, 'start'])->name('api.git.oauth.start');
+        Route::get('callback', [GitOAuthController::class, 'callback'])->name('api.git.oauth.callback');
+    });
+
+    // Git Repository routes
+    Route::prefix('git/{provider}/repos')->group(function () {
+        Route::post('sync', [GitRepositoryController::class, 'sync'])->name('api.git.repos.sync');
+        Route::get('stats', [GitRepositoryController::class, 'stats'])->name('api.git.repos.stats');
+        Route::get('/', [GitRepositoryController::class, 'index'])->name('api.git.repos.index');
+        Route::get('{externalId}', [GitRepositoryController::class, 'show'])->name('api.git.repos.show');
+        Route::post('{externalId}/refresh', [GitRepositoryController::class, 'refresh'])->name('api.git.repos.refresh');
+
+        // Clone routes
+        Route::post('{externalId}/clone', [GitCloneController::class, 'clone'])->name('api.git.repos.clone');
+        Route::get('{externalId}/clones', [GitCloneController::class, 'index'])->name('api.git.repos.clones');
+    });
+
+    // Git Clone routes
+    Route::prefix('git/clones')->group(function () {
+        Route::get('{cloneId}', [GitCloneController::class, 'show'])->name('api.git.clones.show');
     });
 
 });

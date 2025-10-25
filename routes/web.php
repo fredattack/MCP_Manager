@@ -199,3 +199,7 @@ require __DIR__.'/auth.php';
 
 // Temporary test route
 require __DIR__.'/test-planning.php';
+
+// Git Webhooks (no auth required)
+Route::post('/webhooks/github', [App\Http\Controllers\WebhookController::class, 'github'])->name('webhooks.github');
+Route::post('/webhooks/gitlab', [App\Http\Controllers\WebhookController::class, 'gitlab'])->name('webhooks.gitlab');
