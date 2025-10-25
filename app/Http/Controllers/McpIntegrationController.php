@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\McpIntegration;
 use App\Services\McpServerManager;
-use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
@@ -27,12 +27,12 @@ class McpIntegrationController extends Controller
             // Redirect to new integration manager
             return redirect()->route('integrations.manager.index');
         }
-        
+
         /** @var \App\Models\User $user */
         $user = auth()->user();
         $server = $user->mcpServer;
-        
-        if (!$server) {
+
+        if (! $server) {
             return Inertia::render('Mcp/NoServerConfigured');
         }
 
@@ -40,7 +40,7 @@ class McpIntegrationController extends Controller
         $localIntegrations = McpIntegration::where('user_id', $user->id)
             ->with('mcpServer')
             ->get()
-            ->map(fn($i) => $i->getStatusDetails());
+            ->map(fn ($i) => $i->getStatusDetails());
 
         // Try to get real-time status from MCP server
         $remoteStatus = [];
@@ -99,7 +99,7 @@ class McpIntegrationController extends Controller
         $user = auth()->user();
         $server = $user->mcpServer;
 
-        if (!$server || !$server->isActive()) {
+        if (! $server || ! $server->isActive()) {
             return back()->withErrors(['error' => 'MCP server is not connected']);
         }
 
@@ -142,7 +142,7 @@ class McpIntegrationController extends Controller
                 'error' => $e->getMessage(),
             ]);
 
-            return back()->withErrors(['error' => 'Failed to configure integration: ' . $e->getMessage()]);
+            return back()->withErrors(['error' => 'Failed to configure integration: '.$e->getMessage()]);
         }
     }
 
@@ -182,14 +182,14 @@ class McpIntegrationController extends Controller
             ->where('service_name', $service)
             ->first();
 
-        if (!$integration) {
+        if (! $integration) {
             return response()->json([
                 'success' => false,
                 'error' => 'Integration not found',
             ], 404);
         }
 
-        $integration->enabled = !$integration->enabled;
+        $integration->enabled = ! $integration->enabled;
         $integration->status = $integration->enabled ? 'connecting' : 'inactive';
         $integration->save();
 
@@ -220,9 +220,10 @@ class McpIntegrationController extends Controller
     {
         /** @var \App\Models\User $user */
         $user = auth()->user();
-        
+
         try {
             $integrations = $this->mcpManager->getIntegrationsStatus($user);
+
             return response()->json($integrations);
         } catch (\Exception $e) {
             return response()->json([
@@ -271,7 +272,7 @@ class McpIntegrationController extends Controller
 
         // Add local integrations not in remote
         foreach ($localByService as $name => $localIntegration) {
-            if (!collect($merged)->where('name', $name)->count()) {
+            if (! collect($merged)->where('name', $name)->count()) {
                 $merged[] = array_merge(
                     $localIntegration->toArray(),
                     ['source' => 'local']

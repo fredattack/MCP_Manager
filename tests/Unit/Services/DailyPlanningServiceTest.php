@@ -12,6 +12,10 @@ use Mockery;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
+/**
+ * @group daily-planning
+ * @group unit
+ */
 class DailyPlanningServiceTest extends TestCase
 {
     use RefreshDatabase;

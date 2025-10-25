@@ -14,6 +14,12 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('unit')]
 #[Group('models')]
+
+/**
+ * @group git
+ * @group model
+ * @group unit
+ */
 class GitCloneTest extends TestCase
 {
     use RefreshDatabase;

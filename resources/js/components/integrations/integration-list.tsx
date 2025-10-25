@@ -5,6 +5,7 @@ import { Button } from '../ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { IntegrationCard } from './integration-card';
+import { IntegrationCardEnhanced } from './integration-card-enhanced';
 import { IntegrationForm } from './integration-form';
 
 export function IntegrationList() {
@@ -93,9 +94,9 @@ export function IntegrationList() {
                 </div>
             )}
 
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                 {integrations.map((integration) => (
-                    <IntegrationCard
+                    <IntegrationCardEnhanced
                         key={integration.id}
                         integration={integration}
                         onUpdate={handleUpdateIntegration}

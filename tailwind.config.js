@@ -10,6 +10,10 @@ export default {
     extend: {
       fontFamily: {
         sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'],
+        // Monologue Design System fonts
+        'monologue-serif': ['"Instrument Serif"', '"Instrument Serif Placeholder"', 'serif'],
+        'monologue-mono': ['"DM Mono"', 'monospace'],
+        'monologue-geist': ['"Geist"', '"Geist Placeholder"', 'sans-serif'],
       },
       colors: {
         // Atlassian color palette
@@ -26,6 +30,35 @@ export default {
           800: '#002152',
           900: '#001029',
           foreground: '#FFFFFF',
+        },
+        // Monologue Design System colors
+        monologue: {
+          brand: {
+            primary: '#19d0e8',
+            accent: '#44ccff',
+            success: '#a6ee98',
+          },
+          neutral: {
+            black: '#000000',
+            900: '#010101',
+            800: '#141414',
+            700: '#282828',
+            600: '#3f3f3f',
+            500: '#545454',
+            100: '#fbfaf7',
+            white: '#ffffff',
+          },
+          border: {
+            muted: '#282828',      // Subtle border (neutral-700)
+            default: '#545454',    // Standard border (neutral-500)
+            strong: '#808080',     // High contrast border - BEAUCOUP plus visible!
+            accent: '#19d0e8',     // Cyan accent border
+          },
+          text: {
+            primary: '#ffffff',
+            secondary: '#a1a1a1',
+            muted: '#6b6b6b',
+          },
         },
         success: {
           DEFAULT: '#00875A',
@@ -101,6 +134,19 @@ export default {
       boxShadow: {
         'atlassian': '0 1px 1px rgba(9,30,66,0.25), 0 0 0 1px rgba(9,30,66,0.08)',
         'atlassian-lg': '0 8px 16px -4px rgba(9,30,66,0.25), 0 0 0 1px rgba(9,30,66,0.08)',
+      },
+      opacity: {
+        10: '0.1',
+        12: '0.12',
+        36: '0.36',
+        48: '0.48',
+        64: '0.64',
+      },
+      transitionDuration: {
+        fast: '200ms',
+      },
+      transitionTimingFunction: {
+        smooth: 'cubic-bezier(0.44, 0, 0.56, 1)',
       },
       animation: {
         'slide-in': 'slideIn 0.2s ease-out',

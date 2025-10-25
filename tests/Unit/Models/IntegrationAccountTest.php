@@ -9,6 +9,11 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * @group integration
+ * @group model
+ * @group unit
+ */
 class IntegrationAccountTest extends TestCase
 {
     use RefreshDatabase;

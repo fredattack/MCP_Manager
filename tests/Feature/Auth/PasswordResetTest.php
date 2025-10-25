@@ -8,6 +8,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Notification;
 use Tests\TestCase;
 
+/**
+ * @group auth
+ * @group feature
+ */
 class PasswordResetTest extends TestCase
 {
     use RefreshDatabase;

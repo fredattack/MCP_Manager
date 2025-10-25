@@ -14,6 +14,11 @@ use Tests\TestCase;
 /**
  * @extends TestCase
  */
+
+/**
+ * @group daily-planning
+ * @group feature
+ */
 class DailyPlanningControllerTest extends TestCase
 {
     use RefreshDatabase;

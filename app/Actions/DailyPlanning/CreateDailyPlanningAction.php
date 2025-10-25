@@ -17,14 +17,13 @@ class CreateDailyPlanningAction extends BaseAction
     ) {}
 
     /**
-     * @param mixed ...$parameters
      * @return array<string, mixed>
      */
     protected function validate(mixed ...$parameters): array
     {
         [$user, $data] = $parameters;
 
-        if (!is_array($data)) {
+        if (! is_array($data)) {
             $data = [];
         }
 
@@ -38,18 +37,15 @@ class CreateDailyPlanningAction extends BaseAction
             'break_preferences.micro_break_duration' => 'nullable|integer|min:5|max:20',
             'max_tasks' => 'nullable|integer|min:3|max:10',
         ]);
-        
+
         return $validator->validate();
     }
 
-    /**
-     * @param mixed ...$parameters
-     */
     protected function authorize(mixed ...$parameters): bool
     {
         [$user] = $parameters;
-        
-        if (!$user instanceof User) {
+
+        if (! $user instanceof User) {
             return false;
         }
 
@@ -61,15 +57,14 @@ class CreateDailyPlanningAction extends BaseAction
     }
 
     /**
-     * @param array<string, mixed> $validated
-     * @param mixed ...$parameters
+     * @param  array<string, mixed>  $validated
      * @return array<string, mixed>
      */
     protected function execute(array $validated, mixed ...$parameters): array
     {
         [$user] = $parameters;
-        
-        if (!$user instanceof User) {
+
+        if (! $user instanceof User) {
             throw new \InvalidArgumentException('User parameter must be an instance of User');
         }
 
@@ -106,8 +101,7 @@ class CreateDailyPlanningAction extends BaseAction
     }
 
     /**
-     * @param mixed $result
-     * @param array<string, mixed> $validated
+     * @param  array<string, mixed>  $validated
      */
     protected function afterExecute(mixed $result, array $validated): void
     {
@@ -142,7 +136,7 @@ class CreateDailyPlanningAction extends BaseAction
     }
 
     /**
-     * @param array<string, mixed> $planning
+     * @param  array<string, mixed>  $planning
      */
     private function storePlanning(User $user, array $planning): string
     {
@@ -158,7 +152,7 @@ class CreateDailyPlanningAction extends BaseAction
     }
 
     /**
-     * @param array<string, mixed> $planning
+     * @param  array<string, mixed>  $planning
      */
     private function generateMarkdown(array $planning): string
     {

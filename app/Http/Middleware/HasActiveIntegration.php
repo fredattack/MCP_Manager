@@ -29,13 +29,13 @@ class HasActiveIntegration
             if ($request->expectsJson()) {
                 return response()->json(['message' => "No active {$displayName} integration found"], 403);
             }
-            
+
             // Redirect to the appropriate setup page
             if ($integrationType === 'todoist') {
                 return redirect()->route('integrations.todoist.setup')
                     ->with('warning', 'Please connect your Todoist account first.');
             }
-            
+
             return redirect()->route('integrations')
                 ->with('warning', "Please connect your {$displayName} account first.");
         }

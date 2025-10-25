@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\McpServer;
-use App\Services\McpServerManager;
 use App\Services\CryptoService;
-use Illuminate\Http\Request;
+use App\Services\McpServerManager;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Inertia\Inertia;
@@ -63,7 +62,7 @@ class McpServerConfigController extends Controller
             // Validate SSL certificate if provided
             if ($request->ssl_certificate) {
                 $hostname = parse_url($request->url, PHP_URL_HOST);
-                if (!$this->cryptoService->validateSSLCertificate($request->ssl_certificate, $hostname)) {
+                if (! $this->cryptoService->validateSSLCertificate($request->ssl_certificate, $hostname)) {
                     return back()->withErrors(['ssl_certificate' => 'Invalid SSL certificate for the specified hostname']);
                 }
             }
@@ -98,7 +97,7 @@ class McpServerConfigController extends Controller
                 'error' => $e->getMessage(),
             ]);
 
-            return back()->withErrors(['error' => 'Failed to configure MCP server: ' . $e->getMessage()]);
+            return back()->withErrors(['error' => 'Failed to configure MCP server: '.$e->getMessage()]);
         }
     }
 
@@ -111,7 +110,7 @@ class McpServerConfigController extends Controller
         $user = auth()->user();
         $server = $user->mcpServer;
 
-        if (!$server) {
+        if (! $server) {
             return response()->json([
                 'success' => false,
                 'error' => 'No MCP server configured',
@@ -121,9 +120,9 @@ class McpServerConfigController extends Controller
         try {
             // Test discovery
             $serverInfo = $this->mcpManager->discoverServer($server->url);
-            
+
             // Test secure connection if not active
-            if (!$server->isActive()) {
+            if (! $server->isActive()) {
                 $connection = $this->mcpManager->establishSecureConnection($server);
             }
 
@@ -173,7 +172,7 @@ class McpServerConfigController extends Controller
         if ($server) {
             // Disconnect first
             $this->mcpManager->disconnect($server);
-            
+
             // Delete server and all related integrations
             $server->delete();
         }

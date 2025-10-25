@@ -169,7 +169,6 @@ class GoogleIntegrationController extends Controller
                 'redirect_uri' => config('services.google.redirect'),
             ]);
 
-
             if (! $response->successful()) {
                 throw new \Exception('Failed to exchange authorization code');
             }
@@ -189,7 +188,7 @@ class GoogleIntegrationController extends Controller
             ray($userInfo)->blue();
             // Fallback: determine service from scopes since session is not working
             $service = session('google_oauth_service');
-            if (!$service) {
+            if (! $service) {
                 // Determine from scope parameter
                 $scopes = $request->get('scope', '');
                 $service = str_contains($scopes, 'gmail') ? 'gmail' : 'calendar';

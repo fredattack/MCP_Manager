@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Enums\IntegrationStatus;
 use App\Enums\IntegrationType;
-use App\Models\IntegrationAccount;
 use App\Services\TodoistService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -51,8 +50,8 @@ class TodoistIntegrationController extends Controller
         try {
             // Test the token by fetching user info
             $userInfo = $this->todoistService->validateToken($validated['api_token']);
-            
-            if (!$userInfo) {
+
+            if (! $userInfo) {
                 return redirect()->back()->withErrors([
                     'api_token' => 'Invalid API token. Please check and try again.',
                 ]);
@@ -136,7 +135,7 @@ class TodoistIntegrationController extends Controller
             ->where('status', IntegrationStatus::ACTIVE)
             ->first();
 
-        if (!$integration) {
+        if (! $integration) {
             return redirect()->back()->withErrors([
                 'connection' => 'No active Todoist integration found.',
             ]);
@@ -145,7 +144,7 @@ class TodoistIntegrationController extends Controller
         try {
             $token = Crypt::decryptString($integration->access_token);
             $userInfo = $this->todoistService->validateToken($token);
-            
+
             if ($userInfo) {
                 // Update meta with latest info
                 $integration->update([
@@ -158,12 +157,13 @@ class TodoistIntegrationController extends Controller
                 ]);
 
                 return redirect()->back()->with(
-                    'success', 
+                    'success',
                     'Connection test successful! Your Todoist account is working properly.'
                 );
             }
 
             $integration->update(['status' => IntegrationStatus::ERROR]);
+
             return redirect()->back()->withErrors([
                 'connection' => 'Connection test failed. Please reconnect your account.',
             ]);
@@ -174,6 +174,7 @@ class TodoistIntegrationController extends Controller
             ]);
 
             $integration->update(['status' => IntegrationStatus::ERROR]);
+
             return redirect()->back()->withErrors([
                 'connection' => 'Connection test failed. Please check your integration.',
             ]);

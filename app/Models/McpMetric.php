@@ -53,6 +53,7 @@ class McpMetric extends Model
         if ($endDate) {
             $query->where('created_at', '<=', $endDate);
         }
+
         return $query;
     }
 }

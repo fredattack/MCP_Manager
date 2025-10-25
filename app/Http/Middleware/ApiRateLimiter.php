@@ -23,16 +23,16 @@ class ApiRateLimiter
             'ai_chat' => [10, 1],     // 10 AI chat messages per minute
             'integration' => [30, 1], // 30 integration requests per minute
         ];
-        
+
         [$maxAttempts, $decayMinutes] = $limits[$key] ?? [60, 1];
-        
+
         // Create unique key per user or IP
-        $rateLimitKey = $key . ':' . ($request->user()->id ?? $request->ip());
-        
+        $rateLimitKey = $key.':'.($request->user()->id ?? $request->ip());
+
         // Check if too many attempts
         if (RateLimiter::tooManyAttempts($rateLimitKey, $maxAttempts)) {
             $seconds = RateLimiter::availableIn($rateLimitKey);
-            
+
             return response()->json([
                 'message' => 'Too many requests. Please try again later.',
                 'retry_after' => $seconds,
@@ -42,16 +42,16 @@ class ApiRateLimiter
                 'X-RateLimit-Remaining' => 0,
             ]);
         }
-        
+
         // Record the attempt
         RateLimiter::hit($rateLimitKey, $decayMinutes * 60);
-        
+
         $response = $next($request);
-        
+
         // Add rate limit headers to response
         $response->headers->set('X-RateLimit-Limit', $maxAttempts);
         $response->headers->set('X-RateLimit-Remaining', RateLimiter::remaining($rateLimitKey, $maxAttempts));
-        
+
         return $response;
     }
 }

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Services\Git;
 
-use App\Enums\GitConnectionStatus;
 use App\Enums\GitProvider;
-use App\Models\GitConnection;
 use App\Models\GitRepository;
 use App\Models\User;
 use App\Services\Git\GitRepositoryService;
@@ -17,6 +15,11 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('unit')]
 #[Group('services')]
+
+/**
+ * @group git
+ * @group unit
+ */
 class GitRepositoryServiceTest extends TestCase
 {
     use RefreshDatabase;

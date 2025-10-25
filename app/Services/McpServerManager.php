@@ -2,23 +2,24 @@
 
 namespace App\Services;
 
+use App\Exceptions\McpConnectionException;
+use App\Models\IntegrationAccount;
 use App\Models\McpServer;
 use App\Models\User;
-use App\Models\IntegrationAccount;
-use App\Exceptions\McpConnectionException;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\App;
 
 class McpServerManager
 {
     private CryptoService $crypto;
+
     private ?MockMcpServerService $mockService = null;
 
     public function __construct(CryptoService $crypto)
     {
         $this->crypto = $crypto;
-        
+
         // Use mock service in development/testing
         if (App::environment(['local', 'testing'])) {
             Log::info('Initializing McpServerManager with mock service', ['env' => App::environment()]);
@@ -39,6 +40,7 @@ class McpServerManager
             $result = $this->mockService->discoverServer($url);
             if ($result['success']) {
                 Log::info('Mock discovery successful', ['server_info' => $result['server_info']]);
+
                 return $result['server_info'];
             }
             Log::error('Mock discovery failed', ['error' => $result['error']]);
@@ -46,14 +48,14 @@ class McpServerManager
         }
 
         try {
-            $response = Http::timeout(10)->get($url . '/health');
-            
-            if (!$response->successful()) {
+            $response = Http::timeout(10)->get($url.'/health');
+
+            if (! $response->successful()) {
                 throw new McpConnectionException('MCP server is not accessible');
             }
 
             $data = $response->json();
-            
+
             return [
                 'url' => $url,
                 'version' => $data['version'] ?? 'unknown',
@@ -64,9 +66,9 @@ class McpServerManager
         } catch (\Exception $e) {
             Log::error('MCP server discovery failed', [
                 'url' => $url,
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ]);
-            throw new McpConnectionException('Failed to discover MCP server: ' . $e->getMessage());
+            throw new McpConnectionException('Failed to discover MCP server: '.$e->getMessage());
         }
     }
 
@@ -83,7 +85,7 @@ class McpServerManager
                 $server->session_token = $result['session_token'];
                 $server->status = 'active';
                 $server->save();
-                
+
                 return [
                     'connected' => true,
                     'session_token' => $server->session_token,
@@ -95,7 +97,7 @@ class McpServerManager
 
         try {
             // Generate key pair if not exists
-            if (!$server->public_key || !$server->private_key) {
+            if (! $server->public_key || ! $server->private_key) {
                 $keyPair = $this->crypto->generateKeyPair();
                 $server->public_key = $keyPair['public'];
                 $server->private_key = $keyPair['private'];
@@ -103,17 +105,17 @@ class McpServerManager
             }
 
             // Exchange public keys with server
-            $response = Http::timeout(10)->post($server->url . '/api/handshake', [
+            $response = Http::timeout(10)->post($server->url.'/api/handshake', [
                 'client_public_key' => $server->public_key,
                 'client_id' => $server->id,
             ]);
 
-            if (!$response->successful()) {
+            if (! $response->successful()) {
                 throw new McpConnectionException('Failed to establish secure connection');
             }
 
             $data = $response->json();
-            
+
             // Store server's public key
             $server->server_public_key = $data['server_public_key'];
             $server->session_token = $data['session_token'] ?? null;
@@ -128,14 +130,14 @@ class McpServerManager
         } catch (\Exception $e) {
             Log::error('Failed to establish secure connection', [
                 'server_id' => $server->id,
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ]);
-            
+
             $server->status = 'error';
             $server->error_message = $e->getMessage();
             $server->save();
-            
-            throw new McpConnectionException('Connection failed: ' . $e->getMessage());
+
+            throw new McpConnectionException('Connection failed: '.$e->getMessage());
         }
     }
 
@@ -148,8 +150,8 @@ class McpServerManager
         array $credentials
     ): void {
         $server = $user->mcpServer;
-        
-        if (!$server || $server->status !== 'active') {
+
+        if (! $server || $server->status !== 'active') {
             throw new McpConnectionException('MCP server is not connected');
         }
 
@@ -174,6 +176,7 @@ class McpServerManager
                         ),
                     ]
                 );
+
                 return;
             }
             throw new McpConnectionException($result['error'] ?? 'Failed to configure integration');
@@ -187,15 +190,15 @@ class McpServerManager
 
         // Send encrypted credentials to MCP server
         $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $server->session_token,
-        ])->post($server->url . '/api/integrations/configure', [
+            'Authorization' => 'Bearer '.$server->session_token,
+        ])->post($server->url.'/api/integrations/configure', [
             'user_id' => $user->id,
             'service' => $service,
             'credentials' => $encryptedCredentials,
         ]);
 
-        if (!$response->successful()) {
-            throw new McpConnectionException('Failed to configure integration: ' . $response->body());
+        if (! $response->successful()) {
+            throw new McpConnectionException('Failed to configure integration: '.$response->body());
         }
 
         // Update or create integration record
@@ -216,26 +219,28 @@ class McpServerManager
 
     /**
      * Get integrations status from MCP server
+     *
      * @return array<string, mixed>
      */
     public function getIntegrationsStatus(User $user): array
     {
         $server = $user->mcpServer;
-        
-        if (!$server || $server->status !== 'active') {
+
+        if (! $server || $server->status !== 'active') {
             return [];
         }
 
         try {
             $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . $server->session_token,
-            ])->get($server->url . '/api/users/' . $user->id . '/integrations/status');
+                'Authorization' => 'Bearer '.$server->session_token,
+            ])->get($server->url.'/api/users/'.$user->id.'/integrations/status');
 
-            if (!$response->successful()) {
+            if (! $response->successful()) {
                 Log::warning('Failed to get integrations status', [
                     'user_id' => $user->id,
-                    'response' => $response->body()
+                    'response' => $response->body(),
                 ]);
+
                 return [];
             }
 
@@ -243,21 +248,23 @@ class McpServerManager
         } catch (\Exception $e) {
             Log::error('Error getting integrations status', [
                 'user_id' => $user->id,
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ]);
+
             return [];
         }
     }
 
     /**
      * Test integration connectivity
+     *
      * @return array{success: bool, error?: string}
      */
     public function testIntegration(User $user, string $service): array
     {
         $server = $user->mcpServer;
-        
-        if (!$server || $server->status !== 'active') {
+
+        if (! $server || $server->status !== 'active') {
             return [
                 'success' => false,
                 'error' => 'MCP server is not connected',
@@ -266,15 +273,15 @@ class McpServerManager
 
         try {
             $response = Http::withHeaders([
-                'Authorization' => 'Bearer ' . $server->session_token,
-            ])->post($server->url . '/api/integrations/' . $service . '/test', [
+                'Authorization' => 'Bearer '.$server->session_token,
+            ])->post($server->url.'/api/integrations/'.$service.'/test', [
                 'user_id' => $user->id,
             ]);
 
-            if (!$response->successful()) {
+            if (! $response->successful()) {
                 return [
                     'success' => false,
-                    'error' => 'Test failed: ' . $response->body(),
+                    'error' => 'Test failed: '.$response->body(),
                 ];
             }
 
@@ -282,20 +289,21 @@ class McpServerManager
         } catch (\Exception $e) {
             return [
                 'success' => false,
-                'error' => 'Test failed: ' . $e->getMessage(),
+                'error' => 'Test failed: '.$e->getMessage(),
             ];
         }
     }
 
     /**
      * Get server status
+     *
      * @return array{connected: bool, latency: int|null, lastSync: string|null, status?: string, error?: string}
      */
     public function getServerStatus(User $user): array
     {
         $server = $user->mcpServer;
-        
-        if (!$server) {
+
+        if (! $server) {
             return [
                 'connected' => false,
                 'latency' => null,
@@ -306,9 +314,9 @@ class McpServerManager
         // Ping server to get latency
         $startTime = microtime(true);
         try {
-            $response = Http::timeout(5)->get($server->url . '/health');
+            $response = Http::timeout(5)->get($server->url.'/health');
             $latency = round((microtime(true) - $startTime) * 1000); // Convert to ms
-            
+
             return [
                 'connected' => $response->successful(),
                 'latency' => $latency,
@@ -333,13 +341,13 @@ class McpServerManager
         try {
             if ($server->session_token) {
                 Http::withHeaders([
-                    'Authorization' => 'Bearer ' . $server->session_token,
-                ])->post($server->url . '/api/disconnect');
+                    'Authorization' => 'Bearer '.$server->session_token,
+                ])->post($server->url.'/api/disconnect');
             }
         } catch (\Exception $e) {
             Log::warning('Failed to properly disconnect from MCP server', [
                 'server_id' => $server->id,
-                'error' => $e->getMessage()
+                'error' => $e->getMessage(),
             ]);
         }
 

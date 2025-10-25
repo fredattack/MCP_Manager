@@ -2,11 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Facades\Crypt;
 
 /**
@@ -114,7 +114,7 @@ class McpServer extends Model
         return [
             'status' => $this->status,
             'connected' => $this->isActive(),
-            'has_session' => !empty($this->session_token),
+            'has_session' => ! empty($this->session_token),
             'error' => $this->error_message,
             'last_check' => $this->updated_at,
         ];

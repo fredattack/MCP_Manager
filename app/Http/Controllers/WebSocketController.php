@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Ratchet\MessageComponentInterface;
-use Ratchet\ConnectionInterface;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
+use Ratchet\ConnectionInterface;
+use Ratchet\MessageComponentInterface;
 
 class WebSocketController implements MessageComponentInterface
 {
     protected $clients;
+
     protected $userConnections;
 
     public function __construct()
@@ -21,24 +22,24 @@ class WebSocketController implements MessageComponentInterface
     public function onOpen(ConnectionInterface $conn)
     {
         $this->clients->attach($conn);
-        
+
         // Parse query string for authentication
         $queryString = $conn->httpRequest->getUri()->getQuery();
         parse_str($queryString, $params);
-        
+
         if (isset($params['user_id'])) {
             $userId = $params['user_id'];
             $this->userConnections[$userId] = $conn;
-            
+
             Log::info("WebSocket connection opened for user: {$userId}");
-            
+
             // Send initial connection confirmation
             $conn->send(json_encode([
                 'type' => 'connection',
                 'status' => 'connected',
-                'message' => 'WebSocket connection established'
+                'message' => 'WebSocket connection established',
             ]));
-            
+
             // Send any pending notifications
             $this->sendPendingNotifications($userId, $conn);
         }
@@ -47,24 +48,24 @@ class WebSocketController implements MessageComponentInterface
     public function onMessage(ConnectionInterface $from, $msg)
     {
         $data = json_decode($msg, true);
-        
-        if (!$data) {
+
+        if (! $data) {
             return;
         }
-        
+
         switch ($data['type']) {
             case 'ping':
                 $from->send(json_encode(['type' => 'pong']));
                 break;
-                
+
             case 'auth':
                 $this->handleAuth($from, $data);
                 break;
-                
+
             case 'subscribe':
                 $this->handleSubscribe($from, $data);
                 break;
-                
+
             default:
                 Log::warning("Unknown WebSocket message type: {$data['type']}");
         }
@@ -73,7 +74,7 @@ class WebSocketController implements MessageComponentInterface
     public function onClose(ConnectionInterface $conn)
     {
         $this->clients->detach($conn);
-        
+
         // Remove from user connections
         $userId = array_search($conn, $this->userConnections, true);
         if ($userId !== false) {
@@ -95,11 +96,13 @@ class WebSocketController implements MessageComponentInterface
     {
         if (isset($this->userConnections[$userId])) {
             $this->userConnections[$userId]->send(json_encode($message));
+
             return true;
         }
-        
+
         // Store message for later delivery if user is not connected
         $this->storePendingNotification($userId, $message);
+
         return false;
     }
 
@@ -109,7 +112,7 @@ class WebSocketController implements MessageComponentInterface
     public function broadcast(array $message)
     {
         $payload = json_encode($message);
-        
+
         foreach ($this->clients as $client) {
             $client->send($payload);
         }
@@ -124,7 +127,7 @@ class WebSocketController implements MessageComponentInterface
             'type' => 'integration_update',
             'integrationId' => $integrationId,
             'data' => $data,
-            'timestamp' => now()->toIso8601String()
+            'timestamp' => now()->toIso8601String(),
         ]);
     }
 
@@ -136,7 +139,7 @@ class WebSocketController implements MessageComponentInterface
         $this->sendToUser($userId, [
             'type' => 'server_status',
             'data' => $status,
-            'timestamp' => now()->toIso8601String()
+            'timestamp' => now()->toIso8601String(),
         ]);
     }
 
@@ -150,7 +153,7 @@ class WebSocketController implements MessageComponentInterface
             'level' => $level, // 'info', 'warning', 'error', 'critical'
             'message' => $message,
             'context' => $context,
-            'timestamp' => now()->toIso8601String()
+            'timestamp' => now()->toIso8601String(),
         ]);
     }
 
@@ -162,7 +165,7 @@ class WebSocketController implements MessageComponentInterface
         $this->sendToUser($userId, [
             'type' => 'metrics_update',
             'data' => $metrics,
-            'timestamp' => now()->toIso8601String()
+            'timestamp' => now()->toIso8601String(),
         ]);
     }
 
@@ -171,30 +174,31 @@ class WebSocketController implements MessageComponentInterface
      */
     private function handleAuth(ConnectionInterface $conn, array $data)
     {
-        if (!isset($data['token'])) {
+        if (! isset($data['token'])) {
             $conn->send(json_encode([
                 'type' => 'error',
-                'message' => 'Authentication token required'
+                'message' => 'Authentication token required',
             ]));
+
             return;
         }
-        
+
         // Validate token (simplified for example)
         // In production, validate against actual user sessions
         $userId = $this->validateToken($data['token']);
-        
+
         if ($userId) {
             $this->userConnections[$userId] = $conn;
-            
+
             $conn->send(json_encode([
                 'type' => 'auth',
                 'status' => 'authenticated',
-                'userId' => $userId
+                'userId' => $userId,
             ]));
         } else {
             $conn->send(json_encode([
                 'type' => 'error',
-                'message' => 'Invalid authentication token'
+                'message' => 'Invalid authentication token',
             ]));
         }
     }
@@ -204,17 +208,17 @@ class WebSocketController implements MessageComponentInterface
      */
     private function handleSubscribe(ConnectionInterface $conn, array $data)
     {
-        if (!isset($data['channel'])) {
+        if (! isset($data['channel'])) {
             return;
         }
-        
+
         // Store subscription (simplified)
         // In production, maintain proper subscription management
         Log::info("Client subscribed to channel: {$data['channel']}");
-        
+
         $conn->send(json_encode([
             'type' => 'subscribed',
-            'channel' => $data['channel']
+            'channel' => $data['channel'],
         ]));
     }
 
@@ -226,10 +230,10 @@ class WebSocketController implements MessageComponentInterface
         $key = "pending_notifications:{$userId}";
         $notifications = Cache::get($key, []);
         $notifications[] = $message;
-        
+
         // Keep only last 100 notifications
         $notifications = array_slice($notifications, -100);
-        
+
         Cache::put($key, $notifications, now()->addHours(24));
     }
 
@@ -240,12 +244,12 @@ class WebSocketController implements MessageComponentInterface
     {
         $key = "pending_notifications:{$userId}";
         $notifications = Cache::get($key, []);
-        
-        if (!empty($notifications)) {
+
+        if (! empty($notifications)) {
             foreach ($notifications as $notification) {
                 $conn->send(json_encode($notification));
             }
-            
+
             Cache::forget($key);
         }
     }

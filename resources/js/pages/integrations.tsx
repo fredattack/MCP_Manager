@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { MonologueButton } from '@/components/ui/MonologueButton';
+import { MonologueCard } from '@/components/ui/MonologueCard';
 import AppLayout from '@/layouts/app-layout';
 import { Head } from '@inertiajs/react';
 import { Plug, Plus } from 'lucide-react';
@@ -11,31 +11,30 @@ export default function Integrations() {
             <Head title="Integrations" />
 
             <div className="mx-auto max-w-7xl p-6">
-                {/* Header */}
-                <div className="mb-6 flex items-center justify-between">
+                {/* Header with Monologue Typography */}
+                <div className="mb-8 flex items-center justify-between">
                     <div>
-                        <h1 className="flex items-center gap-2 text-2xl font-bold text-gray-900 dark:text-gray-100">
-                            <Plug className="h-6 w-6" />
+                        <h1 className="flex items-center gap-3 font-monologue-serif text-4xl font-normal tracking-tight text-gray-900 dark:text-white">
+                            <Plug className="h-8 w-8 text-gray-900 dark:text-monologue-brand-primary" />
                             Integrations
                         </h1>
-                        <p className="mt-1 text-gray-600 dark:text-gray-400">Connect your favorite tools and services to streamline your workflow</p>
+                        <p className="mt-2 font-monologue-mono text-sm tracking-wide text-gray-600 dark:text-gray-400">
+                            Connect and manage your service integrations
+                        </p>
                     </div>
 
-                    <Button>
-                        <Plus className="mr-2 h-4 w-4" />
+                    <MonologueButton variant="primary" leftIcon={<Plus className="h-4 w-4" />}>
                         Browse Integrations
-                    </Button>
+                    </MonologueButton>
                 </div>
 
-                {/* Integration List */}
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Connected Services</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                        <IntegrationList />
-                    </CardContent>
-                </Card>
+                {/* Integration List in Monologue Card */}
+                <MonologueCard variant="elevated" className="border-monologue-border-strong" padding="lg">
+                    <h2 className="mb-6 font-monologue-serif text-2xl font-normal tracking-tight text-gray-900 dark:text-white">
+                        Connected Services
+                    </h2>
+                    <IntegrationList />
+                </MonologueCard>
             </div>
         </AppLayout>
     );

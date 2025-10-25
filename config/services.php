@@ -70,4 +70,14 @@ return [
         'repo_max_size_mb' => env('REPO_MAX_SIZE_MB', 2048),
     ],
 
+    'openai' => [
+        'api_key' => env('OPENAI_API_KEY'),
+        'model' => env('OPENAI_MODEL', 'gpt-4'),
+    ],
+
+    'mistral' => [
+        'api_key' => env('MISTRAL_API_KEY'),
+        'model' => env('MISTRAL_MODEL', 'mistral-large-latest'),
+    ],
+
 ];

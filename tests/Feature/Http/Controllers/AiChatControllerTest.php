@@ -2,24 +2,30 @@
 
 namespace Tests\Feature\Http\Controllers;
 
-use Tests\TestCase;
 use App\Models\User;
 use App\Services\McpAuthService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Http;
 use Mockery;
+use Tests\TestCase;
 
+/**
+ * @group ai
+ * @group chat
+ * @group feature
+ */
 class AiChatControllerTest extends TestCase
 {
     use RefreshDatabase;
 
     protected User $user;
+
     protected McpAuthService $mcpAuthService;
 
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         $this->user = User::factory()->create();
         $this->mcpAuthService = Mockery::mock(McpAuthService::class);
         $this->app->instance(McpAuthService::class, $this->mcpAuthService);
@@ -175,6 +181,7 @@ class AiChatControllerTest extends TestCase
         // Verify the last message was sent to MCP server
         Http::assertSent(function ($request) {
             $body = json_decode($request->body(), true);
+
             return $body['message'] === 'Last message';
         });
     }
@@ -217,6 +224,7 @@ class AiChatControllerTest extends TestCase
 
         Http::assertSent(function ($request) {
             $body = json_decode($request->body(), true);
+
             return $body['temperature'] === 1.5;
         });
     }
@@ -241,6 +249,7 @@ class AiChatControllerTest extends TestCase
 
         Http::assertSent(function ($request) {
             $body = json_decode($request->body(), true);
+
             return $body['max_tokens'] === 2000;
         });
     }

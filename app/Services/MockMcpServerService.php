@@ -2,9 +2,8 @@
 
 namespace App\Services;
 
-use App\Models\McpServer;
 use App\Models\McpIntegration;
-use App\Models\User;
+use App\Models\McpServer;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -26,11 +25,11 @@ class MockMcpServerService
     public function discoverServer(string $url): array
     {
         Log::info('Mock: Discovering server', ['url' => $url]);
-        
+
         // Simulate successful discovery for localhost/development URLs
         $isLocalUrl = str_contains($url, 'localhost') || str_contains($url, '127.0.0.1') || str_contains($url, 'test');
         Log::info('Mock: URL check', ['url' => $url, 'isLocalUrl' => $isLocalUrl]);
-        
+
         if ($isLocalUrl) {
             return [
                 'success' => true,
@@ -66,7 +65,7 @@ class MockMcpServerService
         Log::info('Mock: Establishing secure connection', ['server_id' => $server->id]);
 
         // Generate mock keys if not present
-        if (!$server->public_key || !$server->private_key) {
+        if (! $server->public_key || ! $server->private_key) {
             $keyPair = $this->crypto->generateKeyPair();
             $server->public_key = $keyPair['public'];
             $server->private_key = $keyPair['private'];
@@ -76,7 +75,7 @@ class MockMcpServerService
         // Simulate successful handshake
         return [
             'success' => true,
-            'connection_id' => 'mock_' . uniqid(),
+            'connection_id' => 'mock_'.uniqid(),
             'server_public_key' => $this->generateMockPublicKey(),
             'session_token' => base64_encode(random_bytes(32)),
             'expires_at' => now()->addHours(24)->toIso8601String(),
@@ -104,7 +103,7 @@ class MockMcpServerService
         // For mock purposes, accept any non-empty credentials
         return [
             'success' => true,
-            'integration_id' => 'mock_integration_' . $service . '_' . uniqid(),
+            'integration_id' => 'mock_integration_'.$service.'_'.uniqid(),
             'status' => 'active',
             'metadata' => [
                 'service' => $service,
@@ -132,8 +131,8 @@ class MockMcpServerService
                 'health' => 'healthy',
                 'metrics' => [
                     'api_calls_today' => rand(10, 100),
-                    'last_response_time' => rand(50, 500) . 'ms',
-                    'error_rate' => rand(0, 5) . '%',
+                    'last_response_time' => rand(50, 500).'ms',
+                    'error_rate' => rand(0, 5).'%',
                 ],
             ];
         }
@@ -188,13 +187,13 @@ class MockMcpServerService
      */
     private function generateMockPublicKey(): string
     {
-        return "-----BEGIN PUBLIC KEY-----\n" .
-               "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA" . base64_encode(random_bytes(32)) . "\n" .
-               base64_encode(random_bytes(64)) . "\n" .
-               base64_encode(random_bytes(64)) . "\n" .
-               base64_encode(random_bytes(64)) . "\n" .
-               base64_encode(random_bytes(32)) . "\n" .
-               "-----END PUBLIC KEY-----";
+        return "-----BEGIN PUBLIC KEY-----\n".
+               'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA'.base64_encode(random_bytes(32))."\n".
+               base64_encode(random_bytes(64))."\n".
+               base64_encode(random_bytes(64))."\n".
+               base64_encode(random_bytes(64))."\n".
+               base64_encode(random_bytes(32))."\n".
+               '-----END PUBLIC KEY-----';
     }
 
     /**

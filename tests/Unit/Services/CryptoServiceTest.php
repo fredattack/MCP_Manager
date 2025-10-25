@@ -5,6 +5,10 @@ namespace Tests\Unit\Services;
 use App\Services\CryptoService;
 use Tests\TestCase;
 
+/**
+ * @group crypto
+ * @group unit
+ */
 class CryptoServiceTest extends TestCase
 {
     private CryptoService $cryptoService;
@@ -12,7 +16,7 @@ class CryptoServiceTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->cryptoService = new CryptoService();
+        $this->cryptoService = new CryptoService;
     }
 
     public function test_generates_key_pair(): void
@@ -68,7 +72,7 @@ class CryptoServiceTest extends TestCase
         $key = bin2hex(random_bytes(16)); // 128-bit key
 
         $encrypted = $this->cryptoService->encryptSymmetric($data, $key);
-        
+
         $this->assertArrayHasKey('data', $encrypted);
         $this->assertArrayHasKey('iv', $encrypted);
         $this->assertArrayHasKey('tag', $encrypted);

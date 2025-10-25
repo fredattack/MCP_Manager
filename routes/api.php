@@ -4,11 +4,12 @@ use App\Http\Controllers\AiChatController;
 use App\Http\Controllers\Api\GitCloneController;
 use App\Http\Controllers\Api\GitOAuthController;
 use App\Http\Controllers\Api\GitRepositoryController;
+use App\Http\Controllers\Api\WorkflowController;
 use App\Http\Controllers\IntegrationsController;
 use App\Http\Controllers\JiraController;
+use App\Http\Controllers\McpIntegrationController;
 use App\Http\Controllers\NotionController;
 use App\Http\Controllers\NotionIntegrationController;
-use App\Http\Controllers\McpIntegrationController;
 use Illuminate\Support\Facades\Route;
 
 // Legacy route - will be deprecated
@@ -36,12 +37,12 @@ Route::middleware(['auth:web'])->group(function () {
         // Projects
         Route::get('projects', [JiraController::class, 'listProjects']);
         Route::get('projects/{projectKey}', [JiraController::class, 'getProject']);
-        
+
         // Boards
         Route::get('boards', [JiraController::class, 'listBoards']);
         Route::get('boards/{boardId}', [JiraController::class, 'getBoard']);
         Route::get('boards/{boardId}/issues', [JiraController::class, 'listBoardIssues']);
-        
+
         // Issues
         Route::get('issues/search', [JiraController::class, 'searchIssues']);
         Route::get('issues/{issueKey}', [JiraController::class, 'getIssue']);
@@ -50,19 +51,19 @@ Route::middleware(['auth:web'])->group(function () {
         Route::post('issues/{issueKey}/transitions', [JiraController::class, 'transitionIssue']);
         Route::get('issues/{issueKey}/transitions', [JiraController::class, 'getTransitions']);
         Route::put('issues/{issueKey}/assign', [JiraController::class, 'assignIssue']);
-        
+
         // Epics
         Route::post('epics', [JiraController::class, 'createEpic']);
         Route::get('epics/{epicKey}/progress', [JiraController::class, 'getEpicProgress']);
         Route::get('epics/{epicKey}/issues', [JiraController::class, 'getEpicIssues']);
-        
+
         // Sprints
         Route::get('boards/{boardId}/sprints', [JiraController::class, 'listSprints']);
         Route::get('sprints/{sprintId}', [JiraController::class, 'getSprint']);
         Route::post('sprints/{sprintId}/start', [JiraController::class, 'startSprint']);
         Route::post('sprints/{sprintId}/complete', [JiraController::class, 'completeSprint']);
         Route::get('sprints/{sprintId}/velocity', [JiraController::class, 'getSprintVelocity']);
-        
+
         // Cross-service
         Route::post('issues/from-sentry', [JiraController::class, 'createFromSentry']);
     });
@@ -97,5 +98,11 @@ Route::middleware(['auth:web'])->group(function () {
     Route::prefix('git/clones')->group(function () {
         Route::get('{cloneId}', [GitCloneController::class, 'show'])->name('api.git.clones.show');
     });
+
+    // Workflow routes
+    Route::apiResource('workflows', WorkflowController::class);
+    Route::post('workflows/{workflow}/execute', [WorkflowController::class, 'execute'])->name('api.workflows.execute');
+    Route::get('workflows/executions/{execution}', [WorkflowController::class, 'executionStatus'])->name('api.workflows.executions.status');
+    Route::get('workflows/executions/{execution}/steps', [WorkflowController::class, 'executionSteps'])->name('api.workflows.executions.steps');
 
 });

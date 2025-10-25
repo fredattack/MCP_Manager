@@ -72,7 +72,7 @@ class McpIntegration extends Model
      */
     public function hasError(): bool
     {
-        return $this->status === 'error' || !$this->credentials_valid;
+        return $this->status === 'error' || ! $this->credentials_valid;
     }
 
     /**

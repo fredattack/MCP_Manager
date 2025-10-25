@@ -39,7 +39,8 @@ const handleSystemThemeChange = () => {
 };
 
 export function initializeTheme() {
-    const savedAppearance = (localStorage.getItem('appearance') as Appearance) || 'system';
+    // Default to dark mode (Monologue is dark-first design)
+    const savedAppearance = (localStorage.getItem('appearance') as Appearance) || 'dark';
 
     applyTheme(savedAppearance);
 
@@ -48,7 +49,7 @@ export function initializeTheme() {
 }
 
 export function useAppearance() {
-    const [appearance, setAppearance] = useState<Appearance>('system');
+    const [appearance, setAppearance] = useState<Appearance>('dark');
 
     const updateAppearance = useCallback((mode: Appearance) => {
         setAppearance(mode);

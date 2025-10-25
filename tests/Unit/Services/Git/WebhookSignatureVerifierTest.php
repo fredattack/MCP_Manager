@@ -13,6 +13,12 @@ use Tests\TestCase;
 #[Group('unit')]
 #[Group('services')]
 #[Group('security')]
+
+/**
+ * @group git
+ * @group webhook
+ * @group unit
+ */
 class WebhookSignatureVerifierTest extends TestCase
 {
     private WebhookSignatureVerifier $verifier;

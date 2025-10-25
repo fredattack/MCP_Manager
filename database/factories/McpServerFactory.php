@@ -19,11 +19,11 @@ class McpServerFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'name' => $this->faker->company() . ' MCP Server',
+            'name' => $this->faker->company().' MCP Server',
             'url' => $this->faker->url(),
-            'public_key' => '-----BEGIN PUBLIC KEY-----' . "\n" . $this->faker->sha256() . "\n" . '-----END PUBLIC KEY-----',
-            'private_key' => '-----BEGIN PRIVATE KEY-----' . "\n" . $this->faker->sha256() . "\n" . '-----END PRIVATE KEY-----',
-            'server_public_key' => '-----BEGIN PUBLIC KEY-----' . "\n" . $this->faker->sha256() . "\n" . '-----END PUBLIC KEY-----',
+            'public_key' => '-----BEGIN PUBLIC KEY-----'."\n".$this->faker->sha256()."\n".'-----END PUBLIC KEY-----',
+            'private_key' => '-----BEGIN PRIVATE KEY-----'."\n".$this->faker->sha256()."\n".'-----END PRIVATE KEY-----',
+            'server_public_key' => '-----BEGIN PUBLIC KEY-----'."\n".$this->faker->sha256()."\n".'-----END PUBLIC KEY-----',
             'ssl_certificate' => null,
             'config' => [
                 'version' => '1.0.0',
@@ -53,7 +53,7 @@ class McpServerFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'status' => 'error',
-            'error_message' => 'Connection failed: ' . $this->faker->sentence(),
+            'error_message' => 'Connection failed: '.$this->faker->sentence(),
         ]);
     }
 }

@@ -12,9 +12,6 @@ abstract class BaseAction
     /**
      * Execute the action with transaction handling
      */
-    /**
-     * @param mixed ...$parameters
-     */
     public function handle(mixed ...$parameters): ActionResult
     {
         try {
@@ -48,6 +45,7 @@ abstract class BaseAction
         } catch (\Illuminate\Validation\ValidationException $e) {
             /** @var array<string, mixed> $errors */
             $errors = $e->errors();
+
             return ActionResult::validationError($errors);
         } catch (\Exception $e) {
             // Log error
@@ -62,7 +60,6 @@ abstract class BaseAction
      * Validate input data
      */
     /**
-     * @param mixed ...$parameters
      * @return array<string, mixed>
      */
     abstract protected function validate(mixed ...$parameters): array;
@@ -70,18 +67,13 @@ abstract class BaseAction
     /**
      * Check authorization
      */
-    /**
-     * @param mixed ...$parameters
-     */
     abstract protected function authorize(mixed ...$parameters): bool;
 
     /**
      * Main business logic
      */
     /**
-     * @param array<string, mixed> $validated
-     * @param mixed ...$parameters
-     * @return mixed
+     * @param  array<string, mixed>  $validated
      */
     abstract protected function execute(array $validated, mixed ...$parameters): mixed;
 
@@ -89,7 +81,7 @@ abstract class BaseAction
      * Hook before execution (optional)
      */
     /**
-     * @param array<string, mixed> $validated
+     * @param  array<string, mixed>  $validated
      */
     protected function beforeExecute(array $validated): void {}
 
@@ -97,8 +89,7 @@ abstract class BaseAction
      * Hook after execution (optional)
      */
     /**
-     * @param mixed $result
-     * @param array<string, mixed> $validated
+     * @param  array<string, mixed>  $validated
      */
     protected function afterExecute(mixed $result, array $validated): void {}
 
@@ -115,9 +106,6 @@ abstract class BaseAction
 
     /**
      * Log successful execution
-     */
-    /**
-     * @param mixed $result
      */
     protected function logSuccess(mixed $result): void
     {

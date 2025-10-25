@@ -3,11 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('welcome');
-})->name('home');
-
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', function () {
+        return redirect()->route('dashboard');
+    })->name('home');
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
@@ -25,7 +24,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('integrations/todoist', function () {
         return Inertia::render('integrations/todoist');
     })->middleware('has.integration:todoist')->name('integrations.todoist');
-    
+
     // Todoist Integration Setup routes
     Route::prefix('integrations/todoist')->group(function () {
         Route::get('/setup', [App\Http\Controllers\TodoistIntegrationController::class, 'show'])
@@ -50,15 +49,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('ai/natural-language');
     })->name('ai.natural-language');
 
+    // Design System Showcase (development only)
+    Route::get('design-system', function () {
+        return Inertia::render('design-system');
+    })->name('design-system');
+
     Route::get('jira', function () {
         $user = auth()->user();
         $hasIntegration = $user->integrationAccounts()
             ->where('type', \App\Enums\IntegrationType::JIRA)
             ->active()
             ->exists();
-        
+
         return Inertia::render('jira', [
-            'hasIntegration' => $hasIntegration
+            'hasIntegration' => $hasIntegration,
         ]);
     })->name('jira');
 
@@ -88,18 +92,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/events/conflicts', [App\Http\Controllers\CalendarController::class, 'checkConflicts'])->name('calendar.conflicts');
         Route::get('/events/week', [App\Http\Controllers\CalendarController::class, 'weekEvents'])->name('calendar.week');
     });
-    
+
     // Natural Language routes
     Route::get('/nlp-demo', function () {
         return Inertia::render('ai/nlp-demo');
     })->name('nlp-demo');
-    
+
     Route::prefix('api/natural-language')->group(function () {
         Route::post('command', [App\Http\Controllers\NaturalLanguageController::class, 'processCommand']);
         Route::get('suggestions', [App\Http\Controllers\NaturalLanguageController::class, 'getSuggestions']);
         Route::get('history', [App\Http\Controllers\NaturalLanguageController::class, 'getCommandHistory']);
     });
-    
+
     // Integration Manager routes (New simplified system)
     Route::prefix('integrations/manager')->name('integrations.manager.')->middleware('App\Http\Middleware\EnsureMcpConnection')->group(function () {
         Route::get('/', [App\Http\Controllers\IntegrationManagerController::class, 'index'])->name('index');
@@ -108,7 +112,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('/{service}/test', [App\Http\Controllers\IntegrationManagerController::class, 'test'])->name('test');
         Route::delete('/{service}', [App\Http\Controllers\IntegrationManagerController::class, 'destroy'])->name('destroy');
     });
-    
+
     // MCP Server Management routes
     Route::prefix('mcp')->name('mcp.')->group(function () {
         Route::get('dashboard', [App\Http\Controllers\McpIntegrationController::class, 'index'])->name('dashboard');
@@ -120,7 +124,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('integrations/{service}/configure', [App\Http\Controllers\McpIntegrationController::class, 'configure'])->name('integrations.configure');
         Route::post('integrations/{service}', [App\Http\Controllers\McpIntegrationController::class, 'store'])->name('integrations.store');
         Route::delete('integrations/{service}', [App\Http\Controllers\McpIntegrationController::class, 'destroy'])->name('integrations.destroy');
-        
+
         // Monitoring routes
         Route::get('monitoring', [App\Http\Controllers\McpMonitoringController::class, 'dashboard'])->name('monitoring');
         Route::get('monitoring/metrics', [App\Http\Controllers\McpMonitoringController::class, 'metrics'])->name('monitoring.metrics');
@@ -134,24 +138,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::prefix('api/mcp')->group(function () {
         Route::post('auth/login', [App\Http\Controllers\McpProxyController::class, 'login']);
         Route::get('auth/me', [App\Http\Controllers\McpProxyController::class, 'me']);
-        
+
         // Specific Todoist endpoints
         Route::get('todoist/tasks/today', [App\Http\Controllers\McpProxyController::class, 'getTodayTasks']);
         Route::get('todoist/tasks/upcoming', [App\Http\Controllers\McpProxyController::class, 'getUpcomingTasks']);
-        
+
         // General Todoist proxy
         Route::any('todoist/{path?}', [App\Http\Controllers\McpProxyController::class, 'todoistProxy'])
             ->where('path', '.*');
     });
-    
+
     // Todoist API routes (fallback mock)
     Route::prefix('api/integrations/todoist')->group(function () {
-        Route::get('projects', fn() => response()->json([
+        Route::get('projects', fn () => response()->json([
             ['id' => '1', 'name' => 'Work', 'color' => 'blue'],
             ['id' => '2', 'name' => 'Personal', 'color' => 'green'],
         ]));
-        
-        Route::get('tasks', fn() => response()->json([
+
+        Route::get('tasks', fn () => response()->json([
             [
                 'id' => '1',
                 'content' => 'Complete MCP Manager frontend',
@@ -173,8 +177,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 'updated_at' => now()->toISOString(),
             ],
         ]));
-        
-        Route::post('tasks', fn() => response()->json([
+
+        Route::post('tasks', fn () => response()->json([
             'id' => '3',
             'content' => request('content'),
             'completed' => false,
@@ -184,15 +188,14 @@ Route::middleware(['auth', 'verified'])->group(function () {
             'created_at' => now()->toISOString(),
             'updated_at' => now()->toISOString(),
         ]));
-        
-        Route::put('tasks/{id}', fn($id) => response()->json(['id' => $id, 'updated' => true]));
-        Route::delete('tasks/{id}', fn() => response()->noContent());
-        Route::post('tasks/{id}/complete', fn() => response()->noContent());
-        Route::post('tasks/{id}/uncomplete', fn() => response()->noContent());
-    });
-    
-});
 
+        Route::put('tasks/{id}', fn ($id) => response()->json(['id' => $id, 'updated' => true]));
+        Route::delete('tasks/{id}', fn () => response()->noContent());
+        Route::post('tasks/{id}/complete', fn () => response()->noContent());
+        Route::post('tasks/{id}/uncomplete', fn () => response()->noContent());
+    });
+
+});
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';

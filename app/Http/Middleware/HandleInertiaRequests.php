@@ -42,13 +42,13 @@ class HandleInertiaRequests extends Middleware
         [$message, $author] = str(Inspiring::quotes()->random())->explode('-');
 
         $integrationStatuses = [];
-        
+
         if ($request->user()) {
             // Get integration statuses for the current user
             $integrations = $request->user()->integrationAccounts()
                 ->whereIn('type', [IntegrationType::TODOIST, IntegrationType::GMAIL, IntegrationType::CALENDAR])
                 ->get();
-            
+
             foreach ($integrations as $integration) {
                 $integrationStatuses[$integration->type->value] = $integration->status === IntegrationStatus::ACTIVE ? 'connected' : 'disconnected';
             }

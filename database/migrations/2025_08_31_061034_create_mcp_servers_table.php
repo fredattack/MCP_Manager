@@ -25,7 +25,7 @@ return new class extends Migration
             $table->text('session_token')->nullable();
             $table->text('error_message')->nullable();
             $table->timestamps();
-            
+
             $table->index('user_id');
             $table->index('status');
         });

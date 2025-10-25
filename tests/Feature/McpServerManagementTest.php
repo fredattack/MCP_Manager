@@ -2,12 +2,16 @@
 
 namespace Tests\Feature;
 
-use App\Models\User;
-use App\Models\McpServer;
 use App\Models\McpIntegration;
+use App\Models\McpServer;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * @group mcp
+ * @group feature
+ */
 class McpServerManagementTest extends TestCase
 {
     use RefreshDatabase;
@@ -40,7 +44,7 @@ class McpServerManagementTest extends TestCase
                 'url' => 'https://mcp.example.com',
             ]);
 
-        // Since we're mocking the actual MCP server connection, 
+        // Since we're mocking the actual MCP server connection,
         // we expect an error or redirect
         $response->assertSessionHasErrors();
     }
@@ -162,7 +166,7 @@ class McpServerManagementTest extends TestCase
             ->delete('/mcp/integrations/todoist');
 
         $response->assertRedirect('/mcp/dashboard');
-        
+
         $this->assertDatabaseMissing('mcp_integrations', [
             'id' => $integration->id,
         ]);

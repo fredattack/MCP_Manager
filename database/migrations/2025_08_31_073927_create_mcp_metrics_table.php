@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('type', 50); // api_call, sync_operation, error, connection, etc.
             $table->json('data')->nullable(); // Flexible JSON data for different metric types
             $table->timestamp('created_at')->useCurrent();
-            
+
             // Indexes for performance
             $table->index('user_id');
             $table->index('type');

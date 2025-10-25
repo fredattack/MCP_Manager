@@ -27,7 +27,7 @@ class DailyPlanningService extends BaseService
     ) {}
 
     /**
-     * @param array<string, mixed> $options
+     * @param  array<string, mixed>  $options
      * @return array<string, mixed>
      */
     public function generateDailyPlanning(User $user, array $options = []): array
@@ -71,13 +71,13 @@ class DailyPlanningService extends BaseService
             'summary' => $this->generateSummary($topTasks, $timeBlocks),
             'todoist_updates' => $this->prepareTodoistUpdates($topTasks, $timeBlocks),
         ];
-        
+
         \Log::info('Daily planning generated', [
             'has_tasks' => $result['has_tasks'],
             'top_tasks_count' => count($result['top_tasks']),
             'has_mit' => isset($result['mit']),
         ]);
-        
+
         return $result;
     }
 
@@ -113,7 +113,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $tasks
+     * @param  Collection<int, array<string, mixed>>  $tasks
      * @return Collection<int, array<string, mixed>>
      */
     private function prioritizeTasks(Collection $tasks): Collection
@@ -172,7 +172,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $tasks
+     * @param  Collection<int, array<string, mixed>>  $tasks
      * @return array<string, mixed>|null
      */
     private function identifyMIT(Collection $tasks): ?array
@@ -183,8 +183,8 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $tasks
-     * @param array<string, mixed>|null $mit
+     * @param  Collection<int, array<string, mixed>>  $tasks
+     * @param  array<string, mixed>|null  $mit
      * @return array<int, array<string, mixed>>
      */
     private function createTimeBlocks(Collection $tasks, ?array $mit): array
@@ -274,8 +274,8 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $topTasks
-     * @param Collection<int, array<string, mixed>> $allTasks
+     * @param  Collection<int, array<string, mixed>>  $topTasks
+     * @param  Collection<int, array<string, mixed>>  $allTasks
      * @return array<int, array<string, mixed>>
      */
     private function checkAlerts(Collection $topTasks, Collection $allTasks): array
@@ -318,7 +318,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $scheduledTasks
+     * @param  Collection<int, array<string, mixed>>  $scheduledTasks
      * @return array<int, array<string, mixed>>
      */
     private function findTimeConflicts(Collection $scheduledTasks): array
@@ -345,8 +345,8 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $topTasks
-     * @param array<int, array<string, mixed>> $timeBlocks
+     * @param  Collection<int, array<string, mixed>>  $topTasks
+     * @param  array<int, array<string, mixed>>  $timeBlocks
      * @return array<string, mixed>
      */
     private function generateSummary(Collection $topTasks, array $timeBlocks): array
@@ -369,8 +369,8 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param Collection<int, array<string, mixed>> $tasks
-     * @param array<int, array<string, mixed>> $timeBlocks
+     * @param  Collection<int, array<string, mixed>>  $tasks
+     * @param  array<int, array<string, mixed>>  $timeBlocks
      * @return array<string, array<int, array<string, mixed>>>
      */
     private function prepareTodoistUpdates(Collection $tasks, array $timeBlocks): array
@@ -427,7 +427,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param array<string, mixed> $task
+     * @param  array<string, mixed>  $task
      */
     private function extractEnergy(array $task): ?string
     {
@@ -445,7 +445,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param array<string, mixed> $task
+     * @param  array<string, mixed>  $task
      */
     private function extractScheduledTime(array $task): ?string
     {
@@ -458,7 +458,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param array<string, mixed> $task
+     * @param  array<string, mixed>  $task
      */
     private function extractDuration(array $task): ?int
     {
@@ -488,7 +488,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return \Illuminate\Pagination\LengthAwarePaginator<int, \Illuminate\Database\Eloquent\Model>
      */
     public function list(array $filters = []): \Illuminate\Pagination\LengthAwarePaginator
@@ -504,7 +504,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     public function create(array $data): \Illuminate\Database\Eloquent\Model
     {
@@ -513,7 +513,7 @@ class DailyPlanningService extends BaseService
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     public function update(int|string $id, array $data): \Illuminate\Database\Eloquent\Model
     {

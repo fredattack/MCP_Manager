@@ -16,6 +16,12 @@ use Tests\TestCase;
 #[Group('feature')]
 #[Group('webhooks')]
 #[Group('security')]
+
+/**
+ * @group git
+ * @group webhook
+ * @group feature
+ */
 class GitWebhookTest extends TestCase
 {
     use RefreshDatabase;

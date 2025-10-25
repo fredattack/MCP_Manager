@@ -57,6 +57,7 @@ class TodoistService extends BaseService
             return null;
         } catch (\Exception $e) {
             Log::error('Token validation failed', ['error' => $e->getMessage()]);
+
             return null;
         }
     }
@@ -71,7 +72,7 @@ class TodoistService extends BaseService
         // For now, always use the mock data since MCP proxy is not working correctly
         // TODO: Fix MCP proxy integration
         \Log::info('Using mock Todoist data for daily planning');
-        
+
         return [
             [
                 'id' => '9491677409',
@@ -138,7 +139,7 @@ class TodoistService extends BaseService
                 'due' => ['date' => now()->format('Y-m-d')],
             ],
         ];
-        
+
         // Original code for reference - to be fixed later
         /*
         try {
@@ -162,6 +163,7 @@ class TodoistService extends BaseService
         $response = $this->mcpProxyService->request($integrationAccount, 'todoist_list_tasks_tomorrow', []);
 
         $data = $response['data'] ?? [];
+
         return is_array($data) ? $data : [];
     }
 
@@ -175,6 +177,7 @@ class TodoistService extends BaseService
         $response = $this->mcpProxyService->request($integrationAccount, 'todoist_list_tasks_week', []);
 
         $data = $response['data'] ?? [];
+
         return is_array($data) ? $data : [];
     }
 
@@ -190,11 +193,12 @@ class TodoistService extends BaseService
         ]);
 
         $data = $response['data'] ?? [];
+
         return is_array($data) ? $data : [];
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      * @return array<string, mixed>
      */
     public function createTask(array $data): array
@@ -204,11 +208,12 @@ class TodoistService extends BaseService
         $response = $this->mcpProxyService->request($integrationAccount, 'todoist_create_task', $data);
 
         $responseData = $response['data'] ?? [];
+
         return is_array($responseData) ? $responseData : [];
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      * @return array<string, mixed>
      */
     public function updateTask(string $taskId, array $data): array
@@ -220,6 +225,7 @@ class TodoistService extends BaseService
         ], $data));
 
         $responseData = $response['data'] ?? [];
+
         return is_array($responseData) ? $responseData : [];
     }
 
@@ -267,6 +273,7 @@ class TodoistService extends BaseService
         $response = $this->mcpProxyService->request($integrationAccount, 'todoist_list_projects', []);
 
         $data = $response['data'] ?? [];
+
         return is_array($data) ? $data : [];
     }
 
@@ -285,13 +292,13 @@ class TodoistService extends BaseService
     }
 
     /**
-     * @param array<int, string> $taskIds
-     * @param array<string, mixed> $updates
+     * @param  array<int, string>  $taskIds
+     * @param  array<string, mixed>  $updates
      * @return array<string, mixed>
      */
     /**
-     * @param array<int, string> $taskIds
-     * @param array<string, mixed> $updates
+     * @param  array<int, string>  $taskIds
+     * @param  array<string, mixed>  $updates
      * @return array<string, mixed>
      */
     public function bulkUpdateTasks(array $taskIds, array $updates): array
@@ -303,6 +310,7 @@ class TodoistService extends BaseService
         ], $updates));
 
         $data = $response['data'] ?? [];
+
         return is_array($data) ? $data : [];
     }
 
@@ -318,6 +326,7 @@ class TodoistService extends BaseService
         ]);
 
         $data = $response['data'] ?? [];
+
         return is_array($data) ? $data : [];
     }
 
@@ -341,7 +350,7 @@ class TodoistService extends BaseService
 
     // BaseService abstract methods implementation
     /**
-     * @param array<string, mixed> $filters
+     * @param  array<string, mixed>  $filters
      * @return LengthAwarePaginator<int, Model>
      */
     public function list(array $filters = []): LengthAwarePaginator
@@ -355,7 +364,7 @@ class TodoistService extends BaseService
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     public function create(array $data): Model
     {
@@ -363,7 +372,7 @@ class TodoistService extends BaseService
     }
 
     /**
-     * @param array<string, mixed> $data
+     * @param  array<string, mixed>  $data
      */
     public function update(int|string $id, array $data): Model
     {

@@ -18,6 +18,12 @@ use Tests\TestCase;
 #[Group('unit')]
 #[Group('services')]
 #[Group('webhooks')]
+
+/**
+ * @group git
+ * @group webhook
+ * @group unit
+ */
 class WebhookEventHandlerTest extends TestCase
 {
     use RefreshDatabase;

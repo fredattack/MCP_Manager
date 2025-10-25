@@ -18,7 +18,7 @@ class CryptoService
 
         // Generate private key
         $privateKey = openssl_pkey_new($config);
-        if (!$privateKey) {
+        if (! $privateKey) {
             throw new \RuntimeException('Failed to generate private key');
         }
 
@@ -41,23 +41,23 @@ class CryptoService
     public function encrypt(string $data, string $publicKey): string
     {
         $publicKeyResource = openssl_pkey_get_public($publicKey);
-        if (!$publicKeyResource) {
+        if (! $publicKeyResource) {
             throw new \RuntimeException('Invalid public key');
         }
 
         // For large data, we need to chunk it
         $maxLength = $this->getMaxEncryptionLength($publicKeyResource);
         $encrypted = '';
-        
+
         // Split data into chunks
         $chunks = str_split($data, $maxLength);
-        
+
         foreach ($chunks as $chunk) {
             $encryptedChunk = '';
-            if (!openssl_public_encrypt($chunk, $encryptedChunk, $publicKeyResource)) {
+            if (! openssl_public_encrypt($chunk, $encryptedChunk, $publicKeyResource)) {
                 throw new \RuntimeException('Encryption failed');
             }
-            $encrypted .= base64_encode($encryptedChunk) . '|';
+            $encrypted .= base64_encode($encryptedChunk).'|';
         }
 
         return rtrim($encrypted, '|');
@@ -69,25 +69,25 @@ class CryptoService
     public function decrypt(string $encryptedData, string $privateKey): string
     {
         $privateKeyResource = openssl_pkey_get_private($privateKey);
-        if (!$privateKeyResource) {
+        if (! $privateKeyResource) {
             throw new \RuntimeException('Invalid private key');
         }
 
         $decrypted = '';
         $chunks = explode('|', $encryptedData);
-        
+
         foreach ($chunks as $chunk) {
             if (empty($chunk)) {
                 continue;
             }
-            
+
             $encryptedChunk = base64_decode($chunk);
             $decryptedChunk = '';
-            
-            if (!openssl_private_decrypt($encryptedChunk, $decryptedChunk, $privateKeyResource)) {
+
+            if (! openssl_private_decrypt($encryptedChunk, $decryptedChunk, $privateKeyResource)) {
                 throw new \RuntimeException('Decryption failed');
             }
-            
+
             $decrypted .= $decryptedChunk;
         }
 
@@ -100,12 +100,12 @@ class CryptoService
     public function sign(string $data, string $privateKey): string
     {
         $privateKeyResource = openssl_pkey_get_private($privateKey);
-        if (!$privateKeyResource) {
+        if (! $privateKeyResource) {
             throw new \RuntimeException('Invalid private key');
         }
 
         $signature = '';
-        if (!openssl_sign($data, $signature, $privateKeyResource, OPENSSL_ALGO_SHA256)) {
+        if (! openssl_sign($data, $signature, $privateKeyResource, OPENSSL_ALGO_SHA256)) {
             throw new \RuntimeException('Signing failed');
         }
 
@@ -118,7 +118,7 @@ class CryptoService
     public function verify(string $data, string $signature, string $publicKey): bool
     {
         $publicKeyResource = openssl_pkey_get_public($publicKey);
-        if (!$publicKeyResource) {
+        if (! $publicKeyResource) {
             throw new \RuntimeException('Invalid public key');
         }
 
@@ -215,6 +215,7 @@ class CryptoService
     private function getMaxEncryptionLength($publicKey): int
     {
         $keyDetails = openssl_pkey_get_details($publicKey);
+
         // RSA encryption max length = key_size - padding (11 bytes for PKCS1)
         return ($keyDetails['bits'] / 8) - 11;
     }
@@ -222,12 +223,12 @@ class CryptoService
     /**
      * Validate SSL certificate
      */
-    public function validateSSLCertificate(string $certificate, string $hostname = null): bool
+    public function validateSSLCertificate(string $certificate, ?string $hostname = null): bool
     {
         try {
             $certInfo = openssl_x509_parse($certificate);
-            
-            if (!$certInfo) {
+
+            if (! $certInfo) {
                 return false;
             }
 
@@ -241,6 +242,7 @@ class CryptoService
                     'valid_from' => date('Y-m-d H:i:s', $validFrom),
                     'valid_to' => date('Y-m-d H:i:s', $validTo),
                 ]);
+
                 return false;
             }
 
@@ -249,12 +251,13 @@ class CryptoService
                 $cn = $certInfo['subject']['CN'] ?? '';
                 $altNames = $certInfo['extensions']['subjectAltName'] ?? '';
 
-                if (!$this->verifyHostname($hostname, $cn, $altNames)) {
+                if (! $this->verifyHostname($hostname, $cn, $altNames)) {
                     Log::warning('SSL certificate hostname mismatch', [
                         'hostname' => $hostname,
                         'cn' => $cn,
                         'alt_names' => $altNames,
                     ]);
+
                     return false;
                 }
             }
@@ -264,6 +267,7 @@ class CryptoService
             Log::error('SSL certificate validation failed', [
                 'error' => $e->getMessage(),
             ]);
+
             return false;
         }
     }
@@ -279,7 +283,7 @@ class CryptoService
         }
 
         // Check alternative names
-        if (!empty($altNames)) {
+        if (! empty($altNames)) {
             $names = explode(',', $altNames);
             foreach ($names as $name) {
                 if (strpos($name, 'DNS:') === 0) {
@@ -307,11 +311,11 @@ class CryptoService
         if (strpos($pattern, '*.') === 0) {
             $wildcardDomain = substr($pattern, 2);
             $hostnameParts = explode('.', $hostname);
-            
+
             if (count($hostnameParts) > 1) {
                 array_shift($hostnameParts);
                 $hostnameWithoutSubdomain = implode('.', $hostnameParts);
-                
+
                 return $hostnameWithoutSubdomain === $wildcardDomain;
             }
         }

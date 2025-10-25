@@ -2,13 +2,11 @@
 
 namespace App\Services;
 
-use App\Models\User;
 use App\Models\McpServer;
-use App\Models\McpIntegration;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Log;
+use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 class McpMetricsService
 {
@@ -33,8 +31,8 @@ class McpMetricsService
     public function getServerMetrics(User $user): array
     {
         $server = $user->mcpServer;
-        
-        if (!$server) {
+
+        if (! $server) {
             return [
                 'status' => 'not_configured',
                 'uptime' => 0,
@@ -44,10 +42,10 @@ class McpMetricsService
 
         // Calculate uptime
         $uptime = $this->calculateUptime($server);
-        
+
         // Get latency history
         $latencyHistory = $this->getLatencyHistory($server->id);
-        
+
         return [
             'status' => $server->status,
             'uptime' => $uptime,
@@ -69,7 +67,7 @@ class McpMetricsService
     public function getIntegrationMetrics(User $user): array
     {
         $integrations = $user->mcpIntegrations;
-        
+
         $metrics = [
             'total' => $integrations->count(),
             'active' => $integrations->where('status', 'active')->count(),
@@ -104,7 +102,7 @@ class McpMetricsService
     public function getPerformanceMetrics(User $user): array
     {
         $timeframe = Carbon::now()->subHours(24);
-        
+
         return [
             'api_calls' => [
                 'total' => $this->getApiCallCount($user->id, $timeframe),
@@ -157,7 +155,7 @@ class McpMetricsService
     public function getActiveAlerts(User $user): array
     {
         $alerts = [];
-        
+
         // Check server status
         if ($user->mcpServer && $user->mcpServer->status === 'error') {
             $alerts[] = [
@@ -236,16 +234,16 @@ class McpMetricsService
     {
         $key = "latency_history:{$serverId}";
         $history = Cache::get($key, []);
-        
+
         // Add new measurement
         $history[] = [
             'value' => $latency,
             'timestamp' => now()->toIso8601String(),
         ];
-        
+
         // Keep only last 100 measurements
         $history = array_slice($history, -100);
-        
+
         Cache::put($key, $history, now()->addHours(24));
     }
 
@@ -266,6 +264,7 @@ class McpMetricsService
             ->sum(DB::raw("CAST(JSON_EXTRACT(data, '$.duration') AS UNSIGNED)"));
 
         $uptimeMinutes = $totalTime - ($downtime / 60);
+
         return round(($uptimeMinutes / $totalTime) * 100, 2);
     }
 
@@ -276,11 +275,11 @@ class McpMetricsService
     {
         try {
             $start = microtime(true);
-            $response = \Http::timeout(5)->get($server->url . '/health');
+            $response = \Http::timeout(5)->get($server->url.'/health');
             $latency = round((microtime(true) - $start) * 1000);
-            
+
             $this->recordLatency($server->id, $latency);
-            
+
             return $latency;
         } catch (\Exception $e) {
             return null;
@@ -294,8 +293,8 @@ class McpMetricsService
     {
         $key = "latency_history:{$serverId}";
         $history = Cache::get($key, []);
-        
-        return array_map(fn($item) => $item['value'], $history);
+
+        return array_map(fn ($item) => $item['value'], $history);
     }
 
     /**
@@ -306,7 +305,7 @@ class McpMetricsService
         if (empty($history)) {
             return null;
         }
-        
+
         return round(array_sum($history) / count($history), 2);
     }
 
@@ -450,6 +449,7 @@ class McpMetricsService
         }
 
         $failed = $this->getFailedApiCallCount($userId, $since);
+
         return round(($failed / $total) * 100, 2);
     }
 
@@ -464,6 +464,7 @@ class McpMetricsService
         }
 
         $operations = $this->getSyncOperationCount($userId, $since);
+
         return round($operations / $hours, 2);
     }
 
@@ -485,7 +486,7 @@ class McpMetricsService
     private function getUsageTrend($userId): array
     {
         $trend = [];
-        
+
         for ($i = 6; $i >= 0; $i--) {
             $date = now()->subDays($i);
             $trend[] = [

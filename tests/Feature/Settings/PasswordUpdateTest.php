@@ -7,6 +7,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 
+/**
+ * @group settings
+ * @group feature
+ */
 class PasswordUpdateTest extends TestCase
 {
     use RefreshDatabase;

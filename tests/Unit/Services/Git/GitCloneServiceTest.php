@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Tests\Unit\Services\Git;
 
 use App\Enums\CloneStatus;
-use App\Enums\GitProvider;
 use App\Models\GitClone;
 use App\Models\GitConnection;
 use App\Models\GitRepository;
@@ -20,6 +19,11 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('unit')]
 #[Group('services')]
+
+/**
+ * @group git
+ * @group unit
+ */
 class GitCloneServiceTest extends TestCase
 {
     use RefreshDatabase;

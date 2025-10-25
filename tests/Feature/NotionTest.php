@@ -7,6 +7,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Mockery;
 use Tests\TestCase;
 
+/**
+ * @group notion
+ * @group feature
+ */
 class NotionTest extends TestCase
 {
     use RefreshDatabase;

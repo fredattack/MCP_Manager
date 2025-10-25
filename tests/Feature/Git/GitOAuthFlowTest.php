@@ -17,6 +17,12 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('feature')]
 #[Group('integration')]
+
+/**
+ * @group git
+ * @group oauth
+ * @group feature
+ */
 class GitOAuthFlowTest extends TestCase
 {
     use RefreshDatabase;

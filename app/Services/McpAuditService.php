@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Carbon\Carbon;
 
 class McpAuditService
 {
@@ -52,7 +52,7 @@ class McpAuditService
         array $newValues
     ): void {
         $changes = $this->calculateChanges($oldValues, $newValues);
-        
+
         $this->log(
             'configuration_changed',
             $user,
@@ -73,7 +73,7 @@ class McpAuditService
         User $user,
         string $service,
         bool $success,
-        string $reason = null
+        ?string $reason = null
     ): void {
         $this->log(
             'authentication',
@@ -244,7 +244,7 @@ class McpAuditService
     /**
      * Get activity summary
      */
-    public function getActivitySummary(User $user, Carbon $since = null): array
+    public function getActivitySummary(User $user, ?Carbon $since = null): array
     {
         $since = $since ?? now()->subDays(30);
 
@@ -261,7 +261,7 @@ class McpAuditService
     /**
      * Search audit logs
      */
-    public function searchLogs(string $query, User $user = null): array
+    public function searchLogs(string $query, ?User $user = null): array
     {
         $dbQuery = DB::table('mcp_audit_logs');
 
@@ -271,8 +271,8 @@ class McpAuditService
 
         $dbQuery->where(function ($q) use ($query) {
             $q->where('action', 'like', "%{$query}%")
-              ->orWhere('entity', 'like', "%{$query}%")
-              ->orWhere('data', 'like', "%{$query}%");
+                ->orWhere('entity', 'like', "%{$query}%")
+                ->orWhere('data', 'like', "%{$query}%");
         });
 
         return $dbQuery
@@ -322,7 +322,7 @@ class McpAuditService
 
         foreach ($newValues as $key => $newValue) {
             $oldValue = $oldValues[$key] ?? null;
-            
+
             if ($oldValue !== $newValue) {
                 $changes[$key] = [
                     'old' => $this->sanitizeValue($oldValue),
@@ -340,7 +340,7 @@ class McpAuditService
     private function sanitizeData(array $data): array
     {
         $sensitiveKeys = ['password', 'token', 'secret', 'api_key', 'private_key'];
-        
+
         foreach ($data as $key => $value) {
             foreach ($sensitiveKeys as $sensitiveKey) {
                 if (stripos($key, $sensitiveKey) !== false) {
@@ -359,8 +359,9 @@ class McpAuditService
     private function sanitizeValue($value)
     {
         if (is_string($value) && strlen($value) > 100) {
-            return substr($value, 0, 100) . '...';
+            return substr($value, 0, 100).'...';
         }
+
         return $value;
     }
 
@@ -468,7 +469,7 @@ class McpAuditService
     private function exportToCsv($logs): string
     {
         $csv = "Date,Action,Entity,Status,IP Address\n";
-        
+
         foreach ($logs as $log) {
             $csv .= sprintf(
                 "%s,%s,%s,%s,%s\n",

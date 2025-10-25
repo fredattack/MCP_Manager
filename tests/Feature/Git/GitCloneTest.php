@@ -20,6 +20,11 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('feature')]
 #[Group('integration')]
+
+/**
+ * @group git
+ * @group feature
+ */
 class GitCloneTest extends TestCase
 {
     use RefreshDatabase;

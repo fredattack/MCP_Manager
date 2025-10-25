@@ -17,6 +17,11 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('feature')]
 #[Group('integration')]
+
+/**
+ * @group git
+ * @group feature
+ */
 class GitRepositorySyncTest extends TestCase
 {
     use RefreshDatabase;
@@ -268,7 +273,7 @@ class GitRepositorySyncTest extends TestCase
         ]);
 
         $response = $this->actingAs($user)
-            ->getJson("/api/git/repositories/repo123?provider=github");
+            ->getJson('/api/git/repositories/repo123?provider=github');
 
         $response->assertOk()
             ->assertJson([
@@ -322,7 +327,7 @@ class GitRepositorySyncTest extends TestCase
         ]);
 
         $response = $this->actingAs($user)
-            ->postJson("/api/git/repositories/456/refresh", [
+            ->postJson('/api/git/repositories/456/refresh', [
                 'provider' => 'github',
             ]);
 

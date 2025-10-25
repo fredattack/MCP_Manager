@@ -9,6 +9,10 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * @group todoist
+ * @group feature
+ */
 class TodoistIntegrationControllerTest extends TestCase
 {
     use RefreshDatabase;
@@ -18,7 +22,7 @@ class TodoistIntegrationControllerTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        
+
         $this->user = User::factory()->create();
         $this->actingAs($this->user);
     }
@@ -80,7 +84,7 @@ class TodoistIntegrationControllerTest extends TestCase
 
         $response->assertRedirect(route('integrations.todoist.setup'));
         $response->assertSessionHas('success', 'Todoist account disconnected successfully.');
-        
+
         $this->assertDatabaseHas('integration_accounts', [
             'id' => $integration->id,
             'status' => IntegrationStatus::INACTIVE,

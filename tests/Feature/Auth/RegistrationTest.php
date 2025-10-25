@@ -5,6 +5,10 @@ namespace Tests\Feature\Auth;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * @group auth
+ * @group feature
+ */
 class RegistrationTest extends TestCase
 {
     use RefreshDatabase;

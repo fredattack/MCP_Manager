@@ -16,6 +16,12 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('unit')]
 #[Group('models')]
+
+/**
+ * @group git
+ * @group model
+ * @group unit
+ */
 class GitConnectionTest extends TestCase
 {
     use RefreshDatabase;

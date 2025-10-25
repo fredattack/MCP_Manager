@@ -84,9 +84,9 @@ class AiChatController extends Controller
 
             // Standardize response format
             $standardizedResponse = [
-                'content' => $responseData['content'] ?? 
-                            $responseData['response'] ?? 
-                            $responseData['choices'][0]['message']['content'] ?? 
+                'content' => $responseData['content'] ??
+                            $responseData['response'] ??
+                            $responseData['choices'][0]['message']['content'] ??
                             'No response received',
                 'model' => $request->input('model', 'claude-3-opus'),
                 'usage' => $responseData['usage'] ?? null,
@@ -144,7 +144,7 @@ class AiChatController extends Controller
                     if (str_starts_with($line, 'data: ')) {
                         $data = substr($line, 6);
                         $data = trim($data);
-                        
+
                         if ($data === '[DONE]') {
                             echo $line;
                         } else {
@@ -153,9 +153,9 @@ class AiChatController extends Controller
                                 if ($parsed !== null) {
                                     // Standardize the chunk format
                                     $standardizedChunk = [
-                                        'content' => $parsed['content'] ?? 
-                                                   $parsed['choices'][0]['delta']['content'] ?? 
-                                                   $parsed['delta']['content'] ?? 
+                                        'content' => $parsed['content'] ??
+                                                   $parsed['choices'][0]['delta']['content'] ??
+                                                   $parsed['delta']['content'] ??
                                                    '',
                                         'type' => 'delta',
                                     ];

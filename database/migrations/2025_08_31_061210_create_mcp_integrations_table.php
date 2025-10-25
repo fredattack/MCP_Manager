@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('error_message')->nullable();
             $table->boolean('credentials_valid')->default(false);
             $table->timestamps();
-            
+
             $table->index(['user_id', 'service_name']);
             $table->index('status');
             $table->index('enabled');

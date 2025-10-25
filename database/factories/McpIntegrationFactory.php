@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use App\Models\McpServer;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -54,7 +54,7 @@ class McpIntegrationFactory extends Factory
         return $this->state(fn (array $attributes) => [
             'status' => 'error',
             'credentials_valid' => false,
-            'error_message' => 'Authentication failed: ' . $this->faker->sentence(),
+            'error_message' => 'Authentication failed: '.$this->faker->sentence(),
         ]);
     }
 

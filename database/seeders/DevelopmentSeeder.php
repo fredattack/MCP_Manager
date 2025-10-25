@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
-use App\Models\IntegrationAccount;
-use App\Enums\IntegrationType;
 use App\Enums\IntegrationStatus;
+use App\Enums\IntegrationType;
+use App\Models\IntegrationAccount;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,7 +13,7 @@ class DevelopmentSeeder extends Seeder
 {
     /**
      * Seed the application's database for development.
-     * 
+     *
      * WARNING: Only use in development environment!
      */
     public function run(): void
@@ -21,6 +21,7 @@ class DevelopmentSeeder extends Seeder
         // Only run in non-production environments
         if (app()->environment('production')) {
             $this->command->error('Cannot run development seeder in production!');
+
             return;
         }
 
@@ -34,7 +35,7 @@ class DevelopmentSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        $this->command->info("Admin created: admin@mcp-manager.local / Admin123!@#");
+        $this->command->info('Admin created: admin@mcp-manager.local / Admin123!@#');
 
         // Regular user
         $user = User::factory()->create([
@@ -44,7 +45,7 @@ class DevelopmentSeeder extends Seeder
             'email_verified_at' => now(),
         ]);
 
-        $this->command->info("User created: user@mcp-manager.local / User123!@#");
+        $this->command->info('User created: user@mcp-manager.local / User123!@#');
 
         // Test user (unverified email)
         $testUser = User::factory()->create([
@@ -54,7 +55,7 @@ class DevelopmentSeeder extends Seeder
             'email_verified_at' => null,
         ]);
 
-        $this->command->info("Test user created: test@mcp-manager.local / Test123!@# (unverified)");
+        $this->command->info('Test user created: test@mcp-manager.local / Test123!@# (unverified)');
 
         // Create sample integrations for admin
         $this->createSampleIntegrations($admin);
@@ -78,11 +79,11 @@ class DevelopmentSeeder extends Seeder
         IntegrationAccount::create([
             'user_id' => $user->id,
             'type' => IntegrationType::NOTION,
-            'access_token' => encrypt('sample_notion_token_' . uniqid()),
+            'access_token' => encrypt('sample_notion_token_'.uniqid()),
             'status' => IntegrationStatus::ACTIVE,
             'meta' => [
                 'workspace_name' => 'Sample Workspace',
-                'workspace_id' => 'ws_' . uniqid(),
+                'workspace_id' => 'ws_'.uniqid(),
             ],
         ]);
 
@@ -90,7 +91,7 @@ class DevelopmentSeeder extends Seeder
         IntegrationAccount::create([
             'user_id' => $user->id,
             'type' => IntegrationType::TODOIST,
-            'access_token' => encrypt('sample_todoist_token_' . uniqid()),
+            'access_token' => encrypt('sample_todoist_token_'.uniqid()),
             'status' => IntegrationStatus::INACTIVE,
             'meta' => [
                 'user_email' => $user->email,

@@ -18,6 +18,12 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('unit')]
 #[Group('services')]
+
+/**
+ * @group git
+ * @group github
+ * @group unit
+ */
 class GitHubClientTest extends TestCase
 {
     private string $accessToken = 'test_github_token';

@@ -2,13 +2,12 @@
 
 namespace App\Services;
 
-use App\Models\McpServer;
-use App\Models\User;
-use App\Models\McpIntegration;
-use App\Models\IntegrationAccount;
-use App\Enums\IntegrationType;
 use App\Enums\IntegrationStatus;
+use App\Enums\IntegrationType;
 use App\Exceptions\McpConnectionException;
+use App\Models\IntegrationAccount;
+use App\Models\McpIntegration;
+use App\Models\User;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -17,12 +16,12 @@ use Illuminate\Support\Facades\Log;
 class RealMcpServerManager
 {
     private McpConnectionService $mcpConnection;
-    
+
     public function __construct(McpConnectionService $mcpConnection)
     {
         $this->mcpConnection = $mcpConnection;
     }
-    
+
     /**
      * Configure integration for a service
      */
@@ -31,12 +30,12 @@ class RealMcpServerManager
         try {
             // Ensure user has MCP server configured
             $server = $this->mcpConnection->ensureServerConfigured($user);
-            
+
             // Since the MCP server already has integrations configured,
             // we'll just save the configuration locally
             // The actual integration is already working on the MCP server side
             $response = ['status' => 'active', 'config' => []];
-            
+
             try {
                 // Try to send configuration to MCP server if endpoint exists
                 $response = $this->mcpConnection->configureIntegration($service, $credentials);
@@ -49,7 +48,7 @@ class RealMcpServerManager
                 // Mark as active since we know the MCP tools are working
                 $response = ['status' => 'active', 'config' => $credentials];
             }
-            
+
             // Create or update integration record
             $integration = McpIntegration::updateOrCreate(
                 [
@@ -65,16 +64,16 @@ class RealMcpServerManager
                     'last_sync_at' => now(),
                 ]
             );
-            
+
             Log::info('Integration configured successfully', [
                 'user_id' => $user->id,
                 'service' => $service,
                 'integration_id' => $integration->id,
             ]);
-            
+
             // Also create/update IntegrationAccount for compatibility with existing code
             $this->syncToIntegrationAccount($user, $service, $credentials);
-            
+
             return $integration;
         } catch (\Exception $e) {
             Log::error('Failed to configure integration', [
@@ -82,11 +81,11 @@ class RealMcpServerManager
                 'service' => $service,
                 'error' => $e->getMessage(),
             ]);
-            
-            throw new McpConnectionException('Failed to configure integration: ' . $e->getMessage());
+
+            throw new McpConnectionException('Failed to configure integration: '.$e->getMessage());
         }
     }
-    
+
     /**
      * Test integration connection
      */
@@ -95,12 +94,12 @@ class RealMcpServerManager
         try {
             // Ensure user has MCP server configured
             $this->mcpConnection->ensureServerConfigured($user);
-            
+
             // Try to test the connection
             try {
                 // Test connection on MCP server
                 $response = $this->mcpConnection->testIntegration($service);
-                
+
                 return [
                     'success' => $response['success'] ?? false,
                     'message' => $response['message'] ?? 'Connection test completed',
@@ -117,11 +116,11 @@ class RealMcpServerManager
                         'details' => ['info' => 'Integration verified through MCP tools'],
                     ];
                 }
-                
+
                 // For other services, indicate they might be configured but can't test
                 return [
                     'success' => true,
-                    'message' => ucfirst($service) . ' integration appears to be configured',
+                    'message' => ucfirst($service).' integration appears to be configured',
                     'details' => ['note' => 'Test endpoint not available, but integration may be working'],
                 ];
             }
@@ -131,15 +130,15 @@ class RealMcpServerManager
                 'service' => $service,
                 'error' => $e->getMessage(),
             ]);
-            
+
             return [
                 'success' => false,
-                'message' => 'Connection test failed: ' . $e->getMessage(),
+                'message' => 'Connection test failed: '.$e->getMessage(),
                 'details' => [],
             ];
         }
     }
-    
+
     /**
      * Get integration status
      */
@@ -148,7 +147,7 @@ class RealMcpServerManager
         try {
             // Ensure user has MCP server configured
             $this->mcpConnection->ensureServerConfigured($user);
-            
+
             // Get status from MCP server
             return $this->mcpConnection->getIntegrationStatus($service);
         } catch (\Exception $e) {
@@ -157,14 +156,14 @@ class RealMcpServerManager
                 'service' => $service,
                 'error' => $e->getMessage(),
             ]);
-            
+
             return [
                 'status' => 'error',
-                'message' => 'Failed to get status: ' . $e->getMessage(),
+                'message' => 'Failed to get status: '.$e->getMessage(),
             ];
         }
     }
-    
+
     /**
      * Get all integrations status
      */
@@ -173,10 +172,10 @@ class RealMcpServerManager
         try {
             // Ensure user has MCP server configured
             $server = $this->mcpConnection->ensureServerConfigured($user);
-            
+
             // Get local integrations
             $localIntegrations = McpIntegration::where('mcp_server_id', $server->id)->get();
-            
+
             // Try to get status from MCP server
             $mcpIntegrations = [];
             try {
@@ -187,16 +186,16 @@ class RealMcpServerManager
                     'error' => $e->getMessage(),
                 ]);
             }
-            
+
             // Define available services
             $availableServices = ['todoist', 'notion', 'jira', 'sentry', 'confluence', 'openai', 'mistral'];
-            
+
             // Build status for all available services
             $status = [];
             foreach ($availableServices as $service) {
                 $local = $localIntegrations->firstWhere('service_name', $service);
                 $mcpStatus = $mcpIntegrations[$service] ?? null;
-                
+
                 // For Todoist, we know it's configured and working
                 if ($service === 'todoist') {
                     $status[$service] = [
@@ -217,14 +216,14 @@ class RealMcpServerManager
                     ];
                 }
             }
-            
+
             return $status;
         } catch (\Exception $e) {
             Log::error('Failed to get all integrations status', [
                 'user_id' => $user->id,
                 'error' => $e->getMessage(),
             ]);
-            
+
             // Return default status for all services
             return [
                 'todoist' => ['configured' => true, 'status' => 'active', 'health' => 'healthy'],
@@ -237,7 +236,7 @@ class RealMcpServerManager
             ];
         }
     }
-    
+
     /**
      * Remove integration
      */
@@ -246,20 +245,20 @@ class RealMcpServerManager
         try {
             // Ensure user has MCP server configured
             $server = $this->mcpConnection->ensureServerConfigured($user);
-            
+
             // Remove from MCP server
-            $response = $this->mcpConnection->request('DELETE', '/integrations/' . $service);
-            
+            $response = $this->mcpConnection->request('DELETE', '/integrations/'.$service);
+
             // Remove local record
             McpIntegration::where('mcp_server_id', $server->id)
                 ->where('service_name', $service)
                 ->delete();
-            
+
             Log::info('Integration removed successfully', [
                 'user_id' => $user->id,
                 'service' => $service,
             ]);
-            
+
             return true;
         } catch (\Exception $e) {
             Log::error('Failed to remove integration', [
@@ -267,11 +266,11 @@ class RealMcpServerManager
                 'service' => $service,
                 'error' => $e->getMessage(),
             ]);
-            
+
             return false;
         }
     }
-    
+
     /**
      * Proxy request to integration
      */
@@ -280,7 +279,7 @@ class RealMcpServerManager
         try {
             // Ensure user has MCP server configured
             $this->mcpConnection->ensureServerConfigured($user);
-            
+
             // Forward request to MCP server
             return $this->mcpConnection->forwardToIntegration($service, $method, $endpoint, $data);
         } catch (\Exception $e) {
@@ -290,11 +289,11 @@ class RealMcpServerManager
                 'endpoint' => $endpoint,
                 'error' => $e->getMessage(),
             ]);
-            
-            throw new McpConnectionException('Failed to proxy request: ' . $e->getMessage());
+
+            throw new McpConnectionException('Failed to proxy request: '.$e->getMessage());
         }
     }
-    
+
     /**
      * Sync MCP integration to IntegrationAccount table for compatibility
      */
@@ -302,25 +301,27 @@ class RealMcpServerManager
     {
         try {
             // Map service name to IntegrationType
-            $type = match($service) {
+            $type = match ($service) {
                 'todoist' => IntegrationType::TODOIST,
                 'notion' => IntegrationType::NOTION,
                 default => null,
             };
-            
-            if (!$type) {
+
+            if (! $type) {
                 Log::warning('Cannot sync unknown service type to IntegrationAccount', ['service' => $service]);
+
                 return;
             }
-            
+
             // Get the appropriate token field
             $token = $credentials['api_token'] ?? $credentials['api_key'] ?? null;
-            
-            if (!$token) {
+
+            if (! $token) {
                 Log::warning('No token found for integration sync', ['service' => $service]);
+
                 return;
             }
-            
+
             // Create or update IntegrationAccount
             IntegrationAccount::updateOrCreate(
                 [
@@ -338,7 +339,7 @@ class RealMcpServerManager
                     ],
                 ]
             );
-            
+
             Log::info('Synced integration to IntegrationAccount', [
                 'user_id' => $user->id,
                 'service' => $service,

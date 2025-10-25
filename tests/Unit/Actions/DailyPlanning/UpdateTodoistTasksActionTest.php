@@ -13,6 +13,11 @@ use Mockery;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
+/**
+ * @group daily-planning
+ * @group todoist
+ * @group unit
+ */
 class UpdateTodoistTasksActionTest extends TestCase
 {
     use RefreshDatabase;

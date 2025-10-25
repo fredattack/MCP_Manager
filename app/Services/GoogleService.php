@@ -154,7 +154,7 @@ class GoogleService
     }
 
     /**
-     * @param array<string, mixed> $params
+     * @param  array<string, mixed>  $params
      * @return array<string, mixed>
      */
     public function searchGmailMessages(string $query, array $params = []): array
@@ -189,7 +189,7 @@ class GoogleService
     }
 
     /**
-     * @param array<string, mixed> $params
+     * @param  array<string, mixed>  $params
      * @return array<string, mixed>
      */
     public function listCalendarEvents(array $params = []): array
@@ -209,7 +209,7 @@ class GoogleService
     }
 
     /**
-     * @param array<string, mixed> $eventData
+     * @param  array<string, mixed>  $eventData
      * @return array<string, mixed>
      */
     public function createCalendarEvent(array $eventData): array
@@ -221,7 +221,7 @@ class GoogleService
     }
 
     /**
-     * @param array<string, mixed> $eventData
+     * @param  array<string, mixed>  $eventData
      * @return array<string, mixed>
      */
     public function updateCalendarEvent(string $eventId, array $eventData): array
@@ -246,7 +246,7 @@ class GoogleService
     }
 
     /**
-     * @param array<string, mixed> $eventData
+     * @param  array<string, mixed>  $eventData
      * @return array<string, mixed>
      */
     public function checkCalendarConflicts(array $eventData): array

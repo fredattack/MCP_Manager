@@ -56,16 +56,18 @@ class CreateAdminUser extends Command
         if ($validator->fails()) {
             $this->error('Validation failed:');
             foreach ($validator->errors()->all() as $error) {
-                $this->error('  ✗ ' . $error);
+                $this->error('  ✗ '.$error);
             }
+
             return 1;
         }
 
         // Confirm before creating in production
         if (app()->environment('production')) {
             $this->warn('⚠️  You are about to create an admin user in PRODUCTION environment!');
-            if (!$this->confirm('Are you sure you want to proceed?')) {
+            if (! $this->confirm('Are you sure you want to proceed?')) {
                 $this->info('Operation cancelled.');
+
                 return 0;
             }
         }
@@ -83,7 +85,7 @@ class CreateAdminUser extends Command
             $this->newLine();
             $this->info('✅ Admin user created successfully!');
             $this->newLine();
-            
+
             // Display user details in a table
             $this->table(
                 ['ID', 'Name', 'Email', 'Created At'],
@@ -96,7 +98,7 @@ class CreateAdminUser extends Command
             $this->line('  • Store the password securely');
             $this->line('  • Enable 2FA as soon as possible');
             $this->line('  • Regularly rotate passwords');
-            
+
             if (app()->environment('local', 'development')) {
                 $this->newLine();
                 $this->warn('⚠️  Development environment detected - consider using stronger passwords in production');
@@ -113,11 +115,12 @@ class CreateAdminUser extends Command
             return 0;
 
         } catch (\Exception $e) {
-            $this->error('Failed to create admin user: ' . $e->getMessage());
+            $this->error('Failed to create admin user: '.$e->getMessage());
             \Log::error('Failed to create admin user via artisan command', [
                 'error' => $e->getMessage(),
                 'trace' => $e->getTraceAsString(),
             ]);
+
             return 1;
         }
     }
@@ -140,19 +143,20 @@ class CreateAdminUser extends Command
     private function getEmailInput(): string
     {
         if ($this->option('no-interaction')) {
-            if (!$this->option('email')) {
+            if (! $this->option('email')) {
                 $this->error('Email is required when using --no-interaction');
                 exit(1);
             }
+
             return $this->option('email');
         }
 
         $email = $this->option('email');
-        
-        while (!$email) {
+
+        while (! $email) {
             $email = $this->ask('What is the admin\'s email address?');
-            
-            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+
+            if (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $this->error('Please provide a valid email address.');
                 $email = null;
             }
@@ -167,43 +171,47 @@ class CreateAdminUser extends Command
     private function getPasswordInput(): string
     {
         if ($this->option('no-interaction')) {
-            if (!$this->option('password')) {
+            if (! $this->option('password')) {
                 // Generate a random secure password if not provided
                 $password = $this->generateSecurePassword();
-                $this->info('Generated password: ' . $password);
+                $this->info('Generated password: '.$password);
                 $this->warn('⚠️  Please save this password securely!');
+
                 return $password;
             }
+
             return $this->option('password');
         }
 
         $password = $this->option('password');
-        
-        if (!$password) {
+
+        if (! $password) {
             $this->info('Password requirements:');
             $this->line('  • Minimum 8 characters');
             $this->line('  • At least one uppercase letter');
             $this->line('  • At least one lowercase letter');
             $this->line('  • At least one number');
             $this->newLine();
-            
-            while (!$password) {
+
+            while (! $password) {
                 $password = $this->secret('Enter password');
                 $passwordConfirm = $this->secret('Confirm password');
-                
+
                 if ($password !== $passwordConfirm) {
                     $this->error('Passwords do not match. Please try again.');
                     $password = null;
+
                     continue;
                 }
-                
+
                 if (strlen($password) < 8) {
                     $this->error('Password must be at least 8 characters long.');
                     $password = null;
+
                     continue;
                 }
-                
-                if (!preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', $password)) {
+
+                if (! preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/', $password)) {
                     $this->error('Password must contain at least one uppercase letter, one lowercase letter, and one number.');
                     $password = null;
                 }
@@ -223,19 +231,19 @@ class CreateAdminUser extends Command
         $lowercase = 'abcdefghijklmnopqrstuvwxyz';
         $numbers = '0123456789';
         $symbols = '!@#$%^&*()_+-=[]{}|;:,.<>?';
-        
+
         $password = '';
         $password .= $uppercase[random_int(0, strlen($uppercase) - 1)];
         $password .= $lowercase[random_int(0, strlen($lowercase) - 1)];
         $password .= $numbers[random_int(0, strlen($numbers) - 1)];
         $password .= $symbols[random_int(0, strlen($symbols) - 1)];
-        
-        $allChars = $uppercase . $lowercase . $numbers . $symbols;
-        
+
+        $allChars = $uppercase.$lowercase.$numbers.$symbols;
+
         for ($i = 4; $i < $length; $i++) {
             $password .= $allChars[random_int(0, strlen($allChars) - 1)];
         }
-        
+
         return str_shuffle($password);
     }
 }

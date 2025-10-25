@@ -7,7 +7,7 @@ namespace App\Actions;
 class ActionResult
 {
     /**
-     * @param array<string, mixed> $errors
+     * @param  array<string, mixed>  $errors
      */
     private function __construct(
         public readonly bool $success,
@@ -28,7 +28,7 @@ class ActionResult
     }
 
     /**
-     * @param array<string, mixed> $errors
+     * @param  array<string, mixed>  $errors
      */
     public static function error(string $message, array $errors = [], int $statusCode = 400): self
     {
@@ -41,7 +41,7 @@ class ActionResult
     }
 
     /**
-     * @param array<string, mixed> $errors
+     * @param  array<string, mixed>  $errors
      */
     public static function validationError(array $errors): self
     {

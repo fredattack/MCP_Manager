@@ -10,12 +10,12 @@ use Symfony\Component\HttpFoundation\Response;
 class EnsureMcpConnection
 {
     private McpConnectionService $mcpConnection;
-    
+
     public function __construct(McpConnectionService $mcpConnection)
     {
         $this->mcpConnection = $mcpConnection;
     }
-    
+
     /**
      * Handle an incoming request.
      *
@@ -27,7 +27,7 @@ class EnsureMcpConnection
             try {
                 // Ensure user has MCP server configured
                 $this->mcpConnection->ensureServerConfigured(auth()->user());
-                
+
                 // Test connection to ensure token is valid
                 $this->mcpConnection->getAuthToken();
             } catch (\Exception $e) {
@@ -38,7 +38,7 @@ class EnsureMcpConnection
                 ]);
             }
         }
-        
+
         return $next($request);
     }
 }

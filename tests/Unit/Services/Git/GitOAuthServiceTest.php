@@ -20,6 +20,12 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('unit')]
 #[Group('services')]
+
+/**
+ * @group git
+ * @group oauth
+ * @group unit
+ */
 class GitOAuthServiceTest extends TestCase
 {
     use RefreshDatabase;

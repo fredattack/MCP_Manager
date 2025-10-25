@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         if (app()->environment('production')) {
             $this->command->info('Production environment - no default users created.');
             $this->command->info('Please create your first user via registration or artisan command.');
+
             return;
         }
 

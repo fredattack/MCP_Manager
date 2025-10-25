@@ -5,6 +5,10 @@ namespace Tests\Unit;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
+/**
+ * @group example
+ * @group unit
+ */
 class ExampleTest extends TestCase
 {
     use RefreshDatabase;

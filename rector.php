@@ -8,11 +8,11 @@ use Rector\Set\ValueObject\SetList;
 
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
-        __DIR__ . '/app',
-        __DIR__ . '/config',
-        __DIR__ . '/database',
-        __DIR__ . '/routes',
-        __DIR__ . '/tests',
+        __DIR__.'/app',
+        __DIR__.'/config',
+        __DIR__.'/database',
+        __DIR__.'/routes',
+        __DIR__.'/tests',
     ]);
 
     // Define sets of rules
@@ -27,9 +27,9 @@ return static function (RectorConfig $rectorConfig): void {
 
     // Skip vendor directories and problematic files
     $rectorConfig->skip([
-        __DIR__ . '/vendor',
-        __DIR__ . '/node_modules',
-        __DIR__ . '/app/Http/Controllers/Auth',
-        __DIR__ . '/app/Http/Controllers/Settings',
+        __DIR__.'/vendor',
+        __DIR__.'/node_modules',
+        __DIR__.'/app/Http/Controllers/Auth',
+        __DIR__.'/app/Http/Controllers/Settings',
     ]);
 };

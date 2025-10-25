@@ -8,6 +8,11 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
+/**
+ * @group notion
+ * @group integration
+ * @group feature
+ */
 class NotionIntegrationTest extends TestCase
 {
     use RefreshDatabase;

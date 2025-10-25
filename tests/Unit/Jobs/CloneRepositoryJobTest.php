@@ -21,6 +21,11 @@ use Tests\TestCase;
 #[Group('git')]
 #[Group('unit')]
 #[Group('jobs')]
+
+/**
+ * @group git
+ * @group unit
+ */
 class CloneRepositoryJobTest extends TestCase
 {
     use RefreshDatabase;

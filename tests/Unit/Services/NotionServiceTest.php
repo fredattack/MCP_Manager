@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
+/**
+ * @group notion
+ * @group unit
+ */
 class NotionServiceTest extends TestCase
 {
     protected function setUp(): void

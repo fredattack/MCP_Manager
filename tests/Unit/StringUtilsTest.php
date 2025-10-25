@@ -4,6 +4,10 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 
+/**
+ * @group utils
+ * @group unit
+ */
 class StringUtilsTest extends TestCase
 {
     /**
