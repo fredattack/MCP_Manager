@@ -51,4 +51,23 @@ return [
         'redirect' => env('GOOGLE_REDIRECT_URI', env('APP_URL').'/integrations/google/callback'),
     ],
 
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => env('GITHUB_REDIRECT_URI', env('APP_URL').'/api/git/github/oauth/callback'),
+        'webhook_secret' => env('WEBHOOK_SECRET_GITHUB'),
+    ],
+
+    'gitlab' => [
+        'client_id' => env('GITLAB_CLIENT_ID'),
+        'client_secret' => env('GITLAB_CLIENT_SECRET'),
+        'redirect' => env('GITLAB_REDIRECT_URI', env('APP_URL').'/api/git/gitlab/oauth/callback'),
+        'webhook_secret' => env('WEBHOOK_SECRET_GITLAB'),
+    ],
+
+    'git' => [
+        'clone_storage' => env('GIT_CLONE_STORAGE', 'local'),
+        'repo_max_size_mb' => env('REPO_MAX_SIZE_MB', 2048),
+    ],
+
 ];
