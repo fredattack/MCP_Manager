@@ -1,0 +1,168 @@
+{
+  "timestamp": "2025-10-25T06:23:05.326Z",
+  "viewport": {
+    "width": 1200,
+    "height": 789
+  },
+  "url": "http://127.0.0.1:3978/dashboard",
+  "navigation": {
+    "main": [
+      {
+        "order": 2,
+        "label": "Dashboard",
+        "href": "/dashboard",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 3,
+        "label": "MCP Dashboard",
+        "href": "/mcp/dashboard",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 4,
+        "label": "MCP Server Config",
+        "href": "/mcp/server/config",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 5,
+        "label": "Claude Chat",
+        "href": "/ai/claude-chat",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 6,
+        "label": "Commandes Naturelles",
+        "href": "/ai/natural-language",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 7,
+        "label": "Daily Planning",
+        "href": "/daily-planning",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 8,
+        "label": "Integration Manager",
+        "href": "/integrations/manager",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 9,
+        "label": "Integrations (Old)",
+        "href": "/integrations",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 10,
+        "label": "Notion Pages",
+        "href": "/notion",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      }
+    ],
+    "integrations": [
+      {
+        "order": 11,
+        "label": "JIRA",
+        "href": "/jira",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 12,
+        "label": "Todoist",
+        "href": "/integrations/todoist",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 13,
+        "label": "Google",
+        "href": "/integrations/google",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 14,
+        "label": "Gmail",
+        "href": "/gmail",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 15,
+        "label": "Calendar",
+        "href": "/calendar",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 16,
+        "label": "JIRA",
+        "href": "/integrations/jira",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 17,
+        "label": "Sentry",
+        "href": "/integrations/sentry",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      }
+    ],
+    "footer": [
+      {
+        "order": 18,
+        "label": "Repository",
+        "href": "https://github.com/laravel/react-starter-kit",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      },
+      {
+        "order": 19,
+        "label": "Documentation",
+        "href": "https://laravel.com/docs/starter-kits#react",
+        "isActive": false,
+        "hasIcon": true,
+        "inIntegrationsGroup": false
+      }
+    ],
+    "user": []
+  },
+  "issues_detected": [
+    "JIRA appears twice (order 11 and 16) with different URLs",
+    "No active state indicator detected (all isActive: false)",
+    "Mixed language: 'Commandes Naturelles' (French) in English UI",
+    "Technical debt exposed: 'Integrations (Old)' visible to users",
+    "Footer links point to Laravel starter kit, not actual project"
+  ]
+}

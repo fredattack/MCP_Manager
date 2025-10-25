@@ -128,7 +128,7 @@ export default function NaturalLanguage() {
         } catch {
             setResult({
                 success: false,
-                message: 'Une erreur est survenue lors du traitement de votre commande',
+                message: 'An error occurred while processing your command',
             });
         } finally {
             setIsLoading(false);
@@ -281,14 +281,14 @@ export default function NaturalLanguage() {
 
     return (
         <AppLayout>
-            <Head title="Commandes en Langage Naturel" />
+            <Head title="Natural Language Commands" />
             
             <div className="container mx-auto px-6 py-8">
                 <div className="max-w-4xl mx-auto">
                     <div className="mb-8">
-                        <h1 className="text-3xl font-bold mb-2">Commandes en Langage Naturel</h1>
+                        <h1 className="text-3xl font-bold mb-2">Natural Language Commands</h1>
                         <p className="text-gray-600 dark:text-gray-400">
-                            Interagissez avec vos intégrations en utilisant des commandes simples en français
+                            Interact with your integrations using simple natural language commands
                         </p>
                     </div>
 
@@ -297,7 +297,7 @@ export default function NaturalLanguage() {
                             <Input
                                 ref={inputRef}
                                 type="text"
-                                placeholder="Ex: Affiche mes tâches du jour, Liste mes pages Notion..."
+                                placeholder="Ex: Show my tasks for today, List my Notion pages..."
                                 value={command}
                                 onChange={(e) => setCommand(e.target.value)}
                                 disabled={isLoading}

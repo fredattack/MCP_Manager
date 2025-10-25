@@ -15,7 +15,7 @@ import {
 } from '@/components/ui/sidebar';
 import { type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle, MessageSquare, Brain, Mail, Calendar, CalendarDays, Kanban, Server, Shield } from 'lucide-react';
+import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle, MessageSquare, Brain, Mail, Calendar, CalendarDays, Server, Shield } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -40,7 +40,7 @@ const mainNavItems: NavItem[] = [
         icon: MessageSquare,
     },
     {
-        title: 'Commandes Naturelles',
+        title: 'Natural Language',
         href: '/ai/natural-language',
         icon: Brain,
     },
@@ -56,7 +56,7 @@ const mainNavItems: NavItem[] = [
         badge: 'New',
     },
     {
-        title: 'Integrations (Old)',
+        title: 'Integrations',
         href: '/integrations',
         icon: Plug,
     },
@@ -64,11 +64,6 @@ const mainNavItems: NavItem[] = [
         title: 'Notion Pages',
         href: '/notion',
         icon: FileText,
-    },
-    {
-        title: 'JIRA',
-        href: '/jira',
-        icon: Kanban,
     },
 ];
 
@@ -114,12 +109,12 @@ const integrationItems: NavItem[] = [
 const footerNavItems: NavItem[] = [
     {
         title: 'Repository',
-        href: 'https://github.com/laravel/react-starter-kit',
+        href: 'https://github.com/your-org/mcp-manager',
         icon: Folder,
     },
     {
         title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#react',
+        href: '/docs',
         icon: BookOpen,
     },
 ];
@@ -130,12 +125,12 @@ function IntegrationsNav({ items }: { items: NavItem[] }) {
     const getStatusBadge = (status?: string) => {
         switch (status) {
             case 'connected':
-                return <Badge className="bg-success ml-auto h-2 w-2 p-0" />;
+                return <Badge className="bg-success ml-auto h-2 w-2 p-0" aria-label="Status: Connected" role="status" />;
             case 'error':
-                return <Badge className="bg-danger ml-auto h-2 w-2 p-0" />;
+                return <Badge className="bg-danger ml-auto h-2 w-2 p-0" aria-label="Status: Error" role="status" />;
             case 'disconnected':
             default:
-                return <Badge className="ml-auto h-2 w-2 bg-gray-400 p-0" />;
+                return <Badge className="ml-auto h-2 w-2 bg-gray-400 p-0" aria-label="Status: Disconnected" role="status" />;
         }
     };
 

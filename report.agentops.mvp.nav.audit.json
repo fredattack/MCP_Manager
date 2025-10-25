@@ -1,0 +1,828 @@
+{
+  "meta": {
+    "baseUrl": "http://127.0.0.1:3978",
+    "timestamp": "2025-10-25T00:00:00Z",
+    "auditType": "static_code_analysis",
+    "viewports": [
+      {"width": 1440, "height": 900, "label": "desktop"},
+      {"width": 1024, "height": 768, "label": "tablet"},
+      {"width": 390, "height": 844, "label": "mobile"}
+    ],
+    "phase": "MVP-Phase1",
+    "note": "Static analysis conducted on codebase. Live browser testing requires running server with authenticated session."
+  },
+  "application_context": {
+    "name": "MCP Manager",
+    "type": "Integration Manager for Model Context Protocol",
+    "stack": "Laravel 12 + React 19 + Inertia.js + TailwindCSS 4",
+    "actual_focus": "MCP integrations (Notion, Todoist, Gmail, Calendar, JIRA, Google)",
+    "prd_expectation": "Git repository manager with AI workflow automation",
+    "discrepancy": "CRITICAL: Application does not match PRD description. No Git repository pages found in routes or navigation."
+  },
+  "navigation": {
+    "structure": [
+      {
+        "label": "Dashboard",
+        "href": "/dashboard",
+        "icon": "LayoutGrid",
+        "visible": true,
+        "order": 1,
+        "group": "main",
+        "active_on": ["/dashboard"],
+        "issues": []
+      },
+      {
+        "label": "MCP Dashboard",
+        "href": "/mcp/dashboard",
+        "icon": "Server",
+        "visible": true,
+        "order": 2,
+        "group": "main",
+        "active_on": ["/mcp/dashboard"],
+        "issues": ["Ambiguous naming: Two dashboards confuse hierarchy"]
+      },
+      {
+        "label": "MCP Server Config",
+        "href": "/mcp/server/config",
+        "icon": "Shield",
+        "visible": true,
+        "order": 3,
+        "group": "main",
+        "active_on": ["/mcp/server/config"],
+        "issues": ["Technical label: 'Config' vs 'Configuration' or 'Settings' inconsistency"]
+      },
+      {
+        "label": "Claude Chat",
+        "href": "/ai/claude-chat",
+        "icon": "MessageSquare",
+        "visible": true,
+        "order": 4,
+        "group": "main",
+        "active_on": ["/ai/claude-chat"],
+        "issues": []
+      },
+      {
+        "label": "Commandes Naturelles",
+        "href": "/ai/natural-language",
+        "icon": "Brain",
+        "visible": true,
+        "order": 5,
+        "group": "main",
+        "active_on": ["/ai/natural-language"],
+        "issues": ["CRITICAL: French label in English UI", "Inconsistent language", "No translation system detected"]
+      },
+      {
+        "label": "Daily Planning",
+        "href": "/daily-planning",
+        "icon": "CalendarDays",
+        "visible": true,
+        "order": 6,
+        "group": "main",
+        "active_on": ["/daily-planning"],
+        "issues": []
+      },
+      {
+        "label": "Integration Manager",
+        "href": "/integrations/manager",
+        "icon": "Plug",
+        "badge": "New",
+        "visible": true,
+        "order": 7,
+        "group": "main",
+        "active_on": ["/integrations/manager"],
+        "issues": ["Requires middleware: EnsureMcpConnection"]
+      },
+      {
+        "label": "Integrations (Old)",
+        "href": "/integrations",
+        "icon": "Plug",
+        "visible": true,
+        "order": 8,
+        "group": "main",
+        "active_on": ["/integrations"],
+        "issues": ["CRITICAL: '(Old)' suffix signals technical debt", "Two integration pages confuse users", "No deprecation strategy visible"]
+      },
+      {
+        "label": "Notion Pages",
+        "href": "/notion",
+        "icon": "FileText",
+        "visible": true,
+        "order": 9,
+        "group": "main",
+        "active_on": ["/notion"],
+        "issues": []
+      },
+      {
+        "label": "JIRA",
+        "href": "/jira",
+        "icon": "Kanban",
+        "visible": true,
+        "order": 10,
+        "group": "main",
+        "active_on": ["/jira"],
+        "issues": []
+      },
+      {
+        "label": "Todoist",
+        "href": "/integrations/todoist",
+        "icon": "CheckCircle2",
+        "status": "connected",
+        "visible": true,
+        "order": 11,
+        "group": "integrations",
+        "active_on": ["/integrations/todoist"],
+        "issues": ["Requires middleware: has.integration:todoist"]
+      },
+      {
+        "label": "Google",
+        "href": "/integrations/google",
+        "icon": "Plug",
+        "status": "disconnected",
+        "visible": true,
+        "order": 12,
+        "group": "integrations",
+        "active_on": ["/integrations/google"],
+        "issues": []
+      },
+      {
+        "label": "Gmail",
+        "href": "/gmail",
+        "icon": "Mail",
+        "status": "disconnected",
+        "visible": true,
+        "order": 13,
+        "group": "integrations",
+        "active_on": ["/gmail"],
+        "issues": ["Requires middleware: has.integration:gmail"]
+      },
+      {
+        "label": "Calendar",
+        "href": "/calendar",
+        "icon": "Calendar",
+        "status": "disconnected",
+        "visible": true,
+        "order": 14,
+        "group": "integrations",
+        "active_on": ["/calendar"],
+        "issues": ["Requires middleware: has.integration:calendar"]
+      },
+      {
+        "label": "JIRA",
+        "href": "/integrations/jira",
+        "icon": "XCircle",
+        "status": "disconnected",
+        "visible": true,
+        "order": 15,
+        "group": "integrations",
+        "active_on": ["/integrations/jira"],
+        "issues": ["CRITICAL: Duplicate JIRA entry (also at position 10)", "Different routes: /jira vs /integrations/jira"]
+      },
+      {
+        "label": "Sentry",
+        "href": "/integrations/sentry",
+        "icon": "AlertCircle",
+        "status": "error",
+        "visible": true,
+        "order": 16,
+        "group": "integrations",
+        "active_on": ["/integrations/sentry"],
+        "issues": ["Shows 'error' status but no route defined", "Likely non-functional placeholder"]
+      },
+      {
+        "label": "Repository",
+        "href": "https://github.com/laravel/react-starter-kit",
+        "icon": "Folder",
+        "external": true,
+        "visible": true,
+        "order": 17,
+        "group": "footer",
+        "active_on": [],
+        "issues": ["External link to boilerplate repo, not project repo", "Should be updated or removed"]
+      },
+      {
+        "label": "Documentation",
+        "href": "https://laravel.com/docs/starter-kits#react",
+        "icon": "BookOpen",
+        "external": true,
+        "visible": true,
+        "order": 18,
+        "group": "footer",
+        "active_on": [],
+        "issues": ["Links to Laravel docs, not project docs"]
+      }
+    ],
+    "depth_map": [
+      {"route": "/dashboard", "clicks_from_dashboard": 0, "clicks_from_home": 1},
+      {"route": "/mcp/dashboard", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/mcp/server/config", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/ai/claude-chat", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/ai/natural-language", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/daily-planning", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/integrations/manager", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/integrations", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/notion", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/jira", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/integrations/todoist", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/integrations/google", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/gmail", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/calendar", "clicks_from_dashboard": 1, "clicks_from_home": 2},
+      {"route": "/settings/profile", "clicks_from_dashboard": 2, "clicks_from_home": 3}
+    ],
+    "missing_expected_routes": [
+      "/repositories",
+      "/workflows/:id",
+      "/settings (flat, not nested)"
+    ],
+    "critical_findings": [
+      "No Git repository connection pages found",
+      "No workflow viewer/timeline pages found",
+      "Duplicate navigation items (JIRA appears twice)",
+      "Mixed languages (French in English UI)",
+      "Technical debt exposed in UI ('Old' suffix)",
+      "Two dashboard concepts (main + MCP) without clear hierarchy"
+    ]
+  },
+  "pages": [
+    {
+      "route": "/dashboard",
+      "title": "Dashboard - Mcp manager",
+      "h1": "Dashboard Content",
+      "exists": true,
+      "component": "resources/js/pages/dashboard.tsx",
+      "layout": "AppLayout (sidebar variant)",
+      "breadcrumbs": [{"title": "Dashboard", "href": "/dashboard"}],
+      "content_type": "placeholder_pattern",
+      "axe": {
+        "static_analysis": {
+          "violations_count": 0,
+          "potential_issues": [
+            "PlaceholderPattern SVG needs aria-hidden or descriptive title",
+            "Generic 'Dashboard Content' heading lacks semantic meaning"
+          ]
+        }
+      },
+      "perf": {
+        "notes": "Uses PlaceholderPattern component (3 instances), potential CLS risk if SVG loads slowly"
+      },
+      "ux_notes": [
+        "Empty state with placeholder patterns",
+        "No clear call-to-action",
+        "No onboarding guidance for new users",
+        "Generic content suggests incomplete implementation"
+      ]
+    },
+    {
+      "route": "/integrations",
+      "title": "Integrations - Mcp manager",
+      "h1": "Integrations",
+      "exists": true,
+      "component": "resources/js/pages/integrations.tsx",
+      "layout": "AppLayout",
+      "breadcrumbs": [],
+      "content_type": "integration_list",
+      "axe": {
+        "static_analysis": {
+          "violations_count": 0,
+          "good_practices": [
+            "Button has visible text: 'Browse Integrations'",
+            "Icons have proper className and size",
+            "Card structure provides semantic hierarchy"
+          ]
+        }
+      },
+      "perf": {
+        "notes": "IntegrationList component loaded, dynamic integration status from server"
+      },
+      "ux_notes": [
+        "Clear page purpose with icon and description",
+        "Prominent CTA button: 'Browse Integrations'",
+        "Good use of Card component for visual grouping"
+      ]
+    },
+    {
+      "route": "/mcp/dashboard",
+      "title": "Unknown (route exists but page file not analyzed)",
+      "exists": true,
+      "controller": "App\\Http\\Controllers\\McpIntegrationController@index",
+      "ux_notes": [
+        "Purpose unclear: distinction from /dashboard not documented",
+        "Naming conflict creates cognitive load"
+      ]
+    },
+    {
+      "route": "/mcp/server/config",
+      "title": "Unknown (route exists but page file not analyzed)",
+      "exists": true,
+      "controller": "App\\Http\\Controllers\\McpServerConfigController@show",
+      "ux_notes": [
+        "Technical configuration page",
+        "Deep nesting (3 levels) for critical setup step"
+      ]
+    },
+    {
+      "route": "/settings/profile",
+      "title": "Unknown (route exists but page file not analyzed)",
+      "exists": true,
+      "controller": "App\\Http\\Controllers\\Settings\\ProfileController@edit",
+      "redirect_from": "/settings",
+      "ux_notes": [
+        "Settings requires nested navigation",
+        "No direct /settings route (redirects to profile)"
+      ]
+    }
+  ],
+  "onboarding": {
+    "expected_critical_path": "Login → Dashboard → Connect Repository → View Repositories",
+    "actual_critical_path": "UNKNOWN - No repository connection flow found",
+    "steps": [
+      {
+        "name": "Login",
+        "route": "/login",
+        "exists": true,
+        "friction_notes": "Standard Breeze auth, no analysis of password visibility toggle"
+      },
+      {
+        "name": "Dashboard",
+        "route": "/dashboard",
+        "exists": true,
+        "friction_notes": "Empty placeholder content, no onboarding prompts, no CTAs for primary actions"
+      },
+      {
+        "name": "Connect Repository",
+        "route": "NOT FOUND",
+        "exists": false,
+        "friction_notes": "CRITICAL: Primary PRD feature missing entirely"
+      },
+      {
+        "name": "View Repositories",
+        "route": "NOT FOUND",
+        "exists": false,
+        "friction_notes": "CRITICAL: Primary PRD feature missing entirely"
+      }
+    ],
+    "critical_actions_within_2_clicks": false,
+    "prd_compliance": "FAILED - Core features not implemented",
+    "alternative_primary_action": {
+      "name": "Connect MCP Integration",
+      "route": "/integrations/manager",
+      "clicks_from_dashboard": 1,
+      "friction_notes": "Requires MCP server connection first (middleware gate)"
+    }
+  },
+  "accessibility": {
+    "analysis_method": "static_code_review",
+    "findings": [
+      {
+        "component": "Sidebar",
+        "status": "GOOD",
+        "details": [
+          "Keyboard shortcut implemented: Cmd/Ctrl+B toggles sidebar",
+          "Focus management with TooltipProvider",
+          "Screen reader support: sr-only class on Sheet headers",
+          "ARIA labels on toggle buttons: 'Toggle Sidebar'",
+          "Responsive behavior: Sheet on mobile, collapsible on desktop"
+        ]
+      },
+      {
+        "component": "SidebarMenuButton",
+        "status": "GOOD",
+        "details": [
+          "Tooltips shown when collapsed (improved mobile UX)",
+          "Active state indicated via data-active attribute",
+          "Focus visible states with ring-sidebar-ring",
+          "Disabled states properly handled with pointer-events-none and opacity"
+        ]
+      },
+      {
+        "component": "Navigation Links",
+        "status": "NEEDS_REVIEW",
+        "details": [
+          "Icons present but no aria-label verification needed in live testing",
+          "isActive prop compares page.url === item.href (may miss nested routes)",
+          "Prefetch attribute on Inertia Links (good for perf, check cache behavior)"
+        ]
+      },
+      {
+        "component": "Integration Status Badges",
+        "status": "CRITICAL",
+        "details": [
+          "Color-only differentiation (green=connected, red=error, gray=disconnected)",
+          "No text labels or aria-label for screen readers",
+          "2x2px badges too small for users with motor impairments",
+          "WCAG 1.4.1 Use of Color violation"
+        ]
+      },
+      {
+        "component": "Breadcrumbs",
+        "status": "GOOD",
+        "details": [
+          "Semantic hierarchy with breadcrumb component",
+          "Used in AppSidebarHeader for context awareness"
+        ]
+      },
+      {
+        "component": "External Links (Footer)",
+        "status": "NEEDS_IMPROVEMENT",
+        "details": [
+          "No visual indicator of external links",
+          "No rel='noopener noreferrer' verification (security)",
+          "No warning that link opens in new tab"
+        ]
+      }
+    ],
+    "keyboard_navigation": {
+      "status": "GOOD",
+      "shortcuts": [
+        {"key": "Cmd/Ctrl+B", "action": "Toggle sidebar", "implemented": true}
+      ],
+      "tab_order": "Not analyzed (requires live testing)",
+      "focus_traps": "Not detected in code, verify modals/dialogs in live test"
+    },
+    "color_contrast": {
+      "status": "NEEDS_LIVE_TESTING",
+      "notes": "TailwindCSS semantic tokens used (sidebar-foreground, sidebar-accent-foreground), actual contrast ratios depend on theme configuration"
+    },
+    "aria_landmarks": {
+      "status": "PARTIAL",
+      "findings": [
+        "SidebarInset uses <main> tag (good)",
+        "AppSidebarHeader uses <header> tag (good)",
+        "No explicit <nav> role on sidebar (should add)",
+        "Footer navigation lacks <nav> landmark"
+      ]
+    }
+  },
+  "performance": {
+    "analysis_method": "static_code_patterns",
+    "findings": [
+      {
+        "category": "Code Splitting",
+        "status": "GOOD",
+        "details": "Inertia.js handles automatic code splitting per page component"
+      },
+      {
+        "category": "Prefetching",
+        "status": "GOOD",
+        "details": "All Inertia Link components use prefetch attribute for hover-based preloading"
+      },
+      {
+        "category": "State Management",
+        "status": "GOOD",
+        "details": "Sidebar state persisted in cookie (max-age: 7 days), reduces re-renders"
+      },
+      {
+        "category": "Conditional Rendering",
+        "status": "GOOD",
+        "details": "Mobile vs desktop sidebar using useIsMobile hook, prevents unused code execution"
+      },
+      {
+        "category": "Potential CLS Issues",
+        "status": "WARNING",
+        "details": [
+          "PlaceholderPattern SVG on dashboard may shift during load",
+          "Sidebar collapse animation (200ms duration) could cause layout shift if not measured",
+          "Dynamic integration status badges loaded from server props"
+        ]
+      },
+      {
+        "category": "Loading States",
+        "status": "NEEDS_REVIEW",
+        "details": [
+          "SidebarMenuSkeleton component exists (good)",
+          "No evidence of skeleton usage in actual pages",
+          "No loading indicators for Inertia navigation visible in code"
+        ]
+      },
+      {
+        "category": "Bundle Size Concerns",
+        "status": "WARNING",
+        "details": [
+          "Lucide React icons: 18 icons imported in app-sidebar.tsx alone",
+          "Consider icon tree-shaking or dynamic imports for less-used icons",
+          "Radix UI components (Sheet, Tooltip, Dropdown) add to bundle"
+        ]
+      }
+    ]
+  },
+  "recommendations": [
+    {
+      "id": "NAV-01",
+      "area": "navigation",
+      "title": "Remove or hide technical debt indicators from user-facing UI",
+      "description": "The '(Old)' suffix on 'Integrations (Old)' exposes internal technical debt to users. Either complete the migration to the new Integration Manager and remove the old page, or hide the old page from navigation entirely.",
+      "selector_example": "mainNavItems[7] in app-sidebar.tsx line 59-62",
+      "evidence": ["resources/js/components/app-sidebar.tsx:59-62"],
+      "impact_1_5": 4,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 5,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given user views sidebar, When they see navigation items, Then no items contain '(Old)' or similar technical suffixes",
+        "Given integration manager is ready, When old integrations page is deprecated, Then it is removed from navigation entirely",
+        "Given migration is incomplete, When old page must remain, Then it is hidden from main nav and accessible only via direct URL"
+      ]
+    },
+    {
+      "id": "NAV-02",
+      "area": "navigation",
+      "title": "Fix language consistency: Remove French labels from English UI",
+      "description": "Navigation item 'Commandes Naturelles' is in French while all other items are in English. This creates confusion and signals incomplete internationalization.",
+      "selector_example": "mainNavItems[4] in app-sidebar.tsx line 42-46",
+      "evidence": ["resources/js/components/app-sidebar.tsx:42-46"],
+      "impact_1_5": 5,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 5,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given user views sidebar, When they see 'Commandes Naturelles', Then it is renamed to 'Natural Language' or 'AI Commands'",
+        "Given application supports multiple languages, When user selects language, Then all navigation items translate consistently",
+        "Given no i18n system exists, When labels are hardcoded, Then all labels use same language (English)"
+      ]
+    },
+    {
+      "id": "NAV-03",
+      "area": "navigation",
+      "title": "Resolve duplicate JIRA navigation entries",
+      "description": "JIRA appears twice in navigation: once as main item (/jira) and once in integrations group (/integrations/jira). This confuses information architecture and creates maintenance issues.",
+      "selector_example": "mainNavItems[9] and integrationItems[4] in app-sidebar.tsx",
+      "evidence": ["resources/js/components/app-sidebar.tsx:68-72", "resources/js/components/app-sidebar.tsx:100-105"],
+      "impact_1_5": 4,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 5,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given user views sidebar, When they look for JIRA, Then only one JIRA entry appears",
+        "Given JIRA is an integration, When it appears in nav, Then it is only in the Integrations group",
+        "Given routes conflict, When /jira and /integrations/jira exist, Then one redirects to the other or they serve distinct purposes with clear labels"
+      ]
+    },
+    {
+      "id": "NAV-04",
+      "area": "navigation",
+      "title": "Clarify dual dashboard concept or merge into single dashboard",
+      "description": "Having both 'Dashboard' and 'MCP Dashboard' creates unclear hierarchy. Users don't understand when to use which dashboard.",
+      "selector_example": "mainNavItems[0] and mainNavItems[1] in app-sidebar.tsx",
+      "evidence": ["resources/js/components/app-sidebar.tsx:21-30"],
+      "impact_1_5": 5,
+      "effort_S_M_L": "M",
+      "confidence_1_5": 4,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given user lands on /dashboard, When they see content, Then it clearly explains its purpose vs MCP Dashboard",
+        "Given two dashboards serve different purposes, When labeling them, Then labels distinguish purpose (e.g., 'Overview' vs 'MCP Server Status')",
+        "Given dashboards have overlapping purpose, When refactoring, Then merge into single dashboard with tabs or sections"
+      ]
+    },
+    {
+      "id": "NAV-05",
+      "area": "information_architecture",
+      "title": "Add visual hierarchy separators between navigation groups",
+      "description": "Main navigation items and integration items are visually separated only by a group label. Adding a subtle separator or spacing would improve scannability.",
+      "selector_example": "Between NavMain and IntegrationsNav in AppSidebar component",
+      "evidence": ["resources/js/components/app-sidebar.tsx:194-195"],
+      "impact_1_5": 3,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 4,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given user scrolls sidebar, When transitioning from main nav to integrations, Then a visual separator (border, spacing, or color change) marks the boundary",
+        "Given sidebar is collapsed, When viewing icons only, Then group separation is still perceivable"
+      ]
+    },
+    {
+      "id": "A11Y-01",
+      "area": "accessibility",
+      "title": "Add text labels or tooltips to integration status badges",
+      "description": "Integration status badges use only color (green/red/gray 2x2px dots) to convey connection state. This violates WCAG 1.4.1 (Use of Color) and is invisible to screen readers.",
+      "selector_example": "getStatusBadge function in app-sidebar.tsx line 130-140",
+      "evidence": ["resources/js/components/app-sidebar.tsx:130-140"],
+      "impact_1_5": 5,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 5,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given integration has status, When user views badge, Then screen reader announces 'Connected', 'Disconnected', or 'Error'",
+        "Given user hovers badge, When tooltip appears, Then text label shows status",
+        "Given color-blind user views list, When scanning integrations, Then status is distinguishable by icon shape or text, not only color"
+      ]
+    },
+    {
+      "id": "A11Y-02",
+      "area": "accessibility",
+      "title": "Add <nav> landmark role to sidebar component",
+      "description": "The sidebar contains primary navigation but lacks explicit <nav> role or landmark. This makes it harder for screen reader users to jump to navigation.",
+      "selector_example": "Sidebar component, line 206-248 in sidebar.tsx",
+      "evidence": ["resources/js/components/ui/sidebar.tsx:206-248"],
+      "impact_1_5": 3,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 5,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given screen reader user visits page, When they query landmarks, Then 'navigation' landmark is listed for sidebar",
+        "Given sidebar contains main nav, When wrapped in <nav>, Then aria-label describes it as 'Main navigation' or 'Primary navigation'"
+      ]
+    },
+    {
+      "id": "A11Y-03",
+      "area": "accessibility",
+      "title": "Add external link indicators and security attributes",
+      "description": "Footer links to GitHub and Laravel docs are external but lack visual indicators and rel='noopener noreferrer' for security.",
+      "selector_example": "footerNavItems in app-sidebar.tsx line 114-125",
+      "evidence": ["resources/js/components/app-sidebar.tsx:114-125"],
+      "impact_1_5": 3,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 5,
+      "mvp_fit": false,
+      "acceptance_criteria": [
+        "Given link is external, When rendered, Then icon (e.g., ExternalLink) appears next to label",
+        "Given external link, When clicked, Then rel='noopener noreferrer' prevents tab nabbing",
+        "Given screen reader user, When link is focused, Then announced as 'opens in new window' or similar"
+      ]
+    },
+    {
+      "id": "UX-01",
+      "area": "onboarding",
+      "title": "Add onboarding CTA to empty dashboard",
+      "description": "Dashboard shows only placeholder patterns with generic 'Dashboard Content' heading. New users have no guidance on first steps.",
+      "selector_example": "dashboard.tsx content section",
+      "evidence": ["resources/js/pages/dashboard.tsx:29-32"],
+      "impact_1_5": 5,
+      "effort_S_M_L": "M",
+      "confidence_1_5": 5,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given new user lands on dashboard, When they have no integrations connected, Then a prominent CTA button prompts: 'Connect Your First Integration'",
+        "Given user has connected integrations, When viewing dashboard, Then cards show summary data instead of placeholders",
+        "Given user clicks onboarding CTA, When redirected, Then they land on integration manager or setup wizard"
+      ]
+    },
+    {
+      "id": "UX-02",
+      "area": "user_flow",
+      "title": "Implement middleware error handling with user-friendly messages",
+      "description": "Several routes require middleware (has.integration:gmail, EnsureMcpConnection) but no code analysis shows user-facing error messages when middleware blocks access.",
+      "selector_example": "Route middleware in web.php, e.g., line 73, 104",
+      "evidence": ["routes/web.php:73", "routes/web.php:104"],
+      "impact_1_5": 4,
+      "effort_S_M_L": "M",
+      "confidence_1_5": 4,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given user clicks Gmail link, When has.integration:gmail middleware fails, Then redirect to integration setup with message: 'Connect Gmail to continue'",
+        "Given user accesses /integrations/manager, When EnsureMcpConnection fails, Then redirect to MCP server config with message: 'Connect MCP server first'",
+        "Given middleware redirect, When user completes setup, Then they are returned to original destination"
+      ]
+    },
+    {
+      "id": "UX-03",
+      "area": "content",
+      "title": "Replace boilerplate footer links with project-specific resources",
+      "description": "Footer links point to Laravel React boilerplate repo and docs, not this project's actual repo or documentation.",
+      "selector_example": "footerNavItems in app-sidebar.tsx line 114-125",
+      "evidence": ["resources/js/components/app-sidebar.tsx:116-123"],
+      "impact_1_5": 2,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 5,
+      "mvp_fit": false,
+      "acceptance_criteria": [
+        "Given project has GitHub repo, When user clicks Repository link, Then it opens project repo, not boilerplate",
+        "Given project has documentation, When user clicks Documentation link, Then it opens project docs (README, wiki, or docs site)",
+        "Given no project docs exist, When footer renders, Then Documentation link is hidden or disabled"
+      ]
+    },
+    {
+      "id": "PERF-01",
+      "area": "performance",
+      "title": "Add loading skeletons for Inertia page transitions",
+      "description": "SidebarMenuSkeleton component exists but no evidence of usage. Inertia navigation may feel unresponsive without loading feedback.",
+      "selector_example": "Inertia Link components throughout navigation",
+      "evidence": ["resources/js/components/ui/sidebar.tsx:597-633"],
+      "impact_1_5": 3,
+      "effort_S_M_L": "M",
+      "confidence_1_5": 4,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given user clicks navigation link, When page load takes >200ms, Then loading skeleton or progress bar appears",
+        "Given Inertia is prefetching, When user hovers link, Then subsequent click feels instant (<100ms TTI)",
+        "Given slow network, When navigation occurs, Then skeleton layout prevents CLS"
+      ]
+    },
+    {
+      "id": "PERF-02",
+      "area": "performance",
+      "title": "Optimize icon imports to reduce bundle size",
+      "description": "app-sidebar.tsx imports 18 Lucide icons directly. Consider tree-shaking or dynamic imports for less-used icons.",
+      "selector_example": "Import statement line 18 in app-sidebar.tsx",
+      "evidence": ["resources/js/components/app-sidebar.tsx:18"],
+      "impact_1_5": 2,
+      "effort_S_M_L": "S",
+      "confidence_1_5": 3,
+      "mvp_fit": false,
+      "acceptance_criteria": [
+        "Given Vite build, When analyzing bundle, Then lucide-react chunk is <50KB gzipped",
+        "Given icon is used in multiple places, When imported, Then it is tree-shaken by build tool",
+        "Given icon is rarely used (e.g., footer links), When loaded, Then it is dynamically imported or inlined as SVG"
+      ]
+    },
+    {
+      "id": "CRITICAL-01",
+      "area": "product_strategy",
+      "title": "CRITICAL: Align application with PRD or update PRD to match implementation",
+      "description": "PRD describes 'Git repository manager with AI workflow automation' but application is an 'MCP integration manager'. No repository connection pages or workflow timeline exists. This is a fundamental product-code mismatch.",
+      "selector_example": "Entire navigation structure and routes",
+      "evidence": ["routes/web.php", "resources/js/components/app-sidebar.tsx", "PRD expectation vs. actual implementation"],
+      "impact_1_5": 5,
+      "effort_S_M_L": "L",
+      "confidence_1_5": 5,
+      "mvp_fit": true,
+      "acceptance_criteria": [
+        "Given PRD is correct, When implementing missing features, Then add /repositories route, Git OAuth connection flow, and /workflows/:id timeline viewer",
+        "Given codebase is correct, When updating PRD, Then revise to describe MCP integration manager as primary purpose",
+        "Given product direction is unclear, When stakeholders review, Then establish single source of truth for MVP scope"
+      ]
+    }
+  ],
+  "gaps_vs_prd": [
+    {
+      "expectation": "Git repository connections page (/repositories)",
+      "observation": "Route does not exist. Only webhook routes for GitHub/GitLab found.",
+      "prd_reference": "Expected MVP Pages: /repositories - Git repository connections (GitLab/GitHub)",
+      "priority": "P0",
+      "blocking": true
+    },
+    {
+      "expectation": "Workflow timeline viewer (/workflows/:id)",
+      "observation": "Route does not exist. No workflow-related controllers or pages found.",
+      "prd_reference": "Expected MVP Pages: /workflows/:id - Timeline/logs viewer with real-time status",
+      "priority": "P0",
+      "blocking": true
+    },
+    {
+      "expectation": "Settings page for API keys and LLM tokens",
+      "observation": "/settings redirects to /settings/profile. No dedicated API keys configuration page found.",
+      "prd_reference": "Expected MVP Pages: /settings - API keys, LLM tokens configuration",
+      "priority": "P0",
+      "blocking": true
+    },
+    {
+      "expectation": "Onboarding: Connect Repository within 2 clicks from dashboard",
+      "observation": "No repository connection flow exists. Primary action is likely 'Connect MCP Integration' (1 click) but requires MCP server setup first.",
+      "prd_reference": "Onboarding flow: 'Connect Repository' (critical path)",
+      "priority": "P0",
+      "blocking": true
+    },
+    {
+      "expectation": "Minimal upgrade prompts in MVP",
+      "observation": "No upgrade prompts detected in navigation or analyzed pages.",
+      "prd_reference": "Critical User Flows: Check for friction points, unclear CTAs, missing help text, premium prompts",
+      "priority": "P2",
+      "blocking": false
+    }
+  ],
+  "quick_wins": [
+    {
+      "id": "NAV-01",
+      "title": "Remove '(Old)' suffix from navigation",
+      "effort": "5 minutes",
+      "impact": "High - Professionalism"
+    },
+    {
+      "id": "NAV-02",
+      "title": "Translate 'Commandes Naturelles' to English",
+      "effort": "2 minutes",
+      "impact": "High - Language consistency"
+    },
+    {
+      "id": "NAV-03",
+      "title": "Remove duplicate JIRA entry",
+      "effort": "3 minutes",
+      "impact": "Medium - Clarity"
+    },
+    {
+      "id": "A11Y-01",
+      "title": "Add aria-label to status badges",
+      "effort": "10 minutes",
+      "impact": "High - Accessibility compliance"
+    },
+    {
+      "id": "UX-03",
+      "title": "Update footer links to project repo/docs",
+      "effort": "5 minutes",
+      "impact": "Low - Contextual accuracy"
+    }
+  ],
+  "blockers": [
+    {
+      "title": "Live browser testing not possible",
+      "description": "Audit conducted via static code analysis only. Live testing requires running Laravel server on port 3978 with seeded database and authenticated user session.",
+      "impact": "Cannot verify: actual color contrast ratios, focus indicators in practice, keyboard navigation flow, loading states, real performance metrics (TTI, LCP, CLS), axe-core accessibility scans",
+      "workaround": "Static analysis provides strong heuristic findings. Recommend follow-up live audit session."
+    },
+    {
+      "title": "PRD vs. implementation mismatch",
+      "description": "Cannot audit Git repository features or workflow timeline because they don't exist in codebase. Audit scope adjusted to analyze existing MCP integration manager instead.",
+      "impact": "Primary expected user flows cannot be audited. Recommendations focus on what exists, not what was expected.",
+      "workaround": "Flagged as CRITICAL-01 recommendation. Stakeholder decision needed on product direction."
+    }
+  ]
+}
