@@ -1,23 +1,17 @@
-import React, { useState } from 'react';
-import { Head } from '@inertiajs/react';
-import AppLayout from '@/layouts/app-layout';
+import { JiraBoardList } from '@/components/jira/board-list';
+import { CreateIssueDialog } from '@/components/jira/create-issue-dialog';
+import { JiraIssueList } from '@/components/jira/issue-list';
+import { JiraProjectList } from '@/components/jira/project-list';
+import { JiraSprintView } from '@/components/jira/sprint-view';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { JiraProjectList } from '@/components/jira/project-list';
-import { JiraBoardList } from '@/components/jira/board-list';
-import { JiraIssueList } from '@/components/jira/issue-list';
-import { JiraSprintView } from '@/components/jira/sprint-view';
-import { CreateIssueDialog } from '@/components/jira/create-issue-dialog';
-import { RefreshCw, Plus } from 'lucide-react';
-import { 
-    useJiraProjects, 
-    useJiraBoards, 
-    useJiraIssues,
-    useCreateJiraIssue 
-} from '@/hooks/use-jira-query';
-import { queryClient } from '@/lib/react-query';
-import { queryKeys } from '@/lib/react-query';
+import { useCreateJiraIssue, useJiraBoards, useJiraIssues, useJiraProjects } from '@/hooks/use-jira-query';
+import AppLayout from '@/layouts/app-layout';
+import { queryClient, queryKeys } from '@/lib/react-query';
+import { Head } from '@inertiajs/react';
+import { Plus, RefreshCw } from 'lucide-react';
+import { useState } from 'react';
 
 interface JiraProps {
     hasIntegration: boolean;
@@ -27,12 +21,12 @@ export default function Jira({ hasIntegration }: JiraProps) {
     const [activeTab, setActiveTab] = useState('projects');
     const [showCreateIssue, setShowCreateIssue] = useState(false);
     const [searchJql, setSearchJql] = useState('');
-    
+
     // React Query hooks
     const { data: projects = [], isLoading: projectsLoading } = useJiraProjects();
     const { data: boardsData, isLoading: boardsLoading } = useJiraBoards();
     const { data: issuesData, refetch: searchIssues } = useJiraIssues(searchJql, {
-        max_results: 50
+        max_results: 50,
     });
     const createIssueMutation = useCreateJiraIssue();
 
@@ -67,9 +61,7 @@ export default function Jira({ hasIntegration }: JiraProps) {
                     <Card>
                         <CardHeader>
                             <CardTitle>JIRA Integration Not Connected</CardTitle>
-                            <CardDescription>
-                                Connect your JIRA account to manage issues, boards, and sprints.
-                            </CardDescription>
+                            <CardDescription>Connect your JIRA account to manage issues, boards, and sprints.</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <Button asChild>
@@ -88,30 +80,20 @@ export default function Jira({ hasIntegration }: JiraProps) {
         <AppLayout>
             <Head title="JIRA Integration" />
 
-            <div className="container mx-auto py-6 space-y-6">
+            <div className="container mx-auto space-y-6 py-6">
                 {/* Header */}
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-3xl font-bold tracking-tight">JIRA Integration</h1>
-                        <p className="text-muted-foreground mt-1">
-                            Manage your JIRA projects, issues, and sprints
-                        </p>
+                        <p className="text-muted-foreground mt-1">Manage your JIRA projects, issues, and sprints</p>
                     </div>
                     <div className="flex gap-2">
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={handleRefresh}
-                            disabled={loading}
-                        >
-                            <RefreshCw className="h-4 w-4 mr-2" />
+                        <Button variant="outline" size="sm" onClick={handleRefresh} disabled={loading}>
+                            <RefreshCw className="mr-2 h-4 w-4" />
                             Refresh
                         </Button>
-                        <Button
-                            size="sm"
-                            onClick={() => setShowCreateIssue(true)}
-                        >
-                            <Plus className="h-4 w-4 mr-2" />
+                        <Button size="sm" onClick={() => setShowCreateIssue(true)}>
+                            <Plus className="mr-2 h-4 w-4" />
                             Create Issue
                         </Button>
                     </div>
@@ -135,11 +117,7 @@ export default function Jira({ hasIntegration }: JiraProps) {
                     </TabsContent>
 
                     <TabsContent value="issues" className="space-y-4">
-                        <JiraIssueList 
-                            issues={issues} 
-                            loading={loading}
-                            onSearch={handleSearch}
-                        />
+                        <JiraIssueList issues={issues} loading={loading} onSearch={handleSearch} />
                     </TabsContent>
 
                     <TabsContent value="sprints" className="space-y-4">

@@ -6,24 +6,24 @@ export * from './types';
 
 // Entity Extractors
 export {
-    dateExtractor,
-    timeExtractor,
-    priorityExtractor,
-    serviceExtractor,
     actionExtractor,
-    projectExtractor,
+    dateExtractor,
+    defaultExtractors,
     labelExtractor,
     objectExtractor,
-    defaultExtractors,
+    priorityExtractor,
+    projectExtractor,
+    serviceExtractor,
+    timeExtractor,
 } from './entity-extractors';
 
 // Command Patterns
 export {
-    todoistPatterns,
-    notionPatterns,
-    jiraPatterns,
-    gmailPatterns,
+    allPatterns,
     calendarPatterns,
     crossServicePatterns,
-    allPatterns,
+    gmailPatterns,
+    jiraPatterns,
+    notionPatterns,
+    todoistPatterns,
 } from './command-patterns';

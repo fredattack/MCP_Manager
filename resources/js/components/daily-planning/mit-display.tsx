@@ -1,6 +1,5 @@
-import React from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Target } from 'lucide-react';
 
 interface MITDisplayProps {
@@ -19,39 +18,21 @@ export function MITDisplay({ mit }: MITDisplayProps) {
         <Card className="border-primary/50 bg-primary/5">
             <CardHeader>
                 <div className="flex items-center gap-2">
-                    <Target className="h-5 w-5 text-primary" />
+                    <Target className="text-primary h-5 w-5" />
                     <CardTitle>🎯 MIT du jour (Most Important Task)</CardTitle>
                 </div>
-                <CardDescription>
-                    Cette tâche seule rendrait ma journée réussie
-                </CardDescription>
+                <CardDescription>Cette tâche seule rendrait ma journée réussie</CardDescription>
             </CardHeader>
             <CardContent>
                 <div className="space-y-3">
                     <h3 className="text-xl font-semibold">{mit.content}</h3>
                     <div className="flex flex-wrap gap-2">
-                        {mit.project_name && (
-                            <Badge variant="secondary">
-                                Projet: {mit.project_name}
-                            </Badge>
-                        )}
-                        <Badge variant={mit.priority === 'P1' ? 'destructive' : 'default'}>
-                            {mit.priority}
-                        </Badge>
-                        {mit.duration && (
-                            <Badge variant="outline">
-                                ⏱️ {mit.duration} min
-                            </Badge>
-                        )}
-                        {mit.energy && (
-                            <Badge variant="outline">
-                                ⚡ {mit.energy} energy
-                            </Badge>
-                        )}
+                        {mit.project_name && <Badge variant="secondary">Projet: {mit.project_name}</Badge>}
+                        <Badge variant={mit.priority === 'P1' ? 'destructive' : 'default'}>{mit.priority}</Badge>
+                        {mit.duration && <Badge variant="outline">⏱️ {mit.duration} min</Badge>}
+                        {mit.energy && <Badge variant="outline">⚡ {mit.energy} energy</Badge>}
                     </div>
-                    <p className="text-sm text-muted-foreground mt-2">
-                        À programmer impérativement avant 10h pour maximiser votre productivité
-                    </p>
+                    <p className="text-muted-foreground mt-2 text-sm">À programmer impérativement avant 10h pour maximiser votre productivité</p>
                 </div>
             </CardContent>
         </Card>

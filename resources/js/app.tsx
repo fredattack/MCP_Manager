@@ -6,6 +6,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
 import { ToastProvider } from './components/common/feedback/Toast/ToastProvider';
+import './echo';
 import { initializeTheme } from './hooks/use-appearance';
 import { queryClient } from './lib/react-query';
 

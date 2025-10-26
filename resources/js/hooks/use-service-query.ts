@@ -1,6 +1,6 @@
+import { api } from '@/lib/api';
 import { useQuery, UseQueryOptions, UseQueryResult } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import { api } from '@/lib/api';
 
 interface ServiceResponse<T> {
     success: boolean;
@@ -23,17 +23,17 @@ interface UseServiceQueryOptions<TData = unknown> extends Omit<UseQueryOptions<T
 export function useServiceQuery<TData = unknown>(
     queryKey: readonly unknown[],
     url: string,
-    options?: UseServiceQueryOptions<TData>
+    options?: UseServiceQueryOptions<TData>,
 ): UseQueryResult<TData, AxiosError> {
     return useQuery<TData, AxiosError>({
         queryKey,
         queryFn: async () => {
             const response = await api.get<ServiceResponse<TData>>(url);
-            
+
             if (!response.data.success) {
                 throw new Error(response.data.message || 'Request failed');
             }
-            
+
             return response.data.data!;
         },
         ...options,
@@ -58,15 +58,11 @@ export function usePaginatedQuery<TData = unknown>(
     url: string,
     page: number = 1,
     perPage: number = 10,
-    options?: UseServiceQueryOptions<PaginatedResponse<TData>>
+    options?: UseServiceQueryOptions<PaginatedResponse<TData>>,
 ): UseQueryResult<PaginatedResponse<TData>, AxiosError> {
     const urlWithParams = `${url}?page=${page}&per_page=${perPage}`;
-    
-    return useServiceQuery<PaginatedResponse<TData>>(
-        [...queryKey, { page, perPage }],
-        urlWithParams,
-        options
-    );
+
+    return useServiceQuery<PaginatedResponse<TData>>([...queryKey, { page, perPage }], urlWithParams, options);
 }
 
 /**
@@ -77,21 +73,18 @@ export { useInfiniteQuery } from '@tanstack/react-query';
 /**
  * Prefetch data for a query
  */
-export async function prefetchQuery<TData = unknown>(
-    queryKey: readonly unknown[],
-    url: string
-): Promise<void> {
+export async function prefetchQuery<TData = unknown>(queryKey: readonly unknown[], url: string): Promise<void> {
     const { queryClient } = await import('@/lib/react-query');
-    
+
     await queryClient.prefetchQuery({
         queryKey,
         queryFn: async () => {
             const response = await api.get<ServiceResponse<TData>>(url);
-            
+
             if (!response.data.success) {
                 throw new Error(response.data.message || 'Request failed');
             }
-            
+
             return response.data.data!;
         },
     });

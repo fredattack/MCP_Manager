@@ -15,7 +15,24 @@ import {
 } from '@/components/ui/sidebar';
 import { type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
-import { AlertCircle, BookOpen, CheckCircle2, FileText, Folder, LayoutGrid, Plug, XCircle, MessageSquare, Brain, Mail, Calendar, CalendarDays, Server, Shield } from 'lucide-react';
+import {
+    AlertCircle,
+    BookOpen,
+    Brain,
+    Calendar,
+    CalendarDays,
+    CheckCircle2,
+    FileText,
+    Folder,
+    LayoutGrid,
+    Mail,
+    MessageSquare,
+    Plug,
+    Server,
+    Shield,
+    Workflow,
+    XCircle,
+} from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -23,6 +40,12 @@ const mainNavItems: NavItem[] = [
         title: 'Dashboard',
         href: '/dashboard',
         icon: LayoutGrid,
+    },
+    {
+        title: 'Workflows',
+        href: '/workflows',
+        icon: Workflow,
+        badge: 'New',
     },
     {
         title: 'MCP Dashboard',
@@ -53,7 +76,6 @@ const mainNavItems: NavItem[] = [
         title: 'Integration Manager',
         href: '/integrations/manager',
         icon: Plug,
-        badge: 'New',
     },
     {
         title: 'Integrations',
@@ -157,20 +179,20 @@ function IntegrationsNav({ items }: { items: NavItem[] }) {
 export function AppSidebar() {
     const page = usePage();
     const integrationStatuses = (page.props as SharedData).integrationStatuses || {};
-    
+
     // Update integration items with dynamic statuses
-    const dynamicIntegrationItems = integrationItems.map(item => {
+    const dynamicIntegrationItems = integrationItems.map((item) => {
         let statusKey = '';
         if (item.title === 'Todoist') statusKey = 'todoist';
         else if (item.title === 'Gmail') statusKey = 'gmail';
         else if (item.title === 'Calendar') statusKey = 'calendar';
-        
+
         return {
             ...item,
             status: integrationStatuses[statusKey] || 'disconnected',
         };
     });
-    
+
     return (
         <Sidebar collapsible="icon" variant="inset">
             <SidebarHeader>

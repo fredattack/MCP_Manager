@@ -1,27 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { 
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from '@/components/ui/select';
-import { 
-    AlertCircle, 
-    CheckCircle, 
-    Info, 
-    Search,
-    Download,
-    RefreshCw,
-    Filter,
-    Clock,
-    Activity
-} from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
+import { Activity, AlertCircle, CheckCircle, Clock, Download, Filter, Info, RefreshCw, Search } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 interface LogEntry {
     id: number;
@@ -43,13 +27,7 @@ interface LogsViewerProps {
     className?: string;
 }
 
-export function LogsViewer({ 
-    logs: initialLogs, 
-    onRefresh, 
-    onFilter, 
-    onExport,
-    className 
-}: LogsViewerProps) {
+export function LogsViewer({ logs: initialLogs, onRefresh, onFilter, onExport, className }: LogsViewerProps) {
     const [logs, setLogs] = useState(initialLogs);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterStatus, setFilterStatus] = useState<string>('all');
@@ -60,15 +38,16 @@ export function LogsViewer({
         setLogs(initialLogs);
     }, [initialLogs]);
 
-    const filteredLogs = logs.filter(log => {
-        const matchesSearch = searchTerm === '' || 
+    const filteredLogs = logs.filter((log) => {
+        const matchesSearch =
+            searchTerm === '' ||
             log.action.toLowerCase().includes(searchTerm.toLowerCase()) ||
             log.entity.toLowerCase().includes(searchTerm.toLowerCase()) ||
             (log.data && JSON.stringify(log.data).toLowerCase().includes(searchTerm.toLowerCase()));
-        
+
         const matchesStatus = filterStatus === 'all' || log.status === filterStatus;
         const matchesAction = filterAction === 'all' || log.action === filterAction;
-        
+
         return matchesSearch && matchesStatus && matchesAction;
     });
 
@@ -83,11 +62,11 @@ export function LogsViewer({
     const getStatusIcon = (status: string) => {
         switch (status) {
             case 'success':
-                return <CheckCircle className="w-4 h-4 text-green-500" />;
+                return <CheckCircle className="h-4 w-4 text-green-500" />;
             case 'failed':
-                return <AlertCircle className="w-4 h-4 text-red-500" />;
+                return <AlertCircle className="h-4 w-4 text-red-500" />;
             case 'warning':
-                return <Info className="w-4 h-4 text-yellow-500" />;
+                return <Info className="h-4 w-4 text-yellow-500" />;
             default:
                 return null;
         }
@@ -99,7 +78,7 @@ export function LogsViewer({
             failed: 'destructive',
             warning: 'secondary',
         };
-        
+
         return (
             <Badge variant={variants[status] || 'secondary'} className="text-xs">
                 {status}
@@ -125,36 +104,24 @@ export function LogsViewer({
         return colors[action] || 'text-gray-600';
     };
 
-    const uniqueActions = Array.from(new Set(logs.map(log => log.action)));
+    const uniqueActions = Array.from(new Set(logs.map((log) => log.action)));
 
     return (
         <Card className={className}>
             <CardHeader>
                 <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center gap-2">
-                        <Activity className="w-5 h-5" />
+                        <Activity className="h-5 w-5" />
                         Audit Logs
                     </CardTitle>
                     <div className="flex gap-2">
-                        <Button
-                            size="sm"
-                            variant="outline"
-                            onClick={handleRefresh}
-                            disabled={isRefreshing}
-                        >
-                            <RefreshCw className={cn(
-                                "w-4 h-4 mr-2",
-                                isRefreshing && "animate-spin"
-                            )} />
+                        <Button size="sm" variant="outline" onClick={handleRefresh} disabled={isRefreshing}>
+                            <RefreshCw className={cn('mr-2 h-4 w-4', isRefreshing && 'animate-spin')} />
                             Refresh
                         </Button>
                         {onExport && (
-                            <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={onExport}
-                            >
-                                <Download className="w-4 h-4 mr-2" />
+                            <Button size="sm" variant="outline" onClick={onExport}>
+                                <Download className="mr-2 h-4 w-4" />
                                 Export
                             </Button>
                         )}
@@ -163,19 +130,14 @@ export function LogsViewer({
             </CardHeader>
             <CardContent>
                 {/* Filters */}
-                <div className="flex gap-2 mb-4">
+                <div className="mb-4 flex gap-2">
                     <div className="relative flex-1">
-                        <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                        <Input
-                            placeholder="Search logs..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            className="pl-8"
-                        />
+                        <Search className="text-muted-foreground absolute top-2.5 left-2 h-4 w-4" />
+                        <Input placeholder="Search logs..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="pl-8" />
                     </div>
                     <Select value={filterStatus} onValueChange={setFilterStatus}>
                         <SelectTrigger className="w-[150px]">
-                            <Filter className="w-4 h-4 mr-2" />
+                            <Filter className="mr-2 h-4 w-4" />
                             <SelectValue placeholder="Status" />
                         </SelectTrigger>
                         <SelectContent>
@@ -191,7 +153,7 @@ export function LogsViewer({
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="all">All Actions</SelectItem>
-                            {uniqueActions.map(action => (
+                            {uniqueActions.map((action) => (
                                 <SelectItem key={action} value={action}>
                                     {action.replace(/_/g, ' ')}
                                 </SelectItem>
@@ -205,7 +167,7 @@ export function LogsViewer({
                     <div className="overflow-x-auto">
                         <table className="w-full">
                             <thead>
-                                <tr className="border-b bg-muted/50">
+                                <tr className="bg-muted/50 border-b">
                                     <th className="p-2 text-left text-xs font-medium">Status</th>
                                     <th className="p-2 text-left text-xs font-medium">Time</th>
                                     <th className="p-2 text-left text-xs font-medium">Action</th>
@@ -217,7 +179,7 @@ export function LogsViewer({
                             <tbody>
                                 {filteredLogs.length > 0 ? (
                                     filteredLogs.map((log) => (
-                                        <tr key={log.id} className="border-b hover:bg-muted/20">
+                                        <tr key={log.id} className="hover:bg-muted/20 border-b">
                                             <td className="p-2">
                                                 <div className="flex items-center gap-2">
                                                     {getStatusIcon(log.status)}
@@ -225,51 +187,40 @@ export function LogsViewer({
                                                 </div>
                                             </td>
                                             <td className="p-2">
-                                                <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                                                    <Clock className="w-3 h-3" />
+                                                <div className="text-muted-foreground flex items-center gap-1 text-xs">
+                                                    <Clock className="h-3 w-3" />
                                                     {formatTimestamp(log.created_at)}
                                                 </div>
                                             </td>
                                             <td className="p-2">
-                                                <span className={cn(
-                                                    "text-sm font-medium",
-                                                    getActionColor(log.action)
-                                                )}>
+                                                <span className={cn('text-sm font-medium', getActionColor(log.action))}>
                                                     {log.action.replace(/_/g, ' ')}
                                                 </span>
                                             </td>
                                             <td className="p-2">
                                                 <div className="text-sm">
                                                     {log.entity}
-                                                    {log.entity_id && (
-                                                        <span className="text-xs text-muted-foreground ml-1">
-                                                            #{log.entity_id}
-                                                        </span>
-                                                    )}
+                                                    {log.entity_id && <span className="text-muted-foreground ml-1 text-xs">#{log.entity_id}</span>}
                                                 </div>
                                             </td>
                                             <td className="p-2">
                                                 {log.data && (
                                                     <details className="cursor-pointer">
-                                                        <summary className="text-xs text-muted-foreground">
-                                                            View details
-                                                        </summary>
-                                                        <pre className="text-xs mt-1 p-2 bg-muted rounded overflow-x-auto max-w-xs">
+                                                        <summary className="text-muted-foreground text-xs">View details</summary>
+                                                        <pre className="bg-muted mt-1 max-w-xs overflow-x-auto rounded p-2 text-xs">
                                                             {JSON.stringify(log.data, null, 2)}
                                                         </pre>
                                                     </details>
                                                 )}
                                             </td>
                                             <td className="p-2">
-                                                <span className="text-xs text-muted-foreground">
-                                                    {log.ip_address || '-'}
-                                                </span>
+                                                <span className="text-muted-foreground text-xs">{log.ip_address || '-'}</span>
                                             </td>
                                         </tr>
                                     ))
                                 ) : (
                                     <tr>
-                                        <td colSpan={6} className="p-8 text-center text-muted-foreground">
+                                        <td colSpan={6} className="text-muted-foreground p-8 text-center">
                                             No logs found
                                         </td>
                                     </tr>
@@ -281,20 +232,22 @@ export function LogsViewer({
 
                 {/* Summary */}
                 {filteredLogs.length > 0 && (
-                    <div className="mt-4 flex items-center justify-between text-sm text-muted-foreground">
-                        <span>Showing {filteredLogs.length} of {logs.length} entries</span>
+                    <div className="text-muted-foreground mt-4 flex items-center justify-between text-sm">
+                        <span>
+                            Showing {filteredLogs.length} of {logs.length} entries
+                        </span>
                         <div className="flex gap-4">
                             <span className="flex items-center gap-1">
-                                <CheckCircle className="w-4 h-4 text-green-500" />
-                                {filteredLogs.filter(l => l.status === 'success').length} Success
+                                <CheckCircle className="h-4 w-4 text-green-500" />
+                                {filteredLogs.filter((l) => l.status === 'success').length} Success
                             </span>
                             <span className="flex items-center gap-1">
-                                <AlertCircle className="w-4 h-4 text-red-500" />
-                                {filteredLogs.filter(l => l.status === 'failed').length} Failed
+                                <AlertCircle className="h-4 w-4 text-red-500" />
+                                {filteredLogs.filter((l) => l.status === 'failed').length} Failed
                             </span>
                             <span className="flex items-center gap-1">
-                                <Info className="w-4 h-4 text-yellow-500" />
-                                {filteredLogs.filter(l => l.status === 'warning').length} Warning
+                                <Info className="h-4 w-4 text-yellow-500" />
+                                {filteredLogs.filter((l) => l.status === 'warning').length} Warning
                             </span>
                         </div>
                     </div>

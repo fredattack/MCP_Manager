@@ -1,6 +1,6 @@
-import { useServiceQuery } from './use-service-query';
-import { useServiceMutation, useCreateMutation, useUpdateMutation } from './use-service-mutation';
 import { queryKeys } from '@/lib/react-query';
+import { useCreateMutation, useServiceMutation, useUpdateMutation } from './use-service-mutation';
+import { useServiceQuery } from './use-service-query';
 
 // Types
 interface JiraProject {
@@ -90,40 +90,26 @@ interface SprintsResponse {
 
 // Query hooks
 export function useJiraProjects() {
-    return useServiceQuery<JiraProject[]>(
-        queryKeys.jiraProjects(),
-        '/api/jira/projects'
-    );
+    return useServiceQuery<JiraProject[]>(queryKeys.jiraProjects(), '/api/jira/projects');
 }
 
 export function useJiraProject(projectKey: string) {
-    return useServiceQuery<JiraProject>(
-        queryKeys.jiraProject(projectKey),
-        `/api/jira/projects/${projectKey}`,
-        {
-            enabled: !!projectKey,
-        }
-    );
+    return useServiceQuery<JiraProject>(queryKeys.jiraProject(projectKey), `/api/jira/projects/${projectKey}`, {
+        enabled: !!projectKey,
+    });
 }
 
 export function useJiraBoards(filters?: { project_key?: string; type?: 'scrum' | 'kanban' }) {
     const params = new URLSearchParams(filters as Record<string, string>).toString();
     const url = params ? `/api/jira/boards?${params}` : '/api/jira/boards';
-    
-    return useServiceQuery<BoardsResponse>(
-        queryKeys.jiraBoards(filters),
-        url
-    );
+
+    return useServiceQuery<BoardsResponse>(queryKeys.jiraBoards(filters), url);
 }
 
 export function useJiraBoard(boardId: string) {
-    return useServiceQuery<JiraBoard>(
-        queryKeys.jiraBoard(boardId),
-        `/api/jira/boards/${boardId}`,
-        {
-            enabled: !!boardId,
-        }
-    );
+    return useServiceQuery<JiraBoard>(queryKeys.jiraBoard(boardId), `/api/jira/boards/${boardId}`, {
+        enabled: !!boardId,
+    });
 }
 
 export function useJiraIssues(jql: string, options?: { max_results?: number; start_at?: number }) {
@@ -132,101 +118,97 @@ export function useJiraIssues(jql: string, options?: { max_results?: number; sta
         ...(options?.max_results && { max_results: options.max_results.toString() }),
         ...(options?.start_at && { start_at: options.start_at.toString() }),
     }).toString();
-    
-    return useServiceQuery<IssuesResponse>(
-        queryKeys.jiraIssues({ jql, ...options }),
-        `/api/jira/issues/search?${params}`,
-        {
-            enabled: !!jql,
-        }
-    );
+
+    return useServiceQuery<IssuesResponse>(queryKeys.jiraIssues({ jql, ...options }), `/api/jira/issues/search?${params}`, {
+        enabled: !!jql,
+    });
 }
 
 export function useJiraBoardIssues(boardId: string, filters?: { epic?: string; sprint_id?: string }) {
     const params = new URLSearchParams(filters as Record<string, string>).toString();
     const url = params ? `/api/jira/boards/${boardId}/issues?${params}` : `/api/jira/boards/${boardId}/issues`;
-    
-    return useServiceQuery<IssuesResponse>(
-        queryKeys.jiraIssues({ boardId, ...filters }),
-        url,
-        {
-            enabled: !!boardId,
-        }
-    );
+
+    return useServiceQuery<IssuesResponse>(queryKeys.jiraIssues({ boardId, ...filters }), url, {
+        enabled: !!boardId,
+    });
 }
 
 export function useJiraIssue(issueKey: string, expand?: string) {
     const params = expand ? `?expand=${expand}` : '';
-    
-    return useServiceQuery<JiraIssue>(
-        queryKeys.jiraIssue(issueKey),
-        `/api/jira/issues/${issueKey}${params}`,
-        {
-            enabled: !!issueKey,
-        }
-    );
+
+    return useServiceQuery<JiraIssue>(queryKeys.jiraIssue(issueKey), `/api/jira/issues/${issueKey}${params}`, {
+        enabled: !!issueKey,
+    });
 }
 
 export function useJiraSprints(boardId: string, state?: 'active' | 'closed' | 'future') {
     const params = state ? `?state=${state}` : '';
-    
-    return useServiceQuery<SprintsResponse>(
-        queryKeys.jiraSprints(boardId),
-        `/api/jira/boards/${boardId}/sprints${params}`,
-        {
-            enabled: !!boardId,
-        }
-    );
+
+    return useServiceQuery<SprintsResponse>(queryKeys.jiraSprints(boardId), `/api/jira/boards/${boardId}/sprints${params}`, {
+        enabled: !!boardId,
+    });
 }
 
 // Mutation hooks
 export function useCreateJiraIssue() {
-    return useCreateMutation<JiraIssue, {
-        project_key: string;
-        issue_type: string;
-        summary: string;
-        description?: string;
-        assignee?: string;
-        priority?: string;
-        epic_link?: string;
-        sprint_id?: string;
-        story_points?: number;
-    }>('/api/jira/issues', {
+    return useCreateMutation<
+        JiraIssue,
+        {
+            project_key: string;
+            issue_type: string;
+            summary: string;
+            description?: string;
+            assignee?: string;
+            priority?: string;
+            epic_link?: string;
+            sprint_id?: string;
+            story_points?: number;
+        }
+    >('/api/jira/issues', {
         invalidateQueries: [queryKeys.jiraIssues()],
         successMessage: 'Issue created successfully',
     });
 }
 
 export function useUpdateJiraIssue() {
-    return useUpdateMutation<JiraIssue, {
-        issueKey: string;
-        summary?: string;
-        description?: string;
-        assignee?: string;
-        priority?: string;
-        story_points?: number;
-    }>((variables) => `/api/jira/issues/${variables.issueKey}`, {
+    return useUpdateMutation<
+        JiraIssue,
+        {
+            issueKey: string;
+            summary?: string;
+            description?: string;
+            assignee?: string;
+            priority?: string;
+            story_points?: number;
+        }
+    >((variables) => `/api/jira/issues/${variables.issueKey}`, {
         invalidateQueries: [queryKeys.jiraIssues()],
         successMessage: 'Issue updated successfully',
     });
 }
 
 export function useTransitionJiraIssue() {
-    return useServiceMutation<unknown, {
-        issueKey: string;
-        transition_id: string;
-        comment?: string;
-    }>((variables) => `/api/jira/issues/${variables.issueKey}/transitions`, 'post', {
+    return useServiceMutation<
+        unknown,
+        {
+            issueKey: string;
+            transition_id: string;
+            comment?: string;
+        }
+    >((variables) => `/api/jira/issues/${variables.issueKey}/transitions`, 'post', {
         invalidateQueries: [queryKeys.jiraIssues()],
         successMessage: 'Issue status updated',
     });
 }
 
 export function useAssignJiraIssue() {
-    return useServiceMutation<unknown, {
-        issueKey: string;
-        assignee: string;
-    }>((variables) => `/api/jira/issues/${variables.issueKey}/assign`, 'put', {
+    return useServiceMutation<
+        unknown,
+        {
+            issueKey: string;
+            assignee: string;
+        }
+    >((variables) => `/api/jira/issues/${variables.issueKey}/assign`, 'put', {
         invalidateQueries: [queryKeys.jiraIssues()],
         successMessage: 'Issue assigned successfully',
     });
@@ -236,7 +218,7 @@ export function useAssignJiraIssue() {
 export function useJiraDashboard() {
     const projects = useJiraProjects();
     const boards = useJiraBoards();
-    
+
     return {
         projects,
         boards,

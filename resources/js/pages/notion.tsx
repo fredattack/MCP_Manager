@@ -1,5 +1,5 @@
-import { Head } from '@inertiajs/react';
 import apiClient from '@/lib/api/client';
+import { Head } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 import { IntegrationForm } from '../components/integrations/integration-form';
 import { Button } from '../components/ui/button';

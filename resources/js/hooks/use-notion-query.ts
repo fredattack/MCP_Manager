@@ -1,5 +1,5 @@
-import { useServiceQuery } from './use-service-query';
 import { queryKeys } from '@/lib/react-query';
+import { useServiceQuery } from './use-service-query';
 
 // Types
 interface NotionPage {
@@ -33,55 +33,41 @@ interface NotionBlock {
 // Query hooks
 export function useNotionPages(pageId?: string) {
     const params = pageId ? `?page_id=${pageId}` : '';
-    
-    return useServiceQuery<NotionPage[]>(
-        queryKeys.notionPages({ pageId }),
-        `/api/notion/pages-tree${params}`
-    );
+
+    return useServiceQuery<NotionPage[]>(queryKeys.notionPages({ pageId }), `/api/notion/pages-tree${params}`);
 }
 
 export function useNotionPage(pageId: string) {
-    return useServiceQuery<NotionPage>(
-        queryKeys.notionPage(pageId),
-        `/api/notion/page/${pageId}`,
-        {
-            enabled: !!pageId,
-        }
-    );
+    return useServiceQuery<NotionPage>(queryKeys.notionPage(pageId), `/api/notion/page/${pageId}`, {
+        enabled: !!pageId,
+    });
 }
 
 export function useNotionBlocks(pageId: string) {
-    return useServiceQuery<NotionBlock[]>(
-        queryKeys.notionBlocks(pageId),
-        `/api/notion/blocks/${pageId}`,
-        {
-            enabled: !!pageId,
-        }
-    );
+    return useServiceQuery<NotionBlock[]>(queryKeys.notionBlocks(pageId), `/api/notion/blocks/${pageId}`, {
+        enabled: !!pageId,
+    });
 }
 
 export function useNotionDatabases() {
-    return useServiceQuery<NotionDatabase[]>(
-        queryKeys.notionDatabases(),
-        '/api/notion/databases'
-    );
+    return useServiceQuery<NotionDatabase[]>(queryKeys.notionDatabases(), '/api/notion/databases');
 }
 
 // Prefetch functions for better UX
 export async function prefetchNotionPages(pageId?: string) {
     const { queryClient } = await import('@/lib/react-query');
     const params = pageId ? `?page_id=${pageId}` : '';
-    
+
     await queryClient.prefetchQuery({
         queryKey: queryKeys.notionPages({ pageId }),
         queryFn: async () => {
             const { api } = await import('@/lib/api');
             const response = await api.get(`/api/notion/pages-tree${params}`);
-            
+
             if (!response.data.success) {
                 throw new Error(response.data.message || 'Failed to fetch pages');
             }
-            
+
             return response.data.data;
         },
     });
@@ -91,7 +77,7 @@ export async function prefetchNotionPages(pageId?: string) {
 export function useNotionDashboard() {
     const pages = useNotionPages();
     const databases = useNotionDatabases();
-    
+
     return {
         pages,
         databases,

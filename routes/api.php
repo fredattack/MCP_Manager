@@ -102,6 +102,8 @@ Route::middleware(['auth:web'])->group(function () {
     // Workflow routes
     Route::apiResource('workflows', WorkflowController::class);
     Route::post('workflows/{workflow}/execute', [WorkflowController::class, 'execute'])->name('api.workflows.execute');
+    Route::post('workflows/{workflow}/rerun', [WorkflowController::class, 'rerun'])->name('api.workflows.rerun');
+    Route::post('workflows/{workflow}/cancel', [WorkflowController::class, 'cancel'])->name('api.workflows.cancel');
     Route::get('workflows/executions/{execution}', [WorkflowController::class, 'executionStatus'])->name('api.workflows.executions.status');
     Route::get('workflows/executions/{execution}/steps', [WorkflowController::class, 'executionSteps'])->name('api.workflows.executions.steps');
 

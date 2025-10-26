@@ -1,20 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from '@inertiajs/react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { 
-    Mail, 
-    Calendar, 
-    Settings, 
-    CheckCircle, 
-    XCircle, 
-    ExternalLink, 
-    RefreshCw,
-    AlertTriangle,
-    Clock
-} from 'lucide-react';
+import { Link } from '@inertiajs/react';
+import { AlertTriangle, Calendar, CheckCircle, Clock, ExternalLink, Mail, RefreshCw, Settings, XCircle } from 'lucide-react';
+import { useState } from 'react';
 
 interface GoogleIntegration {
     type: 'gmail' | 'calendar';
@@ -102,7 +92,7 @@ export function GoogleIntegrationCard({ integration, onRefresh, onDisconnect, on
         const now = new Date();
         const diffMs = now.getTime() - date.getTime();
         const diffMins = Math.floor(diffMs / 60000);
-        
+
         if (diffMins < 1) return 'Just now';
         if (diffMins < 60) return `${diffMins}m ago`;
         if (diffMins < 1440) return `${Math.floor(diffMins / 60)}h ago`;
@@ -138,13 +128,11 @@ export function GoogleIntegrationCard({ integration, onRefresh, onDisconnect, on
     };
 
     return (
-        <Card className="hover:shadow-md transition-shadow">
+        <Card className="transition-shadow hover:shadow-md">
             <CardHeader>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                            {getIcon()}
-                        </div>
+                        <div className="rounded-lg bg-gray-100 p-2 dark:bg-gray-800">{getIcon()}</div>
                         <div>
                             <CardTitle className="text-lg">{getTitle()}</CardTitle>
                             <CardDescription>{getDescription()}</CardDescription>
@@ -152,13 +140,11 @@ export function GoogleIntegrationCard({ integration, onRefresh, onDisconnect, on
                     </div>
                     <div className="flex items-center gap-2">
                         {getStatusIcon()}
-                        <Badge className={getStatusColor()}>
-                            {integration.status}
-                        </Badge>
+                        <Badge className={getStatusColor()}>{integration.status}</Badge>
                     </div>
                 </div>
             </CardHeader>
-            
+
             <CardContent className="space-y-4">
                 {/* Connection Details */}
                 {integration.status === 'active' && (
@@ -176,7 +162,7 @@ export function GoogleIntegrationCard({ integration, onRefresh, onDisconnect, on
                                 </span>
                             </div>
                         </div>
-                        
+
                         {/* Token Expiry Warning */}
                         {isTokenExpiring() && (
                             <Alert>
@@ -193,16 +179,14 @@ export function GoogleIntegrationCard({ integration, onRefresh, onDisconnect, on
                 {integration.status === 'error' && integration.errorMessage && (
                     <Alert>
                         <XCircle className="h-4 w-4" />
-                        <AlertDescription className="text-sm">
-                            {integration.errorMessage}
-                        </AlertDescription>
+                        <AlertDescription className="text-sm">{integration.errorMessage}</AlertDescription>
                     </Alert>
                 )}
 
                 {/* Scopes Information */}
                 {integration.meta?.scopes && integration.meta.scopes.length > 0 && (
                     <div className="text-xs text-gray-500">
-                        <div className="font-medium mb-1">Permissions:</div>
+                        <div className="mb-1 font-medium">Permissions:</div>
                         <div className="flex flex-wrap gap-1">
                             {integration.meta.scopes.map((scope) => (
                                 <Badge key={scope} variant="outline" className="text-xs">
@@ -219,33 +203,20 @@ export function GoogleIntegrationCard({ integration, onRefresh, onDisconnect, on
                         <>
                             <Link href={getActionUrl()}>
                                 <Button size="sm" className="flex-1">
-                                    <ExternalLink className="h-4 w-4 mr-2" />
+                                    <ExternalLink className="mr-2 h-4 w-4" />
                                     Open
                                 </Button>
                             </Link>
-                            <Button 
-                                variant="outline" 
-                                size="sm"
-                                onClick={handleRefresh}
-                                disabled={isLoading}
-                            >
+                            <Button variant="outline" size="sm" onClick={handleRefresh} disabled={isLoading}>
                                 <RefreshCw className={`h-4 w-4 ${isLoading ? 'animate-spin' : ''}`} />
                             </Button>
-                            <Button 
-                                variant="outline" 
-                                size="sm"
-                                onClick={onDisconnect}
-                            >
+                            <Button variant="outline" size="sm" onClick={onDisconnect}>
                                 Disconnect
                             </Button>
                         </>
                     ) : (
                         <>
-                            <Button 
-                                onClick={onReconnect}
-                                className="flex-1"
-                                size="sm"
-                            >
+                            <Button onClick={onReconnect} className="flex-1" size="sm">
                                 {integration.status === 'error' ? 'Reconnect' : 'Connect'}
                             </Button>
                             <Link href="/integrations/google-setup">
@@ -259,7 +230,7 @@ export function GoogleIntegrationCard({ integration, onRefresh, onDisconnect, on
 
                 {/* Quick Stats */}
                 {integration.status === 'active' && (
-                    <div className="grid grid-cols-2 gap-4 pt-2 border-t text-xs text-gray-500">
+                    <div className="grid grid-cols-2 gap-4 border-t pt-2 text-xs text-gray-500">
                         <div>
                             <div className="font-medium">Features</div>
                             <div>

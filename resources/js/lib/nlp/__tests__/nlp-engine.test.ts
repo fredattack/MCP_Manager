@@ -10,7 +10,7 @@ describe('NLPEngine', () => {
     describe('Todoist Commands', () => {
         test('parses create task command', () => {
             const command = engine.parse('Create task "Review PR" for tomorrow with priority P1');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('create_task');
             expect(command!.intent.service).toBe('todoist');
@@ -21,7 +21,7 @@ describe('NLPEngine', () => {
 
         test('parses simple task creation', () => {
             const command = engine.parse('Task: Fix the login bug');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('create_task');
             expect(command!.params!.content).toBe('Fix the login bug');
@@ -29,7 +29,7 @@ describe('NLPEngine', () => {
 
         test('parses list tasks command', () => {
             const command = engine.parse('Show my tasks for today');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('list_tasks');
             expect(command!.params!.date).toBe('today');
@@ -37,7 +37,7 @@ describe('NLPEngine', () => {
 
         test('parses generate planning command', () => {
             const command = engine.parse('Generate daily planning');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('generate_planning');
             expect(command!.intent.service).toBe('todoist');
@@ -47,7 +47,7 @@ describe('NLPEngine', () => {
     describe('Notion Commands', () => {
         test('parses search command', () => {
             const command = engine.parse('Search in Notion for "API documentation"');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('search_notion');
             expect(command!.intent.service).toBe('notion');
@@ -56,7 +56,7 @@ describe('NLPEngine', () => {
 
         test('parses create page command', () => {
             const command = engine.parse('Create Notion page "Meeting Notes"');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('create_page');
             expect(command!.intent.service).toBe('notion');
@@ -67,7 +67,7 @@ describe('NLPEngine', () => {
     describe('JIRA Commands', () => {
         test('parses create issue command', () => {
             const command = engine.parse('Create JIRA issue "Fix payment bug" in project PROJ');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('create_issue');
             expect(command!.intent.service).toBe('jira');
@@ -77,7 +77,7 @@ describe('NLPEngine', () => {
 
         test('parses show sprint command', () => {
             const command = engine.parse('Show current sprint');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('show_sprint');
             expect(command!.intent.service).toBe('jira');
@@ -87,12 +87,12 @@ describe('NLPEngine', () => {
     describe('Entity Extraction', () => {
         test('extracts multiple entities', () => {
             const command = engine.parse('Add task "Call client" tomorrow at 2pm with high priority @work');
-            
+
             expect(command).not.toBeNull();
-            
+
             const entities = command!.entities;
-            const types = entities.map(e => e.type);
-            
+            const types = entities.map((e) => e.type);
+
             expect(types).toContain('action');
             expect(types).toContain('object');
             expect(types).toContain('date');
@@ -103,11 +103,11 @@ describe('NLPEngine', () => {
 
         test('normalizes French commands', () => {
             const command = engine.parse('Créer tâche "Réviser le code" pour demain');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('create_task');
-            
-            const actionEntity = command!.entities.find(e => e.type === 'action');
+
+            const actionEntity = command!.entities.find((e) => e.type === 'action');
             expect(actionEntity?.value).toBe('create');
         });
     });
@@ -115,7 +115,7 @@ describe('NLPEngine', () => {
     describe('Confidence and Suggestions', () => {
         test('provides suggestions for unclear commands', () => {
             const command = engine.parse('task something');
-            
+
             expect(command).not.toBeNull();
             expect(command!.confidence).toBeLessThan(0.7);
             expect(command!.suggestions).toBeDefined();
@@ -124,7 +124,7 @@ describe('NLPEngine', () => {
 
         test('high confidence for well-formed commands', () => {
             const command = engine.parse('Create task "Important work"');
-            
+
             expect(command).not.toBeNull();
             expect(command!.confidence).toBeGreaterThanOrEqual(0.7);
             expect(engine.canExecute(command!)).toBe(true);
@@ -132,7 +132,7 @@ describe('NLPEngine', () => {
 
         test('low confidence for ambiguous commands', () => {
             const command = engine.parse('do something');
-            
+
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('unknown');
             expect(command!.confidence).toBe(0);
@@ -143,16 +143,18 @@ describe('NLPEngine', () => {
     describe('Pattern Management', () => {
         test('can add custom patterns', () => {
             const initialCount = engine.getPatterns().length;
-            
-            engine.addPatterns([{
-                id: 'custom.test',
-                pattern: /test pattern/i,
-                intent: 'test_intent',
-                service: 'custom',
-            }]);
-            
+
+            engine.addPatterns([
+                {
+                    id: 'custom.test',
+                    pattern: /test pattern/i,
+                    intent: 'test_intent',
+                    service: 'custom',
+                },
+            ]);
+
             expect(engine.getPatterns().length).toBe(initialCount + 1);
-            
+
             const command = engine.parse('test pattern');
             expect(command).not.toBeNull();
             expect(command!.intent.intent).toBe('test_intent');
@@ -160,11 +162,11 @@ describe('NLPEngine', () => {
 
         test('can remove patterns', () => {
             const initialCount = engine.getPatterns().length;
-            
+
             engine.removePatterns(['todoist.task.create']);
-            
+
             expect(engine.getPatterns().length).toBe(initialCount - 1);
-            
+
             const command = engine.parse('Create task "Test"');
             // Should still match the simple pattern
             expect(command).not.toBeNull();

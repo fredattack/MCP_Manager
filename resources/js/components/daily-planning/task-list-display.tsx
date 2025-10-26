@@ -1,8 +1,7 @@
-import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { CheckCircle2, Clock, Zap } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { CheckCircle2, Clock, Zap } from 'lucide-react';
 
 interface Task {
     id: string;
@@ -23,11 +22,16 @@ interface TaskListDisplayProps {
 export function TaskListDisplay({ tasks, title, variant = 'primary' }: TaskListDisplayProps) {
     const getPriorityColor = (priority: string) => {
         switch (priority) {
-            case 'P1': return 'destructive';
-            case 'P2': return 'default';
-            case 'P3': return 'secondary';
-            case 'P4': return 'outline';
-            default: return 'outline';
+            case 'P1':
+                return 'destructive';
+            case 'P2':
+                return 'default';
+            case 'P3':
+                return 'secondary';
+            case 'P4':
+                return 'outline';
+            default:
+                return 'outline';
         }
     };
 
@@ -51,13 +55,11 @@ export function TaskListDisplay({ tasks, title, variant = 'primary' }: TaskListD
                         <div
                             key={task.id}
                             className={cn(
-                                "flex items-start gap-3 p-3 rounded-lg border transition-colors",
-                                variant === 'primary' 
-                                    ? "hover:bg-accent hover:border-accent-foreground/20" 
-                                    : "hover:bg-muted"
+                                'flex items-start gap-3 rounded-lg border p-3 transition-colors',
+                                variant === 'primary' ? 'hover:bg-accent hover:border-accent-foreground/20' : 'hover:bg-muted',
                             )}
                         >
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-sm font-semibold">
+                            <div className="bg-primary/10 flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-sm font-semibold">
                                 {index + 1}
                             </div>
                             <div className="flex-1 space-y-2">
@@ -73,7 +75,7 @@ export function TaskListDisplay({ tasks, title, variant = 'primary' }: TaskListD
                                     </Badge>
                                     {task.duration && (
                                         <Badge variant="outline" className="text-xs">
-                                            <Clock className="h-3 w-3 mr-1" />
+                                            <Clock className="mr-1 h-3 w-3" />
                                             {task.duration} min
                                         </Badge>
                                     )}
@@ -85,7 +87,7 @@ export function TaskListDisplay({ tasks, title, variant = 'primary' }: TaskListD
                                     )}
                                     {task.scheduled_time && (
                                         <Badge variant="outline" className="text-xs">
-                                            <Clock className="h-3 w-3 mr-1" />
+                                            <Clock className="mr-1 h-3 w-3" />
                                             {task.scheduled_time}
                                         </Badge>
                                     )}
@@ -94,10 +96,10 @@ export function TaskListDisplay({ tasks, title, variant = 'primary' }: TaskListD
                         </div>
                     ))}
                 </div>
-                
+
                 {variant === 'primary' && (
-                    <div className="mt-4 p-3 bg-muted rounded-lg">
-                        <p className="text-sm text-muted-foreground">
+                    <div className="bg-muted mt-4 rounded-lg p-3">
+                        <p className="text-muted-foreground text-sm">
                             <strong>Règle d'exécution :</strong> Ne passez à la tâche suivante qu'une fois la précédente terminée.
                         </p>
                     </div>

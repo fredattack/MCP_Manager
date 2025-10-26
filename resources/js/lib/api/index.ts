@@ -1,3 +1,2 @@
-export { default as api } from './client';
-export { mcpClient } from './client';
+export { default as api, mcpClient } from './client';
 export { setupInterceptors } from './interceptors';

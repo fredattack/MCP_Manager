@@ -10,7 +10,7 @@ export function setupInterceptors(client: AxiosInstance) {
             if (csrfToken) {
                 config.headers['X-CSRF-TOKEN'] = csrfToken;
             }
-            
+
             // Ensure we always include credentials
             config.withCredentials = true;
 
@@ -29,7 +29,7 @@ export function setupInterceptors(client: AxiosInstance) {
         },
         (error: AxiosError) => {
             console.log('API Error:', error.response?.status, error.response?.statusText);
-            
+
             if (error.response?.status === 302) {
                 // Handle redirects - likely session expired
                 console.warn('Redirect detected - refreshing page to restore session');

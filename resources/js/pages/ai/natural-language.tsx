@@ -1,13 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Head, router } from '@inertiajs/react';
-import AppLayout from '@/layouts/app-layout';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Loader2, Send, Lightbulb, History, CheckCircle, XCircle, MessageSquare } from 'lucide-react';
 import { MarkdownRenderer } from '@/components/ai/canvas/MarkdownRenderer';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import AppLayout from '@/layouts/app-layout';
+import { Head, router } from '@inertiajs/react';
+import { CheckCircle, History, Lightbulb, Loader2, MessageSquare, Send, XCircle } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface Task {
     id: string;
@@ -114,7 +114,7 @@ export default function NaturalLanguage() {
 
             const data = await response.json();
             setResult(data);
-            
+
             if (data.success) {
                 setCommand('');
                 loadHistory();
@@ -149,22 +149,16 @@ export default function NaturalLanguage() {
             <Card className="mt-6">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
-                        {result.success ? (
-                            <CheckCircle className="h-5 w-5 text-green-500" />
-                        ) : (
-                            <XCircle className="h-5 w-5 text-red-500" />
-                        )}
+                        {result.success ? <CheckCircle className="h-5 w-5 text-green-500" /> : <XCircle className="h-5 w-5 text-red-500" />}
                         Résultat
                     </CardTitle>
                 </CardHeader>
                 <CardContent>
                     <p className="mb-4">{result.message}</p>
-                    
+
                     {result.requiresIntegration && (
                         <Alert className="mb-4">
-                            <AlertDescription>
-                                Redirection vers les intégrations dans 3 secondes...
-                            </AlertDescription>
+                            <AlertDescription>Redirection vers les intégrations dans 3 secondes...</AlertDescription>
                         </Alert>
                     )}
 
@@ -172,17 +166,13 @@ export default function NaturalLanguage() {
                         <div className="space-y-2">
                             <h4 className="font-semibold">Tâches ({result.data.count})</h4>
                             {result.data.tasks.map((task, index) => (
-                                <div key={index} className="p-3 bg-gray-50 dark:bg-gray-800 rounded">
+                                <div key={index} className="rounded bg-gray-50 p-3 dark:bg-gray-800">
                                     <div className="flex items-center justify-between">
                                         <span>{task.content}</span>
-                                        {task.priority && (
-                                            <Badge variant={task.priority === 4 ? 'secondary' : 'destructive'}>
-                                                P{task.priority}
-                                            </Badge>
-                                        )}
+                                        {task.priority && <Badge variant={task.priority === 4 ? 'secondary' : 'destructive'}>P{task.priority}</Badge>}
                                     </div>
                                     {task.due && (
-                                        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+                                        <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
                                             Échéance: {new Date(task.due.date).toLocaleDateString()}
                                         </p>
                                     )}
@@ -195,12 +185,9 @@ export default function NaturalLanguage() {
                         <div className="space-y-2">
                             <h4 className="font-semibold">Projets ({result.data.count})</h4>
                             {result.data.projects.map((project, index) => (
-                                <div key={index} className="p-3 bg-gray-50 dark:bg-gray-800 rounded">
+                                <div key={index} className="rounded bg-gray-50 p-3 dark:bg-gray-800">
                                     <div className="flex items-center gap-2">
-                                        <div 
-                                            className="w-3 h-3 rounded-full" 
-                                            style={{ backgroundColor: project.color }}
-                                        />
+                                        <div className="h-3 w-3 rounded-full" style={{ backgroundColor: project.color }} />
                                         <span>{project.name}</span>
                                     </div>
                                 </div>
@@ -211,9 +198,7 @@ export default function NaturalLanguage() {
                     {result.type === 'notion_pages' && result.data && (
                         <div className="space-y-2">
                             <h4 className="font-semibold">Pages Notion ({result.data.count})</h4>
-                            <div className="max-h-64 overflow-y-auto">
-                                {renderNotionPages(result.data.pages)}
-                            </div>
+                            <div className="max-h-64 overflow-y-auto">{renderNotionPages(result.data.pages)}</div>
                         </div>
                     )}
 
@@ -223,8 +208,8 @@ export default function NaturalLanguage() {
                                 <MessageSquare className="h-5 w-5 text-blue-500" />
                                 <h4 className="font-semibold">Réponse de Claude</h4>
                             </div>
-                            <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
-                                <MarkdownRenderer 
+                            <div className="rounded-lg border border-blue-200 bg-blue-50 p-4 dark:border-blue-800 dark:bg-blue-900/20">
+                                <MarkdownRenderer
                                     content={result.data.response?.content || result.message}
                                     className="text-gray-800 dark:text-gray-200"
                                 />
@@ -241,19 +226,14 @@ export default function NaturalLanguage() {
 
                     {!result.success && result.suggestions && (
                         <div className="mt-4">
-                            <h4 className="font-semibold mb-2">Suggestions:</h4>
+                            <h4 className="mb-2 font-semibold">Suggestions:</h4>
                             <div className="grid gap-2">
                                 {Object.entries(result.suggestions).map(([service, commands]) => (
                                     <div key={service}>
-                                        <h5 className="font-medium text-sm">{service}</h5>
-                                        <div className="flex flex-wrap gap-1 mt-1">
+                                        <h5 className="text-sm font-medium">{service}</h5>
+                                        <div className="mt-1 flex flex-wrap gap-1">
                                             {commands.map((cmd: string, index: number) => (
-                                                <Button
-                                                    key={index}
-                                                    variant="outline"
-                                                    size="sm"
-                                                    onClick={() => handleSuggestionClick(cmd)}
-                                                >
+                                                <Button key={index} variant="outline" size="sm" onClick={() => handleSuggestionClick(cmd)}>
                                                     {cmd}
                                                 </Button>
                                             ))}
@@ -271,7 +251,7 @@ export default function NaturalLanguage() {
     const renderNotionPages = (pages: NotionPage[], level = 0) => {
         return pages.map((page, index) => (
             <div key={index} style={{ marginLeft: level * 20 }}>
-                <div className="p-2 bg-gray-50 dark:bg-gray-800 rounded mb-1">
+                <div className="mb-1 rounded bg-gray-50 p-2 dark:bg-gray-800">
                     <span>{page.title}</span>
                 </div>
                 {page.children && renderNotionPages(page.children, level + 1)}
@@ -282,14 +262,12 @@ export default function NaturalLanguage() {
     return (
         <AppLayout>
             <Head title="Natural Language Commands" />
-            
+
             <div className="container mx-auto px-6 py-8">
-                <div className="max-w-4xl mx-auto">
+                <div className="mx-auto max-w-4xl">
                     <div className="mb-8">
-                        <h1 className="text-3xl font-bold mb-2">Natural Language Commands</h1>
-                        <p className="text-gray-600 dark:text-gray-400">
-                            Interact with your integrations using simple natural language commands
-                        </p>
+                        <h1 className="mb-2 text-3xl font-bold">Natural Language Commands</h1>
+                        <p className="text-gray-600 dark:text-gray-400">Interact with your integrations using simple natural language commands</p>
                     </div>
 
                     <form onSubmit={handleSubmit} className="mb-6">
@@ -304,11 +282,7 @@ export default function NaturalLanguage() {
                                 className="flex-1"
                             />
                             <Button type="submit" disabled={isLoading || !command.trim()}>
-                                {isLoading ? (
-                                    <Loader2 className="h-4 w-4 animate-spin" />
-                                ) : (
-                                    <Send className="h-4 w-4" />
-                                )}
+                                {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                             </Button>
                         </div>
                     </form>
@@ -327,14 +301,14 @@ export default function NaturalLanguage() {
                                 <div className="grid gap-4">
                                     {Object.entries(suggestions).map(([service, commands]) => (
                                         <div key={service}>
-                                            <h4 className="font-semibold mb-2">{service}</h4>
+                                            <h4 className="mb-2 font-semibold">{service}</h4>
                                             <div className="grid gap-2 sm:grid-cols-2">
                                                 {commands.map((cmd: string, index: number) => (
                                                     <Button
                                                         key={index}
                                                         variant="outline"
                                                         size="sm"
-                                                        className="justify-start h-auto p-3 text-left"
+                                                        className="h-auto justify-start p-3 text-left"
                                                         onClick={() => handleSuggestionClick(cmd)}
                                                     >
                                                         {cmd}
@@ -359,8 +333,8 @@ export default function NaturalLanguage() {
                             <CardContent>
                                 <div className="space-y-2">
                                     {history.map((item, index) => (
-                                        <div key={index} className="p-3 bg-gray-50 dark:bg-gray-800 rounded">
-                                            <div className="flex items-center justify-between mb-1">
+                                        <div key={index} className="rounded bg-gray-50 p-3 dark:bg-gray-800">
+                                            <div className="mb-1 flex items-center justify-between">
                                                 <span className="font-medium">{item.command}</span>
                                                 <div className="flex items-center gap-2">
                                                     {item.result.success ? (
@@ -368,14 +342,10 @@ export default function NaturalLanguage() {
                                                     ) : (
                                                         <XCircle className="h-4 w-4 text-red-500" />
                                                     )}
-                                                    <span className="text-sm text-gray-500">
-                                                        {new Date(item.timestamp).toLocaleString()}
-                                                    </span>
+                                                    <span className="text-sm text-gray-500">{new Date(item.timestamp).toLocaleString()}</span>
                                                 </div>
                                             </div>
-                                            <p className="text-sm text-gray-600 dark:text-gray-400">
-                                                {item.result.message}
-                                            </p>
+                                            <p className="text-sm text-gray-600 dark:text-gray-400">{item.result.message}</p>
                                         </div>
                                     ))}
                                 </div>

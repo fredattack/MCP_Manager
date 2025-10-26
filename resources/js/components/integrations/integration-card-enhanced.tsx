@@ -1,14 +1,14 @@
+import { cn } from '@/lib/utils';
+import { Link } from '@inertiajs/react';
+import { CheckCircle2, Info, Power, Settings, Trash2 } from 'lucide-react';
 import React from 'react';
 import { INTEGRATION_TYPES, IntegrationAccount, IntegrationStatus, IntegrationType } from '../../types/integrations';
 import { MonologueBadge } from '../ui/MonologueBadge';
 import { MonologueButton } from '../ui/MonologueButton';
 import { MonologueCard } from '../ui/MonologueCard';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
-import { IntegrationForm } from './integration-form';
-import { Link } from '@inertiajs/react';
-import { Settings, Power, Trash2, CheckCircle2, Circle, Info } from 'lucide-react';
-import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '../ui/tooltip';
+import { IntegrationForm } from './integration-form';
 
 interface IntegrationCardEnhancedProps {
     integration: IntegrationAccount;
@@ -48,32 +48,30 @@ export function IntegrationCardEnhanced({ integration, onUpdate, onDelete }: Int
 
     return (
         <MonologueCard
-            variant={isActive ? "elevated" : "default"}
+            variant={isActive ? 'elevated' : 'default'}
             className={cn(
-                "group relative overflow-hidden transition-all duration-fast",
-                isActive && "border-monologue-brand-primary/20",
-                !isActive && "opacity-90 hover:opacity-100"
+                'group duration-fast relative overflow-hidden transition-all',
+                isActive && 'border-monologue-brand-primary/20',
+                !isActive && 'opacity-90 hover:opacity-100',
             )}
         >
             {/* Active indicator - subtle left border accent */}
-            {isActive && (
-                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-monologue-brand-primary to-monologue-brand-accent" />
-            )}
+            {isActive && <div className="from-monologue-brand-primary to-monologue-brand-accent absolute top-0 left-0 h-full w-1 bg-gradient-to-b" />}
 
             <div className="p-6 pl-7">
                 {/* Header Section */}
                 <div className="flex items-start justify-between">
                     <div className="flex items-center space-x-4">
                         {/* Icon with enhanced styling */}
-                        <div className={cn(
-                            "flex h-12 w-12 items-center justify-center rounded-lg transition-all duration-fast",
-                            isActive
-                                ? "bg-monologue-brand-primary/10 text-monologue-brand-primary"
-                                : "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
-                        )}>
-                            <span className="font-monologue-serif text-xl font-medium">
-                                {integrationType?.displayName.charAt(0)}
-                            </span>
+                        <div
+                            className={cn(
+                                'duration-fast flex h-12 w-12 items-center justify-center rounded-lg transition-all',
+                                isActive
+                                    ? 'bg-monologue-brand-primary/10 text-monologue-brand-primary'
+                                    : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
+                            )}
+                        >
+                            <span className="font-monologue-serif text-xl font-medium">{integrationType?.displayName.charAt(0)}</span>
                         </div>
 
                         {/* Title & Description */}
@@ -82,29 +80,24 @@ export function IntegrationCardEnhanced({ integration, onUpdate, onDelete }: Int
                                 <h3 className="font-monologue-serif text-lg font-medium tracking-tight text-gray-900 dark:text-gray-100">
                                     {integrationType?.displayName}
                                 </h3>
-                                {isActive && (
-                                    <CheckCircle2 className="h-4 w-4 text-monologue-brand-success" />
-                                )}
+                                {isActive && <CheckCircle2 className="text-monologue-brand-success h-4 w-4" />}
                             </div>
-                            <p className="mt-0.5 font-monologue-mono text-xs tracking-wide text-gray-500 dark:text-gray-400">
+                            <p className="font-monologue-mono mt-0.5 text-xs tracking-wide text-gray-500 dark:text-gray-400">
                                 {integrationType?.description}
                             </p>
                         </div>
                     </div>
 
                     {/* Status Badge */}
-                    <MonologueBadge
-                        variant={isActive ? "success" : isConfigured ? "default" : "muted"}
-                        size="md"
-                    >
-                        {isActive ? "Active" : isConfigured ? "Configured" : "Not Configured"}
+                    <MonologueBadge variant={isActive ? 'success' : isConfigured ? 'default' : 'muted'} size="md">
+                        {isActive ? 'Active' : isConfigured ? 'Configured' : 'Not Configured'}
                     </MonologueBadge>
                 </div>
 
                 {/* Info Banner for Active Integrations */}
                 {isActive && integration.meta && (
-                    <div className="mt-4 flex items-start gap-2 rounded-md bg-monologue-brand-primary/5 px-3 py-2 border border-monologue-brand-primary/10">
-                        <Info className="h-4 w-4 flex-shrink-0 text-monologue-brand-primary mt-0.5" />
+                    <div className="bg-monologue-brand-primary/5 border-monologue-brand-primary/10 mt-4 flex items-start gap-2 rounded-md border px-3 py-2">
+                        <Info className="text-monologue-brand-primary mt-0.5 h-4 w-4 flex-shrink-0" />
                         <div className="flex-1">
                             <p className="font-monologue-mono text-xs text-gray-700 dark:text-gray-300">
                                 Your integrations are managed through the MCP server at your production server
@@ -122,7 +115,7 @@ export function IntegrationCardEnhanced({ integration, onUpdate, onDelete }: Int
                                 <TooltipTrigger asChild>
                                     <Link href={route('integrations.todoist.setup')}>
                                         <MonologueButton
-                                            variant={isActive ? "ghost" : "primary"}
+                                            variant={isActive ? 'ghost' : 'primary'}
                                             size="sm"
                                             leftIcon={<Settings className="h-3.5 w-3.5" />}
                                         >
@@ -138,12 +131,8 @@ export function IntegrationCardEnhanced({ integration, onUpdate, onDelete }: Int
                     ) : (
                         <Dialog open={isUpdateDialogOpen} onOpenChange={setIsUpdateDialogOpen}>
                             <DialogTrigger asChild>
-                                <MonologueButton
-                                    variant={isActive ? "ghost" : "primary"}
-                                    size="sm"
-                                    leftIcon={<Settings className="h-3.5 w-3.5" />}
-                                >
-                                    {isConfigured ? "Edit" : "Configure"}
+                                <MonologueButton variant={isActive ? 'ghost' : 'primary'} size="sm" leftIcon={<Settings className="h-3.5 w-3.5" />}>
+                                    {isConfigured ? 'Edit' : 'Configure'}
                                 </MonologueButton>
                             </DialogTrigger>
                             <DialogContent>
@@ -171,7 +160,7 @@ export function IntegrationCardEnhanced({ integration, onUpdate, onDelete }: Int
                     {/* Activate/Deactivate Toggle */}
                     {isConfigured && (
                         <MonologueButton
-                            variant={isActive ? "secondary" : "ghost"}
+                            variant={isActive ? 'secondary' : 'ghost'}
                             size="sm"
                             onClick={handleStatusToggle}
                             disabled={isLoading}
@@ -188,7 +177,7 @@ export function IntegrationCardEnhanced({ integration, onUpdate, onDelete }: Int
                                 <MonologueButton
                                     variant="ghost"
                                     size="sm"
-                                    className="text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/20"
+                                    className="text-red-600 hover:bg-red-50 hover:text-red-700 dark:hover:bg-red-950/20"
                                     leftIcon={<Trash2 className="h-3.5 w-3.5" />}
                                 >
                                     Delete
@@ -196,9 +185,7 @@ export function IntegrationCardEnhanced({ integration, onUpdate, onDelete }: Int
                             </DialogTrigger>
                             <DialogContent>
                                 <DialogHeader>
-                                    <DialogTitle className="font-monologue-serif text-xl">
-                                        Delete Integration
-                                    </DialogTitle>
+                                    <DialogTitle className="font-monologue-serif text-xl">Delete Integration</DialogTitle>
                                 </DialogHeader>
                                 <div className="py-4">
                                     <p className="font-monologue-mono text-sm text-gray-700 dark:text-gray-300">
@@ -206,19 +193,16 @@ export function IntegrationCardEnhanced({ integration, onUpdate, onDelete }: Int
                                     </p>
                                 </div>
                                 <div className="flex justify-end space-x-2">
-                                    <MonologueButton
-                                        variant="ghost"
-                                        onClick={() => setIsDeleteDialogOpen(false)}
-                                    >
+                                    <MonologueButton variant="ghost" onClick={() => setIsDeleteDialogOpen(false)}>
                                         Cancel
                                     </MonologueButton>
                                     <MonologueButton
                                         variant="primary"
                                         onClick={handleDelete}
                                         disabled={isLoading}
-                                        className="bg-red-600 hover:bg-red-700 text-white"
+                                        className="bg-red-600 text-white hover:bg-red-700"
                                     >
-                                        {isLoading ? "Deleting..." : "Delete"}
+                                        {isLoading ? 'Deleting...' : 'Delete'}
                                     </MonologueButton>
                                 </div>
                             </DialogContent>

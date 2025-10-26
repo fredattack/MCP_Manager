@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { useToast } from '@/hooks/ui/use-toast';
 import { api } from '@/lib/api';
+import { useState } from 'react';
 
 interface Task {
     id: string;
@@ -83,7 +83,7 @@ export function useDailyPlanning() {
         try {
             setGenerating(true);
             const response = await api.post('/daily-planning/generate', options || {});
-            
+
             if (response.data.success) {
                 setPlanning(response.data.data);
                 toast.success('Planning Generated', 'Your daily planning has been created successfully.');
@@ -94,8 +94,10 @@ export function useDailyPlanning() {
             }
         } catch (error) {
             console.error('Failed to generate planning:', error);
-            const errorMessage = error instanceof Error ? error.message : 
-                (error as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to generate daily planning.';
+            const errorMessage =
+                error instanceof Error
+                    ? error.message
+                    : (error as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to generate daily planning.';
             toast.error('Generation Failed', errorMessage);
             return null;
         } finally {
@@ -120,8 +122,10 @@ export function useDailyPlanning() {
             }
         } catch (error) {
             console.error('Failed to update tasks:', error);
-            const errorMessage = error instanceof Error ? error.message : 
-                (error as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to update Todoist tasks.';
+            const errorMessage =
+                error instanceof Error
+                    ? error.message
+                    : (error as { response?: { data?: { message?: string } } })?.response?.data?.message || 'Failed to update Todoist tasks.';
             toast.error('Update Failed', errorMessage);
             return null;
         } finally {

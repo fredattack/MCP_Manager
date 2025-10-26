@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
-import { useForm } from '@inertiajs/react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { 
-    Mail, 
-    Send, 
-    Plus, 
-    Search,
-    Clock,
-    Users
-} from 'lucide-react';
+import { Textarea } from '@/components/ui/textarea';
+import { useForm } from '@inertiajs/react';
+import { Clock, Mail, Plus, Search, Send, Users } from 'lucide-react';
+import React, { useState } from 'react';
 
 interface Props {
     hasGmail?: boolean;
@@ -24,15 +17,25 @@ interface Props {
 export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Props) {
     const [showEmailDialog, setShowEmailDialog] = useState(false);
     const [showEventDialog, setShowEventDialog] = useState(false);
-    
-    const { data: emailData, setData: setEmailData, post: postEmail, processing: emailProcessing } = useForm({
+
+    const {
+        data: emailData,
+        setData: setEmailData,
+        post: postEmail,
+        processing: emailProcessing,
+    } = useForm({
         to: '',
         subject: '',
         body: '',
         body_type: 'text',
     });
 
-    const { data: eventData, setData: setEventData, post: postEvent, processing: eventProcessing } = useForm({
+    const {
+        data: eventData,
+        setData: setEventData,
+        post: postEvent,
+        processing: eventProcessing,
+    } = useForm({
         summary: '',
         description: '',
         start: '',
@@ -68,12 +71,10 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                         <Mail className="h-5 w-5" />
                         Google Quick Actions
                     </CardTitle>
-                    <CardDescription>
-                        Connect Gmail or Calendar to access quick actions
-                    </CardDescription>
+                    <CardDescription>Connect Gmail or Calendar to access quick actions</CardDescription>
                 </CardHeader>
                 <CardContent>
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                    <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
                         Set up your Google integrations to send emails and create events directly from here.
                     </p>
                     <Button variant="outline" disabled>
@@ -91,13 +92,10 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                     <Mail className="h-5 w-5" />
                     Google Quick Actions
                 </CardTitle>
-                <CardDescription>
-                    Quickly send emails and create calendar events
-                </CardDescription>
+                <CardDescription>Quickly send emails and create calendar events</CardDescription>
             </CardHeader>
             <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                     {/* Quick Email */}
                     {hasGmail && (
                         <Dialog open={showEmailDialog} onOpenChange={setShowEmailDialog}>
@@ -110,9 +108,7 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                             <DialogContent className="max-w-2xl">
                                 <DialogHeader>
                                     <DialogTitle>Quick Send Email</DialogTitle>
-                                    <DialogDescription>
-                                        Send an email through your connected Gmail account
-                                    </DialogDescription>
+                                    <DialogDescription>Send an email through your connected Gmail account</DialogDescription>
                                 </DialogHeader>
                                 <form onSubmit={handleSendEmail} className="space-y-4">
                                     <div className="grid grid-cols-2 gap-4">
@@ -140,7 +136,7 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                                             </Select>
                                         </div>
                                     </div>
-                                    
+
                                     <div>
                                         <Label htmlFor="subject">Subject</Label>
                                         <Input
@@ -151,7 +147,7 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                                             required
                                         />
                                     </div>
-                                    
+
                                     <div>
                                         <Label htmlFor="body">Message</Label>
                                         <Textarea
@@ -163,13 +159,9 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                                             required
                                         />
                                     </div>
-                                    
+
                                     <div className="flex justify-end gap-2">
-                                        <Button
-                                            type="button"
-                                            variant="outline"
-                                            onClick={() => setShowEmailDialog(false)}
-                                        >
+                                        <Button type="button" variant="outline" onClick={() => setShowEmailDialog(false)}>
                                             Cancel
                                         </Button>
                                         <Button type="submit" disabled={emailProcessing}>
@@ -193,9 +185,7 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                             <DialogContent className="max-w-2xl">
                                 <DialogHeader>
                                     <DialogTitle>Quick Create Event</DialogTitle>
-                                    <DialogDescription>
-                                        Create an event in your Google Calendar
-                                    </DialogDescription>
+                                    <DialogDescription>Create an event in your Google Calendar</DialogDescription>
                                 </DialogHeader>
                                 <form onSubmit={handleCreateEvent} className="space-y-4">
                                     <div>
@@ -208,7 +198,7 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                                             required
                                         />
                                     </div>
-                                    
+
                                     <div className="grid grid-cols-2 gap-4">
                                         <div>
                                             <Label htmlFor="start">Start Time</Label>
@@ -231,7 +221,7 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                                             />
                                         </div>
                                     </div>
-                                    
+
                                     <div>
                                         <Label htmlFor="location">Location</Label>
                                         <Input
@@ -241,7 +231,7 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                                             placeholder="Conference room, online, etc."
                                         />
                                     </div>
-                                    
+
                                     <div>
                                         <Label htmlFor="description">Description</Label>
                                         <Textarea
@@ -252,13 +242,9 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                                             rows={3}
                                         />
                                     </div>
-                                    
+
                                     <div className="flex justify-end gap-2">
-                                        <Button
-                                            type="button"
-                                            variant="outline"
-                                            onClick={() => setShowEventDialog(false)}
-                                        >
+                                        <Button type="button" variant="outline" onClick={() => setShowEventDialog(false)}>
                                             Cancel
                                         </Button>
                                         <Button type="submit" disabled={eventProcessing}>
@@ -292,12 +278,12 @@ export function GoogleQuickActions({ hasGmail = false, hasCalendar = false }: Pr
                 </div>
 
                 {/* Recent Activity */}
-                <div className="mt-6 pt-4 border-t">
-                    <h4 className="font-medium mb-3 flex items-center gap-2">
+                <div className="mt-6 border-t pt-4">
+                    <h4 className="mb-3 flex items-center gap-2 font-medium">
                         <Users className="h-4 w-4" />
                         Quick Tips
                     </h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-600 dark:text-gray-400">
+                    <div className="grid grid-cols-1 gap-3 text-sm text-gray-600 md:grid-cols-2 dark:text-gray-400">
                         {hasGmail && (
                             <div>
                                 <strong>Gmail:</strong> Use labels to organize your emails automatically

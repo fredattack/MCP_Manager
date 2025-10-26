@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Head, useForm, router } from '@inertiajs/react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { ArrowLeft, Save, AlertCircle } from 'lucide-react';
 import AppLayout from '@/layouts/app-layout';
+import { Head, router, useForm } from '@inertiajs/react';
+import { AlertCircle, ArrowLeft, Save } from 'lucide-react';
+import React, { useState } from 'react';
 
 interface Props {
     service: string;
@@ -17,9 +17,7 @@ const serviceConfig = {
     todoist: {
         name: 'Todoist',
         icon: '✅',
-        fields: [
-            { name: 'api_token', label: 'API Token', type: 'password', placeholder: 'Your Todoist API token', required: true },
-        ],
+        fields: [{ name: 'api_token', label: 'API Token', type: 'password', placeholder: 'Your Todoist API token', required: true }],
         help: 'You can find your API token in Todoist Settings > Integrations > Developer',
     },
     notion: {
@@ -99,7 +97,7 @@ export default function Configure({ service, status }: Props) {
     const handleTest = async () => {
         setTestingConnection(true);
         setTestResult(null);
-        
+
         try {
             const response = await fetch(`/integrations/manager/${service}/test`, {
                 method: 'POST',
@@ -109,7 +107,7 @@ export default function Configure({ service, status }: Props) {
                 },
                 body: JSON.stringify(data),
             });
-            
+
             const result = await response.json();
             setTestResult({
                 success: result.success,
@@ -128,14 +126,10 @@ export default function Configure({ service, status }: Props) {
     return (
         <AppLayout>
             <Head title={`Configure ${config.name}`} />
-            
-            <div className="container mx-auto py-8 max-w-2xl">
-                <Button
-                    variant="ghost"
-                    onClick={() => router.visit('/integrations/manager')}
-                    className="mb-4"
-                >
-                    <ArrowLeft className="w-4 h-4 mr-2" />
+
+            <div className="container mx-auto max-w-2xl py-8">
+                <Button variant="ghost" onClick={() => router.visit('/integrations/manager')} className="mb-4">
+                    <ArrowLeft className="mr-2 h-4 w-4" />
                     Back to Integrations
                 </Button>
 
@@ -174,9 +168,7 @@ export default function Configure({ service, status }: Props) {
                                         onChange={(e) => setData(field.name, e.target.value)}
                                         required={field.required}
                                     />
-                                    {errors[field.name] && (
-                                        <p className="text-sm text-red-500">{errors[field.name]}</p>
-                                    )}
+                                    {errors[field.name] && <p className="text-sm text-red-500">{errors[field.name]}</p>}
                                 </div>
                             ))}
 
@@ -195,16 +187,11 @@ export default function Configure({ service, status }: Props) {
                             )}
 
                             <div className="flex gap-2">
-                                <Button
-                                    type="button"
-                                    variant="outline"
-                                    onClick={handleTest}
-                                    disabled={testingConnection || processing}
-                                >
+                                <Button type="button" variant="outline" onClick={handleTest} disabled={testingConnection || processing}>
                                     {testingConnection ? 'Testing...' : 'Test Connection'}
                                 </Button>
                                 <Button type="submit" disabled={processing}>
-                                    <Save className="w-4 h-4 mr-2" />
+                                    <Save className="mr-2 h-4 w-4" />
                                     {processing ? 'Saving...' : 'Save Configuration'}
                                 </Button>
                             </div>

@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
 import { WebSocketMessage } from '@/types/mcp.types';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface UseMcpWebSocketOptions {
     onIntegrationUpdate?: (integrationId: string, data: any) => void;
@@ -27,7 +27,7 @@ export function useMcpWebSocket({
     const [isConnected, setIsConnected] = useState(false);
     const [connectionState, setConnectionState] = useState<UseMcpWebSocketReturn['connectionState']>('disconnected');
     const [lastMessage, setLastMessage] = useState<WebSocketMessage | null>(null);
-    
+
     const wsRef = useRef<WebSocket | null>(null);
     const reconnectTimeoutRef = useRef<NodeJS.Timeout | null>(null);
     const reconnectAttemptsRef = useRef(0);
@@ -46,32 +46,34 @@ export function useMcpWebSocket({
         try {
             setConnectionState('connecting');
             const ws = new WebSocket(getWebSocketUrl());
-            
+
             ws.onopen = () => {
                 if (!mountedRef.current) return;
-                
+
                 console.log('MCP WebSocket connected');
                 setIsConnected(true);
                 setConnectionState('connected');
                 reconnectAttemptsRef.current = 0;
-                
+
                 // Send authentication if needed
                 const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
                 if (csrfToken) {
-                    ws.send(JSON.stringify({
-                        type: 'auth',
-                        token: csrfToken,
-                    }));
+                    ws.send(
+                        JSON.stringify({
+                            type: 'auth',
+                            token: csrfToken,
+                        }),
+                    );
                 }
             };
 
             ws.onmessage = (event) => {
                 if (!mountedRef.current) return;
-                
+
                 try {
                     const message: WebSocketMessage = JSON.parse(event.data);
                     setLastMessage(message);
-                    
+
                     switch (message.type) {
                         case 'integration_update':
                             if (onIntegrationUpdate && message.integrationId) {
@@ -104,22 +106,25 @@ export function useMcpWebSocket({
 
             ws.onclose = (event) => {
                 if (!mountedRef.current) return;
-                
+
                 console.log('MCP WebSocket disconnected', event.code, event.reason);
                 setIsConnected(false);
                 setConnectionState('disconnected');
                 wsRef.current = null;
-                
+
                 // Attempt to reconnect if not a normal closure
                 if (event.code !== 1000 && reconnectAttemptsRef.current < maxReconnectAttempts) {
                     reconnectAttemptsRef.current++;
                     console.log(`Attempting to reconnect (${reconnectAttemptsRef.current}/${maxReconnectAttempts})...`);
-                    
-                    reconnectTimeoutRef.current = setTimeout(() => {
-                        if (mountedRef.current) {
-                            connect();
-                        }
-                    }, reconnectDelay * Math.min(reconnectAttemptsRef.current, 3)); // Exponential backoff
+
+                    reconnectTimeoutRef.current = setTimeout(
+                        () => {
+                            if (mountedRef.current) {
+                                connect();
+                            }
+                        },
+                        reconnectDelay * Math.min(reconnectAttemptsRef.current, 3),
+                    ); // Exponential backoff
                 }
             };
 
@@ -138,12 +143,12 @@ export function useMcpWebSocket({
             clearTimeout(reconnectTimeoutRef.current);
             reconnectTimeoutRef.current = null;
         }
-        
+
         if (wsRef.current) {
             wsRef.current.close(1000, 'User initiated disconnect');
             wsRef.current = null;
         }
-        
+
         setIsConnected(false);
         setConnectionState('disconnected');
     }, []);

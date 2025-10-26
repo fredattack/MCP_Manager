@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Calendar, Target, Timer } from 'lucide-react';
-import { format } from 'date-fns';
 import { useJira } from '@/hooks/use-jira';
+import { format } from 'date-fns';
+import { Calendar, Target, Timer } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 interface JiraBoard {
     id: number;
@@ -19,7 +19,6 @@ interface JiraBoard {
     };
 }
 
-
 interface JiraSprintViewProps {
     boards: JiraBoard[];
     loading: boolean;
@@ -29,7 +28,7 @@ export function JiraSprintView({ boards, loading }: JiraSprintViewProps) {
     const [selectedBoardId, setSelectedBoardId] = useState<string>('');
     const { sprints, fetchSprints, loading: sprintsLoading } = useJira();
 
-    const scrumBoards = boards.filter(board => board.type === 'scrum');
+    const scrumBoards = boards.filter((board) => board.type === 'scrum');
 
     useEffect(() => {
         if (selectedBoardId) {
@@ -59,7 +58,7 @@ export function JiraSprintView({ boards, loading }: JiraSprintViewProps) {
                     {[...Array(3)].map((_, i) => (
                         <Card key={i}>
                             <CardHeader>
-                                <Skeleton className="h-4 w-1/3 mb-2" />
+                                <Skeleton className="mb-2 h-4 w-1/3" />
                                 <Skeleton className="h-3 w-1/2" />
                             </CardHeader>
                         </Card>
@@ -73,11 +72,9 @@ export function JiraSprintView({ boards, loading }: JiraSprintViewProps) {
         return (
             <Card>
                 <CardContent className="flex flex-col items-center justify-center py-8">
-                    <Timer className="h-12 w-12 text-muted-foreground mb-4" />
+                    <Timer className="text-muted-foreground mb-4 h-12 w-12" />
                     <p className="text-muted-foreground">No Scrum boards found</p>
-                    <p className="text-sm text-muted-foreground mt-2">
-                        Sprints are only available for Scrum boards
-                    </p>
+                    <p className="text-muted-foreground mt-2 text-sm">Sprints are only available for Scrum boards</p>
                 </CardContent>
             </Card>
         );
@@ -109,7 +106,7 @@ export function JiraSprintView({ boards, loading }: JiraSprintViewProps) {
                             {[...Array(3)].map((_, i) => (
                                 <Card key={i}>
                                     <CardHeader>
-                                        <Skeleton className="h-4 w-1/3 mb-2" />
+                                        <Skeleton className="mb-2 h-4 w-1/3" />
                                         <Skeleton className="h-3 w-1/2" />
                                     </CardHeader>
                                 </Card>
@@ -117,40 +114,37 @@ export function JiraSprintView({ boards, loading }: JiraSprintViewProps) {
                         </div>
                     ) : sprints.length === 0 ? (
                         <Card>
-                            <CardContent className="text-center py-8">
+                            <CardContent className="py-8 text-center">
                                 <p className="text-muted-foreground">No sprints found for this board</p>
                             </CardContent>
                         </Card>
                     ) : (
                         <div className="grid gap-4">
                             {sprints.map((sprint) => (
-                                <Card key={sprint.id} className="hover:shadow-md transition-shadow">
+                                <Card key={sprint.id} className="transition-shadow hover:shadow-md">
                                     <CardHeader>
                                         <div className="flex items-start justify-between">
                                             <div className="flex-1">
-                                                <div className="flex items-center gap-2 mb-2">
+                                                <div className="mb-2 flex items-center gap-2">
                                                     <CardTitle className="text-lg">{sprint.name}</CardTitle>
-                                                    <Badge 
-                                                        variant="outline" 
-                                                        className={`${getSprintStateColor(sprint.state)} text-white border-0`}
-                                                    >
+                                                    <Badge variant="outline" className={`${getSprintStateColor(sprint.state)} border-0 text-white`}>
                                                         {sprint.state}
                                                     </Badge>
                                                 </div>
                                                 {sprint.goal && (
                                                     <CardDescription className="mb-3">
                                                         <div className="flex items-start gap-2">
-                                                            <Target className="h-4 w-4 mt-0.5 text-muted-foreground" />
+                                                            <Target className="text-muted-foreground mt-0.5 h-4 w-4" />
                                                             <span>{sprint.goal}</span>
                                                         </div>
                                                     </CardDescription>
                                                 )}
-                                                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                                                <div className="text-muted-foreground flex items-center gap-4 text-sm">
                                                     {sprint.startDate && (
                                                         <div className="flex items-center gap-1">
                                                             <Calendar className="h-3 w-3" />
                                                             <span>
-                                                                {format(new Date(sprint.startDate), 'MMM d')} - {' '}
+                                                                {format(new Date(sprint.startDate), 'MMM d')} -{' '}
                                                                 {sprint.endDate ? format(new Date(sprint.endDate), 'MMM d, yyyy') : 'No end date'}
                                                             </span>
                                                         </div>

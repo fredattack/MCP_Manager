@@ -1,8 +1,8 @@
-import { useMutation, UseMutationOptions, UseMutationResult } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+import { useToast } from '@/hooks/ui/use-toast';
 import { api } from '@/lib/api';
 import { queryClient } from '@/lib/react-query';
-import { useToast } from '@/hooks/ui/use-toast';
+import { useMutation, UseMutationOptions, UseMutationResult } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
 
 interface ServiceResponse<T> {
     success: boolean;
@@ -28,7 +28,7 @@ type HttpMethod = 'post' | 'put' | 'patch' | 'delete';
 export function useServiceMutation<TData = unknown, TVariables = unknown>(
     url: string | ((variables: TVariables) => string),
     method: HttpMethod = 'post',
-    options?: UseServiceMutationOptions<TData, TVariables>
+    options?: UseServiceMutationOptions<TData, TVariables>,
 ): UseMutationResult<TData, AxiosError, TVariables> {
     const { toast } = useToast();
     const {
@@ -91,7 +91,7 @@ export function useOptimisticMutation<TData = unknown, TVariables = unknown>(
     method: HttpMethod = 'put',
     options?: UseServiceMutationOptions<TData, TVariables> & {
         optimisticUpdate: (oldData: TData | undefined, variables: TVariables) => TData;
-    }
+    },
 ): UseMutationResult<TData, AxiosError, TVariables> {
     const { optimisticUpdate, ...restOptions } = options || {};
 
@@ -106,9 +106,7 @@ export function useOptimisticMutation<TData = unknown, TVariables = unknown>(
 
             // Optimistically update to the new value
             if (optimisticUpdate) {
-                queryClient.setQueryData<TData>(queryKey, (oldData) => 
-                    optimisticUpdate(oldData, variables)
-                );
+                queryClient.setQueryData<TData>(queryKey, (oldData) => optimisticUpdate(oldData, variables));
             }
 
             // Return a context object with the snapshotted value
@@ -119,7 +117,7 @@ export function useOptimisticMutation<TData = unknown, TVariables = unknown>(
             if (context?.previousData !== undefined) {
                 queryClient.setQueryData(queryKey, context.previousData);
             }
-            
+
             // Call the original onError
             restOptions.onError?.(error, variables, context as { previousData?: TData });
         },
@@ -133,10 +131,7 @@ export function useOptimisticMutation<TData = unknown, TVariables = unknown>(
 /**
  * Specific hooks for common operations
  */
-export function useCreateMutation<TData = unknown, TVariables = unknown>(
-    url: string,
-    options?: UseServiceMutationOptions<TData, TVariables>
-) {
+export function useCreateMutation<TData = unknown, TVariables = unknown>(url: string, options?: UseServiceMutationOptions<TData, TVariables>) {
     return useServiceMutation<TData, TVariables>(url, 'post', {
         successMessage: 'Created successfully',
         ...options,
@@ -145,7 +140,7 @@ export function useCreateMutation<TData = unknown, TVariables = unknown>(
 
 export function useUpdateMutation<TData = unknown, TVariables = unknown>(
     url: string | ((variables: TVariables) => string),
-    options?: UseServiceMutationOptions<TData, TVariables>
+    options?: UseServiceMutationOptions<TData, TVariables>,
 ) {
     return useServiceMutation<TData, TVariables>(url, 'put', {
         successMessage: 'Updated successfully',
@@ -155,7 +150,7 @@ export function useUpdateMutation<TData = unknown, TVariables = unknown>(
 
 export function useDeleteMutation<TData = unknown, TVariables = unknown>(
     url: string | ((variables: TVariables) => string),
-    options?: UseServiceMutationOptions<TData, TVariables>
+    options?: UseServiceMutationOptions<TData, TVariables>,
 ) {
     return useServiceMutation<TData, TVariables>(url, 'delete', {
         successMessage: 'Deleted successfully',

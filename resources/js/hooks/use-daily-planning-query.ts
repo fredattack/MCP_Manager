@@ -1,6 +1,6 @@
-import { useServiceQuery } from './use-service-query';
-import { useServiceMutation } from './use-service-mutation';
 import { queryKeys } from '@/lib/react-query';
+import { useServiceMutation } from './use-service-mutation';
+import { useServiceQuery } from './use-service-query';
 
 // Types from the existing hook
 interface Task {
@@ -57,48 +57,36 @@ interface Planning {
 
 // Query hooks
 export function useDailyPlanning(date?: string) {
-    return useServiceQuery<Planning>(
-        queryKeys.dailyPlan(date),
-        '/daily-planning',
-        {
-            // Don't automatically fetch on mount since we want user to trigger generation
-            enabled: false,
-        }
-    );
+    return useServiceQuery<Planning>(queryKeys.dailyPlan(date), '/daily-planning', {
+        // Don't automatically fetch on mount since we want user to trigger generation
+        enabled: false,
+    });
 }
 
 // Mutation hooks
 export function useGenerateDailyPlanning() {
-    return useServiceMutation<Planning, Record<string, unknown>>(
-        '/daily-planning/generate',
-        'post',
-        {
-            invalidateQueries: [queryKeys.dailyPlanning()] as const,
-            successMessage: 'Daily planning generated successfully',
-            onSuccess: (data) => {
-                // Cache the generated planning if it exists
-                // Dynamic import to avoid circular dependency
-                if (data?.planning?.date) {
-                    import('@/lib/react-query').then(({ queryClient }) => {
-                        queryClient.setQueryData(queryKeys.dailyPlan(data.planning.date), data);
-                    });
-                }
-            },
-        }
-    );
+    return useServiceMutation<Planning, Record<string, unknown>>('/daily-planning/generate', 'post', {
+        invalidateQueries: [queryKeys.dailyPlanning()] as const,
+        successMessage: 'Daily planning generated successfully',
+        onSuccess: (data) => {
+            // Cache the generated planning if it exists
+            // Dynamic import to avoid circular dependency
+            if (data?.planning?.date) {
+                import('@/lib/react-query').then(({ queryClient }) => {
+                    queryClient.setQueryData(queryKeys.dailyPlan(data.planning.date), data);
+                });
+            }
+        },
+    });
 }
 
 export function useUpdateTodoistTasks() {
     return useServiceMutation<
         { success: boolean; message: string },
         { planning_id: string; updates: { type: 'all' | 'partial' | 'none'; selected?: string[] } }
-    >(
-        '/daily-planning/update-tasks',
-        'post',
-        {
-            successMessage: 'Todoist tasks updated successfully',
-        }
-    );
+    >('/daily-planning/update-tasks', 'post', {
+        successMessage: 'Todoist tasks updated successfully',
+    });
 }
 
 // Combined hook that provides all functionality
@@ -113,10 +101,7 @@ export function useDailyPlanningFeature() {
         return result;
     };
 
-    const updateTodoistTasks = async (
-        planningId: string, 
-        updates: { type: 'all' | 'partial' | 'none'; selected?: string[] }
-    ) => {
+    const updateTodoistTasks = async (planningId: string, updates: { type: 'all' | 'partial' | 'none'; selected?: string[] }) => {
         const result = await updateTasksMutation.mutateAsync({ planning_id: planningId, updates });
         return { success: true, data: result };
     };

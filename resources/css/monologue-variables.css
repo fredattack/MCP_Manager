@@ -7,69 +7,69 @@
  */
 
 :root {
-  /* ============================================
+    /* ============================================
      MONOLOGUE COLOR TOKENS
      ============================================ */
 
-  /* Brand Colors */
-  --monologue-brand-primary: #19d0e8;
-  --monologue-brand-accent: #44ccff;
-  --monologue-brand-success: #a6ee98;
+    /* Brand Colors */
+    --monologue-brand-primary: #19d0e8;
+    --monologue-brand-accent: #44ccff;
+    --monologue-brand-success: #a6ee98;
 
-  /* Neutral Colors */
-  --monologue-neutral-black: #000000;
-  --monologue-neutral-900: #010101;
-  --monologue-neutral-800: #141414;
-  --monologue-neutral-700: #282828;
-  --monologue-neutral-600: #3f3f3f;
-  --monologue-neutral-500: #545454;
-  --monologue-neutral-100: #fbfaf7;
-  --monologue-neutral-white: #ffffff;
+    /* Neutral Colors */
+    --monologue-neutral-black: #000000;
+    --monologue-neutral-900: #010101;
+    --monologue-neutral-800: #141414;
+    --monologue-neutral-700: #282828;
+    --monologue-neutral-600: #3f3f3f;
+    --monologue-neutral-500: #545454;
+    --monologue-neutral-100: #fbfaf7;
+    --monologue-neutral-white: #ffffff;
 
-  /* Semantic Colors - Background */
-  --monologue-bg-primary: var(--monologue-neutral-900);
-  --monologue-bg-secondary: var(--monologue-neutral-800);
-  --monologue-bg-elevated: var(--monologue-neutral-700);
-  --monologue-bg-muted: var(--monologue-neutral-500);
+    /* Semantic Colors - Background */
+    --monologue-bg-primary: var(--monologue-neutral-900);
+    --monologue-bg-secondary: var(--monologue-neutral-800);
+    --monologue-bg-elevated: var(--monologue-neutral-700);
+    --monologue-bg-muted: var(--monologue-neutral-500);
 
-  /* Semantic Colors - Text */
-  --monologue-text-primary: var(--monologue-neutral-white);
-  --monologue-text-secondary: rgba(255, 255, 255, 0.64);
-  --monologue-text-muted: rgba(255, 255, 255, 0.48);
-  --monologue-text-inverse: var(--monologue-neutral-700);
+    /* Semantic Colors - Text */
+    --monologue-text-primary: var(--monologue-neutral-white);
+    --monologue-text-secondary: rgba(255, 255, 255, 0.64);
+    --monologue-text-muted: rgba(255, 255, 255, 0.48);
+    --monologue-text-inverse: var(--monologue-neutral-700);
 
-  /* Semantic Colors - Border */
-  --monologue-border-default: rgba(255, 255, 255, 0.12);
-  --monologue-border-muted: rgba(255, 255, 255, 0.1);
+    /* Semantic Colors - Border */
+    --monologue-border-default: rgba(255, 255, 255, 0.12);
+    --monologue-border-muted: rgba(255, 255, 255, 0.1);
 
-  /* Semantic Colors - Link */
-  --monologue-link-default: var(--monologue-brand-primary);
-  --monologue-link-hover: var(--monologue-brand-accent);
+    /* Semantic Colors - Link */
+    --monologue-link-default: var(--monologue-brand-primary);
+    --monologue-link-hover: var(--monologue-brand-accent);
 
-  /* ============================================
+    /* ============================================
      MONOLOGUE TYPOGRAPHY TOKENS
      ============================================ */
 
-  /* Font Families */
-  --monologue-font-serif: "Instrument Serif", "Instrument Serif Placeholder", serif;
-  --monologue-font-mono: "DM Mono", monospace;
-  --monologue-font-sans: "system-ui", -apple-system, "Segoe UI", Roboto, sans-serif;
+    /* Font Families */
+    --monologue-font-serif: 'Instrument Serif', 'Instrument Serif Placeholder', serif;
+    --monologue-font-mono: 'DM Mono', monospace;
+    --monologue-font-sans: 'system-ui', -apple-system, 'Segoe UI', Roboto, sans-serif;
 
-  /* ============================================
+    /* ============================================
      MONOLOGUE MOTION TOKENS
      ============================================ */
 
-  --monologue-duration-fast: 200ms;
-  --monologue-easing-smooth: cubic-bezier(0.44, 0, 0.56, 1);
+    --monologue-duration-fast: 200ms;
+    --monologue-easing-smooth: cubic-bezier(0.44, 0, 0.56, 1);
 
-  /* ============================================
+    /* ============================================
      MONOLOGUE COMPONENT-SPECIFIC TOKENS
      ============================================ */
 
-  /* Button */
-  --monologue-btn-transition: all var(--monologue-duration-fast) var(--monologue-easing-smooth);
+    /* Button */
+    --monologue-btn-transition: all var(--monologue-duration-fast) var(--monologue-easing-smooth);
 
-  /* Card */
-  --monologue-card-bg: var(--monologue-bg-secondary);
-  --monologue-card-border: var(--monologue-border-muted);
+    /* Card */
+    --monologue-card-bg: var(--monologue-bg-secondary);
+    --monologue-card-border: var(--monologue-border-muted);
 }

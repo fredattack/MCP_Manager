@@ -1,10 +1,8 @@
-import { usePage } from '@inertiajs/react';
-import { useEffect } from 'react';
-import { AlertCircle, CheckCircle, Info, X } from 'lucide-react';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Button } from '@/components/ui/button';
-import { toast } from 'sonner';
 import type { SharedData } from '@/types';
+import { usePage } from '@inertiajs/react';
+import { AlertCircle, CheckCircle, Info } from 'lucide-react';
+import { useEffect } from 'react';
+import { toast } from 'sonner';
 
 export function FlashMessages() {
     const { flash } = usePage().props as SharedData;

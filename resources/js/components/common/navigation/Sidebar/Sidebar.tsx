@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { BarChart3, ChevronLeft, ChevronRight, Home, MessageSquare, Plug, Settings, Brain } from 'lucide-react';
+import { BarChart3, Brain, ChevronLeft, ChevronRight, Home, MessageSquare, Plug, Settings } from 'lucide-react';
 import { useState } from 'react';
 import { SidebarItem } from './SidebarItem';
 import { SidebarSection } from './SidebarSection';

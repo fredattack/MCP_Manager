@@ -135,4 +135,55 @@ class WorkflowController extends Controller
 
         return WorkflowStepResource::collection($steps);
     }
+
+    /**
+     * Re-run a workflow.
+     */
+    public function rerun(Workflow $workflow): WorkflowExecutionResource
+    {
+        $this->authorize('execute', $workflow);
+
+        // Get the latest execution to reuse configuration
+        $latestExecution = $workflow->latestExecution;
+
+        // Create new execution record
+        $execution = WorkflowExecution::create([
+            'workflow_id' => $workflow->id,
+            'user_id' => auth()->id(),
+            'repository_id' => $latestExecution?->repository_id,
+            'status' => ExecutionStatus::Pending,
+        ]);
+
+        // Dispatch job to queue
+        RunWorkflowJob::dispatch($execution->id);
+
+        return new WorkflowExecutionResource($execution->load(['workflow', 'repository']));
+    }
+
+    /**
+     * Cancel a running workflow execution.
+     */
+    public function cancel(Workflow $workflow): JsonResponse
+    {
+        $this->authorize('execute', $workflow);
+
+        $latestExecution = $workflow->latestExecution;
+
+        if (! $latestExecution || $latestExecution->status !== ExecutionStatus::Running) {
+            return response()->json([
+                'message' => 'No running execution to cancel',
+            ], 400);
+        }
+
+        // Update execution status to cancelled
+        $latestExecution->update([
+            'status' => ExecutionStatus::Failed,
+            'error_message' => 'Execution cancelled by user',
+            'completed_at' => now(),
+        ]);
+
+        return response()->json([
+            'message' => 'Workflow execution cancelled successfully',
+        ]);
+    }
 }

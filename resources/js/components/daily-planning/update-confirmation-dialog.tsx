@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from '@/components/ui/dialog';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
-import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Clock, Calendar, ListOrdered, Loader2 } from 'lucide-react';
+import { Calendar, Clock, ListOrdered, Loader2 } from 'lucide-react';
+import { useState } from 'react';
 
 interface UpdateConfirmationDialogProps {
     open: boolean;
@@ -25,13 +18,7 @@ interface UpdateConfirmationDialogProps {
     loading: boolean;
 }
 
-export function UpdateConfirmationDialog({
-    open,
-    onClose,
-    onConfirm,
-    updates,
-    loading
-}: UpdateConfirmationDialogProps) {
+export function UpdateConfirmationDialog({ open, onClose, onConfirm, updates, loading }: UpdateConfirmationDialogProps) {
     const [updateType, setUpdateType] = useState<'all' | 'partial' | 'none'>('all');
     const [selectedUpdates, setSelectedUpdates] = useState<string[]>(['schedule', 'duration', 'order']);
 
@@ -44,16 +31,12 @@ export function UpdateConfirmationDialog({
     };
 
     const toggleUpdate = (type: string) => {
-        setSelectedUpdates(prev =>
-            prev.includes(type)
-                ? prev.filter(t => t !== type)
-                : [...prev, type]
-        );
+        setSelectedUpdates((prev) => (prev.includes(type) ? prev.filter((t) => t !== type) : [...prev, type]));
     };
 
     return (
         <Dialog open={open} onOpenChange={onClose}>
-            <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+            <DialogContent className="max-h-[80vh] max-w-2xl overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle>✅ Confirmation de mise à jour</DialogTitle>
                     <DialogDescription>
@@ -65,7 +48,7 @@ export function UpdateConfirmationDialog({
                     {/* Update Summary */}
                     <div className="space-y-4">
                         <h4 className="font-semibold">🔄 Modifications à apporter dans Todoist</h4>
-                        
+
                         {/* Schedule Updates */}
                         {updates.schedule_updates.length > 0 && (
                             <div className="space-y-2">
@@ -73,15 +56,13 @@ export function UpdateConfirmationDialog({
                                     <Clock className="h-4 w-4" />
                                     <span className="font-medium">Heures à assigner :</span>
                                 </div>
-                                <ul className="ml-6 space-y-1 text-sm text-muted-foreground">
+                                <ul className="text-muted-foreground ml-6 space-y-1 text-sm">
                                     {updates.schedule_updates.slice(0, 3).map((update, index) => (
                                         <li key={index}>
                                             • {update.task_name} : Programmer à {update.time}
                                         </li>
                                     ))}
-                                    {updates.schedule_updates.length > 3 && (
-                                        <li>• ... et {updates.schedule_updates.length - 3} autres tâches</li>
-                                    )}
+                                    {updates.schedule_updates.length > 3 && <li>• ... et {updates.schedule_updates.length - 3} autres tâches</li>}
                                 </ul>
                             </div>
                         )}
@@ -93,15 +74,13 @@ export function UpdateConfirmationDialog({
                                     <Calendar className="h-4 w-4" />
                                     <span className="font-medium">Durées à définir :</span>
                                 </div>
-                                <ul className="ml-6 space-y-1 text-sm text-muted-foreground">
+                                <ul className="text-muted-foreground ml-6 space-y-1 text-sm">
                                     {updates.duration_updates.slice(0, 3).map((update, index) => (
                                         <li key={index}>
                                             • {update.task_name} : Définir durée {update.duration} min
                                         </li>
                                     ))}
-                                    {updates.duration_updates.length > 3 && (
-                                        <li>• ... et {updates.duration_updates.length - 3} autres tâches</li>
-                                    )}
+                                    {updates.duration_updates.length > 3 && <li>• ... et {updates.duration_updates.length - 3} autres tâches</li>}
                                 </ul>
                             </div>
                         )}
@@ -113,7 +92,7 @@ export function UpdateConfirmationDialog({
                                     <ListOrdered className="h-4 w-4" />
                                     <span className="font-medium">Ordre dans la vue "Aujourd'hui" :</span>
                                 </div>
-                                <p className="ml-6 text-sm text-muted-foreground">
+                                <p className="text-muted-foreground ml-6 text-sm">
                                     {updates.order_updates.length} tâches seront réordonnées selon le planning
                                 </p>
                             </div>
@@ -123,7 +102,7 @@ export function UpdateConfirmationDialog({
                     {/* Update Options */}
                     <div className="space-y-4">
                         <h4 className="font-semibold">Options de mise à jour</h4>
-                        
+
                         <div className="space-y-3">
                             <div className="flex items-center space-x-2">
                                 <input
@@ -172,10 +151,8 @@ export function UpdateConfirmationDialog({
                         </div>
 
                         {updateType === 'partial' && (
-                            <div className="ml-6 space-y-2 p-4 bg-muted rounded-lg">
-                                <p className="text-sm font-medium mb-2">
-                                    Sélectionnez les modifications à appliquer :
-                                </p>
+                            <div className="bg-muted ml-6 space-y-2 rounded-lg p-4">
+                                <p className="mb-2 text-sm font-medium">Sélectionnez les modifications à appliquer :</p>
                                 <div className="space-y-2">
                                     <div className="flex items-center space-x-2">
                                         <Checkbox

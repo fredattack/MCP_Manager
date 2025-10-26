@@ -1,23 +1,10 @@
-import React from 'react';
-import { Head } from '@inertiajs/react';
-import { MonologueCard } from '@/components/ui/MonologueCard';
-import { MonologueButton } from '@/components/ui/MonologueButton';
 import { MonologueBadge } from '@/components/ui/MonologueBadge';
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/card';
-import {
-    CheckCircle2,
-    XCircle,
-    AlertCircle,
-    Settings,
-    TestTube,
-    Trash2,
-    Plus,
-    Info,
-    Plug
-} from 'lucide-react';
+import { MonologueButton } from '@/components/ui/MonologueButton';
+import { MonologueCard } from '@/components/ui/MonologueCard';
 import AppLayout from '@/layouts/app-layout';
-import { router } from '@inertiajs/react';
 import { cn } from '@/lib/utils';
+import { Head, router } from '@inertiajs/react';
+import { AlertCircle, CheckCircle2, Info, Plug, Plus, Settings, TestTube, Trash2, XCircle } from 'lucide-react';
 
 interface Integration {
     configured: boolean;
@@ -102,29 +89,45 @@ export default function Dashboard({ integrations }: Props) {
 
     const getStatusBadge = (integration: Integration) => {
         if (!integration.configured) {
-            return <MonologueBadge variant="muted" size="md">Not Configured</MonologueBadge>;
+            return (
+                <MonologueBadge variant="muted" size="md">
+                    Not Configured
+                </MonologueBadge>
+            );
         }
 
         switch (integration.status) {
             case 'active':
-                return <MonologueBadge variant="success" size="md">Active</MonologueBadge>;
+                return (
+                    <MonologueBadge variant="success" size="md">
+                        Active
+                    </MonologueBadge>
+                );
             case 'error':
-                return <MonologueBadge variant="default" size="md" className="bg-red-500 text-white">Error</MonologueBadge>;
+                return (
+                    <MonologueBadge variant="default" size="md" className="bg-red-500 text-white">
+                        Error
+                    </MonologueBadge>
+                );
             default:
-                return <MonologueBadge variant="default" size="md">{integration.status}</MonologueBadge>;
+                return (
+                    <MonologueBadge variant="default" size="md">
+                        {integration.status}
+                    </MonologueBadge>
+                );
         }
     };
 
     const getHealthIcon = (health: string) => {
         switch (health) {
             case 'healthy':
-                return <CheckCircle2 className="w-5 h-5 text-monologue-brand-success" />;
+                return <CheckCircle2 className="text-monologue-brand-success h-5 w-5" />;
             case 'degraded':
-                return <AlertCircle className="w-5 h-5 text-yellow-500" />;
+                return <AlertCircle className="h-5 w-5 text-yellow-500" />;
             case 'unhealthy':
-                return <XCircle className="w-5 h-5 text-red-500" />;
+                return <XCircle className="h-5 w-5 text-red-500" />;
             default:
-                return <AlertCircle className="w-5 h-5 text-gray-400" />;
+                return <AlertCircle className="h-5 w-5 text-gray-400" />;
         }
     };
 
@@ -137,35 +140,34 @@ export default function Dashboard({ integrations }: Props) {
             <div className="container mx-auto py-8">
                 {/* Header with Monologue Typography */}
                 <div className="mb-8">
-                    <h1 className="flex items-center gap-3 font-monologue-serif text-4xl font-normal tracking-tight text-gray-900 dark:text-white">
-                        <Plug className="h-8 w-8 text-gray-900 dark:text-monologue-brand-primary" />
+                    <h1 className="font-monologue-serif flex items-center gap-3 text-4xl font-normal tracking-tight text-gray-900 dark:text-white">
+                        <Plug className="dark:text-monologue-brand-primary h-8 w-8 text-gray-900" />
                         Integration Manager
                     </h1>
-                    <p className="mt-2 font-monologue-mono text-sm tracking-wide text-gray-600 dark:text-gray-400">
+                    <p className="font-monologue-mono mt-2 text-sm tracking-wide text-gray-600 dark:text-gray-400">
                         Configure and manage your service integrations through the MCP server
                     </p>
                 </div>
 
                 {/* MCP Server Status Alert */}
-                <div className="mb-8 flex items-start gap-2 rounded-md bg-monologue-brand-primary/5 dark:bg-monologue-brand-primary/10 px-4 py-3 border border-monologue-brand-primary/10 dark:border-monologue-brand-primary/20">
-                    <Info className="h-5 w-5 flex-shrink-0 text-monologue-brand-primary mt-0.5" />
+                <div className="bg-monologue-brand-primary/5 dark:bg-monologue-brand-primary/10 border-monologue-brand-primary/10 dark:border-monologue-brand-primary/20 mb-8 flex items-start gap-2 rounded-md border px-4 py-3">
+                    <Info className="text-monologue-brand-primary mt-0.5 h-5 w-5 flex-shrink-0" />
                     <div className="flex-1">
-                        <h3 className="font-monologue-mono text-sm font-medium text-gray-900 dark:text-white">
-                            MCP Server Connected
-                        </h3>
-                        <p className="mt-0.5 font-monologue-mono text-xs text-gray-700 dark:text-gray-400">
-                            Your integrations are managed through the MCP server at {window.location.hostname === 'localhost' ? 'http://localhost:9978' : 'your production server'}
+                        <h3 className="font-monologue-mono text-sm font-medium text-gray-900 dark:text-white">MCP Server Connected</h3>
+                        <p className="font-monologue-mono mt-0.5 text-xs text-gray-700 dark:text-gray-400">
+                            Your integrations are managed through the MCP server at{' '}
+                            {window.location.hostname === 'localhost' ? 'http://localhost:9978' : 'your production server'}
                         </p>
                     </div>
                 </div>
 
                 {/* Integration Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
                     {Object.entries(serviceInfo).map(([service, info]) => {
                         const integration = integrations[service] || {
                             configured: false,
                             status: 'not_configured',
-                            health: 'unknown'
+                            health: 'unknown',
                         };
 
                         const active = isActive(integration);
@@ -173,29 +175,31 @@ export default function Dashboard({ integrations }: Props) {
                         return (
                             <MonologueCard
                                 key={service}
-                                variant={active ? "elevated" : "default"}
+                                variant={active ? 'elevated' : 'default'}
                                 className={cn(
-                                    "relative group overflow-hidden transition-all duration-fast",
-                                    active && "border-monologue-brand-primary/20",
-                                    !active && !integration.configured && "opacity-90 hover:opacity-100"
+                                    'group duration-fast relative overflow-hidden transition-all',
+                                    active && 'border-monologue-brand-primary/20',
+                                    !active && !integration.configured && 'opacity-90 hover:opacity-100',
                                 )}
                             >
                                 {/* Active Indicator - Left Border */}
                                 {active && (
-                                    <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-monologue-brand-primary to-monologue-brand-accent" />
+                                    <div className="from-monologue-brand-primary to-monologue-brand-accent absolute top-0 left-0 h-full w-1 bg-gradient-to-b" />
                                 )}
 
                                 <div className="p-6 pl-7">
                                     {/* Header */}
-                                    <div className="flex items-start justify-between mb-4">
+                                    <div className="mb-4 flex items-start justify-between">
                                         <div className="flex items-center gap-3">
                                             {/* Icon with Enhanced Styling */}
-                                            <div className={cn(
-                                                "flex h-12 w-12 items-center justify-center rounded-lg transition-all duration-fast",
-                                                active
-                                                    ? "bg-monologue-brand-primary/10 text-monologue-brand-primary"
-                                                    : "bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400"
-                                            )}>
+                                            <div
+                                                className={cn(
+                                                    'duration-fast flex h-12 w-12 items-center justify-center rounded-lg transition-all',
+                                                    active
+                                                        ? 'bg-monologue-brand-primary/10 text-monologue-brand-primary'
+                                                        : 'bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-400',
+                                                )}
+                                            >
                                                 <span className="text-2xl">{info.icon}</span>
                                             </div>
 
@@ -205,9 +209,9 @@ export default function Dashboard({ integrations }: Props) {
                                                     <h3 className="font-monologue-serif text-lg font-medium tracking-tight text-gray-900 dark:text-gray-100">
                                                         {info.name}
                                                     </h3>
-                                                    {active && <CheckCircle2 className="h-4 w-4 text-monologue-brand-success" />}
+                                                    {active && <CheckCircle2 className="text-monologue-brand-success h-4 w-4" />}
                                                 </div>
-                                                <p className="mt-0.5 font-monologue-mono text-xs tracking-wide text-gray-500 dark:text-gray-400">
+                                                <p className="font-monologue-mono mt-0.5 text-xs tracking-wide text-gray-500 dark:text-gray-400">
                                                     {info.description}
                                                 </p>
                                             </div>
@@ -218,24 +222,22 @@ export default function Dashboard({ integrations }: Props) {
                                     </div>
 
                                     {/* Status Section */}
-                                    <div className="flex items-center justify-between mb-3">
-                                        <span className="font-monologue-mono text-xs text-muted-foreground">Status</span>
+                                    <div className="mb-3 flex items-center justify-between">
+                                        <span className="font-monologue-mono text-muted-foreground text-xs">Status</span>
                                         {getStatusBadge(integration)}
                                     </div>
 
                                     {/* Last Sync Info */}
                                     {integration.last_sync && (
-                                        <div className="mb-3 font-monologue-mono text-xs text-muted-foreground">
+                                        <div className="font-monologue-mono text-muted-foreground mb-3 text-xs">
                                             Last sync: {new Date(integration.last_sync).toLocaleString()}
                                         </div>
                                     )}
 
                                     {/* Error Alert */}
                                     {integration.error && (
-                                        <div className="mb-3 rounded-md bg-red-50 dark:bg-red-950/20 px-3 py-2 border border-red-200 dark:border-red-900">
-                                            <p className="font-monologue-mono text-xs text-red-700 dark:text-red-400">
-                                                {integration.error}
-                                            </p>
+                                        <div className="mb-3 rounded-md border border-red-200 bg-red-50 px-3 py-2 dark:border-red-900 dark:bg-red-950/20">
+                                            <p className="font-monologue-mono text-xs text-red-700 dark:text-red-400">{integration.error}</p>
                                         </div>
                                     )}
 
@@ -247,7 +249,7 @@ export default function Dashboard({ integrations }: Props) {
                                                 variant="primary"
                                                 className="flex-1"
                                                 onClick={() => handleConfigure(service)}
-                                                leftIcon={<Plus className="w-4 h-4" />}
+                                                leftIcon={<Plus className="h-4 w-4" />}
                                             >
                                                 Configure
                                             </MonologueButton>
@@ -257,26 +259,23 @@ export default function Dashboard({ integrations }: Props) {
                                                     size="sm"
                                                     variant="ghost"
                                                     onClick={() => handleTest(service)}
-                                                    leftIcon={<TestTube className="w-4 h-4" />}
+                                                    leftIcon={<TestTube className="h-4 w-4" />}
                                                     className="flex-shrink-0"
-                                                >
-                                                </MonologueButton>
+                                                ></MonologueButton>
                                                 <MonologueButton
                                                     size="sm"
-                                                    variant={active ? "ghost" : "secondary"}
+                                                    variant={active ? 'ghost' : 'secondary'}
                                                     onClick={() => handleConfigure(service)}
-                                                    leftIcon={<Settings className="w-4 h-4" />}
+                                                    leftIcon={<Settings className="h-4 w-4" />}
                                                     className="flex-shrink-0"
-                                                >
-                                                </MonologueButton>
+                                                ></MonologueButton>
                                                 <MonologueButton
                                                     size="sm"
                                                     variant="ghost"
                                                     onClick={() => handleRemove(service)}
-                                                    leftIcon={<Trash2 className="w-4 h-4" />}
-                                                    className="flex-shrink-0 text-red-600 hover:text-red-700 hover:bg-red-50 dark:hover:bg-red-950/20"
-                                                >
-                                                </MonologueButton>
+                                                    leftIcon={<Trash2 className="h-4 w-4" />}
+                                                    className="flex-shrink-0 text-red-600 hover:bg-red-50 hover:text-red-700 dark:hover:bg-red-950/20"
+                                                ></MonologueButton>
                                             </>
                                         )}
                                     </div>

@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Head } from '@inertiajs/react';
-import AppLayout from '@/layouts/app-layout';
+import { JiraBoardList } from '@/components/jira/board-list';
+import { CreateIssueDialog } from '@/components/jira/create-issue-dialog';
+import { JiraIssueList } from '@/components/jira/issue-list';
+import { JiraProjectList } from '@/components/jira/project-list';
+import { JiraSprintView } from '@/components/jira/sprint-view';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useJira } from '@/hooks/use-jira';
-import { JiraProjectList } from '@/components/jira/project-list';
-import { JiraBoardList } from '@/components/jira/board-list';
-import { JiraIssueList } from '@/components/jira/issue-list';
-import { JiraSprintView } from '@/components/jira/sprint-view';
-import { CreateIssueDialog } from '@/components/jira/create-issue-dialog';
-import { RefreshCw, Plus } from 'lucide-react';
+import AppLayout from '@/layouts/app-layout';
+import { Head } from '@inertiajs/react';
+import { Plus, RefreshCw } from 'lucide-react';
+import { useState } from 'react';
 
 interface JiraProps {
     hasIntegration: boolean;
@@ -19,16 +19,7 @@ interface JiraProps {
 export default function Jira({ hasIntegration }: JiraProps) {
     const [activeTab, setActiveTab] = useState('projects');
     const [showCreateIssue, setShowCreateIssue] = useState(false);
-    const { 
-        projects, 
-        boards, 
-        issues,
-        loading,
-        refreshProjects,
-        refreshBoards,
-        searchIssues,
-        createIssue
-    } = useJira();
+    const { projects, boards, issues, loading, refreshProjects, refreshBoards, searchIssues, createIssue } = useJira();
 
     if (!hasIntegration) {
         return (
@@ -38,9 +29,7 @@ export default function Jira({ hasIntegration }: JiraProps) {
                     <Card>
                         <CardHeader>
                             <CardTitle>JIRA Integration Not Connected</CardTitle>
-                            <CardDescription>
-                                Connect your JIRA account to manage issues, boards, and sprints.
-                            </CardDescription>
+                            <CardDescription>Connect your JIRA account to manage issues, boards, and sprints.</CardDescription>
                         </CardHeader>
                         <CardContent>
                             <Button asChild>
@@ -57,14 +46,12 @@ export default function Jira({ hasIntegration }: JiraProps) {
         <AppLayout>
             <Head title="JIRA Integration" />
 
-            <div className="container mx-auto py-6 space-y-6">
+            <div className="container mx-auto space-y-6 py-6">
                 {/* Header */}
-                <div className="flex justify-between items-center">
+                <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-3xl font-bold tracking-tight">JIRA Integration</h1>
-                        <p className="text-muted-foreground mt-1">
-                            Manage your JIRA projects, issues, and sprints
-                        </p>
+                        <p className="text-muted-foreground mt-1">Manage your JIRA projects, issues, and sprints</p>
                     </div>
                     <div className="flex gap-2">
                         <Button
@@ -76,14 +63,11 @@ export default function Jira({ hasIntegration }: JiraProps) {
                             }}
                             disabled={loading}
                         >
-                            <RefreshCw className="h-4 w-4 mr-2" />
+                            <RefreshCw className="mr-2 h-4 w-4" />
                             Refresh
                         </Button>
-                        <Button
-                            size="sm"
-                            onClick={() => setShowCreateIssue(true)}
-                        >
-                            <Plus className="h-4 w-4 mr-2" />
+                        <Button size="sm" onClick={() => setShowCreateIssue(true)}>
+                            <Plus className="mr-2 h-4 w-4" />
                             Create Issue
                         </Button>
                     </div>
@@ -107,11 +91,7 @@ export default function Jira({ hasIntegration }: JiraProps) {
                     </TabsContent>
 
                     <TabsContent value="issues" className="space-y-4">
-                        <JiraIssueList 
-                            issues={issues} 
-                            loading={loading}
-                            onSearch={searchIssues}
-                        />
+                        <JiraIssueList issues={issues} loading={loading} onSearch={searchIssues} />
                     </TabsContent>
 
                     <TabsContent value="sprints" className="space-y-4">
@@ -120,12 +100,7 @@ export default function Jira({ hasIntegration }: JiraProps) {
                 </Tabs>
 
                 {/* Create Issue Dialog */}
-                <CreateIssueDialog
-                    open={showCreateIssue}
-                    onClose={() => setShowCreateIssue(false)}
-                    onCreate={createIssue}
-                    projects={projects}
-                />
+                <CreateIssueDialog open={showCreateIssue} onClose={() => setShowCreateIssue(false)} onCreate={createIssue} projects={projects} />
             </div>
         </AppLayout>
     );

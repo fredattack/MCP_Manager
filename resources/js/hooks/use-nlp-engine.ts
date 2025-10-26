@@ -1,7 +1,7 @@
-import { useState, useCallback } from 'react';
-import { nlpEngine, ParsedCommand, Context } from '@/lib/nlp';
 import { useToast } from '@/hooks/ui/use-toast';
+import { Context, nlpEngine, ParsedCommand } from '@/lib/nlp';
 import { router } from '@inertiajs/react';
+import { useCallback, useState } from 'react';
 
 interface UseNLPEngineOptions {
     onCommandParsed?: (command: ParsedCommand) => void;
@@ -14,68 +14,68 @@ export function useNLPEngine(options?: UseNLPEngineOptions) {
     const [context, setContext] = useState<Context>({});
     const { toast } = useToast();
 
-    const parseCommand = useCallback((text: string): ParsedCommand | null => {
-        const command = nlpEngine.parse(text, context);
-        
-        if (command) {
-            setLastCommand(command);
-            options?.onCommandParsed?.(command);
-        }
-        
-        return command;
-    }, [context, options]);
+    const parseCommand = useCallback(
+        (text: string): ParsedCommand | null => {
+            const command = nlpEngine.parse(text, context);
 
-    const executeCommand = useCallback(async (command: ParsedCommand) => {
-        if (!nlpEngine.canExecute(command)) {
-            toast.error('Command unclear', 'Please be more specific or choose from the suggestions.');
-            return;
-        }
+            if (command) {
+                setLastCommand(command);
+                options?.onCommandParsed?.(command);
+            }
 
-        setIsProcessing(true);
+            return command;
+        },
+        [context, options],
+    );
 
-        try {
-            // Custom execution handler
-            if (options?.onExecute) {
-                await options.onExecute(command);
+    const executeCommand = useCallback(
+        async (command: ParsedCommand) => {
+            if (!nlpEngine.canExecute(command)) {
+                toast.error('Command unclear', 'Please be more specific or choose from the suggestions.');
                 return;
             }
 
-            // Default execution based on intent and service
-            const { intent } = command;
-            
-            switch (intent.service) {
-                case 'todoist':
-                    await executeTodoistCommand(command);
-                    break;
-                case 'notion':
-                    await executeNotionCommand(command);
-                    break;
-                case 'jira':
-                    await executeJiraCommand(command);
-                    break;
-                default:
-                    toast.error(
-                        'Service not supported',
-                        `Commands for ${intent.service || 'this service'} are not yet implemented.`
-                    );
-            }
+            setIsProcessing(true);
 
-            // Update context with successful command
-            setContext(prev => ({
-                ...prev,
-                previousCommands: [...(prev.previousCommands || []), command].slice(-5),
-                currentService: intent.service,
-            }));
-        } catch (error) {
-            console.error('Command execution failed:', error);
-            toast.error(
-                'Command failed',
-                error instanceof Error ? error.message : 'An error occurred while executing the command.'
-            );
-        } finally {
-            setIsProcessing(false);
-        }
-    }, [options, toast]);
+            try {
+                // Custom execution handler
+                if (options?.onExecute) {
+                    await options.onExecute(command);
+                    return;
+                }
+
+                // Default execution based on intent and service
+                const { intent } = command;
+
+                switch (intent.service) {
+                    case 'todoist':
+                        await executeTodoistCommand(command);
+                        break;
+                    case 'notion':
+                        await executeNotionCommand(command);
+                        break;
+                    case 'jira':
+                        await executeJiraCommand(command);
+                        break;
+                    default:
+                        toast.error('Service not supported', `Commands for ${intent.service || 'this service'} are not yet implemented.`);
+                }
+
+                // Update context with successful command
+                setContext((prev) => ({
+                    ...prev,
+                    previousCommands: [...(prev.previousCommands || []), command].slice(-5),
+                    currentService: intent.service,
+                }));
+            } catch (error) {
+                console.error('Command execution failed:', error);
+                toast.error('Command failed', error instanceof Error ? error.message : 'An error occurred while executing the command.');
+            } finally {
+                setIsProcessing(false);
+            }
+        },
+        [options, toast],
+    );
 
     const executeTodoistCommand = async (command: ParsedCommand) => {
         const { intent, params } = command;
@@ -169,15 +169,18 @@ export function useNLPEngine(options?: UseNLPEngineOptions) {
         }
     };
 
-    const processText = useCallback(async (text: string) => {
-        const command = parseCommand(text);
-        
-        if (command && nlpEngine.canExecute(command)) {
-            await executeCommand(command);
-        }
-        
-        return command;
-    }, [parseCommand, executeCommand]);
+    const processText = useCallback(
+        async (text: string) => {
+            const command = parseCommand(text);
+
+            if (command && nlpEngine.canExecute(command)) {
+                await executeCommand(command);
+            }
+
+            return command;
+        },
+        [parseCommand, executeCommand],
+    );
 
     const clearContext = useCallback(() => {
         setContext({});

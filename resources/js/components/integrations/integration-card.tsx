@@ -1,3 +1,5 @@
+import { Link } from '@inertiajs/react';
+import { Settings } from 'lucide-react';
 import React from 'react';
 import { INTEGRATION_TYPES, IntegrationAccount, IntegrationStatus, IntegrationType } from '../../types/integrations';
 import { Badge } from '../ui/badge';
@@ -5,8 +7,6 @@ import { Button } from '../ui/button';
 import { Card } from '../ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { IntegrationForm } from './integration-form';
-import { Link } from '@inertiajs/react';
-import { Settings } from 'lucide-react';
 
 interface IntegrationCardProps {
     integration: IntegrationAccount;

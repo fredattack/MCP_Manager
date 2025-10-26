@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Input } from '@/components/ui/input';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Search, AlertCircle } from 'lucide-react';
 import { format } from 'date-fns';
+import { AlertCircle, Search } from 'lucide-react';
+import React, { useState } from 'react';
 
 interface JiraIssue {
     id: string;
@@ -58,8 +58,8 @@ export function JiraIssueList({ issues, loading, onSearch }: JiraIssueListProps)
     const getStatusColor = (colorName: string) => {
         const colorMap: Record<string, string> = {
             'blue-gray': 'bg-blue-500',
-            'yellow': 'bg-yellow-500',
-            'green': 'bg-green-500',
+            yellow: 'bg-yellow-500',
+            green: 'bg-green-500',
             'medium-gray': 'bg-gray-500',
         };
         return colorMap[colorName] || 'bg-gray-500';
@@ -76,7 +76,7 @@ export function JiraIssueList({ issues, loading, onSearch }: JiraIssueListProps)
                     className="flex-1"
                 />
                 <Button type="submit" disabled={loading}>
-                    <Search className="h-4 w-4 mr-2" />
+                    <Search className="mr-2 h-4 w-4" />
                     Search
                 </Button>
             </form>
@@ -90,7 +90,7 @@ export function JiraIssueList({ issues, loading, onSearch }: JiraIssueListProps)
                                 <div className="flex items-center gap-4">
                                     <Skeleton className="h-12 w-12" />
                                     <div className="flex-1">
-                                        <Skeleton className="h-4 w-3/4 mb-2" />
+                                        <Skeleton className="mb-2 h-4 w-3/4" />
                                         <Skeleton className="h-3 w-1/2" />
                                     </div>
                                 </div>
@@ -101,40 +101,30 @@ export function JiraIssueList({ issues, loading, onSearch }: JiraIssueListProps)
             ) : issues.length === 0 ? (
                 <Card>
                     <CardContent className="flex flex-col items-center justify-center py-8">
-                        <AlertCircle className="h-12 w-12 text-muted-foreground mb-4" />
+                        <AlertCircle className="text-muted-foreground mb-4 h-12 w-12" />
                         <p className="text-muted-foreground">No issues found</p>
-                        <p className="text-sm text-muted-foreground mt-2">
-                            Try searching with a JQL query
-                        </p>
+                        <p className="text-muted-foreground mt-2 text-sm">Try searching with a JQL query</p>
                     </CardContent>
                 </Card>
             ) : (
                 <div className="space-y-2">
                     {issues.map((issue) => (
-                        <Card key={issue.id} className="hover:shadow-md transition-shadow">
+                        <Card key={issue.id} className="transition-shadow hover:shadow-md">
                             <CardHeader className="pb-3">
                                 <div className="flex items-start justify-between">
                                     <div className="flex items-start gap-3">
-                                        <img 
-                                            src={issue.fields.issuetype.iconUrl} 
-                                            alt={issue.fields.issuetype.name}
-                                            className="h-5 w-5 mt-0.5"
-                                        />
+                                        <img src={issue.fields.issuetype.iconUrl} alt={issue.fields.issuetype.name} className="mt-0.5 h-5 w-5" />
                                         <div className="flex-1">
-                                            <div className="flex items-center gap-2 mb-1">
-                                                <span className="font-mono text-sm text-muted-foreground">
-                                                    {issue.key}
-                                                </span>
-                                                <Badge 
-                                                    variant="outline" 
-                                                    className={`${getStatusColor(issue.fields.status.statusCategory.colorName)} text-white border-0`}
+                                            <div className="mb-1 flex items-center gap-2">
+                                                <span className="text-muted-foreground font-mono text-sm">{issue.key}</span>
+                                                <Badge
+                                                    variant="outline"
+                                                    className={`${getStatusColor(issue.fields.status.statusCategory.colorName)} border-0 text-white`}
                                                 >
                                                     {issue.fields.status.name}
                                                 </Badge>
                                             </div>
-                                            <CardTitle className="text-base font-medium">
-                                                {issue.fields.summary}
-                                            </CardTitle>
+                                            <CardTitle className="text-base font-medium">{issue.fields.summary}</CardTitle>
                                             <CardDescription className="mt-1">
                                                 <div className="flex items-center gap-4 text-xs">
                                                     <span>Type: {issue.fields.issuetype.name}</span>
@@ -147,13 +137,11 @@ export function JiraIssueList({ issues, loading, onSearch }: JiraIssueListProps)
                                     {issue.fields.assignee && (
                                         <div className="flex items-center gap-2">
                                             <Avatar className="h-8 w-8">
-                                                <AvatarImage 
-                                                    src={issue.fields.assignee.avatarUrls['48x48']} 
-                                                    alt={issue.fields.assignee.displayName} 
+                                                <AvatarImage
+                                                    src={issue.fields.assignee.avatarUrls['48x48']}
+                                                    alt={issue.fields.assignee.displayName}
                                                 />
-                                                <AvatarFallback>
-                                                    {issue.fields.assignee.displayName.charAt(0)}
-                                                </AvatarFallback>
+                                                <AvatarFallback>{issue.fields.assignee.displayName.charAt(0)}</AvatarFallback>
                                             </Avatar>
                                         </div>
                                     )}

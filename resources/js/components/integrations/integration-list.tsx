@@ -4,7 +4,6 @@ import { INTEGRATION_TYPES, IntegrationAccount, IntegrationStatus, IntegrationTy
 import { Button } from '../ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '../ui/dialog';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
-import { IntegrationCard } from './integration-card';
 import { IntegrationCardEnhanced } from './integration-card-enhanced';
 import { IntegrationForm } from './integration-form';
 

@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Textarea } from '@/components/ui/textarea';
 import { Loader2 } from 'lucide-react';
+import React, { useState } from 'react';
 
 interface JiraProject {
     id: string;
@@ -23,13 +16,7 @@ interface JiraProject {
 interface CreateIssueDialogProps {
     open: boolean;
     onClose: () => void;
-    onCreate: (data: {
-        project_key: string;
-        issue_type: string;
-        summary: string;
-        description?: string;
-        priority?: string;
-    }) => Promise<unknown>;
+    onCreate: (data: { project_key: string; issue_type: string; summary: string; description?: string; priority?: string }) => Promise<unknown>;
     projects: JiraProject[];
 }
 
@@ -75,9 +62,7 @@ export function CreateIssueDialog({ open, onClose, onCreate, projects }: CreateI
                 <form onSubmit={handleSubmit}>
                     <DialogHeader>
                         <DialogTitle>Create New Issue</DialogTitle>
-                        <DialogDescription>
-                            Create a new JIRA issue. Fill in the required fields below.
-                        </DialogDescription>
+                        <DialogDescription>Create a new JIRA issue. Fill in the required fields below.</DialogDescription>
                     </DialogHeader>
 
                     <div className="grid gap-4 py-4">
@@ -86,10 +71,7 @@ export function CreateIssueDialog({ open, onClose, onCreate, projects }: CreateI
                             <Label htmlFor="project" className="text-right">
                                 Project*
                             </Label>
-                            <Select
-                                value={formData.project_key}
-                                onValueChange={(value) => setFormData({ ...formData, project_key: value })}
-                            >
+                            <Select value={formData.project_key} onValueChange={(value) => setFormData({ ...formData, project_key: value })}>
                                 <SelectTrigger className="col-span-3">
                                     <SelectValue placeholder="Select a project" />
                                 </SelectTrigger>
@@ -108,10 +90,7 @@ export function CreateIssueDialog({ open, onClose, onCreate, projects }: CreateI
                             <Label htmlFor="issue_type" className="text-right">
                                 Type*
                             </Label>
-                            <Select
-                                value={formData.issue_type}
-                                onValueChange={(value) => setFormData({ ...formData, issue_type: value })}
-                            >
+                            <Select value={formData.issue_type} onValueChange={(value) => setFormData({ ...formData, issue_type: value })}>
                                 <SelectTrigger className="col-span-3">
                                     <SelectValue />
                                 </SelectTrigger>
@@ -142,7 +121,7 @@ export function CreateIssueDialog({ open, onClose, onCreate, projects }: CreateI
 
                         {/* Description */}
                         <div className="grid grid-cols-4 items-start gap-4">
-                            <Label htmlFor="description" className="text-right pt-2">
+                            <Label htmlFor="description" className="pt-2 text-right">
                                 Description
                             </Label>
                             <Textarea
@@ -160,10 +139,7 @@ export function CreateIssueDialog({ open, onClose, onCreate, projects }: CreateI
                             <Label htmlFor="priority" className="text-right">
                                 Priority
                             </Label>
-                            <Select
-                                value={formData.priority}
-                                onValueChange={(value) => setFormData({ ...formData, priority: value })}
-                            >
+                            <Select value={formData.priority} onValueChange={(value) => setFormData({ ...formData, priority: value })}>
                                 <SelectTrigger className="col-span-3">
                                     <SelectValue />
                                 </SelectTrigger>
@@ -182,10 +158,7 @@ export function CreateIssueDialog({ open, onClose, onCreate, projects }: CreateI
                         <Button type="button" variant="outline" onClick={onClose} disabled={creating}>
                             Cancel
                         </Button>
-                        <Button
-                            type="submit"
-                            disabled={creating || !formData.project_key || !formData.summary}
-                        >
+                        <Button type="submit" disabled={creating || !formData.project_key || !formData.summary}>
                             {creating ? (
                                 <>
                                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />

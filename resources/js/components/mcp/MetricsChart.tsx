@@ -1,24 +1,23 @@
+import { Badge } from '@/components/ui/badge';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import React from 'react';
 import {
-    LineChart,
-    Line,
-    AreaChart,
     Area,
-    BarChart,
+    AreaChart,
     Bar,
-    PieChart,
-    Pie,
+    BarChart,
+    CartesianGrid,
     Cell,
+    Legend,
+    Line,
+    LineChart,
+    Pie,
+    PieChart,
+    ResponsiveContainer,
+    Tooltip,
     XAxis,
     YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
 } from 'recharts';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
 
 interface MetricsChartProps {
     title: string;
@@ -56,19 +55,10 @@ export function MetricsChart({
                     <ResponsiveContainer width="100%" height={height}>
                         <LineChart data={data}>
                             {showGrid && <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />}
-                            <XAxis 
-                                dataKey={xAxisKey} 
-                                className="text-xs"
-                                stroke="currentColor"
-                                opacity={0.5}
-                            />
-                            <YAxis 
-                                className="text-xs"
-                                stroke="currentColor"
-                                opacity={0.5}
-                            />
-                            <Tooltip 
-                                contentStyle={{ 
+                            <XAxis dataKey={xAxisKey} className="text-xs" stroke="currentColor" opacity={0.5} />
+                            <YAxis className="text-xs" stroke="currentColor" opacity={0.5} />
+                            <Tooltip
+                                contentStyle={{
                                     backgroundColor: 'hsl(var(--background))',
                                     border: '1px solid hsl(var(--border))',
                                     borderRadius: '6px',
@@ -87,13 +77,7 @@ export function MetricsChart({
                                     />
                                 ))
                             ) : (
-                                <Line
-                                    type="monotone"
-                                    dataKey={dataKey}
-                                    stroke={colors[0]}
-                                    strokeWidth={2}
-                                    dot={false}
-                                />
+                                <Line type="monotone" dataKey={dataKey} stroke={colors[0]} strokeWidth={2} dot={false} />
                             )}
                         </LineChart>
                     </ResponsiveContainer>
@@ -104,19 +88,10 @@ export function MetricsChart({
                     <ResponsiveContainer width="100%" height={height}>
                         <AreaChart data={data}>
                             {showGrid && <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />}
-                            <XAxis 
-                                dataKey={xAxisKey}
-                                className="text-xs"
-                                stroke="currentColor"
-                                opacity={0.5}
-                            />
-                            <YAxis 
-                                className="text-xs"
-                                stroke="currentColor"
-                                opacity={0.5}
-                            />
-                            <Tooltip 
-                                contentStyle={{ 
+                            <XAxis dataKey={xAxisKey} className="text-xs" stroke="currentColor" opacity={0.5} />
+                            <YAxis className="text-xs" stroke="currentColor" opacity={0.5} />
+                            <Tooltip
+                                contentStyle={{
                                     backgroundColor: 'hsl(var(--background))',
                                     border: '1px solid hsl(var(--border))',
                                     borderRadius: '6px',
@@ -135,13 +110,7 @@ export function MetricsChart({
                                     />
                                 ))
                             ) : (
-                                <Area
-                                    type="monotone"
-                                    dataKey={dataKey}
-                                    stroke={colors[0]}
-                                    fill={colors[0]}
-                                    fillOpacity={0.3}
-                                />
+                                <Area type="monotone" dataKey={dataKey} stroke={colors[0]} fill={colors[0]} fillOpacity={0.3} />
                             )}
                         </AreaChart>
                     </ResponsiveContainer>
@@ -152,19 +121,10 @@ export function MetricsChart({
                     <ResponsiveContainer width="100%" height={height}>
                         <BarChart data={data}>
                             {showGrid && <CartesianGrid strokeDasharray="3 3" className="stroke-muted" />}
-                            <XAxis 
-                                dataKey={xAxisKey}
-                                className="text-xs"
-                                stroke="currentColor"
-                                opacity={0.5}
-                            />
-                            <YAxis 
-                                className="text-xs"
-                                stroke="currentColor"
-                                opacity={0.5}
-                            />
-                            <Tooltip 
-                                contentStyle={{ 
+                            <XAxis dataKey={xAxisKey} className="text-xs" stroke="currentColor" opacity={0.5} />
+                            <YAxis className="text-xs" stroke="currentColor" opacity={0.5} />
+                            <Tooltip
+                                contentStyle={{
                                     backgroundColor: 'hsl(var(--background))',
                                     border: '1px solid hsl(var(--border))',
                                     borderRadius: '6px',
@@ -172,13 +132,7 @@ export function MetricsChart({
                             />
                             {showLegend && <Legend />}
                             {Array.isArray(dataKey) ? (
-                                dataKey.map((key, index) => (
-                                    <Bar
-                                        key={key}
-                                        dataKey={key}
-                                        fill={colors[index % colors.length]}
-                                    />
-                                ))
+                                dataKey.map((key, index) => <Bar key={key} dataKey={key} fill={colors[index % colors.length]} />)
                             ) : (
                                 <Bar dataKey={dataKey} fill={colors[0]} />
                             )}
@@ -204,8 +158,8 @@ export function MetricsChart({
                                     <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
                                 ))}
                             </Pie>
-                            <Tooltip 
-                                contentStyle={{ 
+                            <Tooltip
+                                contentStyle={{
                                     backgroundColor: 'hsl(var(--background))',
                                     border: '1px solid hsl(var(--border))',
                                     borderRadius: '6px',
@@ -231,9 +185,7 @@ export function MetricsChart({
                 {data && data.length > 0 ? (
                     renderChart()
                 ) : (
-                    <div className="flex items-center justify-center h-[200px] text-muted-foreground">
-                        No data available
-                    </div>
+                    <div className="text-muted-foreground flex h-[200px] items-center justify-center">No data available</div>
                 )}
             </CardContent>
         </Card>
@@ -261,18 +213,14 @@ export function MetricCard({ title, value, description, trend, icon, className }
             </CardHeader>
             <CardContent>
                 <div className="text-2xl font-bold">{value}</div>
-                {description && (
-                    <p className="text-xs text-muted-foreground mt-1">{description}</p>
-                )}
+                {description && <p className="text-muted-foreground mt-1 text-xs">{description}</p>}
                 {trend && (
-                    <div className="flex items-center mt-2">
-                        <Badge
-                            variant={trend.value >= 0 ? 'default' : 'destructive'}
-                            className="text-xs"
-                        >
-                            {trend.value >= 0 ? '+' : ''}{trend.value}%
+                    <div className="mt-2 flex items-center">
+                        <Badge variant={trend.value >= 0 ? 'default' : 'destructive'} className="text-xs">
+                            {trend.value >= 0 ? '+' : ''}
+                            {trend.value}%
                         </Badge>
-                        <span className="text-xs text-muted-foreground ml-2">{trend.label}</span>
+                        <span className="text-muted-foreground ml-2 text-xs">{trend.label}</span>
                     </div>
                 )}
             </CardContent>

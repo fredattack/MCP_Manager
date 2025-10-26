@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
 import { useToast } from '@/hooks/ui/use-toast';
 import { api } from '@/lib/api';
+import { useEffect, useState } from 'react';
 
 interface JiraProject {
     id: string;
@@ -123,7 +123,7 @@ export function useJira() {
         try {
             setLoading(true);
             const response = await api.get('/api/jira/issues/search', {
-                params: { jql, max_results: 50 }
+                params: { jql, max_results: 50 },
             });
             if (response.data.success) {
                 setIssues(response.data.data.issues || []);
@@ -234,7 +234,7 @@ export function useJira() {
         try {
             setLoading(true);
             const response = await api.post(`/api/jira/issues/${issueKey}/transitions`, {
-                transition_id: transitionId
+                transition_id: transitionId,
             });
             if (response.data.success) {
                 toast({

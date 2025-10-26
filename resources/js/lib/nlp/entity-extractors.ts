@@ -17,13 +17,14 @@ const PRIORITY_PATTERN = /\b(p[1-4]|priority\s*[1-4]|high|medium|low|haute?|moye
 const SERVICE_PATTERN = /\b(todoist|notion|jira|gmail|calendar|mail)\b/i;
 
 // Action patterns
-const ACTION_PATTERN = /\b(create|add|new|update|edit|delete|remove|list|show|find|search|créer|ajouter|nouveau|modifier|supprimer|lister|afficher|chercher|rechercher)\b/i;
+const ACTION_PATTERN =
+    /\b(create|add|new|update|edit|delete|remove|list|show|find|search|créer|ajouter|nouveau|modifier|supprimer|lister|afficher|chercher|rechercher)\b/i;
 
 export const dateExtractor: EntityExtractor = {
     type: 'date',
     pattern: (text: string): Entity | null => {
         const lowerText = text.toLowerCase();
-        
+
         if (TODAY_PATTERN.test(lowerText)) {
             const match = lowerText.match(TODAY_PATTERN)!;
             return {
@@ -33,7 +34,7 @@ export const dateExtractor: EntityExtractor = {
                 position: [match.index!, match.index! + match[0].length],
             };
         }
-        
+
         if (TOMORROW_PATTERN.test(lowerText)) {
             const match = lowerText.match(TOMORROW_PATTERN)!;
             return {
@@ -43,7 +44,7 @@ export const dateExtractor: EntityExtractor = {
                 position: [match.index!, match.index! + match[0].length],
             };
         }
-        
+
         if (NEXT_WEEK_PATTERN.test(lowerText)) {
             const match = lowerText.match(NEXT_WEEK_PATTERN)!;
             return {
@@ -53,7 +54,7 @@ export const dateExtractor: EntityExtractor = {
                 position: [match.index!, match.index! + match[0].length],
             };
         }
-        
+
         const dateMatch = text.match(DATE_PATTERN);
         if (dateMatch) {
             return {
@@ -63,7 +64,7 @@ export const dateExtractor: EntityExtractor = {
                 position: [dateMatch.index!, dateMatch.index! + dateMatch[0].length],
             };
         }
-        
+
         return null;
     },
 };
@@ -80,15 +81,13 @@ export const timeExtractor: EntityExtractor = {
                 position: [timeMatch.index!, timeMatch.index! + timeMatch[0].length],
             };
         }
-        
+
         const durationMatch = text.match(DURATION_PATTERN);
         if (durationMatch) {
             const value = durationMatch[1];
             const unit = durationMatch[2].toLowerCase();
-            const minutes = unit.includes('hour') || unit.includes('heure') 
-                ? parseInt(value) * 60 
-                : parseInt(value);
-                
+            const minutes = unit.includes('hour') || unit.includes('heure') ? parseInt(value) * 60 : parseInt(value);
+
             return {
                 type: 'time',
                 value: `${minutes}min`,
@@ -96,7 +95,7 @@ export const timeExtractor: EntityExtractor = {
                 position: [durationMatch.index!, durationMatch.index! + durationMatch[0].length],
             };
         }
-        
+
         return null;
     },
 };
@@ -106,10 +105,10 @@ export const priorityExtractor: EntityExtractor = {
     pattern: (text: string): Entity | null => {
         const match = text.match(PRIORITY_PATTERN);
         if (!match) return null;
-        
+
         const value = match[1].toLowerCase();
         let normalizedValue: string;
-        
+
         if (value.startsWith('p')) {
             normalizedValue = value.toUpperCase();
         } else if (value.includes('1') || value === 'high' || value.includes('haut')) {
@@ -121,7 +120,7 @@ export const priorityExtractor: EntityExtractor = {
         } else {
             normalizedValue = 'P4';
         }
-        
+
         return {
             type: 'priority',
             value: normalizedValue,
@@ -136,10 +135,10 @@ export const serviceExtractor: EntityExtractor = {
     pattern: (text: string): Entity | null => {
         const match = text.match(SERVICE_PATTERN);
         if (!match) return null;
-        
+
         const value = match[1].toLowerCase();
         const normalizedValue = value === 'mail' ? 'gmail' : value;
-        
+
         return {
             type: 'service',
             value: normalizedValue as 'todoist' | 'notion' | 'jira' | 'gmail' | 'calendar',
@@ -154,23 +153,23 @@ export const actionExtractor: EntityExtractor = {
     pattern: (text: string): Entity | null => {
         const match = text.match(ACTION_PATTERN);
         if (!match) return null;
-        
+
         const value = match[1].toLowerCase();
         // Normalize French to English
         const frenchToEnglish: Record<string, string> = {
-            'créer': 'create',
-            'ajouter': 'add',
-            'nouveau': 'new',
-            'modifier': 'update',
-            'supprimer': 'delete',
-            'lister': 'list',
-            'afficher': 'show',
-            'chercher': 'search',
-            'rechercher': 'search',
+            créer: 'create',
+            ajouter: 'add',
+            nouveau: 'new',
+            modifier: 'update',
+            supprimer: 'delete',
+            lister: 'list',
+            afficher: 'show',
+            chercher: 'search',
+            rechercher: 'search',
         };
-        
+
         const normalizedValue = frenchToEnglish[value] || value;
-        
+
         return {
             type: 'action',
             value: normalizedValue,
@@ -184,11 +183,8 @@ export const projectExtractor: EntityExtractor = {
     type: 'project',
     pattern: (text: string): Entity | null => {
         // Match "project ProjectName" or "projet ProjectName" or "#ProjectName"
-        const patterns = [
-            /\b(?:project|projet)\s+([A-Za-z0-9_-]+)/i,
-            /#([A-Za-z0-9_-]+)/,
-        ];
-        
+        const patterns = [/\b(?:project|projet)\s+([A-Za-z0-9_-]+)/i, /#([A-Za-z0-9_-]+)/];
+
         for (const pattern of patterns) {
             const match = text.match(pattern);
             if (match) {
@@ -200,7 +196,7 @@ export const projectExtractor: EntityExtractor = {
                 };
             }
         }
-        
+
         return null;
     },
 };
@@ -211,7 +207,7 @@ export const labelExtractor: EntityExtractor = {
         // Match "@label" pattern
         const match = text.match(/@([A-Za-z0-9_-]+)/);
         if (!match) return null;
-        
+
         return {
             type: 'label',
             value: match[1],
@@ -227,7 +223,7 @@ export const objectExtractor: EntityExtractor = {
     pattern: (text: string): Entity | null => {
         // Remove already identified entities and actions
         let cleanedText = text;
-        
+
         // Remove common patterns
         cleanedText = cleanedText.replace(SERVICE_PATTERN, '');
         cleanedText = cleanedText.replace(ACTION_PATTERN, '');
@@ -236,14 +232,14 @@ export const objectExtractor: EntityExtractor = {
         cleanedText = cleanedText.replace(PRIORITY_PATTERN, '');
         cleanedText = cleanedText.replace(/@[A-Za-z0-9_-]+/g, '');
         cleanedText = cleanedText.replace(/#[A-Za-z0-9_-]+/g, '');
-        
+
         // Clean up quotes and extra spaces
         cleanedText = cleanedText.replace(/["']/g, '').trim();
         cleanedText = cleanedText.replace(/\s+/g, ' ');
-        
+
         // Skip if too short
         if (cleanedText.length < 3) return null;
-        
+
         return {
             type: 'object',
             value: cleanedText,

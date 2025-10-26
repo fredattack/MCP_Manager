@@ -54,6 +54,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('design-system');
     })->name('design-system');
 
+    // Workflows routes
+    Route::prefix('workflows')->name('workflows.')->group(function () {
+        Route::get('/', [App\Http\Controllers\WorkflowController::class, 'index'])->name('index');
+        Route::get('/{workflow}', [App\Http\Controllers\WorkflowController::class, 'show'])->name('show');
+    });
+
     Route::get('jira', function () {
         $user = auth()->user();
         $hasIntegration = $user->integrationAccounts()
