@@ -1,0 +1,378 @@
+{
+  "meta": {
+    "project": "Monologue Design System Extraction",
+    "site": "https://www.monologue.to/",
+    "auditDate": "2025-10-25",
+    "auditor": "Claude Code MCP Playwright Agent",
+    "version": "1.0.0",
+    "status": "Complete"
+  },
+  "summary": {
+    "totalFiles": 16,
+    "screenshots": 3,
+    "components": 4,
+    "reports": 2,
+    "tokens": 1,
+    "configs": 2,
+    "documentation": 2
+  },
+  "structure": {
+    "root": "docs/03-ui-ux/brand-monologue/",
+    "directories": [
+      "tokens/",
+      "css/",
+      "tailwind/",
+      "components/examples/",
+      "reports/",
+      "assets/screenshots/mobile/",
+      "assets/screenshots/tablet/",
+      "assets/screenshots/desktop/",
+      "assets/fonts/",
+      "assets/svg-icons/",
+      "mapping/"
+    ]
+  },
+  "files": {
+    "tokens": [
+      {
+        "path": "tokens/design-tokens.json",
+        "description": "W3C Design Tokens format - complete design system tokens",
+        "format": "JSON",
+        "size": "~400 lines",
+        "contains": [
+          "Color palette (brand, neutral, semantic)",
+          "Typography (families, sizes, weights, line-heights, letter-spacing)",
+          "Spacing scale (0-154px)",
+          "Border radius tokens",
+          "Opacity levels",
+          "Breakpoints",
+          "Motion (duration, easing)",
+          "Typography scale presets"
+        ]
+      }
+    ],
+    "css": [
+      {
+        "path": "css/variables.css",
+        "description": "CSS Custom Properties (variables) for the design system",
+        "format": "CSS",
+        "size": "~250 lines",
+        "contains": [
+          "All color tokens as CSS variables",
+          "Typography tokens",
+          "Spacing tokens",
+          "Radius tokens",
+          "Opacity tokens",
+          "Motion tokens",
+          "Component-specific tokens (button, input, card, link)",
+          "Typography utility classes",
+          "Responsive breakpoint media queries",
+          "Dark mode variables (light mode commented)"
+        ]
+      }
+    ],
+    "tailwind": [
+      {
+        "path": "tailwind/tailwind.config.js",
+        "description": "Tailwind CSS configuration with Monologue design tokens",
+        "format": "JavaScript (ESM)",
+        "size": "~200 lines",
+        "contains": [
+          "Extended color palette",
+          "Font family definitions",
+          "Font size scale with line-heights",
+          "Custom spacing scale",
+          "Border radius tokens",
+          "Opacity scale",
+          "Responsive breakpoints",
+          "Transition utilities",
+          "Custom component classes plugin (btn, card, link, typography)"
+        ]
+      }
+    ],
+    "components": [
+      {
+        "path": "components/examples/Button.jsx",
+        "description": "Accessible button component with multiple variants",
+        "framework": "React",
+        "variants": ["primary", "secondary", "ghost", "link"],
+        "sizes": ["sm", "md", "lg"],
+        "features": [
+          "Loading state",
+          "Disabled state",
+          "Left/right icons",
+          "Focus-visible states",
+          "PropTypes validation",
+          "Accessibility attributes"
+        ]
+      },
+      {
+        "path": "components/examples/Card.jsx",
+        "description": "Container component for content grouping",
+        "framework": "React",
+        "variants": ["default", "elevated", "ghost"],
+        "subcomponents": ["Header", "Body", "Footer"],
+        "features": [
+          "Flexible padding options",
+          "Composable sub-components",
+          "Responsive design",
+          "PropTypes validation"
+        ]
+      },
+      {
+        "path": "components/examples/Badge.jsx",
+        "description": "Label/tag component for status indicators",
+        "framework": "React",
+        "variants": ["default", "primary", "accent", "success", "muted"],
+        "sizes": ["sm", "md", "lg"],
+        "features": [
+          "Multiple color variants",
+          "Size variations",
+          "Inline display",
+          "PropTypes validation"
+        ]
+      },
+      {
+        "path": "components/examples/Input.jsx",
+        "description": "Form input component with label and error states",
+        "framework": "React",
+        "types": ["input", "textarea"],
+        "features": [
+          "Label support",
+          "Error messages",
+          "Help text",
+          "Left/right icons",
+          "ARIA attributes",
+          "forwardRef support",
+          "Focus states",
+          "PropTypes validation"
+        ]
+      },
+      {
+        "path": "components/examples/README.md",
+        "description": "Complete usage documentation for all components",
+        "format": "Markdown",
+        "contains": [
+          "Installation instructions",
+          "Font loading guide",
+          "Component API documentation",
+          "Usage examples",
+          "Typography classes",
+          "Color usage guide",
+          "Accessibility notes",
+          "Dark mode implementation",
+          "Customization guide",
+          "Browser support"
+        ]
+      }
+    ],
+    "reports": [
+      {
+        "path": "reports/accessibility.md",
+        "description": "Comprehensive WCAG 2.1 Level AA accessibility audit",
+        "format": "Markdown",
+        "size": "~3500 words",
+        "sections": [
+          "Executive summary",
+          "Color contrast analysis (22 combinations tested)",
+          "Keyboard navigation & focus management",
+          "Semantic HTML & ARIA recommendations",
+          "Touch target sizes",
+          "Motion & animation (prefers-reduced-motion)",
+          "Screen reader considerations",
+          "Responsive design & zoom",
+          "Color dependency warnings",
+          "Form accessibility",
+          "Quick wins checklist",
+          "Testing checklist",
+          "Tools & resources"
+        ]
+      },
+      {
+        "path": "reports/audit-summary.md",
+        "description": "Comprehensive audit summary and design system analysis",
+        "format": "Markdown",
+        "size": "~4000 words",
+        "sections": [
+          "Executive summary",
+          "Color palette breakdown",
+          "Typography system analysis",
+          "Spacing & layout patterns",
+          "Effects & visual details",
+          "Component patterns",
+          "Dominant UI patterns",
+          "Design hypotheses & assumptions",
+          "Recommendations for SaaS integration",
+          "Files generated summary",
+          "Implementation checklist"
+        ]
+      }
+    ],
+    "screenshots": [
+      {
+        "path": "assets/screenshots/mobile/homepage.png",
+        "viewport": "375x812 (mobile)",
+        "type": "Full page screenshot",
+        "format": "PNG"
+      },
+      {
+        "path": "assets/screenshots/tablet/homepage.png",
+        "viewport": "768x1024 (tablet)",
+        "type": "Full page screenshot",
+        "format": "PNG"
+      },
+      {
+        "path": "assets/screenshots/desktop/homepage.png",
+        "viewport": "1440x900 (desktop)",
+        "type": "Full page screenshot",
+        "format": "PNG"
+      }
+    ],
+    "mapping": [
+      {
+        "path": "mapping/selectors-map.json",
+        "description": "Detailed mapping of UI roles to CSS selectors and classes",
+        "format": "JSON",
+        "contains": [
+          "Typography selector mappings",
+          "Button patterns and classes",
+          "Link styles",
+          "Container patterns",
+          "Form element patterns",
+          "Badge/tag patterns",
+          "Navigation structure",
+          "Layout patterns (container, grid)",
+          "Utility classes (opacity, transitions)",
+          "Responsive breakpoint details",
+          "Interactive states (hover, focus, disabled)",
+          "Implementation notes"
+        ]
+      }
+    ],
+    "assets": {
+      "fonts": {
+        "note": "Fonts are loaded from Google Fonts CDN",
+        "families": [
+          {
+            "name": "Instrument Serif",
+            "weights": ["400", "400 italic"],
+            "url": "https://fonts.google.com/specimen/Instrument+Serif",
+            "format": "woff2"
+          },
+          {
+            "name": "DM Mono",
+            "weights": ["400", "500", "400 italic"],
+            "url": "https://fonts.google.com/specimen/DM+Mono",
+            "format": "woff2"
+          },
+          {
+            "name": "Geist",
+            "weights": ["400"],
+            "url": "https://fonts.google.com/",
+            "note": "Loaded but used sparingly"
+          }
+        ],
+        "loadingStrategy": "font-display: swap"
+      },
+      "icons": {
+        "note": "SVG icons embedded inline, no icon library classes detected"
+      }
+    }
+  },
+  "designTokens": {
+    "colors": {
+      "brand": 3,
+      "neutral": 8,
+      "semantic": {
+        "background": 4,
+        "text": 4,
+        "border": 2,
+        "link": 2
+      }
+    },
+    "typography": {
+      "fontFamilies": 4,
+      "fontSizes": 6,
+      "fontWeights": 2,
+      "lineHeights": 4,
+      "letterSpacings": 3,
+      "scales": 6
+    },
+    "spacing": {
+      "values": 8
+    },
+    "radius": {
+      "values": 3
+    },
+    "opacity": {
+      "values": 7
+    },
+    "breakpoints": {
+      "values": 4
+    }
+  },
+  "usage": {
+    "quickStart": [
+      "1. Install fonts from Google Fonts (Instrument Serif, DM Mono)",
+      "2. Import CSS variables: import './css/variables.css'",
+      "3. Configure Tailwind: Use tailwind.config.js or merge with existing config",
+      "4. Copy component examples to your project",
+      "5. Review accessibility.md for implementation guidelines",
+      "6. Extend color palette with functional colors (error, warning, etc.)"
+    ],
+    "integration": {
+      "react": "Copy JSX components from components/examples/",
+      "vue": "Adapt JSX components to Vue SFC format",
+      "vanillaJS": "Use CSS variables and utility classes",
+      "tailwind": "Import tailwind.config.js",
+      "cssModules": "Reference variables.css tokens"
+    }
+  },
+  "keyFindings": {
+    "designPhilosophy": "Minimalist, dark-themed, typography-forward",
+    "colorStrategy": "Monochromatic with single vibrant accent (cyan)",
+    "typographyApproach": "Serif headings + monospace body for technical elegance",
+    "spacingStrategy": "Generous whitespace, spacious layouts on desktop",
+    "depthTechnique": "Layered backgrounds, no box-shadows",
+    "accessibility": "Strong contrast on primary elements, WCAG AA compliant",
+    "targetAudience": "Developers, technical users, power users"
+  },
+  "recommendations": {
+    "quickWins": [
+      "Use Button and Card components as-is",
+      "Stick to minimal color palette",
+      "Implement typography scale exactly",
+      "Use generous spacing on desktop"
+    ],
+    "adaptations": [
+      "Add error/warning/info colors for functional UI",
+      "Extend spacing scale with intermediate values (8px, 24px, 32px)",
+      "Consider light mode for broader accessibility",
+      "Add subtle shadows for modals/dropdowns if needed"
+    ],
+    "avoid": [
+      "Don't add unnecessary colors",
+      "Don't reduce spacing too much",
+      "Don't change font pairings",
+      "Don't add heavy shadows or gradients"
+    ]
+  },
+  "extractionLimits": {
+    "notCaptured": [
+      "Dynamic hover states (partially inferred)",
+      "Loading states for all components",
+      "Error states comprehensively",
+      "User-generated content patterns",
+      "Full application UI (only saw marketing site)",
+      "Complex data displays (tables, charts)",
+      "Modal/dropdown specific patterns"
+    ],
+    "inferred": [
+      "Form input styling",
+      "Light mode color values",
+      "Some hover states",
+      "Focus ring patterns",
+      "Badge exact measurements"
+    ]
+  }
+}

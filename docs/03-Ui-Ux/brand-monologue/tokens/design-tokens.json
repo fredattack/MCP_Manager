@@ -1,0 +1,452 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "color": {
+    "brand": {
+      "primary": {
+        "$type": "color",
+        "$value": "#19d0e8",
+        "$description": "Primary brand color - cyan/teal accent used for links and highlights",
+        "contrast": {
+          "light": 4.5,
+          "dark": 12.1
+        }
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "#44ccff",
+        "$description": "Secondary accent color - bright blue for interactive elements"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "#a6ee98",
+        "$description": "Success state color - light green"
+      }
+    },
+    "neutral": {
+      "black": {
+        "$type": "color",
+        "$value": "#000000",
+        "$description": "Pure black"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#010101",
+        "$description": "Near black - primary background"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#141414",
+        "$description": "Dark gray - secondary background"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#282828",
+        "$description": "Medium dark gray - elevated surfaces"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#3f3f3f",
+        "$description": "Mid dark gray"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#545454",
+        "$description": "Body background gray"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#fbfaf7",
+        "$description": "Off-white - light mode background"
+      },
+      "white": {
+        "$type": "color",
+        "$value": "#ffffff",
+        "$description": "Pure white - primary text on dark backgrounds"
+      }
+    },
+    "semantic": {
+      "background": {
+        "primary": {
+          "$type": "color",
+          "$value": "#010101",
+          "$description": "Primary background color"
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "#141414",
+          "$description": "Secondary background color"
+        },
+        "elevated": {
+          "$type": "color",
+          "$value": "#282828",
+          "$description": "Elevated surface color"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "#545454",
+          "$description": "Muted background"
+        }
+      },
+      "text": {
+        "primary": {
+          "$type": "color",
+          "$value": "#ffffff",
+          "$description": "Primary text color on dark backgrounds"
+        },
+        "secondary": {
+          "$type": "color",
+          "$value": "rgba(255, 255, 255, 0.64)",
+          "$description": "Secondary text with 64% opacity"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "rgba(255, 255, 255, 0.48)",
+          "$description": "Muted text with 48% opacity"
+        },
+        "inverse": {
+          "$type": "color",
+          "$value": "#282828",
+          "$description": "Text on light backgrounds"
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "rgba(255, 255, 255, 0.12)",
+          "$description": "Default border color with 12% opacity"
+        },
+        "muted": {
+          "$type": "color",
+          "$value": "rgba(255, 255, 255, 0.1)",
+          "$description": "Muted border with 10% opacity"
+        }
+      },
+      "link": {
+        "default": {
+          "$type": "color",
+          "$value": "#19d0e8",
+          "$description": "Link color"
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "#44ccff",
+          "$description": "Link hover state"
+        }
+      }
+    }
+  },
+  "typography": {
+    "fontFamily": {
+      "serif": {
+        "$type": "fontFamily",
+        "$value": "\"Instrument Serif\", \"Instrument Serif Placeholder\", serif",
+        "$description": "Primary serif font for headings and display text"
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": "\"DM Mono\", monospace",
+        "$description": "Monospace font for body text and UI elements"
+      },
+      "sans": {
+        "$type": "fontFamily",
+        "$value": "\"system-ui\", -apple-system, \"Segoe UI\", Roboto, sans-serif",
+        "$description": "System sans-serif fallback"
+      },
+      "geist": {
+        "$type": "fontFamily",
+        "$value": "\"Geist\", \"Geist Placeholder\", sans-serif",
+        "$description": "Geist sans-serif (loaded but used sparingly)"
+      }
+    },
+    "fontSize": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "Extra small text"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "14px",
+        "$description": "Small text"
+      },
+      "base": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "Base body text"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "Large heading"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "70.4px",
+        "$description": "Extra large heading"
+      },
+      "2xl": {
+        "$type": "dimension",
+        "$value": "296.637px",
+        "$description": "Display/hero text size"
+      }
+    },
+    "fontWeight": {
+      "normal": {
+        "$type": "fontWeight",
+        "$value": "400",
+        "$description": "Normal weight"
+      },
+      "medium": {
+        "$type": "fontWeight",
+        "$value": "500",
+        "$description": "Medium weight (DM Mono)"
+      }
+    },
+    "lineHeight": {
+      "tight": {
+        "$type": "dimension",
+        "$value": "0.8",
+        "$description": "Tight line height (80%)"
+      },
+      "normal": {
+        "$type": "dimension",
+        "$value": "1.2",
+        "$description": "Normal line height (120%)"
+      },
+      "relaxed": {
+        "$type": "dimension",
+        "$value": "1.4",
+        "$description": "Relaxed line height (140%)"
+      },
+      "loose": {
+        "$type": "dimension",
+        "$value": "1.5",
+        "$description": "Loose line height (150%)"
+      }
+    },
+    "letterSpacing": {
+      "tight": {
+        "$type": "dimension",
+        "$value": "-0.2px",
+        "$description": "Tight letter spacing for display text"
+      },
+      "normal": {
+        "$type": "dimension",
+        "$value": "0.3px",
+        "$description": "Normal letter spacing for body text"
+      },
+      "wide": {
+        "$type": "dimension",
+        "$value": "5.93275px",
+        "$description": "Wide letter spacing for large display text"
+      }
+    },
+    "scale": {
+      "display": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{typography.fontFamily.serif}",
+          "fontSize": "{typography.fontSize.2xl}",
+          "fontWeight": "{typography.fontWeight.normal}",
+          "lineHeight": "{typography.lineHeight.normal}",
+          "letterSpacing": "{typography.letterSpacing.wide}"
+        },
+        "$description": "Large hero/display text style"
+      },
+      "h1": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{typography.fontFamily.serif}",
+          "fontSize": "{typography.fontSize.xl}",
+          "fontWeight": "{typography.fontWeight.normal}",
+          "lineHeight": "{typography.lineHeight.normal}",
+          "letterSpacing": "{typography.letterSpacing.tight}"
+        },
+        "$description": "H1 heading style"
+      },
+      "h2": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{typography.fontFamily.serif}",
+          "fontSize": "{typography.fontSize.lg}",
+          "fontWeight": "{typography.fontWeight.normal}",
+          "lineHeight": "{typography.lineHeight.normal}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$description": "H2 heading style"
+      },
+      "body": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{typography.fontFamily.mono}",
+          "fontSize": "{typography.fontSize.base}",
+          "fontWeight": "{typography.fontWeight.normal}",
+          "lineHeight": "{typography.lineHeight.tight}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$description": "Body text style (monospace)"
+      },
+      "body-sm": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{typography.fontFamily.mono}",
+          "fontSize": "{typography.fontSize.sm}",
+          "fontWeight": "{typography.fontWeight.normal}",
+          "lineHeight": "{typography.lineHeight.relaxed}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$description": "Small body text"
+      },
+      "caption": {
+        "$type": "typography",
+        "$value": {
+          "fontFamily": "{typography.fontFamily.mono}",
+          "fontSize": "{typography.fontSize.xs}",
+          "fontWeight": "{typography.fontWeight.normal}",
+          "lineHeight": "{typography.lineHeight.normal}",
+          "letterSpacing": "{typography.letterSpacing.normal}"
+        },
+        "$description": "Caption/small text"
+      }
+    }
+  },
+  "spacing": {
+    "0": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "1": {
+      "$type": "dimension",
+      "$value": "10px",
+      "$description": "Base spacing unit"
+    },
+    "2": {
+      "$type": "dimension",
+      "$value": "14px"
+    },
+    "3": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "4": {
+      "$type": "dimension",
+      "$value": "18px"
+    },
+    "5": {
+      "$type": "dimension",
+      "$value": "20px"
+    },
+    "6": {
+      "$type": "dimension",
+      "$value": "40px"
+    },
+    "7": {
+      "$type": "dimension",
+      "$value": "154px",
+      "$description": "Large gap for desktop layouts"
+    }
+  },
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "6px",
+      "$description": "Small radius for buttons/cards"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "8px",
+      "$description": "Medium radius"
+    }
+  },
+  "shadow": {
+    "none": {
+      "$type": "shadow",
+      "$value": {
+        "offsetX": "0px",
+        "offsetY": "0px",
+        "blur": "0px",
+        "spread": "0px",
+        "color": "transparent"
+      }
+    }
+  },
+  "opacity": {
+    "0": {
+      "$type": "number",
+      "$value": 0
+    },
+    "10": {
+      "$type": "number",
+      "$value": 0.1
+    },
+    "12": {
+      "$type": "number",
+      "$value": 0.12
+    },
+    "36": {
+      "$type": "number",
+      "$value": 0.36
+    },
+    "48": {
+      "$type": "number",
+      "$value": 0.48
+    },
+    "64": {
+      "$type": "number",
+      "$value": 0.64
+    },
+    "100": {
+      "$type": "number",
+      "$value": 1
+    }
+  },
+  "breakpoints": {
+    "mobile": {
+      "$type": "dimension",
+      "$value": "375px",
+      "$description": "Mobile viewport"
+    },
+    "tablet": {
+      "$type": "dimension",
+      "$value": "810px",
+      "$description": "Tablet breakpoint"
+    },
+    "desktop": {
+      "$type": "dimension",
+      "$value": "1200px",
+      "$description": "Desktop breakpoint"
+    },
+    "wide": {
+      "$type": "dimension",
+      "$value": "1440px",
+      "$description": "Wide desktop breakpoint"
+    }
+  },
+  "motion": {
+    "duration": {
+      "fast": {
+        "$type": "duration",
+        "$value": "200ms"
+      }
+    },
+    "easing": {
+      "smooth": {
+        "$type": "cubicBezier",
+        "$value": [0.44, 0, 0.56, 1],
+        "$description": "Smooth easing for transitions"
+      }
+    }
+  },
+  "border": {
+    "width": {
+      "none": {
+        "$type": "dimension",
+        "$value": "0px"
+      }
+    }
+  }
+}

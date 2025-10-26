@@ -1,0 +1,281 @@
+{
+  "meta": {
+    "site": "https://www.monologue.to/",
+    "auditDate": "2025-10-25",
+    "description": "Mapping of UI roles to observed CSS selectors and classes from Monologue design system"
+  },
+  "typography": {
+    "display": {
+      "selectors": ["div > span[class*='framer']"],
+      "family": "\"Instrument Serif\", serif",
+      "size": "296.637px",
+      "weight": "400",
+      "lineHeight": "1.1",
+      "letterSpacing": "5.93275px",
+      "usage": "Large hero text on landing page",
+      "notes": "Extremely large display text, likely animated or part of hero section"
+    },
+    "h1": {
+      "selectors": ["p"],
+      "family": "\"Instrument Serif\", serif",
+      "size": "70.4px",
+      "weight": "400",
+      "lineHeight": "1.2",
+      "letterSpacing": "-0.2px",
+      "usage": "Primary headings",
+      "notes": "Used for main section titles throughout the page"
+    },
+    "h2": {
+      "selectors": ["p", "span"],
+      "family": "\"Instrument Serif\", serif",
+      "size": "40px",
+      "weight": "400",
+      "lineHeight": "1.2",
+      "letterSpacing": "0.3px",
+      "usage": "Secondary headings",
+      "notes": "Subsection titles, feature headings"
+    },
+    "body": {
+      "selectors": ["p", "span", "div"],
+      "family": "\"DM Mono\", monospace",
+      "size": "16px",
+      "weight": "400",
+      "lineHeight": "0.8",
+      "letterSpacing": "0.3px",
+      "usage": "Body text, descriptions",
+      "notes": "Primary content text, tight line-height creates dense blocks"
+    },
+    "body-small": {
+      "selectors": ["p", "span"],
+      "family": "\"DM Mono\", monospace",
+      "size": "14px",
+      "weight": "400",
+      "lineHeight": "1.4",
+      "letterSpacing": "0.3px",
+      "usage": "Secondary body text, help text",
+      "notes": "Used for supplementary information"
+    },
+    "caption": {
+      "selectors": ["p", "span", "a"],
+      "family": "\"DM Mono\", monospace",
+      "size": "12px",
+      "weight": "400",
+      "lineHeight": "1.2",
+      "letterSpacing": "0.3px",
+      "usage": "Small text, labels, button text",
+      "notes": "Smallest text size in the system"
+    }
+  },
+  "buttons": {
+    "primary": {
+      "selectors": ["a[class*='framer']", "div[role='button']"],
+      "background": "#ffffff",
+      "color": "#282828",
+      "padding": "14px 16px",
+      "borderRadius": "6px",
+      "fontSize": "12px",
+      "fontFamily": "DM Mono, monospace",
+      "transition": "all 200ms cubic-bezier(0.44, 0, 0.56, 1)",
+      "usage": "Primary CTA buttons",
+      "notes": "White background stands out strongly against dark theme",
+      "examples": ["Download for Mac", "Get started"]
+    },
+    "secondary": {
+      "selectors": ["button"],
+      "background": "rgba(255, 255, 255, 0.12)",
+      "color": "#ffffff",
+      "padding": "0px (varies)",
+      "borderRadius": "8px",
+      "fontSize": "12px",
+      "usage": "Secondary actions, navigation controls",
+      "notes": "Subtle transparent background, observed in carousel navigation"
+    }
+  },
+  "links": {
+    "default": {
+      "selectors": ["a"],
+      "color": "#19d0e8",
+      "textDecoration": "none",
+      "transition": "color 0.2s, text-decoration-color 0.2s",
+      "hover": {
+        "color": "#44ccff",
+        "textDecoration": "underline (inferred)"
+      },
+      "usage": "Text links, inline navigation",
+      "notes": "Cyan color is the primary brand accent"
+    }
+  },
+  "containers": {
+    "page": {
+      "selectors": ["body"],
+      "background": "#545454",
+      "color": "#000000 (default, overridden by children)",
+      "fontFamily": "sans-serif (base)",
+      "usage": "Root page background",
+      "notes": "Medium gray, provides subtle differentiation from section backgrounds"
+    },
+    "section": {
+      "selectors": ["section", "div[class*='framer']"],
+      "background": "#010101 (common)",
+      "padding": "10px (mobile), 40px (desktop)",
+      "usage": "Main content sections",
+      "notes": "Near-black background creates primary content areas"
+    },
+    "card": {
+      "selectors": ["div", "generic elements with elevated styling"],
+      "background": "#141414",
+      "border": "1px solid rgba(255, 255, 255, 0.1) (inferred)",
+      "borderRadius": "8px (inferred)",
+      "padding": "20px (typical)",
+      "usage": "Content cards, feature blocks",
+      "notes": "Slightly lighter than section background for layering"
+    },
+    "elevated": {
+      "selectors": ["div", "a"],
+      "background": "#282828",
+      "usage": "Highest elevation surfaces, button hover states",
+      "notes": "Lightest dark gray used for interactive elements"
+    }
+  },
+  "forms": {
+    "input": {
+      "selectors": ["input (not observed directly)"],
+      "background": "#282828 (inferred)",
+      "color": "#ffffff",
+      "border": "1px solid rgba(255, 255, 255, 0.12)",
+      "borderRadius": "6px",
+      "padding": "14px 16px",
+      "fontSize": "16px",
+      "fontFamily": "DM Mono, monospace",
+      "placeholder": "rgba(255, 255, 255, 0.48)",
+      "usage": "Text inputs, form fields",
+      "notes": "Pattern inferred from button styling and design system conventions"
+    }
+  },
+  "badges": {
+    "default": {
+      "selectors": ["span", "div (inline)"],
+      "background": "rgba(255, 255, 255, 0.12)",
+      "color": "#ffffff",
+      "padding": "4px 8px (estimated)",
+      "borderRadius": "4px (estimated)",
+      "fontSize": "12px",
+      "usage": "Tags, labels, status indicators",
+      "notes": "Pattern inferred, similar to secondary button styling"
+    },
+    "accent": {
+      "selectors": ["generic (observed in screenshots)"],
+      "background": "#19d0e8 or rgba(25, 208, 232, 0.2)",
+      "color": "#19d0e8",
+      "usage": "Highlighted tags like 'EARLY BIRD PRICING'",
+      "notes": "Uses brand primary color for emphasis"
+    }
+  },
+  "navigation": {
+    "header": {
+      "selectors": ["header (inferred)", "div (top section)"],
+      "background": "transparent or #010101",
+      "position": "fixed or sticky (likely)",
+      "padding": "20px 40px (estimated)",
+      "usage": "Site header/navigation",
+      "notes": "Minimal header observed, likely simple logo + CTA layout"
+    }
+  },
+  "layout": {
+    "container": {
+      "selectors": ["div[class*='framer']", "section"],
+      "maxWidth": "1440px (inferred from wide breakpoint)",
+      "padding": "0 40px (desktop), 0 20px (mobile)",
+      "margin": "0 auto",
+      "usage": "Content container",
+      "notes": "Centers content with responsive padding"
+    },
+    "grid": {
+      "selectors": ["div (flex/grid containers)"],
+      "display": "flex or grid",
+      "gap": "10px (tight), 40px (normal), 154px (wide desktop)",
+      "usage": "Multi-column layouts, feature grids",
+      "notes": "Large gaps on desktop create spacious feel"
+    }
+  },
+  "utilities": {
+    "opacity": {
+      "levels": {
+        "10": "rgba(255, 255, 255, 0.1)",
+        "12": "rgba(255, 255, 255, 0.12)",
+        "36": "rgba(0, 0, 0, 0.36)",
+        "48": "rgba(255, 255, 255, 0.48)",
+        "64": "rgba(255, 255, 255, 0.64)"
+      },
+      "usage": "Layering, text hierarchy, borders",
+      "notes": "Critical for creating depth without shadows"
+    },
+    "transitions": {
+      "default": {
+        "property": "all",
+        "duration": "200ms",
+        "easing": "cubic-bezier(0.44, 0, 0.56, 1)",
+        "usage": "All interactive elements"
+      },
+      "links": {
+        "property": "color, text-decoration-color, text-decoration-thickness, text-underline-offset",
+        "duration": "200ms",
+        "easing": "cubic-bezier(0.44, 0, 0.56, 1)",
+        "usage": "Link hover animations"
+      }
+    }
+  },
+  "responsive": {
+    "breakpoints": {
+      "mobile": {
+        "max": "809px",
+        "notes": "Single column layouts, reduced spacing"
+      },
+      "tablet": {
+        "min": "810px",
+        "max": "1199px",
+        "notes": "Intermediate layouts, multi-column grids"
+      },
+      "desktop": {
+        "min": "1200px",
+        "max": "1439px",
+        "notes": "Full multi-column layouts"
+      },
+      "wide": {
+        "min": "1440px",
+        "notes": "Maximum width containers, extra spacing (154px gaps)"
+      }
+    }
+  },
+  "states": {
+    "hover": {
+      "buttons": {
+        "primary": "background: #fbfaf7 (lighter)",
+        "secondary": "background: rgba(255, 255, 255, 0.2)",
+        "ghost": "background: rgba(25, 208, 232, 0.1)"
+      },
+      "links": {
+        "color": "#44ccff",
+        "textDecoration": "underline"
+      }
+    },
+    "focus": {
+      "outline": "2px solid #19d0e8 (recommended)",
+      "outlineOffset": "2px",
+      "notes": "Focus states not directly observed, recommended implementation"
+    },
+    "disabled": {
+      "opacity": "0.48",
+      "cursor": "not-allowed",
+      "pointerEvents": "none (recommended)"
+    }
+  },
+  "notes": {
+    "framework": "Site built with Framer (https://framer.com/) based on class patterns",
+    "fonts": "Loaded from Google Fonts with font-display: swap",
+    "shadows": "No box-shadows used - depth created through background colors",
+    "icons": "SVG icons embedded, no icon library class patterns detected",
+    "animations": "Smooth transitions (200ms), likely scroll-based animations for hero section",
+    "accessibility": "Good color contrast on primary elements, focus states need verification"
+  }
+}
