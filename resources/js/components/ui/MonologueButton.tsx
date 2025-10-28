@@ -27,7 +27,7 @@ import { cn } from '@/lib/utils';
 
 const monologueButtonVariants = cva(
   // Base styles - all buttons share these
-  'inline-flex items-center justify-center font-monologue-mono transition-all duration-fast ease-smooth focus:outline-none focus-visible:ring-2 focus-visible:ring-monologue-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-monologue-neutral-900 disabled:opacity-48 disabled:cursor-not-allowed',
+  'inline-flex items-center justify-center border border-monologue-neutral-100 font-monologue-mono transition-all duration-fast ease-smooth focus:outline-none focus-visible:ring-2 focus-visible:ring-monologue-brand-primary focus-visible:ring-offset-2 focus-visible:ring-offset-monologue-neutral-900 disabled:opacity-48 disabled:cursor-not-allowed',
   {
     variants: {
       variant: {

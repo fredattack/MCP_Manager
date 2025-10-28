@@ -35,7 +35,7 @@ const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
         return (
             <div
                 ref={ref}
-                className={`flex flex-col items-center justify-center py-16 px-4 text-center max-w-2xl mx-auto ${className}`}
+                className={`flex flex-col items-center http://192.168.0.1 justify-center py-16 px-4 text-center max-w-2xl mx-auto ${className}`}
             >
                 {Icon && (
                     <div className="mb-6 text-cyan-500/50">
@@ -53,7 +53,7 @@ const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
                         variant="primary"
                         size="lg"
                         onClick={action.onClick}
-                        className="w-full max-w-md"
+                        className="w-full max-w-md border border-[var(--monologue-neutral-500)] hover:border-[var(--monologue-neutral-200)] transition-colors"
                     >
                         {action.label}
                     </MonologueButton>

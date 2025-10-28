@@ -1,146 +1,130 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Services\LLM\Prompts;
+
+use App\DataTransferObjects\CodeAnalysis\ASTResult;
 
 class AnalyzeCodePrompt extends BasePrompt
 {
+    public function getSystemPrompt(): string
+    {
+        $path = storage_path('prompts/analyze_code_v1_system.txt');
+
+        return is_file($path) ? (string) file_get_contents($path) : 'You are a senior software architect.';
+    }
+
+    public function getUserPrompt(array $context): string
+    {
+        $path = storage_path('prompts/analyze_code_v1.txt');
+
+        return is_file($path) ? (string) file_get_contents($path) : 'Repository: {{repo_name}}';
+    }
+
+    public function getVersion(): string
+    {
+        return 'v1.0';
+    }
+
     /**
-     * @param  string  $repositoryName
-     * @param  array<string, mixed>  $astAnalysis
-     * @return array<int, array<string, string>>
+     * @param ASTResult $ast
+     * @param array{name:string,language?:string,file_count?:int,files?:array<int,string>} $repoData
+     * @return array<string,mixed>
      */
-    public function generate(...$args): array
+    public function buildContext(ASTResult $ast, array $repoData): array
     {
-        [$repositoryName, $astAnalysis] = $args;
-
-        $statistics = $astAnalysis['statistics'] ?? [];
-        $files = array_slice($astAnalysis['files'] ?? [], 0, 20); // Limit to first 20 files
-        $classes = array_slice($astAnalysis['classes'] ?? [], 0, 15); // Limit to first 15 classes
-        $dependencies = array_slice($astAnalysis['dependencies'] ?? [], 0, 30); // Limit to first 30
-
-        $systemPrompt = <<<'PROMPT'
-You are a senior software architect and code quality expert. Your role is to analyze codebases and provide insightful, actionable feedback on architecture, design patterns, code quality, and potential improvements.
-
-When analyzing code, focus on:
-1. Overall architecture and design patterns
-2. Code organization and structure
-3. Potential issues, anti-patterns, or technical debt
-4. Security concerns
-5. Performance considerations
-6. Best practices and recommendations
-
-Provide your analysis in structured JSON format.
-PROMPT;
-
-        $userPrompt = <<<PROMPT
-Analyze the following codebase for "{$repositoryName}".
-
-## Repository Statistics:
-- Total Files: {$statistics['total_files']}
-- Total Classes: {$statistics['total_classes']}
-- Total Functions/Methods: {$statistics['total_functions']}
-- Total Lines of Code: {$statistics['total_lines']}
-
-## File Structure (sample):
-{$this->formatFileList($files)}
-
-## Classes Found (sample):
-{$this->formatClassList($classes)}
-
-## Dependencies (sample):
-{$this->formatDependencyList($dependencies)}
-
-## Your Task:
-Analyze this codebase and provide a comprehensive assessment. Return your analysis in the following JSON structure:
-
-```json
-{
-  "architecture": {
-    "patterns": ["List of identified design patterns"],
-    "structure": "Description of overall code organization",
-    "framework_used": "Detected framework or architecture style"
-  },
-  "quality_score": 7.5,
-  "quality_assessment": {
-    "strengths": ["List of strong points"],
-    "weaknesses": ["List of areas needing improvement"]
-  },
-  "issues": [
-    {
-      "severity": "high|medium|low",
-      "category": "security|performance|maintainability|etc",
-      "description": "Description of the issue",
-      "recommendation": "How to fix it"
-    }
-  ],
-  "recommendations": [
-    {
-      "priority": "high|medium|low",
-      "category": "Category of recommendation",
-      "action": "Specific action to take",
-      "benefit": "Expected benefit"
-    }
-  ],
-  "summary": "Brief 2-3 sentence overall assessment"
-}
-```
-
-Provide a thorough but concise analysis focusing on the most important insights.
-PROMPT;
-
         return [
-            ['role' => 'system', 'content' => $systemPrompt],
-            ['role' => 'user', 'content' => $userPrompt],
+            'repo_name' => $repoData['name'],
+            'language' => $repoData['language'] ?? 'PHP',
+            'framework' => $this->detectFramework($ast, $repoData),
+            'file_count' => $repoData['file_count'] ?? 0,
+            'total_lines' => $ast->metadata['lines'] ?? 0,
+            'file_tree' => $this->formatFileTree($repoData['files'] ?? []),
+            'class_count' => count($ast->classes),
+            'class_list' => $this->formatClasses($ast->classes),
+            'function_count' => count($ast->functions),
+            'function_list' => $this->formatFunctions($ast->functions),
+            'dependencies' => $this->formatDependencies($ast->dependencies),
+            'namespaces' => implode(', ', $ast->namespaces),
         ];
     }
 
-    /**
-     * @param  array<int, array<string, mixed>>  $files
-     */
-    private function formatFileList(array $files): string
+    private function detectFramework(ASTResult $ast, array $repoData): string
     {
-        if (empty($files)) {
-            return '(No files found)';
+        $dependencies = $ast->dependencies;
+
+        if (in_array('laravel/framework', $dependencies, true)) {
+            return 'Laravel';
         }
 
-        $lines = [];
-        foreach ($files as $file) {
-            $lines[] = "- {$file['path']} ({$file['lines']} lines)";
+        if (in_array('symfony/symfony', $dependencies, true)) {
+            return 'Symfony';
         }
 
-        return implode("\n", $lines);
+        return 'Unknown';
     }
 
     /**
-     * @param  array<int, array<string, mixed>>  $classes
+     * @param array<int,string> $files
      */
-    private function formatClassList(array $classes): string
+    private function formatFileTree(array $files): string
     {
-        if (empty($classes)) {
-            return '(No classes found)';
+        $tree = [];
+
+        foreach (array_slice($files, 0, 50) as $file) {
+            $tree[] = '- ' . $file;
         }
 
-        $lines = [];
-        foreach ($classes as $class) {
-            $methods = $class['methods'] ?? 0;
-            $properties = $class['properties'] ?? 0;
-            $lines[] = "- {$class['name']} ({$methods} methods, {$properties} properties)";
+        if (count($files) > 50) {
+            $tree[] = '... and ' . (count($files) - 50) . ' more files';
         }
 
-        return implode("\n", $lines);
+        return implode("\n", $tree);
     }
 
     /**
-     * @param  array<int, string>  $dependencies
+     * @param array<int,array{name:string,methods_count?:int}> $classes
      */
-    private function formatDependencyList(array $dependencies): string
+    private function formatClasses(array $classes): string
     {
-        if (empty($dependencies)) {
-            return '(No dependencies found)';
+        $formatted = [];
+
+        foreach (array_slice($classes, 0, 20) as $class) {
+            $name = $class['name'] ?? '';
+            $methods = $class['methods_count'] ?? 0;
+            $formatted[] = "- {$name} ({$methods} methods)";
         }
 
-        return implode("\n", array_map(fn ($dep) => "- {$dep}", $dependencies));
+        if (count($classes) > 20) {
+            $formatted[] = '... and ' . (count($classes) - 20) . ' more classes';
+        }
+
+        return implode("\n", $formatted);
+    }
+
+    /**
+     * @param array<int,array{name:string}> $functions
+     */
+    private function formatFunctions(array $functions): string
+    {
+        $formatted = [];
+
+        foreach (array_slice($functions, 0, 20) as $function) {
+            $name = $function['name'] ?? '';
+            $formatted[] = "- {$name}()";
+        }
+
+        if (count($functions) > 20) {
+            $formatted[] = '... and ' . (count($functions) - 20) . ' more functions';
+        }
+
+        return implode("\n", $formatted);
+    }
+
+    /**
+     * @param array<int,string> $dependencies
+     */
+    private function formatDependencies(array $dependencies): string
+    {
+        return implode("\n", array_map(static fn ($dep) => '- ' . $dep, $dependencies));
     }
 }

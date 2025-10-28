@@ -203,6 +203,18 @@ class GitOAuthService
     }
 
     /**
+     * Disconnect git provider for user.
+     */
+    public function disconnect(User $user, GitProvider $provider): bool
+    {
+        $deleted = GitConnection::where('user_id', $user->id)
+            ->where('provider', $provider)
+            ->delete();
+
+        return $deleted > 0;
+    }
+
+    /**
      * Generate PKCE code verifier.
      */
     private function generateCodeVerifier(): string

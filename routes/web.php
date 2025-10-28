@@ -201,6 +201,31 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::post('tasks/{id}/uncomplete', fn () => response()->noContent());
     });
 
+    // Git Integration routes
+    Route::prefix('git')->name('git.')->group(function () {
+        // Pages principales
+        Route::get('connections', [App\Http\Controllers\GitConnectionsController::class, 'index'])->name('connections');
+
+        Route::get('repositories', function () {
+            return Inertia::render('git/repositories');
+        })->name('repositories');
+    });
+
+    // Git API routes
+    Route::prefix('api/git')->name('api.git.')->group(function () {
+        // OAuth routes (generic, works for both GitHub and GitLab)
+        Route::post('{provider}/oauth/start', [App\Http\Controllers\Api\GitOAuthController::class, 'start'])->name('oauth.start');
+        Route::get('{provider}/oauth/callback', [App\Http\Controllers\Api\GitOAuthController::class, 'callback'])->name('oauth.callback');
+        Route::delete('{provider}/disconnect', [App\Http\Controllers\Api\GitOAuthController::class, 'disconnect'])->name('disconnect');
+
+        // Repository management
+        Route::get('repositories', [App\Http\Controllers\Api\GitRepositoryController::class, 'index'])->name('repositories.index');
+        Route::post('repositories/sync', [App\Http\Controllers\Api\GitRepositoryController::class, 'sync'])->name('repositories.sync');
+        Route::get('repositories/{repository}', [App\Http\Controllers\Api\GitRepositoryController::class, 'show'])->name('repositories.show');
+        Route::post('repositories/{repository}/clone', [App\Http\Controllers\Api\GitCloneController::class, 'clone'])->name('repositories.clone');
+        Route::delete('repositories/{repository}', [App\Http\Controllers\Api\GitRepositoryController::class, 'destroy'])->name('repositories.destroy');
+    });
+
 });
 
 require __DIR__.'/settings.php';

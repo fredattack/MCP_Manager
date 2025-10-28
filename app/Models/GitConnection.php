@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Crypt;
  * @property int $user_id
  * @property GitProvider $provider
  * @property string $external_user_id
+ * @property array<string, mixed>|null $meta
  * @property array<int, string> $scopes
  * @property string $access_token_enc
  * @property string|null $refresh_token_enc
@@ -42,6 +43,7 @@ class GitConnection extends Model
         'user_id',
         'provider',
         'external_user_id',
+        'meta',
         'scopes',
         'access_token_enc',
         'refresh_token_enc',
@@ -57,6 +59,7 @@ class GitConnection extends Model
     protected $casts = [
         'provider' => GitProvider::class,
         'status' => GitConnectionStatus::class,
+        'meta' => 'array',
         'scopes' => 'array',
         'expires_at' => 'datetime',
     ];

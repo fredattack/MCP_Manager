@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         }
 
         // For development/staging, create test user
-        if (app()->environment(['local', 'development', 'staging'])) {
+        if (app()->environment(['local', 'development', 'staging', 'testing'])) {
             User::factory()->create([
                 'name' => 'Fred Moras',
                 'email' => 'info@hddev.be',

@@ -24,6 +24,7 @@ import {
     CheckCircle2,
     FileText,
     Folder,
+    GitBranch,
     LayoutGrid,
     Mail,
     MessageSquare,
@@ -35,6 +36,22 @@ import {
 } from 'lucide-react';
 import AppLogo from './app-logo';
 
+/**
+ * MAIN NAVIGATION CONFIGURATION
+ *
+ * This file is the SINGLE SOURCE OF TRUTH for all application navigation.
+ * To add, remove, or modify navigation items, edit the arrays below.
+ *
+ * Navigation Structure:
+ * - mainNavItems: Primary navigation (Dashboard, Workflows, Git, etc.)
+ * - integrationItems: Integration status items (Todoist, Gmail, etc.)
+ * - footerNavItems: Footer links (Repository, Documentation)
+ */
+
+/**
+ * Main Navigation Items
+ * These appear in the primary sidebar navigation section
+ */
 const mainNavItems: NavItem[] = [
     {
         title: 'Dashboard',
@@ -68,6 +85,11 @@ const mainNavItems: NavItem[] = [
         icon: Brain,
     },
     {
+        title: 'Git Connections',
+        href: '/git/connections',
+        icon: GitBranch,
+    },
+    {
         title: 'Daily Planning',
         href: '/daily-planning',
         icon: CalendarDays,
@@ -89,6 +111,11 @@ const mainNavItems: NavItem[] = [
     },
 ];
 
+/**
+ * Integration Navigation Items
+ * These show the status of connected integrations (connected/disconnected/error)
+ * Status badges are dynamically updated based on actual connection state
+ */
 const integrationItems: NavItem[] = [
     {
         title: 'Todoist',
@@ -128,6 +155,10 @@ const integrationItems: NavItem[] = [
     },
 ];
 
+/**
+ * Footer Navigation Items
+ * External links and documentation shown at the bottom of the sidebar
+ */
 const footerNavItems: NavItem[] = [
     {
         title: 'Repository',

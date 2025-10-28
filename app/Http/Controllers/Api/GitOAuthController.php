@@ -7,8 +7,10 @@ namespace App\Http\Controllers\Api;
 use App\Enums\GitProvider;
 use App\Http\Controllers\Controller;
 use App\Services\Git\Clients\GitHubClient;
+use App\Services\Git\Clients\GitLabClient;
 use App\Services\Git\GitOAuthService;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Log;
@@ -86,7 +88,7 @@ class GitOAuthController extends Controller
      *
      * GET /api/git/{provider}/oauth/callback
      */
-    public function callback(Request $request, string $provider): JsonResponse
+    public function callback(Request $request, string $provider): RedirectResponse
     {
         $startTime = microtime(true);
 
@@ -101,10 +103,7 @@ class GitOAuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json([
-                'error' => 'Invalid request',
-                'message' => $validator->errors()->first(),
-            ], 400);
+            return redirect()->to('/git/connections?error=invalid_request');
         }
 
         $code = $request->input('code');
@@ -115,17 +114,11 @@ class GitOAuthController extends Controller
         $oauthData = Cache::get($cacheKey);
 
         if ($oauthData === null) {
-            return response()->json([
-                'error' => 'Invalid or expired state',
-                'message' => 'OAuth state not found or expired',
-            ], 400);
+            return redirect()->to('/git/connections?error=expired_state');
         }
 
         if ($oauthData['provider'] !== $provider) {
-            return response()->json([
-                'error' => 'Provider mismatch',
-                'message' => 'The provider does not match the initiated OAuth flow',
-            ], 400);
+            return redirect()->to('/git/connections?error=provider_mismatch');
         }
 
         $providerEnum = GitProvider::from($provider);
@@ -143,7 +136,7 @@ class GitOAuthController extends Controller
             // Get user information from provider
             $client = match ($providerEnum) {
                 GitProvider::GITHUB => new GitHubClient($tokenData['access_token']),
-                default => throw new \RuntimeException('Provider not implemented'),
+                GitProvider::GITLAB => new GitLabClient($tokenData['access_token']),
             };
 
             $userData = $client->getAuthenticatedUser();
@@ -157,6 +150,15 @@ class GitOAuthController extends Controller
                 $externalUserId
             );
 
+            // Store user metadata
+            $connection->meta = [
+                'username' => $userData['login'] ?? $userData['username'] ?? null,
+                'email' => $userData['email'] ?? null,
+                'avatar_url' => $userData['avatar_url'] ?? null,
+                'name' => $userData['name'] ?? null,
+            ];
+            $connection->save();
+
             // Clean up cache
             Cache::forget($cacheKey);
 
@@ -169,25 +171,8 @@ class GitOAuthController extends Controller
                 'duration_ms' => $duration,
             ]);
 
-            return response()->json([
-                'success' => true,
-                'connection' => [
-                    'id' => $connection->id,
-                    'provider' => $connection->provider->value,
-                    'external_user_id' => $connection->external_user_id,
-                    'scopes' => $connection->scopes,
-                    'status' => $connection->status->value,
-                    'expires_at' => $connection->expires_at?->toIso8601String(),
-                ],
-                'user' => [
-                    'id' => $userData['id'],
-                    'login' => $userData['login'] ?? $userData['username'] ?? null,
-                    'name' => $userData['name'] ?? null,
-                    'email' => $userData['email'] ?? null,
-                    'avatar_url' => $userData['avatar_url'] ?? null,
-                ],
-                'duration_ms' => $duration,
-            ]);
+            // Redirect to connections page with success parameter
+            return redirect()->to("/git/connections?{$provider}_connected=true");
         } catch (\Exception $e) {
             Log::error('OAuth callback failed', [
                 'provider' => $provider,
@@ -195,8 +180,68 @@ class GitOAuthController extends Controller
                 'trace' => $e->getTraceAsString(),
             ]);
 
+            // Redirect to connections page with error parameter
+            $errorType = 'unknown';
+
+            if (str_contains($e->getMessage(), 'invalid_token') || str_contains($e->getMessage(), 'invalid token')) {
+                $errorType = 'invalid_token';
+            } elseif (str_contains($e->getMessage(), 'rate limit')) {
+                $errorType = 'rate_limit';
+            } elseif (str_contains($e->getMessage(), 'insufficient')) {
+                $errorType = 'insufficient_scope';
+            }
+
+            return redirect()->to("/git/connections?error={$errorType}");
+        }
+    }
+
+    /**
+     * Disconnect Git provider.
+     *
+     * DELETE /api/git/{provider}/disconnect
+     */
+    public function disconnect(Request $request, string $provider): JsonResponse
+    {
+        $validator = Validator::make(['provider' => $provider], [
+            'provider' => ['required', new Enum(GitProvider::class)],
+        ]);
+
+        if ($validator->fails()) {
             return response()->json([
-                'error' => 'Failed to complete OAuth flow',
+                'error' => 'Invalid provider',
+                'message' => $validator->errors()->first(),
+            ], 400);
+        }
+
+        $providerEnum = GitProvider::from($provider);
+
+        try {
+            $deleted = $this->oauthService->disconnect($request->user(), $providerEnum);
+
+            if (! $deleted) {
+                return response()->json([
+                    'error' => 'Connection not found',
+                    'message' => 'No active connection found for this provider',
+                ], 404);
+            }
+
+            Log::info('Git connection disconnected', [
+                'provider' => $provider,
+                'user_id' => $request->user()->id,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Connection disconnected successfully',
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Disconnect failed', [
+                'provider' => $provider,
+                'error' => $e->getMessage(),
+            ]);
+
+            return response()->json([
+                'error' => 'Failed to disconnect',
                 'message' => $e->getMessage(),
             ], 500);
         }
