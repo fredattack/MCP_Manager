@@ -31,6 +31,7 @@ import {
     Plug,
     Server,
     Shield,
+    Users,
     Workflow,
     XCircle,
 } from 'lucide-react';
@@ -88,6 +89,11 @@ const mainNavItems: NavItem[] = [
         title: 'Git Connections',
         href: '/git/connections',
         icon: GitBranch,
+    },
+    {
+        title: 'User Management',
+        href: '/admin/users',
+        icon: Users,
     },
     {
         title: 'Daily Planning',
@@ -210,6 +216,17 @@ function IntegrationsNav({ items }: { items: NavItem[] }) {
 export function AppSidebar() {
     const page = usePage();
     const integrationStatuses = (page.props as SharedData).integrationStatuses || {};
+    const user = (page.props as SharedData).auth?.user;
+    const userRole = user?.role as string | undefined;
+
+    // Filter main nav items based on user role
+    const filteredMainNavItems = mainNavItems.filter((item) => {
+        // User Management is only visible for admin and manager roles
+        if (item.href === '/admin/users') {
+            return userRole === 'admin' || userRole === 'manager';
+        }
+        return true;
+    });
 
     // Update integration items with dynamic statuses
     const dynamicIntegrationItems = integrationItems.map((item) => {
@@ -239,7 +256,7 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={mainNavItems} />
+                <NavMain items={filteredMainNavItems} />
                 <IntegrationsNav items={dynamicIntegrationItems} />
             </SidebarContent>
 

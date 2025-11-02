@@ -1,0 +1,78 @@
+Repository: {{repo_name}}
+Language: {{language}}
+Framework: {{framework}}
+Total Files: {{file_count}}
+Total Lines: {{total_lines}}
+
+=== File Structure ===
+{{file_tree}}
+
+=== AST Analysis Summary ===
+Classes Found: {{class_count}}
+{{class_list}}
+
+Functions Found: {{function_count}}
+{{function_list}}
+
+Dependencies:
+{{dependencies}}
+
+Namespaces:
+{{namespaces}}
+
+=== Analysis Task ===
+
+Analyze this codebase and provide:
+
+1. **Architecture Pattern**: Identify the main architecture pattern used (e.g., MVC, Layered, Clean Architecture)
+2. **Code Quality Score**: Rate 1-10 based on SOLID principles, maintainability, testability
+3. **Framework Usage**: How well does it follow framework conventions?
+4. **Issues Found**: List anti-patterns, code smells, violations
+5. **Recommendations**: Actionable improvements (max 5)
+6. **Complexity**: Estimate cognitive complexity (Low/Medium/High)
+
+=== Output Format (STRICT JSON) ===
+
+{
+  "architecture": {
+    "pattern": "MVC",
+    "confidence": 0.85,
+    "description": "Brief description"
+  },
+  "quality_score": 7,
+  "quality_details": {
+    "maintainability": 8,
+    "testability": 6,
+    "readability": 7,
+    "solid_compliance": 7
+  },
+  "framework_usage": {
+    "score": 8,
+    "follows_conventions": true,
+    "notes": "Well structured Laravel application"
+  },
+  "issues": [
+    {
+      "type": "anti-pattern",
+      "severity": "high",
+      "description": "God classes detected in controllers",
+      "files": ["UserController.php"]
+    }
+  ],
+  "recommendations": [
+    {
+      "priority": "high",
+      "category": "architecture",
+      "description": "Extract business logic to service layer",
+      "impact": "Improved testability and maintainability"
+    }
+  ],
+  "complexity": "medium",
+  "summary": "Overall assessment in 2-3 sentences"
+}
+
+=== IMPORTANT ===
+- Output ONLY valid JSON
+- No markdown code blocks
+- No explanations outside JSON
+- Keep recommendations actionable and specific

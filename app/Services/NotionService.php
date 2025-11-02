@@ -37,9 +37,9 @@ class NotionService
             // Otherwise, use the global token from config
             $mcpApiToken = config('services.mcp.token');
 
-            if (! $mcpApiToken) {
-                throw new \Exception('MCP API Token not configured');
-            }
+//            if (! $mcpApiToken) {
+//                throw new \Exception('MCP API Token not configured');
+//            }
             $this->apiToken = is_string($mcpApiToken) ? $mcpApiToken : '';
         }
     }

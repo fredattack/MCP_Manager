@@ -1,0 +1,3292 @@
+{
+  "info": {
+    "name": "MCP Manager API Collection",
+    "description": "Collection complète des endpoints de l'application MCP Manager - Laravel 12 + React\n\nL'application gère les intégrations MCP (Model Context Protocol) avec différents services : Notion, Jira, Gmail, Calendar, Todoist, GitHub, GitLab, etc.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "version": "1.0.0"
+  },
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{api_token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3978",
+      "type": "string"
+    },
+    {
+      "key": "api_token",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "user_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "workflow_id",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "repository_id",
+      "value": "",
+      "type": "string"
+    },{
+      "key": "admin_email",
+      "value": "fredmoras8@gmail.com",
+      "type": "string"
+    },{
+      "key": "admin_pwd",
+      "value": "oaHtB!wDa.YxPV3Tn!V3",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Authentication",
+      "description": "Endpoints d'authentification Laravel Breeze",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"password_confirmation\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/register",
+              "host": ["{{base_url}}"],
+              "path": ["register"]
+            },
+            "description": "Créer un nouveau compte utilisateur"
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"remember\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/login",
+              "host": ["{{base_url}}"],
+              "path": ["login"]
+            },
+            "description": "Se connecter et obtenir un cookie de session"
+          }
+        },
+        {
+          "name": "Get API Token",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api-token",
+              "host": ["{{base_url}}"],
+              "path": ["api-token"]
+            },
+            "description": "Obtenir le token API pour l'utilisateur connecté"
+          }
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/logout",
+              "host": ["{{base_url}}"],
+              "path": ["logout"]
+            },
+            "description": "Se déconnecter"
+          }
+        },
+        {
+          "name": "Forgot Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/forgot-password",
+              "host": ["{{base_url}}"],
+              "path": ["forgot-password"]
+            },
+            "description": "Demander un lien de réinitialisation de mot de passe"
+          }
+        },
+        {
+          "name": "Reset Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"reset_token_here\",\n  \"email\": \"john@example.com\",\n  \"password\": \"newpassword123\",\n  \"password_confirmation\": \"newpassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/reset-password",
+              "host": ["{{base_url}}"],
+              "path": ["reset-password"]
+            },
+            "description": "Réinitialiser le mot de passe avec le token reçu par email"
+          }
+        },
+        {
+          "name": "Email Verification Notification",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/email/verification-notification",
+              "host": ["{{base_url}}"],
+              "path": ["email", "verification-notification"]
+            },
+            "description": "Renvoyer l'email de vérification"
+          }
+        }
+      ]
+    },
+    {
+      "name": "User Profile & Settings",
+      "description": "Gestion du profil utilisateur et des paramètres",
+      "item": [
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/settings/profile",
+              "host": ["{{base_url}}"],
+              "path": ["settings", "profile"]
+            },
+            "description": "Obtenir les informations du profil"
+          }
+        },
+        {
+          "name": "Update Profile",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe Updated\",\n  \"email\": \"john.updated@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/settings/profile",
+              "host": ["{{base_url}}"],
+              "path": ["settings", "profile"]
+            },
+            "description": "Mettre à jour le profil utilisateur"
+          }
+        },
+        {
+          "name": "Delete Account",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/settings/profile",
+              "host": ["{{base_url}}"],
+              "path": ["settings", "profile"]
+            },
+            "description": "Supprimer le compte utilisateur"
+          }
+        },
+        {
+          "name": "Update Password",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"current_password\": \"password123\",\n  \"password\": \"newpassword123\",\n  \"password_confirmation\": \"newpassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/settings/password",
+              "host": ["{{base_url}}"],
+              "path": ["settings", "password"]
+            },
+            "description": "Changer le mot de passe"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Integrations",
+      "description": "Gestion des intégrations avec les services externes",
+      "item": [
+        {
+          "name": "List Integrations",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/integrations",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations"]
+            },
+            "description": "Lister toutes les intégrations de l'utilisateur"
+          }
+        },
+        {
+          "name": "Create Integration",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"notion\",\n  \"access_token\": \"secret_token_here\",\n  \"meta\": {\n    \"workspace_id\": \"workspace_123\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/integrations",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations"]
+            },
+            "description": "Créer une nouvelle intégration"
+          }
+        },
+        {
+          "name": "Show Integration",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/integrations/:integration_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", ":integration_id"],
+              "variable": [
+                {
+                  "key": "integration_id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Obtenir les détails d'une intégration"
+          }
+        },
+        {
+          "name": "Update Integration",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"active\",\n  \"meta\": {\n    \"workspace_id\": \"updated_workspace_123\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/integrations/:integration_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", ":integration_id"],
+              "variable": [
+                {
+                  "key": "integration_id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Mettre à jour une intégration"
+          }
+        },
+        {
+          "name": "Delete Integration",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/integrations/:integration_id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", ":integration_id"],
+              "variable": [
+                {
+                  "key": "integration_id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Supprimer une intégration"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Notion",
+      "description": "Intégration avec Notion",
+      "item": [
+        {
+          "name": "Get Pages Tree",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/notion/pages-tree",
+              "host": ["{{base_url}}"],
+              "path": ["api", "notion", "pages-tree"]
+            },
+            "description": "Obtenir l'arborescence des pages Notion"
+          }
+        },
+        {
+          "name": "Get Databases",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/notion/databases",
+              "host": ["{{base_url}}"],
+              "path": ["api", "notion", "databases"]
+            },
+            "description": "Lister toutes les databases Notion"
+          }
+        },
+        {
+          "name": "Get Page",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/notion/page/:pageId",
+              "host": ["{{base_url}}"],
+              "path": ["api", "notion", "page", ":pageId"],
+              "variable": [
+                {
+                  "key": "pageId",
+                  "value": "notion_page_id"
+                }
+              ]
+            },
+            "description": "Obtenir le contenu d'une page Notion"
+          }
+        },
+        {
+          "name": "Get Blocks",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/notion/blocks/:pageId",
+              "host": ["{{base_url}}"],
+              "path": ["api", "notion", "blocks", ":pageId"],
+              "variable": [
+                {
+                  "key": "pageId",
+                  "value": "notion_page_id"
+                }
+              ]
+            },
+            "description": "Obtenir les blocs d'une page Notion"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Jira",
+      "description": "Intégration avec Jira",
+      "item": [
+        {
+          "name": "Projects",
+          "item": [
+            {
+              "name": "List Projects",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/projects",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "projects"]
+                },
+                "description": "Lister tous les projets Jira"
+              }
+            },
+            {
+              "name": "Get Project",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/projects/:projectKey",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "projects", ":projectKey"],
+                  "variable": [
+                    {
+                      "key": "projectKey",
+                      "value": "PROJ"
+                    }
+                  ]
+                },
+                "description": "Obtenir les détails d'un projet Jira"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boards",
+          "item": [
+            {
+              "name": "List Boards",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/boards",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "boards"]
+                },
+                "description": "Lister tous les boards Jira"
+              }
+            },
+            {
+              "name": "Get Board",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/boards/:boardId",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "boards", ":boardId"],
+                  "variable": [
+                    {
+                      "key": "boardId",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Obtenir les détails d'un board"
+              }
+            },
+            {
+              "name": "List Board Issues",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/boards/:boardId/issues",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "boards", ":boardId", "issues"],
+                  "variable": [
+                    {
+                      "key": "boardId",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Lister les issues d'un board"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Issues",
+          "item": [
+            {
+              "name": "Search Issues",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/issues/search?jql=project=PROJ&maxResults=50",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "issues", "search"],
+                  "query": [
+                    {
+                      "key": "jql",
+                      "value": "project=PROJ"
+                    },
+                    {
+                      "key": "maxResults",
+                      "value": "50"
+                    }
+                  ]
+                },
+                "description": "Rechercher des issues avec JQL"
+              }
+            },
+            {
+              "name": "Get Issue",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/issues/:issueKey",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "issues", ":issueKey"],
+                  "variable": [
+                    {
+                      "key": "issueKey",
+                      "value": "PROJ-123"
+                    }
+                  ]
+                },
+                "description": "Obtenir les détails d'une issue"
+              }
+            },
+            {
+              "name": "Create Issue",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": {\n    \"key\": \"PROJ\"\n  },\n  \"summary\": \"New issue title\",\n  \"description\": \"Issue description\",\n  \"issuetype\": {\n    \"name\": \"Task\"\n  },\n  \"priority\": {\n    \"name\": \"Medium\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/jira/issues",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "issues"]
+                },
+                "description": "Créer une nouvelle issue Jira"
+              }
+            },
+            {
+              "name": "Update Issue",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"fields\": {\n    \"summary\": \"Updated title\",\n    \"description\": \"Updated description\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/jira/issues/:issueKey",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "issues", ":issueKey"],
+                  "variable": [
+                    {
+                      "key": "issueKey",
+                      "value": "PROJ-123"
+                    }
+                  ]
+                },
+                "description": "Mettre à jour une issue"
+              }
+            },
+            {
+              "name": "Get Transitions",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/issues/:issueKey/transitions",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "issues", ":issueKey", "transitions"],
+                  "variable": [
+                    {
+                      "key": "issueKey",
+                      "value": "PROJ-123"
+                    }
+                  ]
+                },
+                "description": "Obtenir les transitions disponibles pour une issue"
+              }
+            },
+            {
+              "name": "Transition Issue",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transition\": {\n    \"id\": \"31\"\n  }\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/jira/issues/:issueKey/transitions",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "issues", ":issueKey", "transitions"],
+                  "variable": [
+                    {
+                      "key": "issueKey",
+                      "value": "PROJ-123"
+                    }
+                  ]
+                },
+                "description": "Changer le statut d'une issue (ex: To Do → In Progress)"
+              }
+            },
+            {
+              "name": "Assign Issue",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"accountId\": \"user_account_id\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/jira/issues/:issueKey/assign",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "issues", ":issueKey", "assign"],
+                  "variable": [
+                    {
+                      "key": "issueKey",
+                      "value": "PROJ-123"
+                    }
+                  ]
+                },
+                "description": "Assigner une issue à un utilisateur"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Epics",
+          "item": [
+            {
+              "name": "Create Epic",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": {\n    \"key\": \"PROJ\"\n  },\n  \"summary\": \"New Epic\",\n  \"description\": \"Epic description\",\n  \"customfield_10011\": \"EPIC-NAME\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/jira/epics",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "epics"]
+                },
+                "description": "Créer une nouvelle Epic"
+              }
+            },
+            {
+              "name": "Get Epic Progress",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/epics/:epicKey/progress",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "epics", ":epicKey", "progress"],
+                  "variable": [
+                    {
+                      "key": "epicKey",
+                      "value": "PROJ-100"
+                    }
+                  ]
+                },
+                "description": "Obtenir la progression d'une Epic"
+              }
+            },
+            {
+              "name": "Get Epic Issues",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/epics/:epicKey/issues",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "epics", ":epicKey", "issues"],
+                  "variable": [
+                    {
+                      "key": "epicKey",
+                      "value": "PROJ-100"
+                    }
+                  ]
+                },
+                "description": "Obtenir les issues d'une Epic"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sprints",
+          "item": [
+            {
+              "name": "List Sprints",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/boards/:boardId/sprints",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "boards", ":boardId", "sprints"],
+                  "variable": [
+                    {
+                      "key": "boardId",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Lister les sprints d'un board"
+              }
+            },
+            {
+              "name": "Get Sprint",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/sprints/:sprintId",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "sprints", ":sprintId"],
+                  "variable": [
+                    {
+                      "key": "sprintId",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Obtenir les détails d'un sprint"
+              }
+            },
+            {
+              "name": "Start Sprint",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/sprints/:sprintId/start",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "sprints", ":sprintId", "start"],
+                  "variable": [
+                    {
+                      "key": "sprintId",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Démarrer un sprint"
+              }
+            },
+            {
+              "name": "Complete Sprint",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/sprints/:sprintId/complete",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "sprints", ":sprintId", "complete"],
+                  "variable": [
+                    {
+                      "key": "sprintId",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Terminer un sprint"
+              }
+            },
+            {
+              "name": "Get Sprint Velocity",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/jira/sprints/:sprintId/velocity",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "jira", "sprints", ":sprintId", "velocity"],
+                  "variable": [
+                    {
+                      "key": "sprintId",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Obtenir la vélocité d'un sprint"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Create Issue from Sentry",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sentry_issue_id\": \"123456\",\n  \"project_key\": \"PROJ\",\n  \"priority\": \"High\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/jira/issues/from-sentry",
+              "host": ["{{base_url}}"],
+              "path": ["api", "jira", "issues", "from-sentry"]
+            },
+            "description": "Créer une issue Jira à partir d'un problème Sentry"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Git Integration",
+      "description": "Intégration Git avec GitHub et GitLab",
+      "item": [
+        {
+          "name": "OAuth",
+          "item": [
+            {
+              "name": "Start OAuth (GitHub)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"redirect_url\": \"http://localhost:3978/git/connections\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/oauth/start",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "oauth", "start"]
+                },
+                "description": "Démarrer le flow OAuth avec GitHub"
+              }
+            },
+            {
+              "name": "Start OAuth (GitLab)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"redirect_url\": \"http://localhost:3978/git/connections\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/git/gitlab/oauth/start",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "gitlab", "oauth", "start"]
+                },
+                "description": "Démarrer le flow OAuth avec GitLab"
+              }
+            },
+            {
+              "name": "OAuth Callback (GitHub)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/oauth/callback?code=auth_code_here&state=state_here",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "oauth", "callback"],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "auth_code_here"
+                    },
+                    {
+                      "key": "state",
+                      "value": "state_here"
+                    }
+                  ]
+                },
+                "description": "Callback OAuth GitHub (géré automatiquement)"
+              }
+            },
+            {
+              "name": "OAuth Callback (GitLab)",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/gitlab/oauth/callback?code=auth_code_here&state=state_here",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "gitlab", "oauth", "callback"],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "auth_code_here"
+                    },
+                    {
+                      "key": "state",
+                      "value": "state_here"
+                    }
+                  ]
+                },
+                "description": "Callback OAuth GitLab (géré automatiquement)"
+              }
+            },
+            {
+              "name": "Disconnect (GitHub)",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/disconnect",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "disconnect"]
+                },
+                "description": "Déconnecter le compte GitHub"
+              }
+            },
+            {
+              "name": "Disconnect (GitLab)",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/gitlab/disconnect",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "gitlab", "disconnect"]
+                },
+                "description": "Déconnecter le compte GitLab"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Repositories",
+          "item": [
+            {
+              "name": "List Repositories",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/repositories",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "repositories"]
+                },
+                "description": "Lister tous les repositories synchronisés"
+              }
+            },
+            {
+              "name": "List Repositories by Provider",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/repos",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "repos"]
+                },
+                "description": "Lister les repositories d'un provider spécifique"
+              }
+            },
+            {
+              "name": "Sync Repositories",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/repos/sync",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "repos", "sync"]
+                },
+                "description": "Synchroniser les repositories depuis le provider"
+              }
+            },
+            {
+              "name": "Get Repository Stats",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/repos/stats",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "repos", "stats"]
+                },
+                "description": "Obtenir les statistiques des repositories"
+              }
+            },
+            {
+              "name": "Show Repository",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/repos/:externalId",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "repos", ":externalId"],
+                  "variable": [
+                    {
+                      "key": "externalId",
+                      "value": "123456"
+                    }
+                  ]
+                },
+                "description": "Obtenir les détails d'un repository"
+              }
+            },
+            {
+              "name": "Refresh Repository",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/repos/:externalId/refresh",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "repos", ":externalId", "refresh"],
+                  "variable": [
+                    {
+                      "key": "externalId",
+                      "value": "123456"
+                    }
+                  ]
+                },
+                "description": "Rafraîchir les données d'un repository"
+              }
+            },
+            {
+              "name": "Delete Repository",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/repositories/:repository",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "repositories", ":repository"],
+                  "variable": [
+                    {
+                      "key": "repository",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Supprimer un repository de la base de données"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clones",
+          "item": [
+            {
+              "name": "Clone Repository",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"branch\": \"main\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/repos/:externalId/clone",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "repos", ":externalId", "clone"],
+                  "variable": [
+                    {
+                      "key": "externalId",
+                      "value": "123456"
+                    }
+                  ]
+                },
+                "description": "Cloner un repository localement"
+              }
+            },
+            {
+              "name": "List Repository Clones",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/github/repos/:externalId/clones",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "github", "repos", ":externalId", "clones"],
+                  "variable": [
+                    {
+                      "key": "externalId",
+                      "value": "123456"
+                    }
+                  ]
+                },
+                "description": "Lister les clones d'un repository"
+              }
+            },
+            {
+              "name": "Show Clone",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/api/git/clones/:cloneId",
+                  "host": ["{{base_url}}"],
+                  "path": ["api", "git", "clones", ":cloneId"],
+                  "variable": [
+                    {
+                      "key": "cloneId",
+                      "value": "1"
+                    }
+                  ]
+                },
+                "description": "Obtenir les détails d'un clone"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Workflows",
+      "description": "Gestion des workflows d'automatisation",
+      "item": [
+        {
+          "name": "List Workflows",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/workflows",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows"]
+            },
+            "description": "Lister tous les workflows"
+          }
+        },
+        {
+          "name": "Create Workflow",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"My Workflow\",\n  \"description\": \"Workflow description\",\n  \"steps\": [\n    {\n      \"type\": \"git_clone\",\n      \"config\": {\n        \"repository_id\": 1,\n        \"branch\": \"main\"\n      }\n    },\n    {\n      \"type\": \"run_tests\",\n      \"config\": {\n        \"command\": \"npm test\"\n      }\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/workflows",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows"]
+            },
+            "description": "Créer un nouveau workflow"
+          }
+        },
+        {
+          "name": "Show Workflow",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/workflows/:workflow",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows", ":workflow"],
+              "variable": [
+                {
+                  "key": "workflow",
+                  "value": "{{workflow_id}}"
+                }
+              ]
+            },
+            "description": "Obtenir les détails d'un workflow"
+          }
+        },
+        {
+          "name": "Update Workflow",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Workflow\",\n  \"description\": \"Updated description\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/workflows/:workflow",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows", ":workflow"],
+              "variable": [
+                {
+                  "key": "workflow",
+                  "value": "{{workflow_id}}"
+                }
+              ]
+            },
+            "description": "Mettre à jour un workflow"
+          }
+        },
+        {
+          "name": "Delete Workflow",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/workflows/:workflow",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows", ":workflow"],
+              "variable": [
+                {
+                  "key": "workflow",
+                  "value": "{{workflow_id}}"
+                }
+              ]
+            },
+            "description": "Supprimer un workflow"
+          }
+        },
+        {
+          "name": "Execute Workflow",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"parameters\": {\n    \"branch\": \"develop\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/workflows/:workflow/execute",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows", ":workflow", "execute"],
+              "variable": [
+                {
+                  "key": "workflow",
+                  "value": "{{workflow_id}}"
+                }
+              ]
+            },
+            "description": "Exécuter un workflow"
+          }
+        },
+        {
+          "name": "Rerun Workflow",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/workflows/:workflow/rerun",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows", ":workflow", "rerun"],
+              "variable": [
+                {
+                  "key": "workflow",
+                  "value": "{{workflow_id}}"
+                }
+              ]
+            },
+            "description": "Relancer un workflow"
+          }
+        },
+        {
+          "name": "Cancel Workflow",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/workflows/:workflow/cancel",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows", ":workflow", "cancel"],
+              "variable": [
+                {
+                  "key": "workflow",
+                  "value": "{{workflow_id}}"
+                }
+              ]
+            },
+            "description": "Annuler l'exécution d'un workflow"
+          }
+        },
+        {
+          "name": "Get Execution Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/workflows/executions/:execution",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows", "executions", ":execution"],
+              "variable": [
+                {
+                  "key": "execution",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Obtenir le statut d'une exécution"
+          }
+        },
+        {
+          "name": "Get Execution Steps",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/workflows/executions/:execution/steps",
+              "host": ["{{base_url}}"],
+              "path": ["api", "workflows", "executions", ":execution", "steps"],
+              "variable": [
+                {
+                  "key": "execution",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Obtenir les étapes d'une exécution"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCP Server",
+      "description": "Configuration et gestion du serveur MCP",
+      "item": [
+        {
+          "name": "Get Server Config",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/server/config",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "server", "config"]
+            },
+            "description": "Obtenir la configuration du serveur MCP"
+          }
+        },
+        {
+          "name": "Save Server Config",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"url\": \"http://localhost:8000\",\n  \"username\": \"admin\",\n  \"password\": \"secret\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/mcp/server/config",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "server", "config"]
+            },
+            "description": "Sauvegarder la configuration du serveur MCP"
+          }
+        },
+        {
+          "name": "Test Server Connection",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/server/test",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "server", "test"]
+            },
+            "description": "Tester la connexion au serveur MCP"
+          }
+        },
+        {
+          "name": "Disconnect Server",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/server/disconnect",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "server", "disconnect"]
+            },
+            "description": "Se déconnecter du serveur MCP"
+          }
+        },
+        {
+          "name": "Delete Server Config",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/server",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "server"]
+            },
+            "description": "Supprimer la configuration du serveur MCP"
+          }
+        },
+        {
+          "name": "Get Integrations Status",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/mcp/integrations/status",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mcp", "integrations", "status"]
+            },
+            "description": "Obtenir le statut de toutes les intégrations MCP"
+          }
+        },
+        {
+          "name": "Test Integration",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/mcp/integrations/:service/test",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mcp", "integrations", ":service", "test"],
+              "variable": [
+                {
+                  "key": "service",
+                  "value": "todoist"
+                }
+              ]
+            },
+            "description": "Tester une intégration MCP"
+          }
+        },
+        {
+          "name": "Toggle Integration",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"enabled\": true\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/mcp/integrations/:service/toggle",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mcp", "integrations", ":service", "toggle"],
+              "variable": [
+                {
+                  "key": "service",
+                  "value": "todoist"
+                }
+              ]
+            },
+            "description": "Activer/désactiver une intégration MCP"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCP Monitoring",
+      "description": "Monitoring et métriques du serveur MCP",
+      "item": [
+        {
+          "name": "Get Metrics",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/monitoring/metrics",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "monitoring", "metrics"]
+            },
+            "description": "Obtenir les métriques du serveur MCP"
+          }
+        },
+        {
+          "name": "Get Logs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/monitoring/logs?limit=100&level=error",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "monitoring", "logs"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "100"
+                },
+                {
+                  "key": "level",
+                  "value": "error"
+                }
+              ]
+            },
+            "description": "Obtenir les logs du serveur MCP"
+          }
+        },
+        {
+          "name": "Export Logs",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/monitoring/logs/export?format=json&start_date=2025-01-01&end_date=2025-12-31",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "monitoring", "logs", "export"],
+              "query": [
+                {
+                  "key": "format",
+                  "value": "json"
+                },
+                {
+                  "key": "start_date",
+                  "value": "2025-01-01"
+                },
+                {
+                  "key": "end_date",
+                  "value": "2025-12-31"
+                }
+              ]
+            },
+            "description": "Exporter les logs du serveur MCP"
+          }
+        },
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/monitoring/health",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "monitoring", "health"]
+            },
+            "description": "Vérifier la santé du serveur MCP"
+          }
+        },
+        {
+          "name": "Get Stream",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/event-stream"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/mcp/monitoring/stream",
+              "host": ["{{base_url}}"],
+              "path": ["mcp", "monitoring", "stream"]
+            },
+            "description": "Stream en temps réel des événements MCP (SSE)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "MCP Proxy",
+      "description": "Proxy pour les endpoints MCP",
+      "item": [
+        {
+          "name": "MCP Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"user@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/mcp/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mcp", "auth", "login"]
+            },
+            "description": "Se connecter au serveur MCP"
+          }
+        },
+        {
+          "name": "MCP Get User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/mcp/auth/me",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mcp", "auth", "me"]
+            },
+            "description": "Obtenir l'utilisateur MCP connecté"
+          }
+        },
+        {
+          "name": "Get Today Tasks (Todoist)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/mcp/todoist/tasks/today",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mcp", "todoist", "tasks", "today"]
+            },
+            "description": "Obtenir les tâches Todoist du jour via MCP"
+          }
+        },
+        {
+          "name": "Get Upcoming Tasks (Todoist)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/mcp/todoist/tasks/upcoming",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mcp", "todoist", "tasks", "upcoming"]
+            },
+            "description": "Obtenir les tâches Todoist à venir via MCP"
+          }
+        },
+        {
+          "name": "Todoist Proxy (Wildcard)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/mcp/todoist/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "mcp", "todoist", "projects"]
+            },
+            "description": "Proxy générique pour tous les endpoints Todoist"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Todoist (Mock)",
+      "description": "Endpoints Todoist mock pour développement",
+      "item": [
+        {
+          "name": "List Projects",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/integrations/todoist/projects",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", "todoist", "projects"]
+            },
+            "description": "Lister les projets Todoist (mock)"
+          }
+        },
+        {
+          "name": "List Tasks",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/integrations/todoist/tasks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", "todoist", "tasks"]
+            },
+            "description": "Lister les tâches Todoist (mock)"
+          }
+        },
+        {
+          "name": "Create Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"New task\",\n  \"priority\": 1,\n  \"project_id\": \"1\",\n  \"labels\": [\"urgent\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/integrations/todoist/tasks",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", "todoist", "tasks"]
+            },
+            "description": "Créer une tâche Todoist (mock)"
+          }
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"content\": \"Updated task\",\n  \"priority\": 2\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/integrations/todoist/tasks/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", "todoist", "tasks", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Mettre à jour une tâche Todoist (mock)"
+          }
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/integrations/todoist/tasks/:id",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", "todoist", "tasks", ":id"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Supprimer une tâche Todoist (mock)"
+          }
+        },
+        {
+          "name": "Complete Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/integrations/todoist/tasks/:id/complete",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", "todoist", "tasks", ":id", "complete"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Marquer une tâche comme complétée (mock)"
+          }
+        },
+        {
+          "name": "Uncomplete Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/integrations/todoist/tasks/:id/uncomplete",
+              "host": ["{{base_url}}"],
+              "path": ["api", "integrations", "todoist", "tasks", ":id", "uncomplete"],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "1"
+                }
+              ]
+            },
+            "description": "Annuler la complétion d'une tâche (mock)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Google Integrations",
+      "description": "Intégrations Google (Gmail, Calendar)",
+      "item": [
+        {
+          "name": "Gmail",
+          "item": [
+            {
+              "name": "List Messages",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/gmail",
+                  "host": ["{{base_url}}"],
+                  "path": ["gmail"]
+                },
+                "description": "Lister les messages Gmail"
+              }
+            },
+            {
+              "name": "Show Message",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/gmail/:messageId",
+                  "host": ["{{base_url}}"],
+                  "path": ["gmail", ":messageId"],
+                  "variable": [
+                    {
+                      "key": "messageId",
+                      "value": "msg123"
+                    }
+                  ]
+                },
+                "description": "Afficher un message Gmail"
+              }
+            },
+            {
+              "name": "Send Message",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"to\": \"recipient@example.com\",\n  \"subject\": \"Email subject\",\n  \"body\": \"Email body content\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/gmail/send",
+                  "host": ["{{base_url}}"],
+                  "path": ["gmail", "send"]
+                },
+                "description": "Envoyer un email via Gmail"
+              }
+            },
+            {
+              "name": "Search Messages",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"from:example@gmail.com\",\n  \"maxResults\": 10\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/gmail/search",
+                  "host": ["{{base_url}}"],
+                  "path": ["gmail", "search"]
+                },
+                "description": "Rechercher des messages Gmail"
+              }
+            },
+            {
+              "name": "Modify Labels",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"addLabelIds\": [\"INBOX\"],\n  \"removeLabelIds\": [\"UNREAD\"]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/gmail/:messageId/labels",
+                  "host": ["{{base_url}}"],
+                  "path": ["gmail", ":messageId", "labels"],
+                  "variable": [
+                    {
+                      "key": "messageId",
+                      "value": "msg123"
+                    }
+                  ]
+                },
+                "description": "Modifier les labels d'un message"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Calendar",
+          "item": [
+            {
+              "name": "List Events",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/calendar/events?start=2025-01-01&end=2025-12-31",
+                  "host": ["{{base_url}}"],
+                  "path": ["calendar", "events"],
+                  "query": [
+                    {
+                      "key": "start",
+                      "value": "2025-01-01"
+                    },
+                    {
+                      "key": "end",
+                      "value": "2025-12-31"
+                    }
+                  ]
+                },
+                "description": "Lister les événements du calendrier"
+              }
+            },
+            {
+              "name": "Create Event",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"summary\": \"Meeting\",\n  \"description\": \"Important meeting\",\n  \"start\": \"2025-01-15T10:00:00\",\n  \"end\": \"2025-01-15T11:00:00\",\n  \"attendees\": [\"attendee@example.com\"]\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/calendar/events",
+                  "host": ["{{base_url}}"],
+                  "path": ["calendar", "events"]
+                },
+                "description": "Créer un événement de calendrier"
+              }
+            },
+            {
+              "name": "Update Event",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"summary\": \"Updated Meeting\",\n  \"start\": \"2025-01-15T14:00:00\",\n  \"end\": \"2025-01-15T15:00:00\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/calendar/events/:eventId",
+                  "host": ["{{base_url}}"],
+                  "path": ["calendar", "events", ":eventId"],
+                  "variable": [
+                    {
+                      "key": "eventId",
+                      "value": "event123"
+                    }
+                  ]
+                },
+                "description": "Mettre à jour un événement"
+              }
+            },
+            {
+              "name": "Delete Event",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/calendar/events/:eventId",
+                  "host": ["{{base_url}}"],
+                  "path": ["calendar", "events", ":eventId"],
+                  "variable": [
+                    {
+                      "key": "eventId",
+                      "value": "event123"
+                    }
+                  ]
+                },
+                "description": "Supprimer un événement"
+              }
+            },
+            {
+              "name": "Check Conflicts",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"start\": \"2025-01-15T10:00:00\",\n  \"end\": \"2025-01-15T11:00:00\"\n}"
+                },
+                "url": {
+                  "raw": "{{base_url}}/calendar/events/conflicts",
+                  "host": ["{{base_url}}"],
+                  "path": ["calendar", "events", "conflicts"]
+                },
+                "description": "Vérifier les conflits d'horaire"
+              }
+            },
+            {
+              "name": "Get Week Events",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/calendar/events/week?week=2025-W03",
+                  "host": ["{{base_url}}"],
+                  "path": ["calendar", "events", "week"],
+                  "query": [
+                    {
+                      "key": "week",
+                      "value": "2025-W03"
+                    }
+                  ]
+                },
+                "description": "Obtenir les événements de la semaine"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Google Setup",
+          "item": [
+            {
+              "name": "Get Google Integration",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/integrations/google",
+                  "host": ["{{base_url}}"],
+                  "path": ["integrations", "google"]
+                },
+                "description": "Obtenir l'état de l'intégration Google"
+              }
+            },
+            {
+              "name": "Google OAuth Callback",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/integrations/google/callback?code=auth_code",
+                  "host": ["{{base_url}}"],
+                  "path": ["integrations", "google", "callback"],
+                  "query": [
+                    {
+                      "key": "code",
+                      "value": "auth_code"
+                    }
+                  ]
+                },
+                "description": "Callback OAuth Google (géré automatiquement)"
+              }
+            },
+            {
+              "name": "Connect Google Service",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/integrations/google/:service/connect",
+                  "host": ["{{base_url}}"],
+                  "path": ["integrations", "google", ":service", "connect"],
+                  "variable": [
+                    {
+                      "key": "service",
+                      "value": "gmail"
+                    }
+                  ]
+                },
+                "description": "Se connecter à un service Google (gmail, calendar)"
+              }
+            },
+            {
+              "name": "Disconnect Google Service",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{base_url}}/integrations/google/:service/disconnect",
+                  "host": ["{{base_url}}"],
+                  "path": ["integrations", "google", ":service", "disconnect"],
+                  "variable": [
+                    {
+                      "key": "service",
+                      "value": "gmail"
+                    }
+                  ]
+                },
+                "description": "Se déconnecter d'un service Google"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AI & Natural Language",
+      "description": "Endpoints IA et traitement du langage naturel",
+      "item": [
+        {
+          "name": "Chat with AI",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"message\": \"How can I improve my productivity?\",\n  \"context\": {\n    \"current_tasks\": 5,\n    \"integrations\": [\"todoist\", \"jira\"]\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/ai/chat",
+              "host": ["{{base_url}}"],
+              "path": ["api", "ai", "chat"]
+            },
+            "description": "Discuter avec l'IA pour obtenir des conseils"
+          }
+        },
+        {
+          "name": "Process Natural Language Command",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"command\": \"Create a task to review code tomorrow at 2pm\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/api/natural-language/command",
+              "host": ["{{base_url}}"],
+              "path": ["api", "natural-language", "command"]
+            },
+            "description": "Traiter une commande en langage naturel"
+          }
+        },
+        {
+          "name": "Get Command Suggestions",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/natural-language/suggestions?query=create",
+              "host": ["{{base_url}}"],
+              "path": ["api", "natural-language", "suggestions"],
+              "query": [
+                {
+                  "key": "query",
+                  "value": "create"
+                }
+              ]
+            },
+            "description": "Obtenir des suggestions de commandes"
+          }
+        },
+        {
+          "name": "Get Command History",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/natural-language/history?limit=20",
+              "host": ["{{base_url}}"],
+              "path": ["api", "natural-language", "history"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "20"
+                }
+              ]
+            },
+            "description": "Obtenir l'historique des commandes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Daily Planning",
+      "description": "Planification journalière avec IA",
+      "item": [
+        {
+          "name": "Get Daily Plan",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/daily-planning",
+              "host": ["{{base_url}}"],
+              "path": ["daily-planning"]
+            },
+            "description": "Obtenir le plan journalier"
+          }
+        },
+        {
+          "name": "Generate Daily Plan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2025-01-15\",\n  \"preferences\": {\n    \"focus_time\": \"morning\",\n    \"break_duration\": 15\n  }\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/daily-planning/generate",
+              "host": ["{{base_url}}"],
+              "path": ["daily-planning", "generate"]
+            },
+            "description": "Générer un plan journalier avec l'IA"
+          }
+        },
+        {
+          "name": "Update Daily Tasks",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tasks\": [\n    {\n      \"id\": 1,\n      \"completed\": true\n    },\n    {\n      \"id\": 2,\n      \"priority\": \"high\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/daily-planning/update-tasks",
+              "host": ["{{base_url}}"],
+              "path": ["daily-planning", "update-tasks"]
+            },
+            "description": "Mettre à jour les tâches du plan journalier"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Admin",
+      "description": "Administration des utilisateurs (admin/manager only)",
+      "item": [
+        {
+          "name": "List Users",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/users",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users"]
+            },
+            "description": "Lister tous les utilisateurs (admin/manager)"
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"New User\",\n  \"email\": \"newuser@example.com\",\n  \"role\": \"user\",\n  \"permissions\": [\"view_workflows\", \"execute_workflows\"]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/users",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users"]
+            },
+            "description": "Créer un nouvel utilisateur (admin/manager)"
+          }
+        },
+        {
+          "name": "Show User",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Afficher les détails d'un utilisateur (admin/manager)"
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Updated Name\",\n  \"email\": \"updated@example.com\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Mettre à jour un utilisateur (admin/manager)"
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Supprimer un utilisateur (admin)"
+          }
+        },
+        {
+          "name": "Generate User Credentials",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user/credentials",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user", "credentials"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Générer de nouvelles credentials pour un utilisateur (admin)"
+          }
+        },
+        {
+          "name": "Reset User Password",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"password\": \"newpassword123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user/reset-password",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user", "reset-password"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Réinitialiser le mot de passe d'un utilisateur (admin/manager)"
+          }
+        },
+        {
+          "name": "Lock User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user/lock",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user", "lock"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Verrouiller un compte utilisateur (admin)"
+          }
+        },
+        {
+          "name": "Unlock User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user/unlock",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user", "unlock"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Déverrouiller un compte utilisateur (admin)"
+          }
+        },
+        {
+          "name": "Change User Role",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"role\": \"manager\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user/change-role",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user", "change-role"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Changer le rôle d'un utilisateur (admin)"
+          }
+        },
+        {
+          "name": "Update User Permissions",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"permissions\": [\n    \"view_workflows\",\n    \"execute_workflows\",\n    \"manage_integrations\"\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user/permissions",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user", "permissions"],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Mettre à jour les permissions d'un utilisateur (admin)"
+          }
+        },
+        {
+          "name": "Get User Activity Log",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/admin/users/:user/activity-log?limit=50",
+              "host": ["{{base_url}}"],
+              "path": ["admin", "users", ":user", "activity-log"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "50"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "user",
+                  "value": "{{user_id}}"
+                }
+              ]
+            },
+            "description": "Obtenir le journal d'activité d'un utilisateur (admin/manager)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Webhooks",
+      "description": "Webhooks pour les événements Git",
+      "item": [
+        {
+          "name": "GitHub Webhook",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-GitHub-Event",
+                "value": "push"
+              },
+              {
+                "key": "X-Hub-Signature-256",
+                "value": "sha256=signature"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ref\": \"refs/heads/main\",\n  \"repository\": {\n    \"id\": 123456,\n    \"name\": \"repo-name\"\n  },\n  \"commits\": []\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/webhooks/github",
+              "host": ["{{base_url}}"],
+              "path": ["webhooks", "github"]
+            },
+            "description": "Endpoint pour les webhooks GitHub (pas d'auth requise)"
+          }
+        },
+        {
+          "name": "GitLab Webhook",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "X-Gitlab-Event",
+                "value": "Push Hook"
+              },
+              {
+                "key": "X-Gitlab-Token",
+                "value": "secret_token"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"object_kind\": \"push\",\n  \"ref\": \"refs/heads/main\",\n  \"project\": {\n    \"id\": 123456,\n    \"name\": \"repo-name\"\n  },\n  \"commits\": []\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/webhooks/gitlab",
+              "host": ["{{base_url}}"],
+              "path": ["webhooks", "gitlab"]
+            },
+            "description": "Endpoint pour les webhooks GitLab (pas d'auth requise)"
+          }
+        }
+      ]
+    }
+  ]
+}

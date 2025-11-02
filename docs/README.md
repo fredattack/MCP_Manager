@@ -34,12 +34,84 @@ docs/
 │   ├── AgentOps_Sprints_Tableau.md        # Tableau sprints
 │   └── AgentOps_Quick_Start_Guide.md      # Guide démarrage
 │
-└── 03-ui-ux/                              # Design & UX
-    └── current-app/
-        └── reports/
-            └── client/
-                └── task-2.9-workflows-ux-manifesto.md  # Manifesto UX Workflows
+├── 03-ui-ux/                              # Design & UX
+│   └── current-app/
+│       └── reports/
+│           └── client/
+│               └── task-2.9-workflows-ux-manifesto.md  # Manifesto UX Workflows
+│
+└── Admin-Panel/                           # 🆕 User Management System (NEW)
+    ├── ADMIN_PANEL_INDEX.md               # ⭐ Overview & Navigation
+    ├── QUICK_START_IMPLEMENTATION.md      # 🚀 Day 1 Implementation Guide
+    ├── ADMIN_PANEL_ROADMAP.md             # Part 1: Backend (41KB)
+    ├── ADMIN_PANEL_ROADMAP_PART2.md       # Part 2: Frontend (33KB)
+    ├── ADMIN_PANEL_ROADMAP_PART3.md       # Part 3: Tests & Components (39KB)
+    └── ADMIN_PANEL_ROADMAP_PART4_FINAL.md # Part 4: Docs & Data (29KB)
 ```
+
+---
+
+## 🆕 Admin Panel - User Management (NOUVEAU)
+
+**Créé:** 2025-11-01 | **Timeline:** 6.5 jours | **Taille:** 142KB documentation
+
+### 🎯 Objectif Principal
+Système complet de gestion des utilisateurs avec **génération de credentials Base64** pour authentification HTTP Basic Auth sur le serveur MCP.
+
+### ✨ Fonctionnalités Clés
+- ✅ CRUD utilisateurs complet (Create, Read, Update, Delete)
+- ✅ **Génération de credentials Base64** pour Basic Auth
+- ✅ Système RBAC (4 rôles: Admin, Manager, User, ReadOnly)
+- ✅ 40+ permissions granulaires
+- ✅ Activity logging (audit trail)
+- ✅ Account locking & sécurité
+- ✅ Design Monologue (dark theme, fonts Instrument Serif + DM Mono)
+
+### 📚 Documentation Disponible
+
+**🚀 Pour Démarrer:**
+- [`ADMIN_PANEL_INDEX.md`](ADMIN_PANEL_INDEX.md) - Vue d'ensemble complète
+- [`QUICK_START_IMPLEMENTATION.md`](QUICK_START_IMPLEMENTATION.md) - Guide Day 1
+
+**📖 Documentation Complète:**
+1. **Part 1 (41KB):** [`ADMIN_PANEL_ROADMAP.md`](ADMIN_PANEL_ROADMAP.md)
+   - Backend: Migrations, Enums, Models, Services, Middleware, Controllers
+   - **Génération Base64 credentials** (méthode principale)
+
+2. **Part 2 (33KB):** [`ADMIN_PANEL_ROADMAP_PART2.md`](ADMIN_PANEL_ROADMAP_PART2.md)
+   - Frontend: React pages, UserTable, CredentialGenerator
+   - Design system Monologue
+
+3. **Part 3 (39KB):** [`ADMIN_PANEL_ROADMAP_PART3.md`](ADMIN_PANEL_ROADMAP_PART3.md)
+   - Components avancés (RoleSelector, PermissionManager, UserFilters)
+   - Tests (Vitest + Playwright)
+
+4. **Part 4 (29KB):** [`ADMIN_PANEL_ROADMAP_PART4_FINAL.md`](ADMIN_PANEL_ROADMAP_PART4_FINAL.md)
+   - User guide, FAQ, Seeders, Implementation checklist
+
+### 🛠️ Outils de Validation
+```bash
+# Valider l'implémentation Phase 1
+php scripts/validate-admin-panel.php --phase=1
+
+# Valider toutes les phases
+php scripts/validate-admin-panel.php --verbose
+```
+
+### 📋 Timeline d'Implémentation
+- **Phase 1:** Backend (2 jours) - Migrations, Services, Controllers
+- **Phase 2:** Frontend (2 jours) - React pages et composants
+- **Phase 3:** Tests (1 jour) - Vitest + Playwright
+- **Phase 4:** Data & Docs (1 jour) - Seeders, user guide
+- **Phase 5:** Validation (0.5 jour) - Final checks
+
+**Total:** 6.5 jours
+
+### 🔗 Liens Rapides
+- **Commencer:** [`QUICK_START_IMPLEMENTATION.md`](QUICK_START_IMPLEMENTATION.md)
+- **Navigation:** [`ADMIN_PANEL_INDEX.md`](ADMIN_PANEL_INDEX.md)
+- **Code Backend:** [Part 1 - Backend](ADMIN_PANEL_ROADMAP.md)
+- **Code Frontend:** [Part 2 - React](ADMIN_PANEL_ROADMAP_PART2.md)
 
 ---
 

@@ -22,16 +22,12 @@ class DatabaseSeeder extends Seeder
             return;
         }
 
-        // For development/staging, create test user
+        // For development/staging/testing, seed AgentOps users
         if (app()->environment(['local', 'development', 'staging', 'testing'])) {
-            User::factory()->create([
-                'name' => 'Fred Moras',
-                'email' => 'info@hddev.be',
-                'password' => Hash::make('password'),
-            ]);
+            $this->call(AgentOpsUsersSeeder::class);
 
-            $this->command->info('Test user created: info@hddev.be / password');
-            $this->command->warn('WARNING: Change these credentials before deploying to production!');
+            $this->command->newLine();
+            $this->command->warn('⚠️  WARNING: Change these credentials before deploying to production!');
         }
     }
 }

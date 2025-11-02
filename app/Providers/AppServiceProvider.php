@@ -41,6 +41,22 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        // Register User Observer for automatic MCP sync
+        \App\Models\User::observe(\App\Observers\UserObserver::class);
+
+        \Illuminate\Support\Facades\Event::listen(
+            \App\Events\UserCreatedInManager::class,
+            \App\Listeners\SyncUserToMcp::class
+        );
+
+        \Illuminate\Support\Facades\Event::listen(
+            \App\Events\UserUpdatedInManager::class,
+            \App\Listeners\SyncUserToMcp::class
+        );
+
+        \Illuminate\Support\Facades\Event::listen(
+            \App\Events\UserDeletedInManager::class,
+            \App\Listeners\SyncUserToMcp::class
+        );
     }
 }

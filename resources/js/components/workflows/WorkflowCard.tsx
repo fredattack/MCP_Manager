@@ -46,6 +46,7 @@ const WorkflowCard = React.forwardRef<HTMLDivElement, WorkflowCardProps>(({ work
         <div
             ref={ref}
             onClick={onClick}
+            data-testid="workflow-card"
             className={`bg-monologue-neutral-800 border-monologue-border-default cursor-pointer rounded-lg border p-6 transition-all duration-200 hover:border-cyan-500/50 hover:shadow-lg ${className}`}
         >
             {/* Header */}
