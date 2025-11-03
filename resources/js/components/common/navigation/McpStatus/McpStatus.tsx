@@ -1,132 +1,121 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { useMcpAuth } from '@/hooks/api/use-mcp-auth';
-import { Settings, User, Wifi, WifiOff } from 'lucide-react';
-import { useState } from 'react';
+import { Activity, CheckCircle2, Info } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { SystemStatusDrawer } from './SystemStatusDrawer';
+import axios from 'axios';
+import { usePage } from '@inertiajs/react';
+
+interface SystemHealth {
+    status: 'healthy' | 'degraded' | 'unhealthy';
+}
 
 export function McpStatus() {
-    const { user, isAuthenticated, isLoading, login, logout } = useMcpAuth();
-    const [showLoginDialog, setShowLoginDialog] = useState(false);
-    const [loginForm, setLoginForm] = useState({
-        username: '',
-        password: '',
-    });
-    const [isLoggingIn, setIsLoggingIn] = useState(false);
+    const { props } = usePage();
+    const [systemHealth, setSystemHealth] = useState<SystemHealth | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+    const [showStatusDrawer, setShowStatusDrawer] = useState(false);
 
-    const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsLoggingIn(true);
+    // Check if user is admin
+    const auth = props.auth as { user?: { role?: string } } | undefined;
+    const isAdmin = auth?.user?.role === 'admin';
 
+    useEffect(() => {
+        fetchHealth();
+        // Poll health every 30 seconds
+        const interval = setInterval(fetchHealth, 30000);
+        return () => clearInterval(interval);
+    }, []);
+
+    const fetchHealth = async () => {
         try {
-            await login(loginForm.username, loginForm.password);
-            setShowLoginDialog(false);
-            setLoginForm({ username: '', password: '' });
-        } catch {
-            // Error is handled by the hook
+            const response = await axios.get('/api/system/health');
+            setSystemHealth(response.data);
+        } catch (error) {
+            console.error('Failed to fetch system health:', error);
+            setSystemHealth({ status: 'unhealthy' });
         } finally {
-            setIsLoggingIn(false);
-        }
-    };
-
-    const handleAutoLogin = async () => {
-        const envUser = import.meta.env.VITE_MCP_SERVER_USER || 'admin@mcp-server.com';
-        const envPassword = import.meta.env.VITE_MCP_SERVER_PASSWORD || 'Admin@123!';
-
-        setIsLoggingIn(true);
-        try {
-            await login(envUser, envPassword);
-        } catch {
-            // Error is handled by the hook
-        } finally {
-            setIsLoggingIn(false);
+            setIsLoading(false);
         }
     };
 
     if (isLoading) {
         return (
-            <div className="flex items-center gap-2 rounded-full bg-gray-100 px-3 py-1 dark:bg-gray-800">
+            <div className="flex items-center gap-2">
                 <div className="h-3 w-3 animate-spin rounded-full border border-gray-400 border-t-transparent" />
-                <span className="text-xs text-gray-600 dark:text-gray-400">Connecting...</span>
+                <span className="text-xs text-gray-600 dark:text-gray-400">Checking...</span>
             </div>
         );
     }
 
+    const getStatusDisplay = () => {
+        if (!systemHealth) {
+            return {
+                icon: <Activity className="mr-1 h-3 w-3" />,
+                text: 'Unknown',
+                variant: 'secondary' as const,
+                className: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
+            };
+        }
+
+        switch (systemHealth.status) {
+            case 'healthy':
+                return {
+                    icon: <CheckCircle2 className="mr-1 h-3 w-3" />,
+                    text: 'System Healthy',
+                    variant: 'default' as const,
+                    className: 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+                };
+            case 'degraded':
+                return {
+                    icon: <Activity className="mr-1 h-3 w-3" />,
+                    text: 'System Degraded',
+                    variant: 'secondary' as const,
+                    className: 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400',
+                };
+            case 'unhealthy':
+                return {
+                    icon: <Activity className="mr-1 h-3 w-3" />,
+                    text: 'System Issue',
+                    variant: 'destructive' as const,
+                    className: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',
+                };
+            default:
+                return {
+                    icon: <Activity className="mr-1 h-3 w-3" />,
+                    text: 'Unknown',
+                    variant: 'secondary' as const,
+                    className: 'bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300',
+                };
+        }
+    };
+
+    const statusDisplay = getStatusDisplay();
+
     return (
-        <div className="flex items-center gap-2">
-            {isAuthenticated ? (
-                <div className="flex items-center gap-2">
-                    <Badge variant="default" className="bg-success text-success-foreground">
-                        <Wifi className="mr-1 h-3 w-3" />
-                        MCP Connected
-                    </Badge>
-                    <div className="flex items-center gap-1 text-xs text-gray-600 dark:text-gray-400">
-                        <User className="h-3 w-3" />
-                        {user?.username}
-                    </div>
-                    <Button variant="ghost" size="sm" onClick={logout} className="h-6 px-2 text-xs">
-                        Disconnect
+        <>
+            <div className="flex items-center gap-2">
+                <Badge variant={statusDisplay.variant} className={statusDisplay.className}>
+                    {statusDisplay.icon}
+                    {statusDisplay.text}
+                </Badge>
+
+                {isAdmin && (
+                    <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setShowStatusDrawer(true)}
+                        className="h-6 px-2 text-xs"
+                    >
+                        <Info className="mr-1 h-3 w-3" />
+                        Details
                     </Button>
-                </div>
-            ) : (
-                <div className="flex items-center gap-2">
-                    <Badge variant="secondary" className="bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300">
-                        <WifiOff className="mr-1 h-3 w-3" />
-                        MCP Offline
-                    </Badge>
+                )}
+            </div>
 
-                    <Dialog open={showLoginDialog} onOpenChange={setShowLoginDialog}>
-                        <DialogTrigger asChild>
-                            <Button variant="outline" size="sm" className="h-6 px-2 text-xs">
-                                <Settings className="mr-1 h-3 w-3" />
-                                Connect
-                            </Button>
-                        </DialogTrigger>
-                        <DialogContent className="sm:max-w-md">
-                            <DialogHeader>
-                                <DialogTitle>Connect to MCP Server</DialogTitle>
-                            </DialogHeader>
-
-                            <form onSubmit={handleLogin} className="space-y-4">
-                                <div className="space-y-2">
-                                    <Label htmlFor="username">Username</Label>
-                                    <Input
-                                        id="username"
-                                        type="email"
-                                        placeholder="admin@mcp-server.com"
-                                        value={loginForm.username}
-                                        onChange={(e) => setLoginForm((prev) => ({ ...prev, username: e.target.value }))}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="space-y-2">
-                                    <Label htmlFor="password">Password</Label>
-                                    <Input
-                                        id="password"
-                                        type="password"
-                                        placeholder="Admin@123!"
-                                        value={loginForm.password}
-                                        onChange={(e) => setLoginForm((prev) => ({ ...prev, password: e.target.value }))}
-                                        required
-                                    />
-                                </div>
-
-                                <div className="flex gap-2">
-                                    <Button type="submit" className="flex-1" disabled={isLoggingIn}>
-                                        {isLoggingIn ? 'Connecting...' : 'Connect'}
-                                    </Button>
-                                    <Button type="button" variant="outline" onClick={handleAutoLogin} disabled={isLoggingIn}>
-                                        Use Default
-                                    </Button>
-                                </div>
-                            </form>
-                        </DialogContent>
-                    </Dialog>
-                </div>
+            {isAdmin && (
+                <SystemStatusDrawer isOpen={showStatusDrawer} onClose={() => setShowStatusDrawer(false)} />
             )}
-        </div>
+        </>
     );
 }

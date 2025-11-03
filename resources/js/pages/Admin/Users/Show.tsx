@@ -3,23 +3,30 @@ import { MonologueCard } from '@/components/ui/MonologueCard';
 import { type BreadcrumbItem, type PageProps } from '@/types';
 import type { User, UserActivityLog, UserCredentials } from '@/types/admin';
 import { Head, router } from '@inertiajs/react';
-import { Key, Lock, Unlock, Edit, Calendar, Activity } from 'lucide-react';
+import { Key, Lock, Unlock, Edit, Calendar, Activity, Settings } from 'lucide-react';
 import { useState } from 'react';
 import axios from 'axios';
+import { McpSetupDrawer } from '@/components/Admin/McpSetupDrawer';
+
+interface McpCredentials {
+    username: string;
+    token_base64: string;
+}
 
 interface UsersShowProps extends PageProps {
     user: User & {
         activity_logs: UserActivityLog[];
     };
+    mcpServerUrl: string;
+    mcpCredentials: McpCredentials;
     can: {
         edit: boolean;
         delete: boolean;
     };
 }
 
-export default function Show({ user, can }: UsersShowProps) {
-    const [credentials, setCredentials] = useState<UserCredentials | null>(null);
-    const [loading, setLoading] = useState(false);
+export default function Show({ user, can, mcpServerUrl, mcpCredentials }: UsersShowProps) {
+    const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [copied, setCopied] = useState<string | null>(null);
 
     const breadcrumbs: BreadcrumbItem[] = [
@@ -28,18 +35,6 @@ export default function Show({ user, can }: UsersShowProps) {
         { title: 'Users', href: '/admin/users' },
         { title: user.name, href: `/admin/users/${user.id}` },
     ];
-
-    const handleGenerateCredentials = async () => {
-        try {
-            setLoading(true);
-            const response = await axios.post(`/admin/users/${user.id}/credentials`);
-            setCredentials(response.data.credentials);
-        } catch (error) {
-            console.error('Failed to generate credentials:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const handleLockToggle = async () => {
         try {
@@ -79,6 +74,13 @@ export default function Show({ user, can }: UsersShowProps) {
                         </p>
                     </div>
                     <div className="flex gap-2">
+                        <button
+                            onClick={() => setIsDrawerOpen(true)}
+                            className="inline-flex items-center gap-2 rounded-lg bg-purple-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-600"
+                        >
+                            <Settings className="h-4 w-4" />
+                            MCP Setup
+                        </button>
                         <button
                             onClick={handleLockToggle}
                             className="inline-flex items-center gap-2 rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
@@ -158,97 +160,44 @@ export default function Show({ user, can }: UsersShowProps) {
                         </dl>
                     </MonologueCard>
 
-                    {/* Credential Generator */}
+                    {/* MCP Configuration */}
                     <MonologueCard variant="elevated">
                         <h2 className="font-monologue-serif mb-4 text-2xl font-normal text-gray-900 dark:text-white">
-                            Credentials
+                            MCP Configuration
                         </h2>
-
-                        {!credentials ? (
-                            <button
-                                onClick={handleGenerateCredentials}
-                                disabled={loading}
-                                className="inline-flex items-center gap-2 rounded-lg bg-cyan-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-cyan-600 disabled:opacity-50"
-                            >
-                                <Key className="h-4 w-4" />
-                                {loading ? 'Generating...' : 'Generate New Credentials'}
-                            </button>
-                        ) : (
-                            <div className="space-y-4">
-                                {/* Password */}
-                                <div>
-                                    <label className="font-monologue-mono mb-2 block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                        Password
-                                    </label>
-                                    <div className="flex gap-2">
-                                        <code className="font-monologue-mono flex-1 rounded bg-gray-100 px-3 py-2 text-sm text-gray-900 dark:bg-gray-800 dark:text-white">
-                                            {credentials.password}
-                                        </code>
-                                        <button
-                                            onClick={() => copyToClipboard(credentials.password, 'password')}
-                                            className="rounded bg-gray-200 px-3 py-2 text-xs hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
-                                        >
-                                            {copied === 'password' ? '✓' : 'Copy'}
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* API Token */}
-                                <div>
-                                    <label className="font-monologue-mono mb-2 block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                        API Token
-                                    </label>
-                                    <div className="flex gap-2">
-                                        <code className="font-monologue-mono flex-1 overflow-hidden overflow-ellipsis rounded bg-gray-100 px-3 py-2 text-sm text-gray-900 dark:bg-gray-800 dark:text-white">
-                                            {credentials.api_token}
-                                        </code>
-                                        <button
-                                            onClick={() => copyToClipboard(credentials.api_token, 'token')}
-                                            className="rounded bg-gray-200 px-3 py-2 text-xs hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
-                                        >
-                                            {copied === 'token' ? '✓' : 'Copy'}
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* Base64 Basic Auth */}
-                                <div>
-                                    <label className="font-monologue-mono mb-2 block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                        Basic Auth (Base64)
-                                    </label>
-                                    <div className="flex gap-2">
-                                        <code className="font-monologue-mono flex-1 overflow-hidden overflow-ellipsis rounded bg-gray-100 px-3 py-2 text-sm text-gray-900 dark:bg-gray-800 dark:text-white">
-                                            {credentials.basic_auth}
-                                        </code>
-                                        <button
-                                            onClick={() => copyToClipboard(credentials.basic_auth, 'basic')}
-                                            className="rounded bg-gray-200 px-3 py-2 text-xs hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
-                                        >
-                                            {copied === 'basic' ? '✓' : 'Copy'}
-                                        </button>
-                                    </div>
-                                </div>
-
-                                {/* curl Example */}
-                                <div>
-                                    <label className="font-monologue-mono mb-2 block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                        curl Example
-                                    </label>
-                                    <code className="font-monologue-mono block overflow-x-auto rounded bg-gray-900 px-3 py-3 text-xs text-green-400">
-                                        curl -X POST http://localhost:9978/mcp \{'\n'}
-                                        {'  '}-H "{credentials.basic_auth_header}" \{'\n'}
-                                        {'  '}-d '{`{"jsonrpc":"2.0","id":1,"method":"tools/list"}`}'
-                                    </code>
-                                </div>
-
-                                <button
-                                    onClick={() => setCredentials(null)}
-                                    className="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300"
-                                >
-                                    Generate New
-                                </button>
+                        <p className="font-monologue-mono mb-4 text-sm text-gray-600 dark:text-gray-400">
+                            Your MCP credentials are ready. Click the "MCP Setup" button above to get the configuration for Claude Desktop, Claude Code, or ChatGPT Desktop.
+                        </p>
+                        <div className="space-y-3">
+                            <div>
+                                <label className="font-monologue-mono mb-1 block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    Username
+                                </label>
+                                <code className="font-monologue-mono block rounded bg-gray-100 px-3 py-2 text-sm text-gray-900 dark:bg-gray-800 dark:text-white">
+                                    {mcpCredentials.username}
+                                </code>
                             </div>
-                        )}
+                            <div>
+                                <label className="font-monologue-mono mb-1 block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    Token (Base64)
+                                </label>
+                                <div className="flex gap-2">
+                                    <code className="font-monologue-mono flex-1 overflow-hidden overflow-ellipsis rounded bg-gray-100 px-3 py-2 text-sm text-gray-900 dark:bg-gray-800 dark:text-white">
+                                        {mcpCredentials.token_base64}
+                                    </code>
+                                    <button
+                                        onClick={() => {
+                                            navigator.clipboard.writeText(mcpCredentials.token_base64);
+                                            setCopied('token');
+                                            setTimeout(() => setCopied(null), 2000);
+                                        }}
+                                        className="rounded bg-gray-200 px-3 py-2 text-xs hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600"
+                                    >
+                                        {copied === 'token' ? '✓' : 'Copy'}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </MonologueCard>
                 </div>
 
@@ -277,6 +226,14 @@ export default function Show({ user, can }: UsersShowProps) {
                     </div>
                 </MonologueCard>
             </div>
+
+            <McpSetupDrawer
+                isOpen={isDrawerOpen}
+                onClose={() => setIsDrawerOpen(false)}
+                credentials={mcpCredentials}
+                userName={user.name}
+                mcpServerUrl={mcpServerUrl}
+            />
         </AppLayout>
     );
 }

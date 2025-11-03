@@ -63,6 +63,7 @@ class User extends Authenticatable
         'notes',
         'created_by',
         'api_token',
+        'mcp_token',
     ];
 
     /**
@@ -72,6 +73,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
         'api_token',
+        'mcp_token',
     ];
 
     /**
@@ -91,6 +93,7 @@ class User extends Authenticatable
             'last_failed_login_at' => 'datetime',
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
+            'mcp_token' => 'encrypted',
         ];
     }
 
@@ -295,5 +298,28 @@ class User extends Authenticatable
         if ($this->failed_login_attempts >= 5) {
             $this->lock('Too many failed login attempts');
         }
+    }
+
+    public function getMcpToken(): string
+    {
+        if (! $this->mcp_token) {
+            $this->mcp_token = bin2hex(random_bytes(32));
+            $this->save();
+        }
+
+        return $this->mcp_token;
+    }
+
+    public function getMcpTokenBase64(): string
+    {
+        return base64_encode($this->getMcpToken());
+    }
+
+    public function regenerateMcpToken(): string
+    {
+        $this->mcp_token = bin2hex(random_bytes(32));
+        $this->save();
+
+        return $this->mcp_token;
     }
 }

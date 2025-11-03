@@ -127,6 +127,7 @@ class McpUserSyncService
             'role' => $this->mapRole($user->role),
             'is_active' => $user->is_active,
             'is_verified' => $user->email_verified_at !== null,
+            'mcp_token' => $user->getMcpToken(),
         ];
     }
 

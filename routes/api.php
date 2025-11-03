@@ -10,7 +10,11 @@ use App\Http\Controllers\JiraController;
 use App\Http\Controllers\McpIntegrationController;
 use App\Http\Controllers\NotionController;
 use App\Http\Controllers\NotionIntegrationController;
+use App\Http\Controllers\SystemHealthController;
 use Illuminate\Support\Facades\Route;
+
+// System health endpoint
+Route::get('system/health', [SystemHealthController::class, 'index']);
 
 // Legacy route - will be deprecated
 Route::get('notion/fetch', [NotionController::class, 'fetch']);

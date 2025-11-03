@@ -94,6 +94,11 @@ class UserManagementController extends Controller
 
         return Inertia::render('Admin/Users/Show', [
             'user' => $user,
+            'mcpServerUrl' => config('services.mcp.server_url').'/mcp',
+            'mcpCredentials' => [
+                'username' => $user->email,
+                'token_base64' => $user->getMcpTokenBase64(),
+            ],
             'can' => [
                 'edit' => request()->user()?->hasPermission('users.edit') ?? false,
                 'delete' => request()->user()?->hasPermission('users.delete') ?? false,

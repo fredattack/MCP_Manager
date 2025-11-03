@@ -11,6 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AppLayout from '@/layouts/app-layout';
 import SettingsLayout from '@/layouts/settings/layout';
+import { Shield } from 'lucide-react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
@@ -26,6 +27,7 @@ type ProfileForm = {
 
 export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: boolean; status?: string }) {
     const { auth } = usePage<SharedData>().props;
+    const isAdmin = (auth.user as { role?: string }).role === 'admin';
 
     const { data, setData, patch, errors, processing, recentlySuccessful } = useForm<Required<ProfileForm>>({
         name: auth.user.name,
@@ -119,6 +121,36 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                         </div>
                     </form>
                 </div>
+
+                {isAdmin && (
+                    <div className="space-y-6">
+                        <HeadingSmall title="Admin Settings" description="Manage your admin account settings" />
+
+                        <div className="rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-800">
+                            <div className="flex items-center justify-between">
+                                <div className="flex items-center gap-3">
+                                    <div className="rounded-full bg-purple-100 p-2 dark:bg-purple-900/30">
+                                        <Shield className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-medium text-gray-900 dark:text-white">
+                                            Admin Profile
+                                        </h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                                            View and manage your admin account details
+                                        </p>
+                                    </div>
+                                </div>
+                                <Link
+                                    href={`/admin/users/${auth.user.id}`}
+                                    className="inline-flex items-center gap-2 rounded-lg bg-purple-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-purple-600"
+                                >
+                                    View Admin Profile
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
                 <DeleteUser />
             </SettingsLayout>
