@@ -46,6 +46,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'has.integration' => \App\Http\Middleware\HasActiveIntegration::class,
             'role' => RequireRole::class,
             'permission' => RequirePermission::class,
+            'mcp.token' => \App\Http\Middleware\ValidateMcpServerToken::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

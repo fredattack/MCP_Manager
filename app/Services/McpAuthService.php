@@ -8,11 +8,11 @@ use Illuminate\Support\Facades\Log;
 
 class McpAuthService
 {
-    private readonly string $mcpServerUrl;
+    private readonly ?string $mcpServerUrl;
 
-    private readonly string $username;
+    private readonly ?string $username;
 
-    private readonly string $password;
+    private readonly ?string $password;
 
     public function __construct()
     {

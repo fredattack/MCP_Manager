@@ -112,3 +112,30 @@ Route::middleware(['auth:web'])->group(function () {
     Route::get('workflows/executions/{execution}/steps', [WorkflowController::class, 'executionSteps'])->name('api.workflows.executions.steps');
 
 });
+
+// MCP Server API routes (no auth:web, uses Bearer token via mcp.token middleware)
+Route::prefix('mcp')->group(function () {
+    // Protected endpoints (require MCP server Bearer token)
+    Route::middleware(['mcp.token'])->group(function () {
+        // Get authenticated user info
+        Route::get('me', \App\Http\Controllers\Api\Mcp\GetAuthenticatedUserController::class)
+            ->name('api.mcp.me');
+
+        // Credential Lease management
+        Route::post('credentials/lease', \App\Http\Controllers\Api\Mcp\CreateCredentialLeaseController::class)
+            ->name('api.mcp.lease.create');
+
+        Route::get('credentials/lease/{leaseId}', \App\Http\Controllers\Api\Mcp\ShowCredentialLeaseController::class)
+            ->name('api.mcp.lease.show');
+
+        Route::post('credentials/lease/{leaseId}/renew', \App\Http\Controllers\Api\Mcp\RenewCredentialLeaseController::class)
+            ->name('api.mcp.lease.renew');
+
+        Route::delete('credentials/lease/{leaseId}', \App\Http\Controllers\Api\Mcp\RevokeCredentialLeaseController::class)
+            ->name('api.mcp.lease.revoke');
+
+        // Convenience endpoint to get user credentials
+        Route::get('users/{userId}/credentials', \App\Http\Controllers\Api\Mcp\GetUserCredentialsController::class)
+            ->name('api.mcp.users.credentials');
+    });
+});

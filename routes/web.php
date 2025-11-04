@@ -140,17 +140,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('monitoring/stream', [App\Http\Controllers\McpMonitoringController::class, 'stream'])->name('monitoring.stream');
     });
 
-    // MCP Proxy routes
+    // MCP Proxy routes (Manager → MCP Server proxying)
     Route::prefix('api/mcp')->group(function () {
-        Route::post('auth/login', [App\Http\Controllers\McpProxyController::class, 'login']);
-        Route::get('auth/me', [App\Http\Controllers\McpProxyController::class, 'me']);
+        Route::post('auth/login', [App\Http\Controllers\Mcp\McpProxyController::class, 'login']);
+        Route::get('auth/me', [App\Http\Controllers\Mcp\McpProxyController::class, 'me']);
 
         // Specific Todoist endpoints
-        Route::get('todoist/tasks/today', [App\Http\Controllers\McpProxyController::class, 'getTodayTasks']);
-        Route::get('todoist/tasks/upcoming', [App\Http\Controllers\McpProxyController::class, 'getUpcomingTasks']);
+        Route::get('todoist/tasks/today', [App\Http\Controllers\Mcp\McpProxyController::class, 'getTodayTasks']);
+        Route::get('todoist/tasks/upcoming', [App\Http\Controllers\Mcp\McpProxyController::class, 'getUpcomingTasks']);
 
         // General Todoist proxy
-        Route::any('todoist/{path?}', [App\Http\Controllers\McpProxyController::class, 'todoistProxy'])
+        Route::any('todoist/{path?}', [App\Http\Controllers\Mcp\McpProxyController::class, 'todoistProxy'])
             ->where('path', '.*');
     });
 
