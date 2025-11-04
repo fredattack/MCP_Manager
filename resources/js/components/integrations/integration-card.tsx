@@ -1,7 +1,8 @@
 import { Link } from '@inertiajs/react';
-import { Settings } from 'lucide-react';
+import { Lock, Settings, Shield, Users } from 'lucide-react';
 import React from 'react';
 import { INTEGRATION_TYPES, IntegrationAccount, IntegrationStatus, IntegrationType } from '../../types/integrations';
+import { Organization } from '../../types/organizations';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { Card } from '../ui/card';
@@ -10,17 +11,46 @@ import { IntegrationForm } from './integration-form';
 
 interface IntegrationCardProps {
     integration: IntegrationAccount;
+    organization?: Organization;
     onUpdate: (id: number, data: Partial<IntegrationAccount>) => Promise<void>;
     onDelete: (id: number) => Promise<void>;
 }
 
-export function IntegrationCard({ integration, onUpdate, onDelete }: IntegrationCardProps) {
+export function IntegrationCard({ integration, organization, onUpdate, onDelete }: IntegrationCardProps) {
     const [isUpdateDialogOpen, setIsUpdateDialogOpen] = React.useState(false);
     const [isDeleteDialogOpen, setIsDeleteDialogOpen] = React.useState(false);
     const [isLoading, setIsLoading] = React.useState(false);
 
     const integrationType = INTEGRATION_TYPES[integration.type];
     const isActive = integration.status === IntegrationStatus.ACTIVE;
+    const isPersonal = integration.scope === 'personal';
+    const isOrganization = integration.scope === 'organization';
+
+    const getSharingIcon = () => {
+        if (!integration.shared_with || integration.shared_with.length === 0) {
+            return <Lock className="h-3 w-3" />;
+        }
+        if (integration.shared_with.includes('all_members')) {
+            return <Users className="h-3 w-3" />;
+        }
+        if (integration.shared_with.includes('admins_only')) {
+            return <Shield className="h-3 w-3" />;
+        }
+        return <Lock className="h-3 w-3" />;
+    };
+
+    const getSharingLabel = () => {
+        if (!integration.shared_with || integration.shared_with.length === 0) {
+            return 'Private';
+        }
+        if (integration.shared_with.includes('all_members')) {
+            return 'All Members';
+        }
+        if (integration.shared_with.includes('admins_only')) {
+            return 'Admins Only';
+        }
+        return 'Limited Access';
+    };
 
     const handleStatusToggle = async () => {
         setIsLoading(true);
@@ -56,8 +86,33 @@ export function IntegrationCard({ integration, onUpdate, onDelete }: Integration
                             <p className="text-sm text-gray-500 dark:text-gray-400">{integrationType?.description}</p>
                         </div>
                     </div>
-                    <Badge variant={isActive ? 'default' : 'secondary'}>{isActive ? 'Active' : 'Inactive'}</Badge>
+                    <div className="flex flex-col items-end gap-2">
+                        <Badge variant={isActive ? 'default' : 'secondary'}>{isActive ? 'Active' : 'Inactive'}</Badge>
+                        {isPersonal && (
+                            <Badge variant="outline" className="border-cyan-500 bg-cyan-50 text-cyan-700 dark:bg-cyan-950/20 dark:text-cyan-400">
+                                Personal
+                            </Badge>
+                        )}
+                        {isOrganization && organization && (
+                            <Badge variant="outline" className="border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400">
+                                {organization.name}
+                            </Badge>
+                        )}
+                        {isOrganization && !organization && (
+                            <Badge variant="outline" className="border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400">
+                                Organization
+                            </Badge>
+                        )}
+                    </div>
                 </div>
+
+                {/* Sharing Info for Organization Credentials */}
+                {isOrganization && integration.shared_with && integration.shared_with.length > 0 && (
+                    <div className="mt-3 flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                        {getSharingIcon()}
+                        <span>{getSharingLabel()}</span>
+                    </div>
+                )}
 
                 <div className="mt-4 flex space-x-2">
                     {integration.type === IntegrationType.TODOIST ? (

@@ -13,7 +13,7 @@ abstract class BasePrompt
     /**
      * Render the system/user prompts with metadata.
      *
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $context
      * @return array{system:string,user:string,version:string,token_count:int}
      */
     public function render(array $context): array
@@ -30,13 +30,12 @@ abstract class BasePrompt
     }
 
     /**
-     * @param string $template
-     * @param array<string, mixed> $context
+     * @param  array<string, mixed>  $context
      */
     protected function replaceVariables(string $template, array $context): string
     {
         foreach ($context as $key => $value) {
-            $placeholder = '{{' . $key . '}}';
+            $placeholder = '{{'.$key.'}}';
             $template = str_replace($placeholder, (string) $value, $template);
         }
 
@@ -59,6 +58,6 @@ abstract class BasePrompt
 
         $maxChars = $maxTokens * 4;
 
-        return substr($content, 0, $maxChars) . "\n\n[... truncated ...]";
+        return substr($content, 0, $maxChars)."\n\n[... truncated ...]";
     }
 }

@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(php artisan:*)"
+      "Bash(php artisan:*)",
+      "Bash(./vendor/bin/pint:*)",
+      "Bash(composer require:*)"
     ],
     "deny": [],
     "ask": []

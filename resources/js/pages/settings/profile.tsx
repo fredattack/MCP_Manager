@@ -133,12 +133,8 @@ export default function Profile({ mustVerifyEmail, status }: { mustVerifyEmail: 
                                         <Shield className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                                     </div>
                                     <div>
-                                        <h3 className="font-medium text-gray-900 dark:text-white">
-                                            Admin Profile
-                                        </h3>
-                                        <p className="text-sm text-gray-600 dark:text-gray-400">
-                                            View and manage your admin account details
-                                        </p>
+                                        <h3 className="font-medium text-gray-900 dark:text-white">Admin Profile</h3>
+                                        <p className="text-sm text-gray-600 dark:text-gray-400">View and manage your admin account details</p>
                                     </div>
                                 </div>
                                 <Link

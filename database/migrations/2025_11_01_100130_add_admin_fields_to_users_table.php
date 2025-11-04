@@ -9,9 +9,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('user')->after('email');
-            $table->json('permissions')->nullable()->after('role');
-            $table->boolean('is_active')->default(true)->after('permissions');
+            // role and permissions columns removed - using Spatie Permission package
+            $table->boolean('is_active')->default(true)->after('email');
             $table->boolean('is_locked')->default(false)->after('is_active');
             $table->timestamp('locked_at')->nullable()->after('is_locked');
             $table->string('locked_reason')->nullable()->after('locked_at');
@@ -22,7 +21,6 @@ return new class extends Migration
             $table->text('notes')->nullable()->after('last_failed_login_at');
             $table->foreignId('created_by')->nullable()->after('notes')->constrained('users')->nullOnDelete();
 
-            $table->index('role');
             $table->index('is_active');
             $table->index('last_login_at');
         });

@@ -5,8 +5,8 @@ require __DIR__.'/vendor/autoload.php';
 $app = require_once __DIR__.'/bootstrap/app.php';
 $app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
-use App\Models\User;
 use App\Models\McpServerUser;
+use App\Models\User;
 use App\Services\McpServer\McpServerClient;
 
 $client = app(McpServerClient::class);
@@ -21,8 +21,8 @@ do {
     $page++;
 } while (count($response['users'] ?? []) > 0 && count($allMcpUsers) < ($response['total'] ?? 0));
 
-echo "Found " . count($allMcpUsers) . " users in MCP Server\n";
-echo str_repeat('=', 50) . "\n";
+echo 'Found '.count($allMcpUsers)." users in MCP Server\n";
+echo str_repeat('=', 50)."\n";
 
 // Create mappings for each Laravel user
 $users = User::all();
@@ -63,7 +63,7 @@ foreach ($users as $user) {
     }
 }
 
-echo str_repeat('=', 50) . "\n";
+echo str_repeat('=', 50)."\n";
 echo "Mapping complete!\n";
 echo "Created: {$results['created']}\n";
 echo "Updated: {$results['updated']}\n";

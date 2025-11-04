@@ -1,10 +1,10 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { usePage } from '@inertiajs/react';
+import axios from 'axios';
 import { Activity, CheckCircle2, Info } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { SystemStatusDrawer } from './SystemStatusDrawer';
-import axios from 'axios';
-import { usePage } from '@inertiajs/react';
 
 interface SystemHealth {
     status: 'healthy' | 'degraded' | 'unhealthy';
@@ -101,21 +101,14 @@ export function McpStatus() {
                 </Badge>
 
                 {isAdmin && (
-                    <Button
-                        variant="outline"
-                        size="sm"
-                        onClick={() => setShowStatusDrawer(true)}
-                        className="h-6 px-2 text-xs"
-                    >
+                    <Button variant="outline" size="sm" onClick={() => setShowStatusDrawer(true)} className="h-6 px-2 text-xs">
                         <Info className="mr-1 h-3 w-3" />
                         Details
                     </Button>
                 )}
             </div>
 
-            {isAdmin && (
-                <SystemStatusDrawer isOpen={showStatusDrawer} onClose={() => setShowStatusDrawer(false)} />
-            )}
+            {isAdmin && <SystemStatusDrawer isOpen={showStatusDrawer} onClose={() => setShowStatusDrawer(false)} />}
         </>
     );
 }

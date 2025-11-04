@@ -1,12 +1,12 @@
-import AppLayout from '@/layouts/app-layout';
-import { MonologueCard } from '@/components/ui/MonologueCard';
-import { type BreadcrumbItem, type PageProps } from '@/types';
-import type { User, UserActivityLog, UserCredentials } from '@/types/admin';
-import { Head, router } from '@inertiajs/react';
-import { Key, Lock, Unlock, Edit, Calendar, Activity, Settings } from 'lucide-react';
-import { useState } from 'react';
-import axios from 'axios';
 import { McpSetupDrawer } from '@/components/Admin/McpSetupDrawer';
+import { MonologueCard } from '@/components/ui/MonologueCard';
+import AppLayout from '@/layouts/app-layout';
+import { type BreadcrumbItem, type PageProps } from '@/types';
+import type { User, UserActivityLog } from '@/types/admin';
+import { Head, router } from '@inertiajs/react';
+import axios from 'axios';
+import { Activity, Edit, Lock, Settings, Unlock } from 'lucide-react';
+import { useState } from 'react';
 
 interface McpCredentials {
     username: string;
@@ -66,12 +66,8 @@ export default function Show({ user, can, mcpServerUrl, mcpCredentials }: UsersS
                 {/* Header */}
                 <div className="flex items-start justify-between">
                     <div>
-                        <h1 className="font-monologue-serif text-4xl font-normal tracking-tight text-gray-900 dark:text-white">
-                            {user.name}
-                        </h1>
-                        <p className="font-monologue-mono mt-2 text-sm tracking-wide text-gray-600 dark:text-gray-400">
-                            {user.email}
-                        </p>
+                        <h1 className="font-monologue-serif text-4xl font-normal tracking-tight text-gray-900 dark:text-white">{user.name}</h1>
+                        <p className="font-monologue-mono mt-2 text-sm tracking-wide text-gray-600 dark:text-gray-400">{user.email}</p>
                     </div>
                     <div className="flex gap-2">
                         <button
@@ -103,22 +99,16 @@ export default function Show({ user, can, mcpServerUrl, mcpCredentials }: UsersS
                 <div className="grid gap-6 lg:grid-cols-2">
                     {/* User Info */}
                     <MonologueCard variant="elevated">
-                        <h2 className="font-monologue-serif mb-4 text-2xl font-normal text-gray-900 dark:text-white">
-                            User Information
-                        </h2>
+                        <h2 className="font-monologue-serif mb-4 text-2xl font-normal text-gray-900 dark:text-white">User Information</h2>
                         <dl className="space-y-3">
                             <div>
-                                <dt className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                    Role
-                                </dt>
+                                <dt className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Role</dt>
                                 <dd className="font-monologue-mono mt-1 text-sm text-gray-900 dark:text-white">
                                     {user.role.replace('_', ' ').toUpperCase()}
                                 </dd>
                             </div>
                             <div>
-                                <dt className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                    Status
-                                </dt>
+                                <dt className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Status</dt>
                                 <dd className="mt-1 flex gap-2">
                                     {user.is_locked && (
                                         <span className="inline-flex rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-800 dark:bg-red-900/30 dark:text-red-400">
@@ -138,23 +128,17 @@ export default function Show({ user, can, mcpServerUrl, mcpCredentials }: UsersS
                                 </dd>
                             </div>
                             <div>
-                                <dt className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                    Last Login
-                                </dt>
+                                <dt className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Last Login</dt>
                                 <dd className="font-monologue-mono mt-1 text-sm text-gray-900 dark:text-white">
-                                    {user.last_login_at
-                                        ? new Date(user.last_login_at).toLocaleString()
-                                        : 'Never'}
+                                    {user.last_login_at ? new Date(user.last_login_at).toLocaleString() : 'Never'}
                                 </dd>
                             </div>
                             {user.locked_reason && (
                                 <div>
-                                    <dt className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <dt className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Lock Reason
                                     </dt>
-                                    <dd className="font-monologue-mono mt-1 text-sm text-red-600 dark:text-red-400">
-                                        {user.locked_reason}
-                                    </dd>
+                                    <dd className="font-monologue-mono mt-1 text-sm text-red-600 dark:text-red-400">{user.locked_reason}</dd>
                                 </div>
                             )}
                         </dl>
@@ -162,15 +146,14 @@ export default function Show({ user, can, mcpServerUrl, mcpCredentials }: UsersS
 
                     {/* MCP Configuration */}
                     <MonologueCard variant="elevated">
-                        <h2 className="font-monologue-serif mb-4 text-2xl font-normal text-gray-900 dark:text-white">
-                            MCP Configuration
-                        </h2>
+                        <h2 className="font-monologue-serif mb-4 text-2xl font-normal text-gray-900 dark:text-white">MCP Configuration</h2>
                         <p className="font-monologue-mono mb-4 text-sm text-gray-600 dark:text-gray-400">
-                            Your MCP credentials are ready. Click the "MCP Setup" button above to get the configuration for Claude Desktop, Claude Code, or ChatGPT Desktop.
+                            Your MCP credentials are ready. Click the "MCP Setup" button above to get the configuration for Claude Desktop, Claude
+                            Code, or ChatGPT Desktop.
                         </p>
                         <div className="space-y-3">
                             <div>
-                                <label className="font-monologue-mono mb-1 block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                <label className="font-monologue-mono mb-1 block text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                     Username
                                 </label>
                                 <code className="font-monologue-mono block rounded bg-gray-100 px-3 py-2 text-sm text-gray-900 dark:bg-gray-800 dark:text-white">
@@ -178,11 +161,11 @@ export default function Show({ user, can, mcpServerUrl, mcpCredentials }: UsersS
                                 </code>
                             </div>
                             <div>
-                                <label className="font-monologue-mono mb-1 block text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                <label className="font-monologue-mono mb-1 block text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                     Token (Base64)
                                 </label>
                                 <div className="flex gap-2">
-                                    <code className="font-monologue-mono flex-1 overflow-hidden overflow-ellipsis rounded bg-gray-100 px-3 py-2 text-sm text-gray-900 dark:bg-gray-800 dark:text-white">
+                                    <code className="font-monologue-mono flex-1 overflow-hidden rounded bg-gray-100 px-3 py-2 text-sm overflow-ellipsis text-gray-900 dark:bg-gray-800 dark:text-white">
                                         {mcpCredentials.token_base64}
                                     </code>
                                     <button
@@ -203,9 +186,7 @@ export default function Show({ user, can, mcpServerUrl, mcpCredentials }: UsersS
 
                 {/* Activity Log */}
                 <MonologueCard variant="elevated">
-                    <h2 className="font-monologue-serif mb-4 text-2xl font-normal text-gray-900 dark:text-white">
-                        Recent Activity
-                    </h2>
+                    <h2 className="font-monologue-serif mb-4 text-2xl font-normal text-gray-900 dark:text-white">Recent Activity</h2>
                     <div className="space-y-3">
                         {user.activity_logs?.slice(0, 10).map((log) => (
                             <div key={log.id} className="flex items-start gap-3 border-b border-gray-200 pb-3 last:border-0 dark:border-gray-700">

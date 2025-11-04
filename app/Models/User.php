@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @property int $id
@@ -16,8 +16,6 @@ use Illuminate\Notifications\Notifiable;
  * @property string $email
  * @property \Carbon\Carbon|null $email_verified_at
  * @property string $password
- * @property UserRole $role
- * @property array<int, string>|null $permissions
  * @property bool $is_active
  * @property bool $is_locked
  * @property \Carbon\Carbon|null $locked_at
@@ -41,6 +39,7 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory;
 
+    use HasRoles;
     use Notifiable;
 
     /**
@@ -50,8 +49,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role',
-        'permissions',
         'is_active',
         'is_locked',
         'locked_at',
@@ -84,8 +81,6 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'role' => UserRole::class,
-            'permissions' => 'array',
             'is_active' => 'boolean',
             'is_locked' => 'boolean',
             'locked_at' => 'datetime',
@@ -167,77 +162,6 @@ class User extends Authenticatable
     public function createdBy(): BelongsTo
     {
         return $this->belongsTo(User::class, 'created_by');
-    }
-
-    public function hasRole(UserRole|string $role): bool
-    {
-        if ($role instanceof UserRole) {
-            return $this->role === $role;
-        }
-
-        return $this->role->value === $role;
-    }
-
-    public function hasPermission(string $permission): bool
-    {
-        if ($this->role === UserRole::ADMIN) {
-            return true;
-        }
-
-        foreach ($this->role->permissions() as $rolePermission) {
-            if ($this->matchesPermission($permission, $rolePermission)) {
-                return true;
-            }
-        }
-
-        if ($this->permissions !== null) {
-            foreach ($this->permissions as $customPermission) {
-                if ($this->matchesPermission($permission, $customPermission)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    protected function matchesPermission(string $required, string $granted): bool
-    {
-        if ($required === $granted) {
-            return true;
-        }
-
-        if (str_ends_with($granted, '.*')) {
-            $prefix = substr($granted, 0, -2);
-
-            return str_starts_with($required, $prefix.'.');
-        }
-
-        return false;
-    }
-
-    public function can($abilities, $arguments = []): bool
-    {
-        if (is_string($abilities)) {
-            return $this->hasPermission($abilities);
-        }
-
-        return parent::can($abilities, $arguments);
-    }
-
-    public function isAdmin(): bool
-    {
-        return $this->role === UserRole::ADMIN;
-    }
-
-    public function isManager(): bool
-    {
-        return $this->role === UserRole::MANAGER;
-    }
-
-    public function canManageUsers(): bool
-    {
-        return $this->hasPermission('users.edit');
     }
 
     public function lock(string $reason, ?User $performedBy = null): void

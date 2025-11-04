@@ -1,11 +1,12 @@
 import { Head, router } from '@inertiajs/react';
-import { useState, useEffect } from 'react';
-import { Github, Gitlab, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
+import { AlertCircle, CheckCircle, XCircle } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
-import AppLayout from '@/layouts/app-layout';
+import { IntegrationIcon } from '@/components/integrations/integration-icon';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import AppLayout from '@/layouts/app-layout';
 import { useNotificationStore } from '@/stores/notification-store';
 
 interface GitConnection {
@@ -188,9 +189,7 @@ export default function GitConnections({ connections = [] }: ConnectionsProps) {
             <div className="container mx-auto py-8">
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold">Connexions Git</h1>
-                    <p className="text-muted-foreground mt-2">
-                        Connectez vos comptes GitHub et GitLab pour synchroniser vos repositories
-                    </p>
+                    <p className="text-muted-foreground mt-2">Connectez vos comptes GitHub et GitLab pour synchroniser vos repositories</p>
                 </div>
 
                 <div className="grid gap-6 md:grid-cols-2">
@@ -199,7 +198,7 @@ export default function GitConnections({ connections = [] }: ConnectionsProps) {
                         <CardHeader>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                    <Github className="h-8 w-8" />
+                                    <IntegrationIcon service="github" size={32} />
                                     <CardTitle>GitHub</CardTitle>
                                 </div>
                                 {githubConnection && getStatusIcon(githubConnection.status)}
@@ -226,7 +225,7 @@ export default function GitConnections({ connections = [] }: ConnectionsProps) {
                                     <div className="flex items-center gap-2">{getStatusBadge(githubConnection.status)}</div>
 
                                     {isTokenExpiringSoon(githubConnection.expires_at) && (
-                                        <div className="rounded-md bg-yellow-50 dark:bg-yellow-900/20 p-3 text-sm">
+                                        <div className="rounded-md bg-yellow-50 p-3 text-sm dark:bg-yellow-900/20">
                                             <div className="flex items-center gap-2">
                                                 <AlertCircle className="h-4 w-4 text-yellow-600 dark:text-yellow-500" />
                                                 <p className="text-yellow-800 dark:text-yellow-200">
@@ -241,7 +240,7 @@ export default function GitConnections({ connections = [] }: ConnectionsProps) {
 
                                     {githubConnection.scopes && githubConnection.scopes.length > 0 && (
                                         <div>
-                                            <p className="text-sm font-medium mb-2">Scopes autorisés:</p>
+                                            <p className="mb-2 text-sm font-medium">Scopes autorisés:</p>
                                             <div className="flex flex-wrap gap-2" data-testid="github-scopes">
                                                 {githubConnection.scopes.map((scope) => (
                                                     <Badge key={scope} variant="outline">
@@ -277,7 +276,7 @@ export default function GitConnections({ connections = [] }: ConnectionsProps) {
                         <CardHeader>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-3">
-                                    <Gitlab className="h-8 w-8" />
+                                    <IntegrationIcon service="gitlab" size={32} />
                                     <CardTitle>GitLab</CardTitle>
                                 </div>
                                 {gitlabConnection && getStatusIcon(gitlabConnection.status)}
@@ -304,7 +303,7 @@ export default function GitConnections({ connections = [] }: ConnectionsProps) {
                                     <div className="flex items-center gap-2">{getStatusBadge(gitlabConnection.status)}</div>
 
                                     {isTokenExpiringSoon(gitlabConnection.expires_at) && (
-                                        <div className="rounded-md bg-yellow-50 dark:bg-yellow-900/20 p-3 text-sm">
+                                        <div className="rounded-md bg-yellow-50 p-3 text-sm dark:bg-yellow-900/20">
                                             <div className="flex items-center gap-2">
                                                 <AlertCircle className="h-4 w-4 text-yellow-600 dark:text-yellow-500" />
                                                 <p className="text-yellow-800 dark:text-yellow-200">
@@ -319,7 +318,7 @@ export default function GitConnections({ connections = [] }: ConnectionsProps) {
 
                                     {gitlabConnection.scopes && gitlabConnection.scopes.length > 0 && (
                                         <div>
-                                            <p className="text-sm font-medium mb-2">Scopes autorisés:</p>
+                                            <p className="mb-2 text-sm font-medium">Scopes autorisés:</p>
                                             <div className="flex flex-wrap gap-2" data-testid="gitlab-scopes">
                                                 {gitlabConnection.scopes.map((scope) => (
                                                     <Badge key={scope} variant="outline">

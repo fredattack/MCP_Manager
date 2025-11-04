@@ -1,3 +1,4 @@
+import { IntegrationIcon } from '@/components/integrations/integration-icon';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -19,6 +20,7 @@ import {
     AlertCircle,
     BookOpen,
     Brain,
+    Building2,
     Calendar,
     CalendarDays,
     CheckCircle2,
@@ -96,6 +98,11 @@ const mainNavItems: NavItem[] = [
         icon: Users,
     },
     {
+        title: 'Organizations',
+        href: '/settings/organizations',
+        icon: Building2,
+    },
+    {
         title: 'Daily Planning',
         href: '/daily-planning',
         icon: CalendarDays,
@@ -122,41 +129,51 @@ const mainNavItems: NavItem[] = [
  * These show the status of connected integrations (connected/disconnected/error)
  * Status badges are dynamically updated based on actual connection state
  */
-const integrationItems: NavItem[] = [
+interface IntegrationNavItem extends NavItem {
+    service: string; // Service identifier for logo
+}
+
+const integrationItems: IntegrationNavItem[] = [
     {
         title: 'Todoist',
         href: '/integrations/todoist',
         icon: CheckCircle2,
+        service: 'todoist',
         status: 'connected',
     },
     {
         title: 'Google',
         href: '/integrations/google',
         icon: Plug,
+        service: 'gmail', // Use Gmail as the google service logo
         status: 'disconnected',
     },
     {
         title: 'Gmail',
         href: '/gmail',
         icon: Mail,
+        service: 'gmail',
         status: 'disconnected',
     },
     {
         title: 'Calendar',
         href: '/calendar',
         icon: Calendar,
+        service: 'calendar',
         status: 'disconnected',
     },
     {
         title: 'JIRA',
         href: '/integrations/jira',
         icon: XCircle,
+        service: 'jira',
         status: 'disconnected',
     },
     {
         title: 'Sentry',
         href: '/integrations/sentry',
         icon: AlertCircle,
+        service: 'sentry',
         status: 'error',
     },
 ];
@@ -178,7 +195,7 @@ const footerNavItems: NavItem[] = [
     },
 ];
 
-function IntegrationsNav({ items }: { items: NavItem[] }) {
+function IntegrationsNav({ items }: { items: IntegrationNavItem[] }) {
     const page = usePage();
 
     const getStatusBadge = (status?: string) => {
@@ -201,7 +218,7 @@ function IntegrationsNav({ items }: { items: NavItem[] }) {
                     <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton asChild isActive={item.href === page.url} tooltip={{ children: item.title }}>
                             <Link href={item.href} prefetch>
-                                {item.icon && <item.icon className="h-4 w-4" />}
+                                <IntegrationIcon service={item.service} size={16} className="flex-shrink-0" />
                                 <span>{item.title}</span>
                                 {getStatusBadge(item.status)}
                             </Link>

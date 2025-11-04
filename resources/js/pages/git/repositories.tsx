@@ -1,13 +1,13 @@
 import { Head } from '@inertiajs/react';
+import { Eye, GitBranch, GitFork, Github, Gitlab, RefreshCw, Search, Star } from 'lucide-react';
 import { useState } from 'react';
-import { Github, Gitlab, GitBranch, Star, Eye, GitFork, Search, RefreshCw } from 'lucide-react';
 
-import AppLayout from '@/layouts/app-layout';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import AppLayout from '@/layouts/app-layout';
 
 interface GitRepository {
     id: number;
@@ -37,13 +37,11 @@ export default function GitRepositories({ repositories = [] }: RepositoriesProps
     const [isSyncing, setIsSyncing] = useState(false);
 
     const filteredRepositories = repositories.filter((repo) => {
-        const matchesSearch = repo.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            repo.description?.toLowerCase().includes(searchQuery.toLowerCase());
+        const matchesSearch =
+            repo.name.toLowerCase().includes(searchQuery.toLowerCase()) || repo.description?.toLowerCase().includes(searchQuery.toLowerCase());
 
         const matchesVisibility =
-            visibilityFilter === 'all' ||
-            (visibilityFilter === 'public' && !repo.is_private) ||
-            (visibilityFilter === 'private' && repo.is_private);
+            visibilityFilter === 'all' || (visibilityFilter === 'public' && !repo.is_private) || (visibilityFilter === 'private' && repo.is_private);
 
         const matchesProvider = providerFilter === 'all' || repo.provider === providerFilter;
 
@@ -110,7 +108,7 @@ export default function GitRepositories({ repositories = [] }: RepositoriesProps
                     <CardContent className="pt-6">
                         <div className="grid gap-4 md:grid-cols-3">
                             <div className="relative">
-                                <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                                <Search className="text-muted-foreground absolute top-3 left-3 h-4 w-4" />
                                 <Input
                                     placeholder="Rechercher un repository..."
                                     value={searchQuery}
@@ -165,20 +163,13 @@ export default function GitRepositories({ repositories = [] }: RepositoriesProps
                                             <div className="flex items-center gap-2">
                                                 {getProviderIcon(repo.provider)}
                                                 <CardTitle className="text-lg">
-                                                    <a
-                                                        href={repo.url}
-                                                        target="_blank"
-                                                        rel="noopener noreferrer"
-                                                        className="hover:underline"
-                                                    >
+                                                    <a href={repo.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
                                                         {repo.full_name}
                                                     </a>
                                                 </CardTitle>
                                                 {repo.is_private && <Badge variant="secondary">Privé</Badge>}
                                             </div>
-                                            {repo.description && (
-                                                <CardDescription className="mt-2">{repo.description}</CardDescription>
-                                            )}
+                                            {repo.description && <CardDescription className="mt-2">{repo.description}</CardDescription>}
                                         </div>
                                         <Button onClick={() => handleClone(repo.id)} size="sm">
                                             Cloner
@@ -186,13 +177,10 @@ export default function GitRepositories({ repositories = [] }: RepositoriesProps
                                     </div>
                                 </CardHeader>
                                 <CardContent>
-                                    <div className="flex flex-wrap gap-4 text-sm text-muted-foreground">
+                                    <div className="text-muted-foreground flex flex-wrap gap-4 text-sm">
                                         {repo.language && (
                                             <div className="flex items-center gap-1">
-                                                <div
-                                                    className="h-3 w-3 rounded-full"
-                                                    style={{ backgroundColor: '#3178c6' }}
-                                                />
+                                                <div className="h-3 w-3 rounded-full" style={{ backgroundColor: '#3178c6' }} />
                                                 <span>{repo.language}</span>
                                             </div>
                                         )}

@@ -108,7 +108,7 @@ class CredentialLease extends Model
         return $this->save();
     }
 
-    public function revoke(string $reason = null): bool
+    public function revoke(?string $reason = null): bool
     {
         $this->status = LeaseStatus::Revoked;
         $this->revoked_at = now();

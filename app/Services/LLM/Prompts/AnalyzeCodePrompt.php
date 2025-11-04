@@ -26,8 +26,7 @@ class AnalyzeCodePrompt extends BasePrompt
     }
 
     /**
-     * @param ASTResult $ast
-     * @param array{name:string,language?:string,file_count?:int,files?:array<int,string>} $repoData
+     * @param  array{name:string,language?:string,file_count?:int,files?:array<int,string>}  $repoData
      * @return array<string,mixed>
      */
     public function buildContext(ASTResult $ast, array $repoData): array
@@ -64,25 +63,25 @@ class AnalyzeCodePrompt extends BasePrompt
     }
 
     /**
-     * @param array<int,string> $files
+     * @param  array<int,string>  $files
      */
     private function formatFileTree(array $files): string
     {
         $tree = [];
 
         foreach (array_slice($files, 0, 50) as $file) {
-            $tree[] = '- ' . $file;
+            $tree[] = '- '.$file;
         }
 
         if (count($files) > 50) {
-            $tree[] = '... and ' . (count($files) - 50) . ' more files';
+            $tree[] = '... and '.(count($files) - 50).' more files';
         }
 
         return implode("\n", $tree);
     }
 
     /**
-     * @param array<int,array{name:string,methods_count?:int}> $classes
+     * @param  array<int,array{name:string,methods_count?:int}>  $classes
      */
     private function formatClasses(array $classes): string
     {
@@ -95,14 +94,14 @@ class AnalyzeCodePrompt extends BasePrompt
         }
 
         if (count($classes) > 20) {
-            $formatted[] = '... and ' . (count($classes) - 20) . ' more classes';
+            $formatted[] = '... and '.(count($classes) - 20).' more classes';
         }
 
         return implode("\n", $formatted);
     }
 
     /**
-     * @param array<int,array{name:string}> $functions
+     * @param  array<int,array{name:string}>  $functions
      */
     private function formatFunctions(array $functions): string
     {
@@ -114,17 +113,17 @@ class AnalyzeCodePrompt extends BasePrompt
         }
 
         if (count($functions) > 20) {
-            $formatted[] = '... and ' . (count($functions) - 20) . ' more functions';
+            $formatted[] = '... and '.(count($functions) - 20).' more functions';
         }
 
         return implode("\n", $formatted);
     }
 
     /**
-     * @param array<int,string> $dependencies
+     * @param  array<int,string>  $dependencies
      */
     private function formatDependencies(array $dependencies): string
     {
-        return implode("\n", array_map(static fn ($dep) => '- ' . $dep, $dependencies));
+        return implode("\n", array_map(static fn ($dep) => '- '.$dep, $dependencies));
     }
 }

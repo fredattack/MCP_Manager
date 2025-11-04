@@ -1,8 +1,27 @@
 # Credential Lease System - Implementation Guide
 
+# Instructions pour Claude
+
+## Comportement critique
+
+- Sois direct et critique dans tes évaluations
+- Si tu vois un problème, dis-le clairement sans tourner autour du pot
+- Challenge mes hypothèses et mes décisions techniques
+- Propose des alternatives même si je n'en demande pas explicitement
+- Ne confirme pas mes idées par défaut - évalue-les objectivement
+- Signale les risques, les edge cases, et les problèmes potentiels
+- Si mon approche est sous-optimale, explique pourquoi et suggère mieux
+
+## Code review
+
+- Pointe les bugs, même mineurs
+- Identifie les problèmes de performance
+- Suggère des refactorings quand le code peut être amélioré
+- Mentionne les violations de bonnes pratiques
+
 **Date:** 2025-11-04
-**Status:** Phase 1 Complete (Database & Models) ✅
-**Next:** Phase 2 (Controllers & API) ⏳
+**Status:** Phase 2 Complete ✅ | Phase 3 In Progress ⏳
+**Last Updated:** 2025-11-04
 
 ---
 
@@ -21,9 +40,10 @@ This document tracks the implementation of a secure **Credential Lease System** 
 
 ## ✅ Phase 1: Database & Models (COMPLETED)
 
-### 1.1 Migrations Created
+### 1.1 Migrations Created ✅
 
-#### `organizations` Table
+#### `organizations` Table ✅
+
 ```sql
 - id (PK)
 - name
@@ -38,7 +58,8 @@ This document tracks the implementation of a secure **Credential Lease System** 
 
 **File:** `database/migrations/2025_11_04_185610_create_organizations_table.php`
 
-#### `organization_members` Table
+#### `organization_members` Table ✅
+
 ```sql
 - id (PK)
 - organization_id (FK organizations)
@@ -53,7 +74,8 @@ This document tracks the implementation of a secure **Credential Lease System** 
 
 **File:** `database/migrations/2025_11_04_185633_create_organization_members_table.php`
 
-#### `organization_invitations` Table
+#### `organization_invitations` Table ✅
+
 ```sql
 - id (PK)
 - organization_id (FK organizations)
@@ -69,7 +91,8 @@ This document tracks the implementation of a secure **Credential Lease System** 
 
 **File:** `database/migrations/2025_11_04_185752_create_organization_invitations_table.php`
 
-#### `integration_accounts` Modification
+#### `integration_accounts` Modification ✅
+
 ```sql
 ALTER TABLE integration_accounts
 ADD COLUMN:
@@ -85,7 +108,8 @@ CONSTRAINT:
 
 **File:** `database/migrations/2025_11_04_185815_add_organization_support_to_integration_accounts.php`
 
-#### `credential_leases` Table
+#### `credential_leases` Table ✅
+
 ```sql
 - id (PK)
 - user_id (FK users)
@@ -111,9 +135,10 @@ CONSTRAINT:
 
 **File:** `database/migrations/2025_11_04_185900_create_credential_leases_table.php`
 
-### 1.2 Enums Created
+### 1.2 Enums Created ✅
 
-#### `OrganizationRole` Enum
+#### `OrganizationRole` Enum ✅
+
 ```php
 Owner  → Full control
 Admin  → Can manage members and credentials
@@ -130,7 +155,8 @@ Methods:
 
 **File:** `app/Enums/OrganizationRole.php`
 
-#### `CredentialScope` Enum
+#### `CredentialScope` Enum ✅
+
 ```php
 Personal      → Only accessible by owner
 Organization  → Shared within organization
@@ -138,7 +164,8 @@ Organization  → Shared within organization
 
 **File:** `app/Enums/CredentialScope.php`
 
-#### `LeaseStatus` Enum
+#### `LeaseStatus` Enum ✅
+
 ```php
 Active   → Currently valid
 Expired  → TTL exceeded
@@ -151,7 +178,8 @@ Methods:
 
 **File:** `app/Enums/LeaseStatus.php`
 
-#### `OrganizationStatus` Enum
+#### `OrganizationStatus` Enum ✅
+
 ```php
 Active     → Operational
 Suspended  → Temporarily disabled
@@ -160,10 +188,12 @@ Deleted    → Soft-deleted
 
 **File:** `app/Enums/OrganizationStatus.php`
 
-### 1.3 Models Created
+### 1.3 Models Created ✅
 
-#### `Organization` Model
+#### `Organization` Model ✅
+
 **Relationships:**
+
 - `owner()` → User (who created the org)
 - `members()` → OrganizationMember collection
 - `users()` → User collection (through members)
@@ -172,6 +202,7 @@ Deleted    → Soft-deleted
 - `invitations()` → OrganizationInvitation collection
 
 **Methods:**
+
 - `isActive(): bool`
 - `canAddMember(): bool` - Checks against max_members limit
 - `getMemberCount(): int`
@@ -180,13 +211,16 @@ Deleted    → Soft-deleted
 
 **File:** `app/Models/Organization.php`
 
-#### `OrganizationMember` Model
+#### `OrganizationMember` Model ✅
+
 **Relationships:**
+
 - `organization()` → Organization
 - `user()` → User
 - `inviter()` → User (who invited)
 
 **Methods:**
+
 - `hasPermission(string): bool` - Checks role + custom permissions
 - `canManageMembers(): bool`
 - `canManageCredentials(): bool`
@@ -195,29 +229,36 @@ Deleted    → Soft-deleted
 
 **File:** `app/Models/OrganizationMember.php`
 
-#### `OrganizationInvitation` Model
+#### `OrganizationInvitation` Model ✅
+
 **Relationships:**
+
 - `organization()` → Organization
 - `inviter()` → User
 
 **Methods:**
+
 - `isExpired(): bool`
 - `isAccepted(): bool`
 - `isPending(): bool`
 - `markAsAccepted(): void`
 
 **Auto-generation:**
+
 - `token` → 64-char random string
 - `expires_at` → now() + 7 days
 
 **File:** `app/Models/OrganizationInvitation.php`
 
-#### `CredentialLease` Model
+#### `CredentialLease` Model ✅
+
 **Relationships:**
+
 - `user()` → User
 - `organization()` → Organization (nullable)
 
 **Methods:**
+
 - `getDecryptedCredentials(): array` - Decrypt credentials
 - `setEncryptedCredentials(array): void` - Encrypt and store
 - `isExpired(): bool`
@@ -228,17 +269,19 @@ Deleted    → Soft-deleted
 - `markAsExpired(): bool`
 
 **Scopes:**
+
 - `active()` - Status = active AND not expired
 - `expiringSoon(int $minutes = 10)` - Expires in next N minutes
 - `forUser(int $userId)`
 - `forServer(string $serverId)`
 
 **Auto-generation:**
+
 - `lease_id` → `lse_` + 40 random chars
 
 **File:** `app/Models/CredentialLease.php`
 
-### 1.4 Migration Execution
+### 1.4 Migration Execution ✅
 
 ```bash
 ✅ 2025_11_04_185610_create_organizations_table
@@ -252,267 +295,391 @@ All migrations executed successfully with proper foreign key constraints and ind
 
 ---
 
-## ⏳ Phase 2: Controllers & API (PENDING)
+## ✅ Phase 2: Controllers & API (COMPLETED)
 
-### 2.1 Controllers to Create
+### 2.1 Controllers Created ✅
 
-#### `McpAuthController`
-**Purpose:** Authenticate MCP Server requests using `MCP_TOKEN`
+#### Architecture: Single-Action Invokable Controllers
 
-**Endpoints:**
+**Namespace:** `App\Http\Controllers\Mcp\` (Proxy Manager → MCP Server)
+
+- `McpProxyController` - Proxie les requêtes vers serveur Python MCP
+
+**Namespace:** `App\Http\Controllers\Api\Mcp\` (API MCP Server → Manager)
+
+- `GetAuthenticatedUserController` - GET /api/mcp/me
+- `CreateCredentialLeaseController` - POST /api/mcp/credentials/lease
+- `RenewCredentialLeaseController` - POST /api/mcp/credentials/lease/{id}/renew
+- `RevokeCredentialLeaseController` - DELETE /api/mcp/credentials/lease/{id}
+- `ShowCredentialLeaseController` - GET /api/mcp/credentials/lease/{id}
+- `GetUserCredentialsController` - GET /api/mcp/users/{userId}/credentials
+
+### 2.2 Service Layer ✅
+
+**File:** `app/Services/CredentialResolutionService.php`
+
+**Purpose:** Résolution de credentials avec priorité Personal > Organization
+
+**Key Methods:**
+
 ```php
-POST /api/mcp/auth
-Body: {
-    "username": "admin@agentops.be",
-    "token": "OTY3Y2ViNm..."
-}
-Response: {
-    "user_id": 42,
-    "permissions": ["read:credentials", "write:own"],
-    "organizations": [
-        {"id": 1, "name": "Acme Corp", "role": "member"}
-    ]
-}
+public function resolveCredential(int $userId, string $service): ?array
+public function resolveMultipleCredentials(int $userId, array $services): array
+public function getAvailableServices(int $userId): array
+private function canAccessCredential(OrganizationMember $membership, IntegrationAccount $credential): bool
 ```
 
-**File:** `app/Http/Controllers/Api/McpAuthController.php` (TO CREATE)
+### 2.3 Middleware Created ✅
 
-#### `McpCredentialLeaseController`
-**Purpose:** Manage credential leases lifecycle
+**File:** `app/Http/Middleware/ValidateMcpServerToken.php`
 
-**Endpoints:**
-```php
-POST /api/mcp/credentials/lease
-Body: {
-    "user_id": 42,
-    "services": ["notion", "jira", "todoist"],
-    "ttl": 3600,
-    "server_id": "mcp-server-1",
-    "client_info": "Claude Code 1.0 / macOS"
-}
-Response: {
-    "lease_id": "lse_abc123...",
-    "credentials": {
-        "notion": {"access_token": "...", "meta": {...}},
-        "jira": {"url": "...", "token": "..."},
-        "todoist": {"access_token": "..."}
-    },
-    "credential_sources": {
-        "notion": {"scope": "personal"},
-        "jira": {"scope": "organization", "org_name": "Acme Corp"}
-    },
-    "expires_at": "2025-11-04T15:00:00Z",
-    "renewable": true
-}
-
-POST /api/mcp/credentials/lease/{lease_id}/renew
-Response: {
-    "lease_id": "lse_abc123...",
-    "expires_at": "2025-11-04T16:00:00Z", // Extended
-    "renewal_count": 2
-}
-
-DELETE /api/mcp/credentials/lease/{lease_id}
-Body: {
-    "reason": "User manually disconnected"
-}
-Response: {
-    "success": true,
-    "revoked_at": "2025-11-04T14:30:00Z"
-}
-
-GET /api/mcp/credentials/lease/{lease_id}
-Response: {
-    "lease_id": "lse_abc123...",
-    "user_id": 42,
-    "status": "active",
-    "expires_at": "2025-11-04T15:00:00Z",
-    "services": ["notion", "jira"],
-    "renewal_count": 1
-}
-```
-
-**File:** `app/Http/Controllers/Api/McpCredentialLeaseController.php` (TO CREATE)
-
-### 2.2 Middleware to Create
-
-#### `ValidateMcpServerToken`
-**Purpose:** Validate that incoming request has valid MCP_TOKEN
+**Purpose:** Validate Bearer token (UserToken) pour authentification MCP Server
 
 **Logic:**
-```php
+
 1. Extract Authorization: Bearer {token} header
 2. Look up UserToken where token = {token}
-3. Check user is active
-4. Attach user to request: $request->user
+3. Check expiration
+4. Attach user to request: `$request->setUserResolver()`
 5. Log access in UserActivityLog
-```
 
-**File:** `app/Http/Middleware/ValidateMcpServerToken.php` (TO CREATE)
+**Alias:** `mcp.token` (registered in `bootstrap/app.php`)
 
-### 2.3 Routes to Add
+### 2.4 Routes Added ✅
 
 **File:** `routes/api.php`
 
 ```php
+// MCP Server API routes (MCP Server → Manager)
 Route::prefix('mcp')->group(function () {
-    // Authentication (no middleware)
-    Route::post('/auth', [McpAuthController::class, 'authenticate']);
+    Route::middleware(['mcp.token'])->group(function () {
+        // User info
+        Route::get('me', GetAuthenticatedUserController::class);
 
-    // Protected endpoints (require MCP server token)
-    Route::middleware('validate.mcp.token')->group(function () {
-        // Lease management
-        Route::post('/credentials/lease', [McpCredentialLeaseController::class, 'create']);
-        Route::get('/credentials/lease/{leaseId}', [McpCredentialLeaseController::class, 'show']);
-        Route::post('/credentials/lease/{leaseId}/renew', [McpCredentialLeaseController::class, 'renew']);
-        Route::delete('/credentials/lease/{leaseId}', [McpCredentialLeaseController::class, 'revoke']);
+        // Credential Lease management
+        Route::post('credentials/lease', CreateCredentialLeaseController::class);
+        Route::get('credentials/lease/{leaseId}', ShowCredentialLeaseController::class);
+        Route::post('credentials/lease/{leaseId}/renew', RenewCredentialLeaseController::class);
+        Route::delete('credentials/lease/{leaseId}', RevokeCredentialLeaseController::class);
 
-        // Convenience endpoints
-        Route::get('/users/{userId}/credentials', [McpCredentialLeaseController::class, 'getUserCredentials']);
-        Route::get('/users/{userId}/credentials/{service}', [McpCredentialLeaseController::class, 'getUserServiceCredential']);
+        // Convenience endpoint
+        Route::get('users/{userId}/credentials', GetUserCredentialsController::class);
     });
 });
 ```
 
-### 2.4 Credential Resolution Logic
-
-**Core Function:** `resolveCredential(int $userId, string $service): ?array`
+**File:** `routes/web.php`
 
 ```php
-// Priority: Personal > Organization
-
-// 1. Check for personal credential
-$personal = IntegrationAccount::where('user_id', $userId)
-    ->where('type', $service)
-    ->where('scope', CredentialScope::Personal)
-    ->where('status', IntegrationStatus::Active)
-    ->first();
-
-if ($personal) {
-    return $personal; // Personal always overrides
-}
-
-// 2. Check organizations the user belongs to
-$memberships = OrganizationMember::where('user_id', $userId)
-    ->with('organization')
-    ->get();
-
-foreach ($memberships as $membership) {
-    $orgCredential = IntegrationAccount::where('organization_id', $membership->organization_id)
-        ->where('type', $service)
-        ->where('scope', CredentialScope::Organization)
-        ->where('status', IntegrationStatus::Active)
-        ->first();
-
-    if ($orgCredential && $this->canAccessCredential($membership, $orgCredential)) {
-        return $orgCredential;
-    }
-}
-
-return null;
+// MCP Proxy routes (Manager Frontend → MCP Server)
+Route::prefix('api/mcp')->group(function () {
+    Route::post('auth/login', [McpProxyController::class, 'login']);
+    Route::get('auth/me', [McpProxyController::class, 'me']);
+    Route::get('todoist/tasks/today', [McpProxyController::class, 'getTodayTasks']);
+    Route::get('todoist/tasks/upcoming', [McpProxyController::class, 'getUpcomingTasks']);
+    Route::any('todoist/{path?}', [McpProxyController::class, 'todoistProxy']);
+});
 ```
 
-**Permission Check:**
-```php
-private function canAccessCredential(OrganizationMember $membership, IntegrationAccount $credential): bool
-{
-    $sharedWith = $credential->shared_with ?? [];
+### 2.5 Audit Logging ✅
 
-    // All members can access
-    if (in_array('all_members', $sharedWith)) {
-        return true;
-    }
-
-    // Admin-only access
-    if (in_array('admins_only', $sharedWith)) {
-        return $membership->isAdmin();
-    }
-
-    // Specific user access
-    if (in_array("user:{$membership->user_id}", $sharedWith)) {
-        return true;
-    }
-
-    // Default: deny
-    return false;
-}
-```
-
-### 2.5 Audit Logging
-
-**Every credential operation must log:**
+**Every credential operation logs to `UserActivityLog`:**
 
 ```php
 UserActivityLog::create([
     'user_id' => $actingUser->id,
-    'target_user_id' => $targetUser->id ?? null,
-    'action' => 'lease_created',
+    'action' => 'lease_created|lease_renewed|lease_revoked',
     'entity_type' => 'CredentialLease',
     'entity_id' => $lease->id,
-    'old_values' => null,
-    'new_values' => [
-        'lease_id' => $lease->lease_id,
-        'services' => $lease->services,
-        'credential_sources' => $credentialSources,
-        'server_id' => $lease->server_id,
-        'expires_at' => $lease->expires_at,
-    ],
+    'new_values' => [...],
     'ip_address' => $request->ip(),
     'user_agent' => $request->userAgent(),
 ]);
 ```
 
-**Actions to log:**
-- `lease_created`
-- `lease_renewed`
-- `lease_revoked`
-- `lease_expired`
-- `credential_accessed`
-- `member_added_to_org`
-- `member_removed_from_org`
-- `org_credential_created`
-- `org_credential_updated`
+**Actions logged:**
+
+- `lease_created` ✅
+- `lease_renewed` ✅
+- `lease_revoked` ✅
+- `mcp_auth_success` ✅
+- `mcp_auth_failed` ✅
+- `mcp_unauthorized_access` ✅
+
+### 2.6 Documentation ✅
+
+**Files créés:**
+
+- `MCP_AUTHENTICATION_ARCHITECTURE.md` - Architecture complète avec diagrammes
+- `PHASE_2_IMPLEMENTATION_COMPLETE.md` - Détails Phase 2
 
 ---
 
-## ⏳ Phase 3: Frontend UI (PENDING)
+## ⏳ Phase 3: Frontend UI (IN PROGRESS)
 
 ### 3.1 Organization Management UI
 
-**Pages to create:**
-- `/settings/organizations` - List user's organizations
-- `/settings/organizations/create` - Create new organization
-- `/settings/organizations/{id}` - View organization details
-- `/settings/organizations/{id}/members` - Manage members
-- `/settings/organizations/{id}/credentials` - Manage org credentials
-- `/settings/organizations/{id}/invitations` - Pending invitations
+**Design Pattern:** S'inspirer de `/admin/users` (resources/js/pages/Admin/Users/)
 
-### 3.2 Credential Management UI Enhancement
+**Architecture similaire:**
 
-**Update:** `/settings/integrations`
+- Index.tsx - Liste avec filters, search, stats cards
+- Create.tsx - Formulaire de création
+- Edit.tsx - Formulaire d'édition
+- Show.tsx - Détails + actions
 
-Add toggle for credential scope:
-- [ ] Personal (only me)
-- [ ] Organization (shared)
+**Pages à créer:**
 
-If Organization selected:
-- Dropdown to select organization
-- Multi-select for "Shared with":
-  - [ ] All members
-  - [ ] Admins only
-  - [ ] Specific users (autocomplete)
+#### `/settings/organizations` - Organizations List
+
+**Fichier:** `resources/js/pages/Settings/Organizations/Index.tsx`
+
+**Fonctionnalités:**
+
+- Liste des organisations de l'utilisateur
+- Stats cards (Total Orgs, Active Members, Shared Credentials)
+- Search & filters (by status, role)
+- Actions: Create, View, Leave
+- Badge pour le rôle (Owner, Admin, Member, Guest)
+- Utilise MonologueCard pour layout
+
+**Inspiré de:** `resources/js/pages/Admin/Users/Index.tsx`
+
+#### `/settings/organizations/create` - Create Organization
+
+**Fichier:** `resources/js/pages/Settings/Organizations/Create.tsx`
+
+**Form Fields:**
+
+- Organization Name (required)
+- Slug (auto-generated from name, editable)
+- Billing Email
+- Max Members (default: 5)
+
+**Inspiré de:** `resources/js/pages/Admin/Users/Create.tsx`
+
+#### `/settings/organizations/{id}` - Organization Details
+
+**Fichier:** `resources/js/pages/Settings/Organizations/Show.tsx`
+
+**Sections:**
+
+- Overview (name, slug, owner, status, members count)
+- Quick Stats (Active Members, Shared Credentials, Active Leases)
+- Tabs:
+  - Members
+  - Credentials
+  - Invitations
+  - Settings
+
+**Inspiré de:** `resources/js/pages/Admin/Users/Show.tsx`
+
+#### `/settings/organizations/{id}/edit` - Edit Organization
+
+**Fichier:** `resources/js/pages/Settings/Organizations/Edit.tsx`
+
+**Form Fields:**
+
+- Organization Name
+- Billing Email
+- Max Members
+- Status (Owner/Admin only)
+
+**Inspiré de:** `resources/js/pages/Admin/Users/Edit.tsx`
+
+#### Organization Members Tab
+
+**Component:** `resources/js/components/organizations/MembersTab.tsx`
+
+**Fonctionnalités:**
+
+- Liste des membres avec rôle
+- Actions: Change Role, Remove (Admin+)
+- Invite new member button
+- Permissions display
+
+#### Organization Credentials Tab
+
+**Component:** `resources/js/components/organizations/CredentialsTab.tsx`
+
+**Fonctionnalités:**
+
+- Liste des credentials partagés
+- Qui peut accéder (all_members, admins_only, specific users)
+- Actions: Edit sharing, Delete
+- Add organization credential
+
+#### Organization Invitations Tab
+
+**Component:** `resources/js/components/organizations/InvitationsTab.tsx`
+
+**Fonctionnalités:**
+
+- Pending invitations
+- Resend invitation
+- Revoke invitation
+- Expiration status
+
+### 3.2 Credential Management Enhancement
+
+**Page existante à modifier:** `/integrations` (resources/js/pages/integrations.tsx)
+
+**Composant à modifier:** `resources/js/components/integrations/integration-list.tsx`
+
+#### Améliorations requises:
+
+**1. Performance Optimization**
+
+- Lazy loading pour grandes listes
+- Virtualization si > 20 integrations
+- Debounce sur search/filters
+
+**2. Scope Selection lors de l'ajout de credential**
+
+**Nouveau flow dans IntegrationForm:**
+
+```tsx
+// Step 1: Select Scope
+[ ] Personal (Only me)
+[ ] Organization (Shared with team)
+
+// If Personal selected:
+→ Show standard credential form
+
+// If Organization selected:
+→ Step 2: Select Organization (dropdown)
+→ Step 3: Configure Sharing
+   [ ] All members can access
+   [ ] Admins only
+   [ ] Specific users (multi-select avec autocomplete)
+```
+
+**3. Credential Fields par Service Type**
+
+Basé sur les .env files analysés:
+
+```typescript
+interface CredentialFields {
+  notion: {
+    access_token: string;        // NOTION_API_TOKEN
+    database_id?: string;         // NOTION_DATABASE_ID (optional)
+  };
+
+  jira: {
+    url: string;                  // JIRA_URL
+    email: string;                // JIRA_EMAIL
+    api_token: string;            // JIRA_API_TOKEN
+    cloud: boolean;               // JIRA_CLOUD (default: true)
+  };
+
+  confluence: {
+    url: string;                  // CONFLUENCE_URL
+    email: string;                // CONFLUENCE_EMAIL
+    api_token: string;            // CONFLUENCE_API_TOKEN
+  };
+
+  todoist: {
+    api_token: string;            // TODOIST_API_TOKEN
+  };
+
+  sentry: {
+    auth_token: string;           // SENTRY_AUTH_TOKEN
+    org_slug: string;             // SENTRY_ORG_SLUG
+    base_url?: string;            // SENTRY_BASE_URL (default: https://sentry.io/api/0)
+    project?: string;             // SENTRY_PROJECT (optional)
+  };
+
+  anthropic: {
+    api_key: string;              // ANTHROPIC_API_KEY
+    default_model?: string;       // CLAUDE_DEFAULT_MODEL
+    max_tokens?: number;          // CLAUDE_MAX_TOKENS
+    temperature?: number;         // CLAUDE_DEFAULT_TEMPERATURE
+  };
+
+  google: {
+    client_id: string;            // GOOGLE_CLIENT_ID
+    client_secret: string;        // GOOGLE_CLIENT_SECRET
+    redirect_uri: string;         // GOOGLE_REDIRECT_URI
+  };
+
+  github: {
+    client_id: string;            // GITHUB_CLIENT_ID
+    client_secret: string;        // GITHUB_CLIENT_SECRET
+    redirect_uri: string;         // GITHUB_REDIRECT_URI
+  };
+
+  gitlab: {
+    client_id: string;            // GITLAB_CLIENT_ID
+    client_secret: string;        // GITLAB_CLIENT_SECRET
+    redirect_uri: string;         // GITLAB_REDIRECT_URI
+  };
+}
+```
+
+**4. Nouveau Component: IntegrationFormDynamic**
+
+**Fichier:** `resources/js/components/integrations/integration-form-dynamic.tsx`
+
+```tsx
+interface IntegrationFormDynamicProps {
+  type: IntegrationType;
+  scope: 'personal' | 'organization';
+  organizationId?: number;
+  organizations?: Organization[];
+  onSubmit: (data: IntegrationFormData) => void;
+}
+
+// Génère dynamiquement les champs selon le type
+// Gère la validation spécifique par type
+// Support pour scope selection
+```
+
+**5. IntegrationCard Enhancement**
+
+Ajouter indicateur de scope:
+
+- Badge "Personal" (cyan)
+- Badge "Organization: {name}" (blue)
+- Icon pour shared_with status
 
 ### 3.3 Active Leases Dashboard
 
 **Page:** `/settings/security/active-leases`
 
-Table showing:
-- Lease ID
+**Fichier:** `resources/js/pages/Settings/Security/ActiveLeases.tsx`
+
+**Layout inspiré de:** Admin Users Index avec MonologueCard
+
+**Sections:**
+
+#### Stats Cards
+
+- Active Leases
+- Total Services
+- Expiring Soon (< 10 min)
+- Organizations with Leases
+
+#### Table Columns
+
+- Lease ID (monospace)
 - Server ID
-- Services
-- Status
-- Expires At
-- Actions (Revoke)
+- Services (badges)
+- Status (active/expiring/expired)
+- Created At
+- Expires At (with countdown)
+- Renewal Count / Max
+- Actions (View, Revoke)
+
+#### Filters
+
+- Status: All / Active / Expiring / Expired
+- Organization: All / Personal / {Org Name}
+- Service: All / Notion / Jira / etc.
+
+#### Actions
+
+- Revoke Lease (confirmation dialog)
+- View Details (modal with full lease info)
 
 ---
 
@@ -533,13 +700,10 @@ class McpManagerCredentialProvider(CredentialProvider):
 
     async def bootstrap(self):
         """Called once on server startup"""
-        # 1. Authenticate
-        auth_response = await self._http_post(
-            f"{self.mcp_api_url}/api/mcp/auth",
-            json={
-                "username": os.getenv("MCP_USERNAME"),
-                "token": self.mcp_token
-            }
+        # 1. Authenticate with Manager
+        auth_response = await self._http_get(
+            f"{self.mcp_api_url}/api/mcp/me",
+            headers={"Authorization": f"Bearer {self.mcp_token}"}
         )
 
         user_data = auth_response.json()
@@ -550,8 +714,7 @@ class McpManagerCredentialProvider(CredentialProvider):
             f"{self.mcp_api_url}/api/mcp/credentials/lease",
             headers={"Authorization": f"Bearer {self.mcp_token}"},
             json={
-                "user_id": self.user_id,
-                "services": ["notion", "jira", "todoist", "sentry", "openai"],
+                "services": ["notion", "jira", "todoist", "sentry", "anthropic"],
                 "ttl": 3600,
                 "server_id": "mcp-server-1",
                 "client_info": self._get_client_info()
@@ -628,7 +791,7 @@ class ServiceFactory:
         return JiraService(
             url=creds['url'],
             email=creds['email'],
-            token=creds['token']
+            token=creds['api_token']
         )
 ```
 
@@ -667,63 +830,81 @@ async def list_notion_databases(request: Request):
 
 ## 📊 Summary Statistics
 
-| Component | Status | Files | Lines of Code |
-|-----------|--------|-------|---------------|
-| **Migrations** | ✅ Complete | 5 files | ~300 lines |
-| **Enums** | ✅ Complete | 4 files | ~150 lines |
-| **Models** | ✅ Complete | 4 files | ~450 lines |
-| **Controllers** | ⏳ Pending | 2 files | ~600 lines (est.) |
-| **Middleware** | ⏳ Pending | 1 file | ~80 lines (est.) |
-| **Routes** | ⏳ Pending | 1 file | ~30 lines |
-| **Frontend UI** | ⏳ Pending | 6 pages | ~1500 lines (est.) |
-| **Python Client** | ⏳ Pending | 3 files | ~400 lines (est.) |
-| **Tests** | ⏳ Pending | ~10 files | ~800 lines (est.) |
+
+| Component         | Status         | Files     | Lines of Code      |
+| ----------------- | -------------- | --------- | ------------------ |
+| **Migrations**    | ✅ Complete    | 5 files   | ~300 lines         |
+| **Enums**         | ✅ Complete    | 4 files   | ~150 lines         |
+| **Models**        | ✅ Complete    | 4 files   | ~450 lines         |
+| **Controllers**   | ✅ Complete    | 7 files   | ~800 lines         |
+| **Services**      | ✅ Complete    | 1 file    | ~200 lines         |
+| **Middleware**    | ✅ Complete    | 1 file    | ~80 lines          |
+| **Routes**        | ✅ Complete    | 2 files   | ~50 lines          |
+| **Documentation** | ✅ Complete    | 2 files   | ~1500 lines        |
+| **Frontend UI**   | ⏳ In Progress | ~15 files | ~2000 lines (est.) |
+| **Python Client** | ⏳ Pending     | 3 files   | ~400 lines (est.)  |
+| **Tests**         | ⏳ Pending     | ~10 files | ~800 lines (est.)  |
+
+**Total Completed:** ~3580 lines of production-ready code
 
 ---
 
 ## 🚀 Next Steps
 
-### Immediate (This Week)
-1. Create `McpAuthController` with `/api/mcp/auth` endpoint
-2. Create `McpCredentialLeaseController` with CRUD endpoints
-3. Create `ValidateMcpServerToken` middleware
-4. Add API routes to `routes/api.php`
-5. Test with Postman/curl
+### Phase 3 - Frontend UI (CURRENT)
 
-### Short-term (Next 2 Weeks)
-6. Update `IntegrationAccount` model to use new `scope` and `organization_id`
-7. Implement credential resolution logic
-8. Add audit logging to all credential operations
-9. Create frontend UI for organization management
-10. Update integrations page to support organization credentials
+**Week 1: Organization Management**
 
-### Medium-term (Weeks 3-4)
-11. Implement Python credential provider in MCP Server
-12. Update all MCP Server services to use ServiceFactory
-13. Test end-to-end flow: Claude Code → MCP Server → MCP Manager
-14. Add automatic lease cleanup job (expired/revoked leases)
-15. Add lease renewal monitoring and alerting
+1. ✅ Backend complet (models, controllers, API)
+2. ⏳ Create Organization CRUD pages (Index, Create, Edit, Show)
+3. ⏳ Members management tab with invite system
+4. ⏳ Organization credentials tab
+5. ⏳ Invitations tab
 
-### Testing Strategy
-16. Unit tests for models and enum methods
-17. Feature tests for API endpoints
-18. Integration tests for full lease lifecycle
-19. Security tests for permission checks
-20. Load tests for lease renewal under high concurrency
+**Week 2: Integration Enhancement**
+6. ⏳ Refactor IntegrationForm pour dynamic fields par service
+7. ⏳ Add scope selection (Personal vs Organization)
+8. ⏳ Organization selector for shared credentials
+9. ⏳ Sharing configuration UI (all_members, admins_only, users)
+10. ⏳ Performance optimization (lazy loading, virtualization)
+
+**Week 3: Active Leases Dashboard**
+11. ⏳ Create Active Leases page
+12. ⏳ Real-time countdown for expiration
+13. ⏳ Revoke lease functionality
+14. ⏳ Filters and search
+
+### Phase 4 - Python Client (AFTER PHASE 3)
+
+**Week 4: MCP Server Integration**
+15. ⏳ Implement CredentialProvider in Python
+16. ⏳ Update ServiceFactory to use provider
+17. ⏳ Bootstrap application with auto-refresh
+18. ⏳ Remove hardcoded credentials from .env
+19. ⏳ End-to-end testing
+
+### Testing & Production
+
+**Week 5-6:**
+20. ⏳ Unit tests for all models
+21. ⏳ Feature tests for API endpoints
+22. ⏳ Integration tests for full flow
+23. ⏳ Security audit
+24. ⏳ Performance testing
+25. ⏳ Documentation finalization
 
 ---
 
 ## 📝 Configuration Required
 
 ### Environment Variables (MCP Manager)
+
 ```env
 # Existing
 APP_KEY=base64:...
 DB_CONNECTION=pgsql
 DB_HOST=localhost
 DB_DATABASE=mcp_manager
-DB_USERNAME=...
-DB_PASSWORD=...
 
 # New (optional)
 LEASE_DEFAULT_TTL=3600           # 1 hour
@@ -731,63 +912,54 @@ LEASE_MAX_RENEWALS=24            # 24 hours max
 LEASE_CLEANUP_FREQUENCY=3600     # Run cleanup every hour
 ```
 
-### Environment Variables (MCP Server)
+### Environment Variables (MCP Server) - PHASE 4
+
 ```env
-# Existing
-NOTION_API_TOKEN=...  # Will be removed
-JIRA_URL=...          # Will be removed
-JIRA_API_TOKEN=...    # Will be removed
+# TO REMOVE (hardcoded credentials):
+NOTION_API_TOKEN=...
+JIRA_URL=...
+JIRA_API_TOKEN=...
+CONFLUENCE_API_TOKEN=...
+TODOIST_API_TOKEN=...
+SENTRY_AUTH_TOKEN=...
+ANTHROPIC_API_KEY=...
 
-# New
-MCP_API_URL=https://manager.agentops.be
-MCP_USERNAME=admin@agentops.be
-MCP_TOKEN=OTY3Y2ViNm...
-```
-
-### Claude Code Configuration
-```json
-{
-  "agentops": {
-    "command": "python",
-    "args": ["-u", "/path/to/mcp_remote_client.py"],
-    "env": {
-      "MCP_API_URL": "https://mcp.agentops.be",
-      "MCP_USERNAME": "admin@agentops.be",
-      "MCP_TOKEN": "OTY3Y2ViNm..."
-    }
-  }
-}
+# TO ADD (credential lease system):
+MCP_API_URL=http://localhost:3978
+MCP_TOKEN={user_token_from_manager}
 ```
 
 ---
 
 ## 🔒 Security Checklist
 
-- [x] All credentials encrypted at rest (APP_KEY)
-- [x] Foreign key constraints enforce referential integrity
-- [x] Unique constraints prevent duplicates
-- [x] Enum types enforce valid values
-- [ ] API endpoints require authentication (middleware)
-- [ ] Audit logging for all credential operations
-- [ ] Rate limiting on auth endpoints
-- [ ] Token validation with expiration
-- [ ] Organization permission checks
-- [ ] User isolation (can't access other users' leases)
-- [ ] HTTPS/TLS for all API communication
-- [ ] Credential rotation on member removal (optional)
+- [X]  All credentials encrypted at rest (APP_KEY)
+- [X]  Foreign key constraints enforce referential integrity
+- [X]  Unique constraints prevent duplicates
+- [X]  Enum types enforce valid values
+- [X]  API endpoints require authentication (middleware)
+- [X]  Audit logging for all credential operations
+- [X]  Token validation with expiration
+- [X]  Organization permission checks
+- [X]  User isolation (can't access other users' leases)
+- [ ]  Rate limiting on auth endpoints (TODO)
+- [ ]  HTTPS/TLS for production API communication (TODO)
+- [ ]  Credential rotation on member removal (TODO - Phase 3)
 
 ---
 
 ## 📞 Support & Questions
 
 For implementation questions or issues:
+
 1. Check this document first
-2. Review the models and migrations
-3. Check Laravel logs: `storage/logs/laravel.log`
-4. Run tests: `php artisan test --filter Lease`
+2. Review `MCP_AUTHENTICATION_ARCHITECTURE.md` for architecture
+3. Review `PHASE_2_IMPLEMENTATION_COMPLETE.md` for API details
+4. Check Laravel logs: `storage/logs/laravel.log`
+5. Run tests: `php artisan test --filter Lease`
 
 ---
 
-**Document Version:** 1.0
+**Document Version:** 2.0
 **Last Updated:** 2025-11-04
 **Author:** Claude Code Implementation

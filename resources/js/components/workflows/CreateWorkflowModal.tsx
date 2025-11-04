@@ -77,7 +77,10 @@ export function CreateWorkflowModal({ isOpen, onClose, repositories = [] }: Prop
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm">
-            <div data-testid="create-workflow-modal" className="bg-monologue-neutral-900 border-monologue-border-default max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-lg border shadow-2xl">
+            <div
+                data-testid="create-workflow-modal"
+                className="bg-monologue-neutral-900 border-monologue-border-default max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-lg border shadow-2xl"
+            >
                 {/* Header */}
                 <div className="bg-monologue-neutral-900 border-monologue-border-default sticky top-0 z-10 border-b px-6 py-4">
                     <h2 className="font-monologue-serif text-2xl text-gray-100">Create New Workflow</h2>

@@ -1,9 +1,14 @@
 export interface IntegrationAccount {
     id: number;
+    user_id: number;
+    organization_id?: number | null;
     type: string;
     access_token: string;
     meta?: Record<string, unknown> | null;
     status: string;
+    scope: 'personal' | 'organization';
+    shared_with?: string[] | null; // JSON array: ['all_members', 'admins_only', 'user:123']
+    created_by?: number | null;
     created_at: string;
     updated_at: string;
 }

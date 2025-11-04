@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Enums\UserRole;
+use App\Enums\Role as RoleEnum;
 use App\Events\UserCreatedInManager;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -15,149 +15,103 @@ class AgentOpsUsersSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->command->info('Creating AgentOps users...');
+        $this->command->info('Creating AgentOps platform users...');
 
-        // Disable events temporarily to avoid duplicate syncs
         $shouldSync = config('mcp-server.sync.enabled', true);
 
-        // 1. Admin User
+        // 1. Platform Admin (will be owner of AgentOps organization)
         $admin = User::updateOrCreate(
             ['email' => 'admin@agentops.be'],
             [
-                'name' => 'Admin AgentOps',
+                'name' => 'Platform Administrator',
                 'password' => Hash::make('oaHtB!wDa.YxPV3Tn!V3'),
-                'role' => UserRole::ADMIN,
                 'is_active' => true,
                 'email_verified_at' => now(),
             ]
         );
+
+        $admin->syncRoles([RoleEnum::PLATFORM_ADMIN->value]);
 
         if ($admin->wasRecentlyCreated && $shouldSync) {
             event(new UserCreatedInManager($admin));
         }
 
-        $this->command->info("✓ Admin created: admin@agentops.be");
+        $this->command->line("  ✓ {$admin->email} - PLATFORM_ADMIN");
 
-        // 2. Manager User
+        // 2. Platform Manager
         $manager = User::updateOrCreate(
             ['email' => 'manager@agentops.be'],
             [
-                'name' => 'Manager AgentOps',
-                'password' => Hash::make('WxswriLs74ZZUx6p8Pvg!'),
-                'role' => UserRole::MANAGER,
+                'name' => 'Platform Manager',
+                'password' => Hash::make('oaHtB!wDa.YxPV3Tn!V3'),
                 'is_active' => true,
                 'email_verified_at' => now(),
             ]
         );
+
+        $manager->syncRoles([RoleEnum::PLATFORM_MANAGER->value]);
 
         if ($manager->wasRecentlyCreated && $shouldSync) {
             event(new UserCreatedInManager($manager));
         }
 
-        $this->command->info("✓ Manager created: manager@agentops.be");
+        $this->command->line("  ✓ {$manager->email} - PLATFORM_MANAGER");
 
-        // 3. Regular User
-        $user = User::updateOrCreate(
-            ['email' => 'user@agentops.be'],
+        // 3. Platform Support
+        $support = User::updateOrCreate(
+            ['email' => 'support@agentops.be'],
             [
-                'name' => 'User AgentOps',
-                'password' => Hash::make('WxswriLs74ZZUx6p8Pvg!'),
-                'role' => UserRole::USER,
+                'name' => 'Platform Support',
+                'password' => Hash::make('oaHtB!wDa.YxPV3Tn!V3'),
                 'is_active' => true,
                 'email_verified_at' => now(),
             ]
         );
 
-        if ($user->wasRecentlyCreated && $shouldSync) {
-            event(new UserCreatedInManager($user));
+        $support->syncRoles([RoleEnum::PLATFORM_SUPPORT->value]);
+
+        if ($support->wasRecentlyCreated && $shouldSync) {
+            event(new UserCreatedInManager($support));
         }
 
-        $this->command->info("✓ User created: user@agentops.be");
+        $this->command->line("  ✓ {$support->email} - PLATFORM_SUPPORT");
 
-        // 4. Read Only User
-        $readonly = User::updateOrCreate(
-            ['email' => 'readonly@agentops.be'],
+        // 4. Platform Developer
+        $developer = User::updateOrCreate(
+            ['email' => 'dev@agentops.be'],
             [
-                'name' => 'ReadOnly AgentOps',
-                'password' => Hash::make('WxswriLs74ZZUx6p8Pvg!'),
-                'role' => UserRole::READ_ONLY,
+                'name' => 'Platform Developer',
+                'password' => Hash::make('oaHtB!wDa.YxPV3Tn!V3'),
                 'is_active' => true,
                 'email_verified_at' => now(),
             ]
         );
 
-        if ($readonly->wasRecentlyCreated && $shouldSync) {
-            event(new UserCreatedInManager($readonly));
+        $developer->syncRoles([RoleEnum::PLATFORM_DEVELOPER->value]);
+
+        if ($developer->wasRecentlyCreated && $shouldSync) {
+            event(new UserCreatedInManager($developer));
         }
 
-        $this->command->info("✓ ReadOnly created: readonly@agentops.be");
-
-        // 5. Create 16 random users with random roles
-        $this->command->info('Creating 16 random users...');
-
-        $roles = [
-            UserRole::ADMIN,
-            UserRole::MANAGER,
-            UserRole::USER,
-            UserRole::READ_ONLY,
-        ];
-
-        $firstNames = [
-            'Alice', 'Bob', 'Charlie', 'Diana', 'Edward', 'Fiona', 'George', 'Hannah',
-            'Ian', 'Julia', 'Kevin', 'Laura', 'Michael', 'Nancy', 'Oliver', 'Patricia',
-            'Quinn', 'Rachel', 'Steven', 'Tina',
-        ];
-
-        $lastNames = [
-            'Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis',
-            'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas',
-        ];
-
-        for ($i = 1; $i <= 16; $i++) {
-            $firstName = $firstNames[array_rand($firstNames)];
-            $lastName = $lastNames[array_rand($lastNames)];
-            $email = strtolower("{$firstName}.{$lastName}.{$i}@agentops.be");
-            $role = $roles[array_rand($roles)];
-
-            $randomUser = User::updateOrCreate(
-                ['email' => $email],
-                [
-                    'name' => "{$firstName} {$lastName}",
-                    'password' => Hash::make('password'), // Default password for test users
-                    'role' => $role,
-                    'is_active' => true,
-                    'email_verified_at' => now(),
-                ]
-            );
-
-            if ($randomUser->wasRecentlyCreated && $shouldSync) {
-                event(new UserCreatedInManager($randomUser));
-            }
-
-            $this->command->info("  ✓ User {$i}/16: {$email} (Role: {$role->value})");
-        }
+        $this->command->line("  ✓ {$developer->email} - PLATFORM_DEVELOPER");
 
         $this->command->newLine();
-        $this->command->info('═══════════════════════════════════════════════════');
-        $this->command->info('AgentOps Users Seeding Complete!');
-        $this->command->info('═══════════════════════════════════════════════════');
+        $this->command->comment('AgentOps platform users created successfully!');
         $this->command->newLine();
 
         $this->command->table(
-            ['Role', 'Email', 'Password'],
+            ['User', 'Email', 'Spatie Role', 'Password'],
             [
-                ['Admin', 'admin@agentops.be', 'oaHtB!wDa.YxPV3Tn!V3'],
-                ['Manager', 'manager@agentops.be', 'WxswriLs74ZZUx6p8Pvg!'],
-                ['User', 'user@agentops.be', 'WxswriLs74ZZUx6p8Pvg!'],
-                ['ReadOnly', 'readonly@agentops.be', 'WxswriLs74ZZUx6p8Pvg!'],
-                ['Various', 'Random users (16)', 'password'],
+                ['Platform Admin', 'admin@agentops.be', 'PLATFORM_ADMIN', 'oaHtB!wDa.YxPV3Tn!V3'],
+                ['Platform Manager', 'manager@agentops.be', 'PLATFORM_MANAGER', 'oaHtB!wDa.YxPV3Tn!V3'],
+                ['Platform Support', 'support@agentops.be', 'PLATFORM_SUPPORT', 'oaHtB!wDa.YxPV3Tn!V3'],
+                ['Platform Developer', 'dev@agentops.be', 'PLATFORM_DEVELOPER', 'oaHtB!wDa.YxPV3Tn!V3'],
             ]
         );
 
         if ($shouldSync) {
             $this->command->newLine();
             $this->command->info('📡 Sync jobs dispatched to queue.');
-            $this->command->info('Run: php artisan queue:work to process synchronization.');
         }
     }
 }

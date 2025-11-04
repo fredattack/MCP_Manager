@@ -25,10 +25,10 @@ $results = [
 ];
 
 echo "Starting sync of {$users->count()} users...\n";
-echo str_repeat('=', 50) . "\n";
+echo str_repeat('=', 50)."\n";
 
 foreach ($users as $index => $user) {
-    echo "[" . ($index + 1) . "/{$users->count()}] Syncing {$user->email}... ";
+    echo '['.($index + 1)."/{$users->count()}] Syncing {$user->email}... ";
 
     try {
         $result = $syncService->syncUser($user, 'create');
@@ -41,7 +41,7 @@ foreach ($users as $index => $user) {
             $results['error']++;
         }
     } catch (\Exception $e) {
-        echo "✗ ERROR: " . substr($e->getMessage(), 0, 100) . "\n";
+        echo '✗ ERROR: '.substr($e->getMessage(), 0, 100)."\n";
         $results['error']++;
     }
 
@@ -51,7 +51,7 @@ foreach ($users as $index => $user) {
     }
 }
 
-echo str_repeat('=', 50) . "\n";
+echo str_repeat('=', 50)."\n";
 echo "Sync complete!\n";
 echo "Success: {$results['success']}\n";
 echo "Errors: {$results['error']}\n";

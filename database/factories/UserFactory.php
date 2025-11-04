@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Enums\UserRole;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -30,8 +29,6 @@ class UserFactory extends Factory
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
-            'role' => UserRole::USER->value,
-            'permissions' => null,
             'is_active' => true,
             'is_locked' => false,
             'locked_at' => null,
@@ -56,30 +53,6 @@ class UserFactory extends Factory
         ]);
     }
 
-    public function admin(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'role' => UserRole::ADMIN->value,
-            'permissions' => null,
-        ]);
-    }
-
-    public function manager(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'role' => UserRole::MANAGER->value,
-            'permissions' => null,
-        ]);
-    }
-
-    public function readOnly(): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'role' => UserRole::READ_ONLY->value,
-            'permissions' => null,
-        ]);
-    }
-
     public function locked(): static
     {
         return $this->state(fn (array $attributes) => [
@@ -98,16 +71,6 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'is_active' => false,
-        ]);
-    }
-
-    /**
-     * @param  array<int, string>  $permissions
-     */
-    public function withPermissions(array $permissions): static
-    {
-        return $this->state(fn (array $attributes) => [
-            'permissions' => $permissions,
         ]);
     }
 

@@ -76,7 +76,7 @@ class SyncUsersToMcpCommand extends Command
         $this->newLine(2);
 
         $this->info('═══════════════════════════════════════════════════');
-        $this->info("Sync Complete!");
+        $this->info('Sync Complete!');
         $this->info("  ✓ Synced: {$synced}");
 
         if ($failed > 0) {
