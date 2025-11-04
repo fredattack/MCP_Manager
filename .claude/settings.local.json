@@ -1,7 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash(PGPASSWORD=':jVPh+Cd7TrnbuigVl3RV]e*' psql:*)"
+      "Bash(php artisan:*)"
     ],
     "deny": [],
     "ask": []
