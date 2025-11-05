@@ -20,8 +20,14 @@ class DatabaseSeeder extends Seeder
             return;
         }
 
-        // For development/staging/testing, seed AgentOps users
+        // For development/staging/testing, seed roles, permissions, and users
         if (app()->environment(['local', 'development', 'staging', 'testing'])) {
+            // Create roles and permissions first
+            $this->call(RoleAndPermissionSeeder::class);
+
+            $this->command->newLine();
+
+            // Then create users with roles
             $this->call(AgentOpsUsersSeeder::class);
 
             $this->command->newLine();

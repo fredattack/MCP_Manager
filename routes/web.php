@@ -11,9 +11,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 
-    Route::get('integrations', function () {
-        return Inertia::render('integrations');
-    })->name('integrations');
 
     Route::get('integrations/google', [App\Http\Controllers\GoogleIntegrationController::class, 'index'])->name('integrations.google');
     Route::get('integrations/google/callback', [App\Http\Controllers\GoogleIntegrationController::class, 'callback'])->name('integrations.google.callback');

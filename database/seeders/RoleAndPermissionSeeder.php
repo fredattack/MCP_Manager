@@ -45,6 +45,12 @@ class RoleAndPermissionSeeder extends Seeder
 
     protected function assignPermissions(): void
     {
+        // God - Absolute Control (ALL permissions)
+        $god = Role::findByName(RoleEnum::GOD->value);
+        $allPermissions = Permission::all();
+        $god->givePermissionTo($allPermissions);
+        $this->command->line("  ✓ GOD permissions assigned ({$allPermissions->count()} permissions)");
+
         // Platform Admin - Full Access
         $platformAdmin = Role::findByName(RoleEnum::PLATFORM_ADMIN->value);
         $platformAdmin->givePermissionTo([

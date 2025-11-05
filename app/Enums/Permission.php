@@ -4,6 +4,9 @@ namespace App\Enums;
 
 enum Permission: string
 {
+    // God Permission (Super Admin Wildcard)
+    case GOD_MODE = '*';
+
     // Platform Permissions (AgentOps Management)
     case PLATFORM_ORGANIZATIONS_READ = 'platform.organizations.read';
     case PLATFORM_ORGANIZATIONS_CREATE = 'platform.organizations.create';
@@ -57,6 +60,7 @@ enum Permission: string
     public function category(): string
     {
         return match (true) {
+            $this === self::GOD_MODE => 'God Mode',
             str_starts_with($this->value, 'platform.organizations') => 'Platform Organizations',
             str_starts_with($this->value, 'platform.users') => 'Platform Users',
             str_starts_with($this->value, 'platform.audit') => 'Platform Audit',
@@ -85,6 +89,9 @@ enum Permission: string
     public function description(): string
     {
         return match ($this) {
+            // God Mode
+            self::GOD_MODE => 'Absolute control - bypasses all permission checks',
+
             // Platform Organizations
             self::PLATFORM_ORGANIZATIONS_READ => 'View all organizations',
             self::PLATFORM_ORGANIZATIONS_CREATE => 'Create new organizations',

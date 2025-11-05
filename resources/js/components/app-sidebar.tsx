@@ -13,70 +13,62 @@ import {
     SidebarMenu,
     SidebarMenuButton,
     SidebarMenuItem,
+    SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { type NavItem, type SharedData } from '@/types';
 import { Link, usePage } from '@inertiajs/react';
 import {
-    AlertCircle,
-    BookOpen,
     Brain,
     Building2,
     Calendar,
     CalendarDays,
-    CheckCircle2,
     FileText,
     Folder,
     GitBranch,
-    Key,
     LayoutGrid,
     Mail,
     MessageSquare,
     Plug,
     Server,
     Shield,
+    User,
     Users,
     Workflow,
-    XCircle,
 } from 'lucide-react';
 import AppLogo from './app-logo';
 
 /**
- * MAIN NAVIGATION CONFIGURATION
+ * MAIN NAVIGATION CONFIGURATION - REORGANIZED
  *
  * This file is the SINGLE SOURCE OF TRUTH for all application navigation.
- * To add, remove, or modify navigation items, edit the arrays below.
  *
  * Navigation Structure:
- * - mainNavItems: Primary navigation (Dashboard, Workflows, Git, etc.)
- * - integrationItems: Integration status items (Todoist, Gmail, etc.)
- * - footerNavItems: Footer links (Repository, Documentation)
+ * - toolsNavItems: Daily-use tools (Dashboard, Workflows, Chat, etc.)
+ * - integrationsNavItems: Active integrations with status badges
+ * - settingsNavItems: Settings and admin pages
+ * - footerNavItems: External links
  */
 
 /**
- * Main Navigation Items
- * These appear in the primary sidebar navigation section
+ * TOOLS - Daily-use items
+ * These are the primary actions users perform regularly
  */
-const mainNavItems: NavItem[] = [
+const toolsNavItems: NavItem[] = [
     {
         title: 'Dashboard',
         href: '/dashboard',
         icon: LayoutGrid,
     },
     {
+        title: 'Daily Planning',
+        href: '/daily-planning',
+        icon: CalendarDays,
+    },
+    {
         title: 'Workflows',
         href: '/workflows',
         icon: Workflow,
         badge: 'New',
-    },
-    {
-        title: 'MCP Dashboard',
-        href: '/mcp/dashboard',
-        icon: Server,
-    },
-    {
-        title: 'MCP Server Config',
-        href: '/mcp/server/config',
-        icon: Shield,
     },
     {
         title: 'Claude Chat',
@@ -89,41 +81,6 @@ const mainNavItems: NavItem[] = [
         icon: Brain,
     },
     {
-        title: 'Git Connections',
-        href: '/git/connections',
-        icon: GitBranch,
-    },
-    {
-        title: 'User Management',
-        href: '/admin/users',
-        icon: Users,
-    },
-    {
-        title: 'Organizations',
-        href: '/settings/organizations',
-        icon: Building2,
-    },
-    {
-        title: 'Active Leases',
-        href: '/settings/security/active-leases',
-        icon: Key,
-    },
-    {
-        title: 'Daily Planning',
-        href: '/daily-planning',
-        icon: CalendarDays,
-    },
-    {
-        title: 'Integration Manager',
-        href: '/integrations/manager',
-        icon: Plug,
-    },
-    {
-        title: 'Integrations',
-        href: '/integrations',
-        icon: Plug,
-    },
-    {
         title: 'Notion Pages',
         href: '/notion',
         icon: FileText,
@@ -131,73 +88,85 @@ const mainNavItems: NavItem[] = [
 ];
 
 /**
- * Integration Navigation Items
- * These show the status of connected integrations (connected/disconnected/error)
- * Status badges are dynamically updated based on actual connection state
+ * INTEGRATIONS - Active integrations with dynamic status
+ * Integration Manager is the entry point, followed by individual integrations
  */
 interface IntegrationNavItem extends NavItem {
-    service: string; // Service identifier for logo
+    service: string;
 }
 
-const integrationItems: IntegrationNavItem[] = [
+const integrationsNavItems: IntegrationNavItem[] = [
     {
         title: 'Todoist',
         href: '/integrations/todoist',
-        icon: CheckCircle2,
         service: 'todoist',
-        status: 'connected',
-    },
-    {
-        title: 'Google',
-        href: '/integrations/google',
-        icon: Plug,
-        service: 'gmail', // Use Gmail as the google service logo
         status: 'disconnected',
     },
     {
         title: 'Gmail',
         href: '/gmail',
-        icon: Mail,
         service: 'gmail',
         status: 'disconnected',
     },
     {
         title: 'Calendar',
         href: '/calendar',
-        icon: Calendar,
         service: 'calendar',
         status: 'disconnected',
     },
     {
-        title: 'JIRA',
-        href: '/integrations/jira',
-        icon: XCircle,
-        service: 'jira',
+        title: 'Google',
+        href: '/integrations/google',
+        service: 'gmail',
         status: 'disconnected',
-    },
-    {
-        title: 'Sentry',
-        href: '/integrations/sentry',
-        icon: AlertCircle,
-        service: 'sentry',
-        status: 'error',
     },
 ];
 
 /**
- * Footer Navigation Items
- * External links and documentation shown at the bottom of the sidebar
+ * SETTINGS - Configuration and admin pages
+ * Less frequently accessed, grouped logically
+ */
+const settingsNavItems: NavItem[] = [
+    {
+        title: 'Profile',
+        href: '/settings/profile',
+        icon: User,
+    },
+    {
+        title: 'Organizations',
+        href: '/settings/organizations',
+        icon: Building2,
+    },
+    {
+        title: 'Admin Users',
+        href: '/admin/users',
+        icon: Users,
+    },
+    {
+        title: 'MCP Server Config',
+        href: '/mcp/server/config',
+        icon: Server,
+    },
+    {
+        title: 'Git Connections',
+        href: '/git/connections',
+        icon: GitBranch,
+    },
+    {
+        title: 'Security',
+        href: '/settings/security/active-leases',
+        icon: Shield,
+    },
+];
+
+/**
+ * FOOTER - External links
  */
 const footerNavItems: NavItem[] = [
     {
         title: 'Repository',
         href: 'https://github.com/your-org/mcp-manager',
         icon: Folder,
-    },
-    {
-        title: 'Documentation',
-        href: '/docs',
-        icon: BookOpen,
     },
 ];
 
@@ -217,9 +186,23 @@ function IntegrationsNav({ items }: { items: IntegrationNavItem[] }) {
     };
 
     return (
-        <SidebarGroup className="px-2 py-0">
+        <SidebarGroup collapsible className="px-2 py-0">
             <SidebarGroupLabel>Integrations</SidebarGroupLabel>
             <SidebarMenu>
+                {/* Integration Manager - Entry point */}
+                <SidebarMenuItem>
+                    <SidebarMenuButton asChild isActive={page.url === '/integrations/manager'} tooltip={{ children: 'Integration Manager' }}>
+                        <Link href="/integrations/manager" prefetch>
+                            <Plug className="h-4 w-4 flex-shrink-0" />
+                            <span>Integration Manager</span>
+                        </Link>
+                    </SidebarMenuButton>
+                </SidebarMenuItem>
+
+                {/* Separator */}
+                <SidebarSeparator className="my-2" />
+
+                {/* Individual integrations */}
                 {items.map((item) => (
                     <SidebarMenuItem key={item.title}>
                         <SidebarMenuButton asChild isActive={item.href === page.url} tooltip={{ children: item.title }}>
@@ -240,19 +223,21 @@ export function AppSidebar() {
     const page = usePage();
     const integrationStatuses = (page.props as SharedData).integrationStatuses || {};
     const user = (page.props as SharedData).auth?.user;
-    const userRole = user?.role as string | undefined;
 
-    // Filter main nav items based on user role
-    const filteredMainNavItems = mainNavItems.filter((item) => {
-        // User Management is only visible for admin and manager roles
+    // Check if user has admin access using Spatie roles
+    const hasAdminAccess = user?.roles?.some((role) => ['GOD', 'PLATFORM_ADMIN', 'admin', 'manager'].includes(role)) || user?.permissions?.some((permission) => permission === 'platform.users.*' || permission === '*');
+
+    // Filter settings nav items based on user role
+    const filteredSettingsNavItems = settingsNavItems.filter((item) => {
+        // Admin Users is only visible for users with admin access
         if (item.href === '/admin/users') {
-            return userRole === 'admin' || userRole === 'manager';
+            return hasAdminAccess;
         }
         return true;
     });
 
     // Update integration items with dynamic statuses
-    const dynamicIntegrationItems = integrationItems.map((item) => {
+    const dynamicIntegrationItems = integrationsNavItems.map((item) => {
         let statusKey = '';
         if (item.title === 'Todoist') statusKey = 'todoist';
         else if (item.title === 'Gmail') statusKey = 'gmail';
@@ -279,8 +264,20 @@ export function AppSidebar() {
             </SidebarHeader>
 
             <SidebarContent>
-                <NavMain items={filteredMainNavItems} />
+                {/* Tools Section - Default open */}
+                <SidebarGroup className="px-2 py-0">
+                    <SidebarGroupLabel>Tools</SidebarGroupLabel>
+                    <NavMain items={toolsNavItems} />
+                </SidebarGroup>
+
+                {/* Integrations Section - Collapsible */}
                 <IntegrationsNav items={dynamicIntegrationItems} />
+
+                {/* Settings Section - Collapsible */}
+                <SidebarGroup collapsible className="px-2 py-0">
+                    <SidebarGroupLabel>Settings</SidebarGroupLabel>
+                    <NavMain items={filteredSettingsNavItems} />
+                </SidebarGroup>
             </SidebarContent>
 
             <SidebarFooter>

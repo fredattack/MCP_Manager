@@ -4,6 +4,9 @@ namespace App\Enums;
 
 enum Role: string
 {
+    // God Role (Super Admin - Absolute Control)
+    case GOD = 'GOD';
+
     // Platform Roles (AgentOps Management)
     case PLATFORM_ADMIN = 'PLATFORM_ADMIN';
     case PLATFORM_MANAGER = 'PLATFORM_MANAGER';
@@ -19,6 +22,7 @@ enum Role: string
     public function label(): string
     {
         return match ($this) {
+            self::GOD => 'God Mode',
             self::PLATFORM_ADMIN => 'Platform Administrator',
             self::PLATFORM_MANAGER => 'Platform Manager',
             self::PLATFORM_SUPPORT => 'Platform Support',
@@ -33,6 +37,7 @@ enum Role: string
     public function description(): string
     {
         return match ($this) {
+            self::GOD => 'Absolute control - all permissions across the entire system',
             self::PLATFORM_ADMIN => 'Full platform access, manage all organizations and system settings',
             self::PLATFORM_MANAGER => 'Manage client organizations, support, and user administration',
             self::PLATFORM_SUPPORT => 'Support access, read-only view of organizations and logs',
@@ -47,6 +52,7 @@ enum Role: string
     public function isPlatformRole(): bool
     {
         return in_array($this, [
+            self::GOD,
             self::PLATFORM_ADMIN,
             self::PLATFORM_MANAGER,
             self::PLATFORM_SUPPORT,

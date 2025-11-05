@@ -19,24 +19,24 @@ class AgentOpsUsersSeeder extends Seeder
 
         $shouldSync = config('mcp-server.sync.enabled', true);
 
-        // 1. Platform Admin (will be owner of AgentOps organization)
+        // 1. God Mode Admin (will be owner of AgentOps organization)
         $admin = User::updateOrCreate(
             ['email' => 'admin@agentops.be'],
             [
-                'name' => 'Platform Administrator',
+                'name' => 'God Administrator',
                 'password' => Hash::make('oaHtB!wDa.YxPV3Tn!V3'),
                 'is_active' => true,
                 'email_verified_at' => now(),
             ]
         );
 
-        $admin->syncRoles([RoleEnum::PLATFORM_ADMIN->value]);
+        $admin->syncRoles([RoleEnum::GOD->value]);
 
         if ($admin->wasRecentlyCreated && $shouldSync) {
             event(new UserCreatedInManager($admin));
         }
 
-        $this->command->line("  ✓ {$admin->email} - PLATFORM_ADMIN");
+        $this->command->line("  ✓ {$admin->email} - GOD");
 
         // 2. Platform Manager
         $manager = User::updateOrCreate(
@@ -102,7 +102,7 @@ class AgentOpsUsersSeeder extends Seeder
         $this->command->table(
             ['User', 'Email', 'Spatie Role', 'Password'],
             [
-                ['Platform Admin', 'admin@agentops.be', 'PLATFORM_ADMIN', 'oaHtB!wDa.YxPV3Tn!V3'],
+                ['God Administrator', 'admin@agentops.be', 'GOD', 'oaHtB!wDa.YxPV3Tn!V3'],
                 ['Platform Manager', 'manager@agentops.be', 'PLATFORM_MANAGER', 'oaHtB!wDa.YxPV3Tn!V3'],
                 ['Platform Support', 'support@agentops.be', 'PLATFORM_SUPPORT', 'oaHtB!wDa.YxPV3Tn!V3'],
                 ['Platform Developer', 'dev@agentops.be', 'PLATFORM_DEVELOPER', 'oaHtB!wDa.YxPV3Tn!V3'],

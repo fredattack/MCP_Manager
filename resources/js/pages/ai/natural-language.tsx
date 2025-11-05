@@ -122,7 +122,7 @@ export default function NaturalLanguage() {
 
             if (data.requiresIntegration) {
                 setTimeout(() => {
-                    router.visit('/integrations');
+                    router.visit('/integrations/manager');
                 }, 3000);
             }
         } catch {

@@ -100,7 +100,7 @@ export function CreateWorkflowModal({ isOpen, onClose, repositories = [] }: Prop
                                         <p className="mb-2 font-medium text-amber-200">No repositories connected</p>
                                         <p className="mb-3 text-sm text-amber-300/80">Connect your GitHub or GitLab account to get started.</p>
                                         <a
-                                            href="/integrations"
+                                            href="/git/connections"
                                             className="inline-flex items-center gap-2 text-sm text-cyan-400 transition-colors hover:text-cyan-300"
                                         >
                                             <Github size={16} />
