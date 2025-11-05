@@ -27,6 +27,7 @@ import {
     FileText,
     Folder,
     GitBranch,
+    Key,
     LayoutGrid,
     Mail,
     MessageSquare,
@@ -101,6 +102,11 @@ const mainNavItems: NavItem[] = [
         title: 'Organizations',
         href: '/settings/organizations',
         icon: Building2,
+    },
+    {
+        title: 'Active Leases',
+        href: '/settings/security/active-leases',
+        icon: Key,
     },
     {
         title: 'Daily Planning',

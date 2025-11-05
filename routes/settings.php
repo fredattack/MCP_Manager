@@ -6,6 +6,7 @@ use App\Http\Controllers\Settings\OrganizationInvitationController;
 use App\Http\Controllers\Settings\OrganizationMemberController;
 use App\Http\Controllers\Settings\PasswordController;
 use App\Http\Controllers\Settings\ProfileController;
+use App\Http\Controllers\Settings\Security\ActiveLeasesController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -25,6 +26,12 @@ Route::middleware('auth')->group(function () {
     Route::get('settings/appearance', function () {
         return Inertia::render('settings/appearance');
     })->name('appearance');
+
+    // Security Settings - Active Leases
+    Route::prefix('settings/security')->name('settings.security.')->group(function () {
+        Route::get('/active-leases', [ActiveLeasesController::class, 'index'])->name('active-leases');
+        Route::delete('/active-leases/{lease}/revoke', [ActiveLeasesController::class, 'revoke'])->name('active-leases.revoke');
+    });
 
     // Organization Management
     Route::prefix('settings/organizations')->name('settings.organizations.')->group(function () {
