@@ -31,6 +31,11 @@ class DatabaseSeeder extends Seeder
             $this->call(AgentOpsUsersSeeder::class);
 
             $this->command->newLine();
+
+            // Import credentials from MCP Server .env file
+            $this->call(ImportMcpServerCredentialsSeeder::class);
+
+            $this->command->newLine();
             $this->command->warn('⚠️  WARNING: Change these credentials before deploying to production!');
         }
     }

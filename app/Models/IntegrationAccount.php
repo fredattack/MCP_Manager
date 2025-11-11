@@ -31,10 +31,14 @@ class IntegrationAccount extends Model
      */
     protected $fillable = [
         'user_id',
+        'organization_id',
         'type',
         'access_token',
         'meta',
         'status',
+        'scope',
+        'shared_with',
+        'created_by',
     ];
 
     /**
@@ -47,6 +51,7 @@ class IntegrationAccount extends Model
         'status' => IntegrationStatus::class,
         'meta' => 'array',
         'access_token' => 'encrypted',
+        'shared_with' => 'array',
     ];
 
     /**

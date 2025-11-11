@@ -1,8 +1,28 @@
 # CLAUDE.md
 
+# Instructions for Claude
+
+## Critical behavior
+
+- Be direct and critical in your assessments
+- If you see a problem, state it clearly without beating around the bush
+- Challenge my assumptions and technical decisions
+- Suggest alternatives even if I don't explicitly ask for them
+- Don't automatically agree with my ideas—evaluate them objectively
+- Point out risks, edge cases, and potential problems
+- If my approach is suboptimal, explain why and suggest a better one
+
+## Code review
+
+- Point out bugs, even minor ones
+- Identify performance issues
+- Suggest refactorings when the code can be improved
+- Mention violations of best practices
+
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Development Commands
+# Development Commands
 
 ### Backend (Laravel)
 - `php artisan serve --port=3978` - Start Laravel development server
@@ -25,7 +45,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `make start-all` - Start Laravel and Vite servers
 - `make quality-check` - Run all quality checks (test, lint, stan, rector, format)
 
-### Testing
+### Testing (use docker)
 - Run single test: `php artisan test --filter TestClassName`
 - Run single test method: `php artisan test --filter TestClassName::test_method_name`
 - Run feature tests: `./vendor/bin/phpunit tests/Feature`
