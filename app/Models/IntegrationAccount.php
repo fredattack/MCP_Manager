@@ -65,6 +65,16 @@ class IntegrationAccount extends Model
     }
 
     /**
+     * Get the organization that owns the integration account.
+     *
+     * @return BelongsTo<Organization, $this>
+     */
+    public function organization(): BelongsTo
+    {
+        return $this->belongsTo(Organization::class);
+    }
+
+    /**
      * Scope a query to only include active integration accounts.
      *
      * @param  Builder<IntegrationAccount>  $builder

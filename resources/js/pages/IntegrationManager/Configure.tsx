@@ -3,14 +3,24 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { IntegrationIcon } from '@/components/integrations/integration-icon';
 import AppLayout from '@/layouts/app-layout';
 import { Head, router, useForm } from '@inertiajs/react';
 import { AlertCircle, ArrowLeft, Save } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+interface IntegrationAccount {
+    id: number;
+    type: string;
+    meta: Record<string, any>;
+    status: string;
+    has_token?: boolean;
+    token_placeholder?: string;
+}
 
 interface Props {
     service: string;
-    status: any;
+    integration?: IntegrationAccount;
 }
 
 const serviceConfig = {
@@ -79,15 +89,47 @@ const serviceConfig = {
     },
 };
 
-export default function Configure({ service, status }: Props) {
+export default function Configure({ service, integration }: Props) {
     const config = serviceConfig[service] || { name: service, icon: '🔧', fields: [], help: '' };
-    const { data, setData, post, processing, errors } = useForm({});
+
+    // Initialize form with existing data if available
+    const initialData = {};
+    if (integration?.meta) {
+        // Map meta fields to form fields
+        Object.keys(integration.meta).forEach(key => {
+            initialData[key] = integration.meta[key];
+        });
+    }
+
+    // Add token placeholder for password fields if token exists
+    if (integration?.has_token && integration?.token_placeholder) {
+        config.fields.forEach(field => {
+            if (field.type === 'password') {
+                initialData[field.name] = integration.token_placeholder;
+            }
+        });
+    }
+
+    const { data, setData, post, processing, errors } = useForm(initialData);
     const [testingConnection, setTestingConnection] = useState(false);
     const [testResult, setTestResult] = useState<{ success: boolean; message: string } | null>(null);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Remove placeholder tokens from submission
+        const submitData = { ...data };
+        if (integration?.has_token && integration?.token_placeholder) {
+            config.fields.forEach(field => {
+                if (field.type === 'password' && submitData[field.name] === integration.token_placeholder) {
+                    // User didn't change the token, don't send it
+                    delete submitData[field.name];
+                }
+            });
+        }
+
         post(`/integrations/manager/${service}`, {
+            data: submitData,
             onSuccess: () => {
                 // Will redirect automatically
             },
@@ -136,11 +178,11 @@ export default function Configure({ service, status }: Props) {
                 <Card>
                     <CardHeader>
                         <div className="flex items-center gap-3">
-                            <span className="text-3xl">{config.icon}</span>
+                            <IntegrationIcon service={service} size={48} />
                             <div>
                                 <CardTitle>Configure {config.name}</CardTitle>
                                 <CardDescription>
-                                    {status?.configured ? 'Update your integration settings' : 'Set up your integration'}
+                                    {integration ? 'Update your integration settings' : 'Set up your integration'}
                                 </CardDescription>
                             </div>
                         </div>

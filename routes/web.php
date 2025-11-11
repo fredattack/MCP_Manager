@@ -107,8 +107,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('history', [App\Http\Controllers\NaturalLanguageController::class, 'getCommandHistory']);
     });
 
-    // Integration Manager routes (New simplified system)
-    Route::prefix('integrations/manager')->name('integrations.manager.')->middleware('App\Http\Middleware\EnsureMcpConnection')->group(function () {
+    // Integration Manager routes (Using Credential Lease system - no direct MCP connection)
+    Route::prefix('integrations/manager')->name('integrations.manager.')->group(function () {
         Route::get('/', [App\Http\Controllers\IntegrationManagerController::class, 'index'])->name('index');
         Route::get('/{service}/configure', [App\Http\Controllers\IntegrationManagerController::class, 'configure'])->name('configure');
         Route::post('/{service}', [App\Http\Controllers\IntegrationManagerController::class, 'store'])->name('store');

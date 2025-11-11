@@ -36,6 +36,11 @@ class DatabaseSeeder extends Seeder
             $this->call(ImportMcpServerCredentialsSeeder::class);
 
             $this->command->newLine();
+
+            // Setup AgentOps Team organization (must be after credentials import)
+            $this->call(AgentOpsOrganizationSeeder::class);
+
+            $this->command->newLine();
             $this->command->warn('⚠️  WARNING: Change these credentials before deploying to production!');
         }
     }

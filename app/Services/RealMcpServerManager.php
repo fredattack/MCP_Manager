@@ -12,6 +12,18 @@ use Illuminate\Support\Facades\Log;
 
 /**
  * Real MCP Server Manager that communicates with actual MCP server
+ *
+ * @deprecated This service is deprecated. Use Credential Lease system instead.
+ *             MCP Manager should NOT connect directly to MCP Server.
+ *             Communication is handled via:
+ *             - IntegrationAccount (credentials storage)
+ *             - CredentialLease (temporary access via API)
+ *             - CredentialResolutionService (credential resolution)
+ *
+ * @see App\Models\IntegrationAccount
+ * @see App\Models\CredentialLease
+ * @see App\Services\CredentialResolutionService
+ * @see App\Http\Controllers\Api\Mcp\CreateCredentialLeaseController
  */
 class RealMcpServerManager
 {
