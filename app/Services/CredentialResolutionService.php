@@ -61,7 +61,7 @@ class CredentialResolutionService
         return IntegrationAccount::where('user_id', $userId)
             ->where('type', $service)
             ->where('scope', CredentialScope::Personal)
-            ->where('status', IntegrationStatus::Active)
+            ->where('status', IntegrationStatus::ACTIVE)
             ->first();
     }
 
@@ -82,7 +82,7 @@ class CredentialResolutionService
             $credential = IntegrationAccount::where('organization_id', $membership->organization_id)
                 ->where('type', $service)
                 ->where('scope', CredentialScope::Organization)
-                ->where('status', IntegrationStatus::Active)
+                ->where('status', IntegrationStatus::ACTIVE)
                 ->first();
 
             if ($credential && $this->canAccessCredential($membership, $credential)) {
@@ -144,7 +144,7 @@ class CredentialResolutionService
     {
         $personalServices = IntegrationAccount::where('user_id', $userId)
             ->where('scope', CredentialScope::Personal)
-            ->where('status', IntegrationStatus::Active)
+            ->where('status', IntegrationStatus::ACTIVE)
             ->pluck('type')
             ->map(fn ($type) => $type->value)
             ->toArray();
@@ -172,7 +172,7 @@ class CredentialResolutionService
 
             $orgCredentials = IntegrationAccount::where('organization_id', $membership->organization_id)
                 ->where('scope', CredentialScope::Organization)
-                ->where('status', IntegrationStatus::Active)
+                ->where('status', IntegrationStatus::ACTIVE)
                 ->get();
 
             foreach ($orgCredentials as $credential) {

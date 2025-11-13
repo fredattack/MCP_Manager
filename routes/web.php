@@ -116,14 +116,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/{service}', [App\Http\Controllers\IntegrationManagerController::class, 'destroy'])->name('destroy');
     });
 
-    // MCP Server Management routes
+    // MCP Server Management routes (Phase 4 - Credential Lease System)
+    // Note: MCP servers now connect TO Laravel Manager, not the other way around
     Route::prefix('mcp')->name('mcp.')->group(function () {
         Route::get('dashboard', [App\Http\Controllers\McpIntegrationController::class, 'index'])->name('dashboard');
-        Route::get('server/config', [App\Http\Controllers\McpServerConfigController::class, 'show'])->name('server.config');
-        Route::post('server/config', [App\Http\Controllers\McpServerConfigController::class, 'store'])->name('server.store');
-        Route::post('server/test', [App\Http\Controllers\McpServerConfigController::class, 'test'])->name('server.test');
-        Route::post('server/disconnect', [App\Http\Controllers\McpServerConfigController::class, 'disconnect'])->name('server.disconnect');
-        Route::delete('server', [App\Http\Controllers\McpServerConfigController::class, 'destroy'])->name('server.destroy');
+
+        // Legacy routes removed (Phase 4 migration):
+        // - server/config, server/test, server/disconnect, server/destroy
+        // MCP servers now authenticate via Bearer token and use credential lease API
+
         Route::get('integrations/{service}/configure', [App\Http\Controllers\McpIntegrationController::class, 'configure'])->name('integrations.configure');
         Route::post('integrations/{service}', [App\Http\Controllers\McpIntegrationController::class, 'store'])->name('integrations.store');
         Route::delete('integrations/{service}', [App\Http\Controllers\McpIntegrationController::class, 'destroy'])->name('integrations.destroy');

@@ -45,7 +45,7 @@ class CreateCredentialLeaseController extends Controller
         $primaryOrgId = $this->getPrimaryOrganizationId($resolved['sources']);
         $credentialScope = $this->determineCredentialScope($resolved['sources']);
 
-        $lease = CredentialLease::create([
+        $lease = new CredentialLease([
             'user_id' => $userId,
             'organization_id' => $primaryOrgId,
             'server_id' => $validated['server_id'] ?? null,
