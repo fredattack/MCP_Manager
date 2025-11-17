@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Log;
  *             - IntegrationAccount (credentials storage)
  *             - CredentialLease (temporary access via API)
  *             - CredentialResolutionService (credential resolution)
- *
  * @see App\Models\IntegrationAccount
  * @see App\Models\CredentialLease
  * @see App\Services\CredentialResolutionService

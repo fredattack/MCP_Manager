@@ -98,6 +98,6 @@ class AgentOpsOrganizationSeeder extends Seeder
             $this->command->info("✓ Cleaned up {$duplicateCount} duplicate MCP server(s), kept ID: {$keepServer->id}");
         }
 
-        $this->command->info("✅ AgentOps Team organization setup completed!");
+        $this->command->info('✅ AgentOps Team organization setup completed!');
     }
 }

@@ -147,7 +147,7 @@ class ImportMcpCredentials extends Command
             $this->info('Next steps:');
             $this->line('  1. Review imported credentials in Settings > Integrations');
             $this->line('  2. Test MCP Server connection');
-            $this->line("  3. Run: php artisan db:seed --class=McpDevelopmentSeeder");
+            $this->line('  3. Run: php artisan db:seed --class=McpDevelopmentSeeder');
 
             return self::SUCCESS;
         } else {
