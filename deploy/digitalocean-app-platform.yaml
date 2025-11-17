@@ -1,0 +1,146 @@
+# DigitalOcean App Platform Configuration for MCP Manager
+# Deploy: doctl apps create --spec deploy/digitalocean-app-platform.yaml
+
+name: mcp-manager
+region: fra  # Frankfurt - Same as MCP Server
+
+# Ingress Configuration
+ingress:
+  rules:
+    - component:
+        name: web
+      match:
+        path:
+          prefix: /
+
+# Services
+services:
+  # Laravel Application (Web + API)
+  - name: web
+    github:
+      repo: your-username/mcp-manager  # TODO: Update with your GitHub repo
+      branch: main
+      deploy_on_push: true
+
+    # Build Configuration
+    build_command: |
+      composer install --no-dev --optimize-autoloader
+      npm ci
+      npm run build
+      php artisan config:cache
+      php artisan route:cache
+      php artisan view:cache
+
+    # Run Configuration
+    run_command: |
+      php artisan migrate --force
+      php-fpm -D && nginx -g "daemon off;"
+
+    # Dockerfile (alternative to buildpack)
+    dockerfile_path: deploy/Dockerfile.app-platform
+
+    # Environment Variables
+    envs:
+      - key: APP_NAME
+        value: "MCP Manager"
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: APP_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        # Generate with: php artisan key:generate --show
+
+      # MCP Server Integration
+      - key: MCP_SERVER_URL
+        value: https://mcp-server-app-6gann.ondigitalocean.app
+      - key: MCP_API_TOKEN
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+        # Get from MCP Server admin panel
+
+      # Frontend
+      - key: VITE_MCP_SERVER_URL
+        value: https://mcp-server-app-6gann.ondigitalocean.app
+
+    # HTTP Configuration
+    http_port: 8080
+
+    # Health Check
+    health_check:
+      http_path: /health
+      initial_delay_seconds: 30
+      period_seconds: 10
+      timeout_seconds: 5
+      success_threshold: 1
+      failure_threshold: 3
+
+    # Instance Configuration
+    instance_count: 1
+    instance_size_slug: basic-xxs  # Start small, can scale up
+    # Upgrade to professional-xs for auto-scaling:
+    # instance_size_slug: professional-xs
+
+    # Routes
+    routes:
+      - path: /
+        preserve_path_prefix: true
+
+  # Queue Worker (Laravel Horizon)
+  - name: worker
+    github:
+      repo: your-username/mcp-manager
+      branch: main
+      deploy_on_push: true
+
+    build_command: composer install --no-dev --optimize-autoloader
+
+    run_command: php artisan queue:work redis --tries=3 --max-time=3600
+
+    envs:
+      - key: APP_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+      - key: QUEUE_CONNECTION
+        value: redis
+
+    instance_count: 1
+    instance_size_slug: basic-xxs
+
+# Databases (Managed)
+databases:
+  - name: mcp-manager-db
+    engine: PG
+    version: "16"
+    production: true
+    cluster_name: mcp-manager-postgres
+    db_name: mcp_manager
+    db_user: mcp_manager_user
+
+# Redis (Managed)
+  - name: mcp-manager-redis
+    engine: REDIS
+    version: "7"
+    production: true
+
+# Jobs (Optional - for scheduled tasks)
+jobs:
+  - name: scheduler
+    github:
+      repo: your-username/mcp-manager
+      branch: main
+
+    build_command: composer install --no-dev --optimize-autoloader
+
+    run_command: php artisan schedule:work
+
+    kind: PRE_DEPLOY
+
+    envs:
+      - key: APP_KEY
+        scope: RUN_AND_BUILD_TIME
+        type: SECRET
+
+# Static Sites (Optional - for separate frontend if needed)
+# Not needed with Inertia.js as frontend is bundled with Laravel
