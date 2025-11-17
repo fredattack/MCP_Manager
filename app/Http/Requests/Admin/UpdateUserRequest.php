@@ -10,7 +10,7 @@ class UpdateUserRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return $this->user()?->hasPermission('users.edit') ?? false;
+        return $this->user()?->hasPermissionTo('users.edit') ?? false;
     }
 
     /**

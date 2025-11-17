@@ -145,6 +145,7 @@ class OrganizationController extends Controller
             },
             'leases' => function ($query) {
                 $query->where('status', 'active')
+                    ->with('user')
                     ->latest()
                     ->limit(10);
             },
@@ -152,8 +153,8 @@ class OrganizationController extends Controller
 
         // Calculate stats
         $stats = [
-            'active_members' => $organization->members()->count(),
-            'shared_credentials' => $organization->credentials()->where('scope', 'organization')->count(),
+            'total_members' => $organization->members()->count(),
+            'total_credentials' => $organization->credentials()->where('scope', 'organization')->count(),
             'active_leases' => $organization->leases()->where('status', 'active')->count(),
             'pending_invitations' => $organization->invitations()
                 ->where('accepted_at', null)

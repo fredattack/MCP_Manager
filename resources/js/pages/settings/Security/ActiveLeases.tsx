@@ -106,7 +106,11 @@ function ExpirationCountdown({ expiresAt }: { expiresAt: string }) {
             )}
             <span
                 className={`font-mono text-sm ${
-                    isExpired ? 'text-red-600 dark:text-red-400' : isExpiringSoon ? 'text-yellow-600 dark:text-yellow-400' : 'text-gray-600 dark:text-gray-400'
+                    isExpired
+                        ? 'text-red-600 dark:text-red-400'
+                        : isExpiringSoon
+                          ? 'text-yellow-600 dark:text-yellow-400'
+                          : 'text-gray-600 dark:text-gray-400'
                 }`}
             >
                 {countdown}
@@ -194,19 +198,31 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
         switch (scope) {
             case 'personal':
                 return (
-                    <MonologueBadge variant="outline" size="sm" className="border-cyan-500 bg-cyan-50 text-cyan-700 dark:bg-cyan-950/20 dark:text-cyan-400">
+                    <MonologueBadge
+                        variant="outline"
+                        size="sm"
+                        className="border-cyan-500 bg-cyan-50 text-cyan-700 dark:bg-cyan-950/20 dark:text-cyan-400"
+                    >
                         Personal
                     </MonologueBadge>
                 );
             case 'organization':
                 return (
-                    <MonologueBadge variant="outline" size="sm" className="border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400">
+                    <MonologueBadge
+                        variant="outline"
+                        size="sm"
+                        className="border-blue-500 bg-blue-50 text-blue-700 dark:bg-blue-950/20 dark:text-blue-400"
+                    >
                         Organization
                     </MonologueBadge>
                 );
             case 'mixed':
                 return (
-                    <MonologueBadge variant="outline" size="sm" className="border-purple-500 bg-purple-50 text-purple-700 dark:bg-purple-950/20 dark:text-purple-400">
+                    <MonologueBadge
+                        variant="outline"
+                        size="sm"
+                        className="border-purple-500 bg-purple-50 text-purple-700 dark:bg-purple-950/20 dark:text-purple-400"
+                    >
                         Mixed
                     </MonologueBadge>
                 );
@@ -238,7 +254,7 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                     <MonologueCard variant="elevated">
                         <div className="flex items-start justify-between">
                             <div>
-                                <p className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Active Leases</p>
+                                <p className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Active Leases</p>
                                 <p className="font-monologue-serif mt-2 text-3xl font-normal text-gray-900 dark:text-white">{stats.active_leases}</p>
                             </div>
                             <div className="rounded-lg bg-green-500/10 p-3">
@@ -250,7 +266,7 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                     <MonologueCard variant="elevated">
                         <div className="flex items-start justify-between">
                             <div>
-                                <p className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Total Services</p>
+                                <p className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Total Services</p>
                                 <p className="font-monologue-serif mt-2 text-3xl font-normal text-gray-900 dark:text-white">{stats.total_services}</p>
                             </div>
                             <div className="rounded-lg bg-blue-500/10 p-3">
@@ -262,7 +278,7 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                     <MonologueCard variant="elevated">
                         <div className="flex items-start justify-between">
                             <div>
-                                <p className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Expiring Soon</p>
+                                <p className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Expiring Soon</p>
                                 <p className="font-monologue-serif mt-2 text-3xl font-normal text-gray-900 dark:text-white">{stats.expiring_soon}</p>
                             </div>
                             <div className="rounded-lg bg-yellow-500/10 p-3">
@@ -274,8 +290,10 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                     <MonologueCard variant="elevated">
                         <div className="flex items-start justify-between">
                             <div>
-                                <p className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Organizations</p>
-                                <p className="font-monologue-serif mt-2 text-3xl font-normal text-gray-900 dark:text-white">{stats.organizations_with_leases}</p>
+                                <p className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">Organizations</p>
+                                <p className="font-monologue-serif mt-2 text-3xl font-normal text-gray-900 dark:text-white">
+                                    {stats.organizations_with_leases}
+                                </p>
                             </div>
                             <div className="rounded-lg bg-purple-500/10 p-3">
                                 <Building2 className="h-6 w-6 text-purple-500" />
@@ -289,13 +307,13 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                     <div className="flex flex-col gap-4 md:flex-row">
                         {/* Search */}
                         <div className="relative flex-1">
-                            <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-400" />
+                            <Search className="absolute top-1/2 left-3 h-4 w-4 -translate-y-1/2 text-gray-400" />
                             <input
                                 type="text"
                                 placeholder="Search by Lease ID or Server ID..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="font-monologue-mono w-full rounded-lg border border-gray-300 py-2 pl-10 pr-4 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+                                className="font-monologue-mono w-full rounded-lg border border-gray-300 py-2 pr-4 pl-10 text-sm focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 focus:outline-none dark:border-gray-700 dark:bg-gray-800 dark:text-white"
                             />
                         </div>
 
@@ -356,28 +374,28 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                         <table className="w-full">
                             <thead>
                                 <tr className="border-b border-gray-200 dark:border-gray-700">
-                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Lease ID
                                     </th>
-                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Server
                                     </th>
-                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Services
                                     </th>
-                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Status
                                     </th>
-                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Scope
                                     </th>
-                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Expires In
                                     </th>
-                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <th className="font-monologue-mono px-4 py-3 text-left text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Renewals
                                     </th>
-                                    <th className="font-monologue-mono px-4 py-3 text-right text-xs font-medium uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                    <th className="font-monologue-mono px-4 py-3 text-right text-xs font-medium tracking-wide text-gray-500 uppercase dark:text-gray-400">
                                         Actions
                                     </th>
                                 </tr>
@@ -392,10 +410,10 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                                 ) : (
                                     filteredLeases.map((lease) => (
                                         <tr key={lease.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                                            <td className="font-monologue-mono whitespace-nowrap px-4 py-3 text-sm text-gray-900 dark:text-white">
+                                            <td className="font-monologue-mono px-4 py-3 text-sm whitespace-nowrap text-gray-900 dark:text-white">
                                                 {lease.lease_id.substring(0, 16)}...
                                             </td>
-                                            <td className="font-monologue-mono whitespace-nowrap px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
+                                            <td className="font-monologue-mono px-4 py-3 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
                                                 {lease.server_id}
                                             </td>
                                             <td className="px-4 py-3">
@@ -421,12 +439,17 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                                                     <span className="font-mono text-sm text-gray-500">—</span>
                                                 )}
                                             </td>
-                                            <td className="font-monologue-mono whitespace-nowrap px-4 py-3 text-sm text-gray-600 dark:text-gray-400">
+                                            <td className="font-monologue-mono px-4 py-3 text-sm whitespace-nowrap text-gray-600 dark:text-gray-400">
                                                 {lease.renewal_count} / {lease.max_renewals}
                                             </td>
                                             <td className="px-4 py-3">
                                                 <div className="flex justify-end gap-2">
-                                                    <MonologueButton size="sm" variant="ghost" onClick={() => handleViewDetails(lease)} title="View Details">
+                                                    <MonologueButton
+                                                        size="sm"
+                                                        variant="ghost"
+                                                        onClick={() => handleViewDetails(lease)}
+                                                        title="View Details"
+                                                    >
                                                         <Eye className="h-4 w-4" />
                                                     </MonologueButton>
                                                     {lease.status === 'active' && (
@@ -472,26 +495,36 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                             {/* Basic Info */}
                             <div className="grid gap-4 md:grid-cols-2">
                                 <div>
-                                    <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Lease ID</label>
+                                    <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                        Lease ID
+                                    </label>
                                     <p className="font-monologue-mono mt-1 text-sm text-gray-900 dark:text-white">{selectedLease.lease_id}</p>
                                 </div>
                                 <div>
-                                    <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Server ID</label>
+                                    <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                        Server ID
+                                    </label>
                                     <p className="font-monologue-mono mt-1 text-sm text-gray-900 dark:text-white">{selectedLease.server_id}</p>
                                 </div>
                                 <div>
-                                    <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Status</label>
+                                    <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                        Status
+                                    </label>
                                     <div className="mt-1">{getStatusBadge(selectedLease.status)}</div>
                                 </div>
                                 <div>
-                                    <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Credential Scope</label>
+                                    <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                        Credential Scope
+                                    </label>
                                     <div className="mt-1">{getScopeBadge(selectedLease.credential_scope)}</div>
                                 </div>
                             </div>
 
                             {/* Services */}
                             <div>
-                                <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Services ({selectedLease.services.length})</label>
+                                <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                    Services ({selectedLease.services.length})
+                                </label>
                                 <div className="mt-2 flex flex-wrap gap-2">
                                     {selectedLease.services.map((service) => (
                                         <MonologueBadge key={service} variant="outline">
@@ -504,7 +537,9 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                             {/* Organization */}
                             {selectedLease.organization_name && (
                                 <div>
-                                    <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Organization</label>
+                                    <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                        Organization
+                                    </label>
                                     <p className="mt-1 text-sm text-gray-900 dark:text-white">{selectedLease.organization_name}</p>
                                 </div>
                             )}
@@ -512,26 +547,34 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                             {/* Timing Info */}
                             <div className="grid gap-4 md:grid-cols-2">
                                 <div>
-                                    <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Created At</label>
+                                    <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                        Created At
+                                    </label>
                                     <p className="font-monologue-mono mt-1 text-sm text-gray-900 dark:text-white">
                                         {new Date(selectedLease.created_at).toLocaleString()}
                                     </p>
                                 </div>
                                 <div>
-                                    <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Expires At</label>
+                                    <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                        Expires At
+                                    </label>
                                     <p className="font-monologue-mono mt-1 text-sm text-gray-900 dark:text-white">
                                         {new Date(selectedLease.expires_at).toLocaleString()}
                                     </p>
                                 </div>
                                 <div>
-                                    <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Renewal Count</label>
+                                    <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                        Renewal Count
+                                    </label>
                                     <p className="mt-1 text-sm text-gray-900 dark:text-white">
                                         {selectedLease.renewal_count} / {selectedLease.max_renewals}
                                     </p>
                                 </div>
                                 {selectedLease.status === 'active' && (
                                     <div>
-                                        <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Time Remaining</label>
+                                        <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                            Time Remaining
+                                        </label>
                                         <div className="mt-1">
                                             <ExpirationCountdown expiresAt={selectedLease.expires_at} />
                                         </div>
@@ -543,7 +586,9 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                             {selectedLease.client_ip && (
                                 <div className="grid gap-4 md:grid-cols-2">
                                     <div>
-                                        <label className="font-monologue-mono text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Client IP</label>
+                                        <label className="font-monologue-mono text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
+                                            Client IP
+                                        </label>
                                         <p className="font-monologue-mono mt-1 text-sm text-gray-900 dark:text-white">{selectedLease.client_ip}</p>
                                     </div>
                                 </div>
@@ -562,7 +607,9 @@ export default function ActiveLeases({ leases, stats, organizations, available_s
                                                 </p>
                                             )}
                                             {selectedLease.revocation_reason && (
-                                                <p className="mt-1 text-sm text-red-700 dark:text-red-400">Reason: {selectedLease.revocation_reason}</p>
+                                                <p className="mt-1 text-sm text-red-700 dark:text-red-400">
+                                                    Reason: {selectedLease.revocation_reason}
+                                                </p>
                                             )}
                                         </div>
                                     </div>

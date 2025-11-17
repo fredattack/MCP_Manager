@@ -10,7 +10,7 @@ class CreateUserRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return $this->user()?->hasPermission('users.create') ?? false;
+        return $this->user()?->hasPermissionTo('users.create') ?? false;
     }
 
     /**

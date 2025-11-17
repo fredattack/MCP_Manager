@@ -36,7 +36,14 @@ class HasActiveIntegration
                     ->with('warning', 'Please connect your Todoist account first.');
             }
 
-            return redirect()->route('integrations')
+            // For Google services (Gmail, Calendar), redirect to Google integration page
+            if ($integrationType === 'gmail' || $integrationType === 'calendar') {
+                return redirect()->route('integrations.google')
+                    ->with('warning', "Please connect your {$displayName} account first.");
+            }
+
+            // For other integrations, redirect to integrations manager
+            return redirect()->route('integrations.manager.index')
                 ->with('warning', "Please connect your {$displayName} account first.");
         }
 

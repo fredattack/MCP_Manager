@@ -323,7 +323,7 @@ export default function Show({ organization, stats, userRole, canManageMembers, 
                                                 </span>
                                             </td>
                                             <td className="font-monologue-mono py-4 text-sm text-gray-500 dark:text-gray-400">
-                                                {credential.shared_with.join(', ')}
+                                                {credential.shared_with?.join(', ') || '—'}
                                             </td>
                                             <td className="font-monologue-mono py-4 text-sm text-gray-500 dark:text-gray-400">
                                                 {new Date(credential.created_at).toLocaleDateString()}

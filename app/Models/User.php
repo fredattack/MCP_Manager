@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\UserRole;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -30,6 +32,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $api_token
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property-read UserRole|null $role
  * @property-read \Illuminate\Database\Eloquent\Collection<int, IntegrationAccount> $integrationAccounts
  * @property-read McpServer|null $mcpServer
  * @property-read \Illuminate\Database\Eloquent\Collection<int, McpIntegration> $mcpIntegrations
@@ -90,6 +93,34 @@ class User extends Authenticatable
             'updated_at' => 'datetime',
             'mcp_token' => 'encrypted',
         ];
+    }
+
+    /**
+     * Map Spatie roles to UserRole enum for backwards compatibility
+     * with RequireRole middleware.
+     *
+     * @return Attribute<UserRole|null, never>
+     */
+    protected function role(): Attribute
+    {
+        return Attribute::make(
+            get: function (): ?UserRole {
+                // Get first Spatie role name
+                $spatieRole = $this->getRoleNames()->first();
+
+                if (! $spatieRole) {
+                    return null;
+                }
+
+                // Map Spatie role to UserRole enum
+                return match (strtoupper($spatieRole)) {
+                    'GOD', 'ADMIN' => UserRole::ADMIN,
+                    'PLATFORM_MANAGER', 'MANAGER' => UserRole::MANAGER,
+                    'PLATFORM_DEVELOPER', 'PLATFORM_SUPPORT' => UserRole::USER,
+                    default => UserRole::USER,
+                };
+            }
+        );
     }
 
     /**

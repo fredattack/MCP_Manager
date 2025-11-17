@@ -20,13 +20,11 @@ import { Link, usePage } from '@inertiajs/react';
 import {
     Brain,
     Building2,
-    Calendar,
     CalendarDays,
     FileText,
     Folder,
     GitBranch,
     LayoutGrid,
-    Mail,
     MessageSquare,
     Plug,
     Server,
@@ -225,7 +223,9 @@ export function AppSidebar() {
     const user = (page.props as SharedData).auth?.user;
 
     // Check if user has admin access using Spatie roles
-    const hasAdminAccess = user?.roles?.some((role) => ['GOD', 'PLATFORM_ADMIN', 'admin', 'manager'].includes(role)) || user?.permissions?.some((permission) => permission === 'platform.users.*' || permission === '*');
+    const hasAdminAccess =
+        user?.roles?.some((role) => ['GOD', 'PLATFORM_ADMIN', 'admin', 'manager'].includes(role)) ||
+        user?.permissions?.some((permission) => permission === 'platform.users.*' || permission === '*');
 
     // Filter settings nav items based on user role
     const filteredSettingsNavItems = settingsNavItems.filter((item) => {

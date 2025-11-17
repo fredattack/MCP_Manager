@@ -17,7 +17,7 @@ class RequirePermission
         }
 
         foreach ($permissions as $permission) {
-            if (! $user->hasPermission($permission)) {
+            if (! $user->hasPermissionTo($permission)) {
                 abort(403, "Insufficient permissions. Required: {$permission}");
             }
         }

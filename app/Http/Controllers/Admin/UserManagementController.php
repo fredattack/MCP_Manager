@@ -56,9 +56,9 @@ class UserManagementController extends Controller
             'filters' => $request->only(['search', 'role', 'is_active', 'is_locked', 'sort_by', 'sort_order']),
             'roles' => UserRole::options(),
             'can' => [
-                'create' => $request->user()?->hasPermission('users.create') ?? false,
-                'edit' => $request->user()?->hasPermission('users.edit') ?? false,
-                'delete' => $request->user()?->hasPermission('users.delete') ?? false,
+                'create' => $request->user()?->hasPermissionTo('users.create') ?? false,
+                'edit' => $request->user()?->hasPermissionTo('users.edit') ?? false,
+                'delete' => $request->user()?->hasPermissionTo('users.delete') ?? false,
             ],
         ]);
     }
@@ -100,8 +100,8 @@ class UserManagementController extends Controller
                 'token_base64' => $user->getMcpTokenBase64(),
             ],
             'can' => [
-                'edit' => request()->user()?->hasPermission('users.edit') ?? false,
-                'delete' => request()->user()?->hasPermission('users.delete') ?? false,
+                'edit' => request()->user()?->hasPermissionTo('users.edit') ?? false,
+                'delete' => request()->user()?->hasPermissionTo('users.delete') ?? false,
             ],
         ]);
     }
