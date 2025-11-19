@@ -74,12 +74,41 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install NPM Dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build Frontend Assets
+        run: npm run build
+
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+          # Configure SSH to keep connection alive during long builds
+          cat >> ~/.ssh/config << 'SSHCFG'
+Host *
+  ServerAliveInterval 60
+  ServerAliveCountMax 120
+  TCPKeepAlive yes
+SSHCFG
+
+      - name: Copy Built Assets to Server
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+        run: |
+          # Copy built assets to server
+          scp -i ~/.ssh/deploy_key -P ${SSH_PORT} -r public/build ${SSH_USER}@${SSH_HOST}:/var/www/mcp-manager/public/
 
       - name: Deploy to Droplet
         env:
@@ -178,13 +207,8 @@ jobs:
             echo "📦 Installing Composer dependencies..."
             composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
 
-            # Install/Update NPM dependencies
-            echo "📦 Installing NPM dependencies..."
-            npm ci --omit=dev --ignore-scripts
-
-            # Build frontend assets
-            echo "🔨 Building frontend assets..."
-            npm run build
+            # Note: Frontend assets are built in GitHub Actions and copied via SCP
+            # No need to build on the server anymore
 
             # Run database migrations
             echo "🗄️  Running database migrations..."
