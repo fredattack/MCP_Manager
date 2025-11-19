@@ -91,13 +91,14 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-          # Configure SSH to keep connection alive during long builds
-          echo "Host *" >> ~/.ssh/config
+          # Configure SSH to disable host key checking and keep connection alive
+          echo "Host *" > ~/.ssh/config
           echo "  ServerAliveInterval 60" >> ~/.ssh/config
           echo "  ServerAliveCountMax 120" >> ~/.ssh/config
           echo "  TCPKeepAlive yes" >> ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+          echo "  UserKnownHostsFile /dev/null" >> ~/.ssh/config
 
       - name: Copy Built Assets to Server
         env:
