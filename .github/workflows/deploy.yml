@@ -94,12 +94,10 @@ jobs:
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
           # Configure SSH to keep connection alive during long builds
-          cat >> ~/.ssh/config << 'SSHCFG'
-Host *
-  ServerAliveInterval 60
-  ServerAliveCountMax 120
-  TCPKeepAlive yes
-SSHCFG
+          echo "Host *" >> ~/.ssh/config
+          echo "  ServerAliveInterval 60" >> ~/.ssh/config
+          echo "  ServerAliveCountMax 120" >> ~/.ssh/config
+          echo "  TCPKeepAlive yes" >> ~/.ssh/config
 
       - name: Copy Built Assets to Server
         env:
