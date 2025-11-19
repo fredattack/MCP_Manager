@@ -22,7 +22,7 @@ import {
 interface MetricsChartProps {
     title: string;
     description?: string;
-    data: any[];
+    data: Record<string, unknown>[];
     type: 'line' | 'area' | 'bar' | 'pie';
     dataKey: string | string[];
     xAxisKey?: string;

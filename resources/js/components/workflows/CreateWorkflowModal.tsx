@@ -38,7 +38,6 @@ const TASK_EXAMPLES = [
 
 export function CreateWorkflowModal({ isOpen, onClose, repositories = [] }: Props) {
     const [showAdvanced, setShowAdvanced] = useState(false);
-    const [step, setStep] = useState<'repository' | 'description' | 'options'>('repository');
 
     const { data, setData, post, processing, errors, reset } = useForm<FormData>({
         repository_id: null,
@@ -50,7 +49,6 @@ export function CreateWorkflowModal({ isOpen, onClose, repositories = [] }: Prop
 
     const handleClose = () => {
         reset();
-        setStep('repository');
         setShowAdvanced(false);
         onClose();
     };
@@ -68,8 +66,6 @@ export function CreateWorkflowModal({ isOpen, onClose, repositories = [] }: Prop
 
     const canProceedToDescription = data.repository_id !== null;
     const canSubmit = canProceedToDescription && data.task_description.trim().length >= 10;
-
-    const selectedRepository = repositories.find((r) => r.id === data.repository_id);
 
     if (!isOpen) {
         return null;

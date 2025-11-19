@@ -20,7 +20,7 @@ export default function McpDashboard({ integrations: initialIntegrations, server
     const [isTestingIntegration, setIsTestingIntegration] = useState<string | null>(null);
 
     // Use WebSocket for real-time updates
-    const { isConnected, lastMessage } = useMcpWebSocket({
+    const { isConnected } = useMcpWebSocket({
         onIntegrationUpdate: (integrationId, data) => {
             setIntegrations((prev) => prev.map((integration) => (integration.id === integrationId ? { ...integration, ...data } : integration)));
         },

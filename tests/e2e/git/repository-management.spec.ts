@@ -8,7 +8,6 @@ import {
   cleanGitData,
   createGitConnection,
   createGitRepository,
-  getRepositoryCount,
 } from '../fixtures/git';
 
 /**
@@ -58,9 +57,9 @@ test.describe('Git Repository Management', () => {
     await page.goto('/git/repositories');
 
     // Vérifier que les repositories sont affichés
-    await expect(page.locator('text=/testuser\/repo-1/i')).toBeVisible();
-    await expect(page.locator('text=/testuser\/repo-2/i')).toBeVisible();
-    await expect(page.locator('text=/testuser\/repo-3/i')).toBeVisible();
+    await expect(page.locator('text=/testuser\\/repo-1/i')).toBeVisible();
+    await expect(page.locator('text=/testuser\\/repo-2/i')).toBeVisible();
+    await expect(page.locator('text=/testuser\\/repo-3/i')).toBeVisible();
 
     // Vérifier le nombre total
     await expect(page.locator('text=/3.*repositories/i')).toBeVisible();
@@ -328,7 +327,7 @@ test.describe('Git Repository Management', () => {
     await expect(page.locator('text=/webhook.*active/i')).toBeVisible();
 
     // Vérifier l'URL du webhook affichée
-    await expect(page.locator('text=/https:\/\/app\.agentops\.io\/webhooks\/github/i')).toBeVisible();
+    await expect(page.locator('text=/https:\\/\\/app\\.agentops\\.io\\/webhooks\\/github/i')).toBeVisible();
   });
 
   test.skip('devrait afficher les statistiques Git globales', async ({ page }) => {

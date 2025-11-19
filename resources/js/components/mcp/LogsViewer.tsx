@@ -13,7 +13,7 @@ interface LogEntry {
     entity: string;
     entity_id?: string;
     status: 'success' | 'failed' | 'warning';
-    data?: any;
+    data?: Record<string, unknown>;
     ip_address?: string;
     user_agent?: string;
     created_at: string;
@@ -22,12 +22,12 @@ interface LogEntry {
 interface LogsViewerProps {
     logs: LogEntry[];
     onRefresh?: () => void;
-    onFilter?: (filters: any) => void;
+    onFilter?: (filters: Record<string, unknown>) => void;
     onExport?: () => void;
     className?: string;
 }
 
-export function LogsViewer({ logs: initialLogs, onRefresh, onFilter, onExport, className }: LogsViewerProps) {
+export function LogsViewer({ logs: initialLogs, onRefresh, onExport, className }: LogsViewerProps) {
     const [logs, setLogs] = useState(initialLogs);
     const [searchTerm, setSearchTerm] = useState('');
     const [filterStatus, setFilterStatus] = useState<string>('all');

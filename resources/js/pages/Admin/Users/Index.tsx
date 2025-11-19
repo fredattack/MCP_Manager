@@ -23,7 +23,7 @@ const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Users', href: '/admin/users' },
 ];
 
-export default function Index({ users, filters, roles, can }: UsersIndexProps) {
+export default function Index({ users, filters, can }: UsersIndexProps) {
     const [search, setSearch] = useState(filters.search || '');
 
     const handleSearch = (e: React.FormEvent) => {

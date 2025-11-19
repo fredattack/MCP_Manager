@@ -4,7 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { MonologueCard } from '@/components/ui/MonologueCard';
 import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem, type PageProps } from '@/types';
+import { type BreadcrumbItem } from '@/types';
 import { Head, Link, useForm } from '@inertiajs/react';
 import { ArrowLeft } from 'lucide-react';
 import { FormEventHandler } from 'react';
@@ -22,7 +22,7 @@ interface CreateOrganizationForm {
     max_members: number;
 }
 
-export default function Create({}: PageProps) {
+export default function Create() {
     const { data, setData, post, processing, errors } = useForm<CreateOrganizationForm>({
         name: '',
         slug: '',

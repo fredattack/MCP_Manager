@@ -11,12 +11,32 @@ import { cn } from '@/lib/utils';
 import { Head } from '@inertiajs/react';
 import axios from 'axios';
 import { Activity, AlertCircle, BarChart3, CheckCircle, Clock, RefreshCw, Server, Zap } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+
+interface Alert {
+    level: 'critical' | 'warning' | 'info';
+    title: string;
+    message: string;
+}
+
+interface ServiceMetrics {
+    service: string;
+    status: 'active' | 'inactive' | 'error';
+    total: number;
+    active: number;
+}
+
+interface MetricsData extends Record<string, unknown> {
+    alerts?: Alert[];
+    integrations?: {
+        by_service?: ServiceMetrics[];
+    };
+}
 
 interface MonitoringProps {
-    currentMetrics: any;
-    recentLogs: any[];
-    metricsHistory: any[];
+    currentMetrics: MetricsData;
+    recentLogs: Record<string, unknown>[];
+    metricsHistory: Record<string, unknown>[];
 }
 
 export default function Monitoring({ currentMetrics, recentLogs, metricsHistory }: MonitoringProps) {
@@ -29,7 +49,7 @@ export default function Monitoring({ currentMetrics, recentLogs, metricsHistory 
     const [activeTab, setActiveTab] = useState('metrics');
 
     // Fetch metrics data
-    const fetchMetrics = async () => {
+    const fetchMetrics = useCallback(async () => {
         try {
             const response = await axios.get('/mcp/monitoring/metrics', {
                 params: { period: chartPeriod, type: chartType },
@@ -38,7 +58,7 @@ export default function Monitoring({ currentMetrics, recentLogs, metricsHistory 
         } catch (error) {
             console.error('Error fetching metrics:', error);
         }
-    };
+    }, [chartPeriod, chartType]);
 
     // Fetch logs
     const fetchLogs = async () => {
@@ -65,7 +85,7 @@ export default function Monitoring({ currentMetrics, recentLogs, metricsHistory 
     // Update data when period or type changes
     useEffect(() => {
         fetchMetrics();
-    }, [chartPeriod, chartType]);
+    }, [chartPeriod, chartType, fetchMetrics]);
 
     // Setup Server-Sent Events for real-time updates
     useEffect(() => {
@@ -282,8 +302,8 @@ export default function Monitoring({ currentMetrics, recentLogs, metricsHistory 
 
                     {/* Alerts Tab */}
                     <TabsContent value="alerts" className="space-y-4">
-                        {metrics?.alerts?.length > 0 ? (
-                            metrics.alerts.map((alert: any, index: number) => (
+                        {metrics?.alerts && metrics.alerts.length > 0 ? (
+                            metrics.alerts.map((alert: Alert, index: number) => (
                                 <Alert key={index} variant={alert.level === 'critical' ? 'destructive' : 'default'}>
                                     <AlertCircle className="h-4 w-4" />
                                     <AlertTitle>{alert.title}</AlertTitle>
@@ -315,7 +335,7 @@ export default function Monitoring({ currentMetrics, recentLogs, metricsHistory 
                     </CardHeader>
                     <CardContent>
                         <div className="space-y-4">
-                            {metrics?.integrations?.by_service?.map((service: any) => (
+                            {metrics?.integrations?.by_service?.map((service: ServiceMetrics) => (
                                 <div key={service.service} className="flex items-center justify-between rounded-lg border p-4">
                                     <div className="flex items-center gap-3">
                                         <div

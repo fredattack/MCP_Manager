@@ -15,7 +15,7 @@ interface McpSetupDrawerProps {
     mcpServerUrl?: string;
 }
 
-export function McpSetupDrawer({ isOpen, onClose, credentials, userName, mcpServerUrl = 'http://localhost:9978/mcp' }: McpSetupDrawerProps) {
+export function McpSetupDrawer({ isOpen, onClose, credentials, mcpServerUrl = 'http://localhost:9978/mcp' }: McpSetupDrawerProps) {
     const [copied, setCopied] = useState<string | null>(null);
     const [selectedPlatform, setSelectedPlatform] = useState<'claude-code' | 'claude-desktop' | 'chatgpt'>('claude-code');
 

@@ -52,12 +52,6 @@ export default function Show({ user, can, mcpServerUrl, mcpCredentials }: UsersS
         }
     };
 
-    const copyToClipboard = async (text: string, key: string) => {
-        await navigator.clipboard.writeText(text);
-        setCopied(key);
-        setTimeout(() => setCopied(null), 2000);
-    };
-
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title={`User: ${user.name}`} />

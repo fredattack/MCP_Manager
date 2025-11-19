@@ -73,5 +73,5 @@ export interface ConfigureIntegrationProps {
 export interface WebSocketMessage {
     type: 'integration_update' | 'server_status' | 'error';
     integrationId?: string;
-    data: any;
+    data: unknown;
 }

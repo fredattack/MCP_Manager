@@ -74,7 +74,7 @@ export default function Dashboard({ integrations }: Props) {
             } else {
                 alert(`❌ ${data.message}`);
             }
-        } catch (error) {
+        } catch {
             alert('Failed to test connection');
         }
     };
@@ -89,7 +89,7 @@ export default function Dashboard({ integrations }: Props) {
         router.visit(`/integrations/manager/${service}/configure`);
     };
 
-    const handleAddIntegration = async (formData: any) => {
+    const handleAddIntegration = async (formData: Record<string, unknown>) => {
         try {
             router.post(`/integrations/manager/${selectedService}`, formData, {
                 onSuccess: () => {
@@ -150,7 +150,7 @@ export default function Dashboard({ integrations }: Props) {
     const isActive = (integration: Integration) => integration.configured && integration.status === 'active';
 
     // Filter active integrations
-    const activeIntegrations = Object.entries(integrations).filter(([_, integration]) => integration.configured && integration.status === 'active');
+    const activeIntegrations = Object.entries(integrations).filter(([, integration]) => integration.configured && integration.status === 'active');
 
     // Get available services (not configured yet)
     const availableServices = Object.entries(serviceInfo).filter(([service]) => {

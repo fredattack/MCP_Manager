@@ -12,7 +12,7 @@ import React, { useState } from 'react';
 interface IntegrationAccount {
     id: number;
     type: string;
-    meta: Record<string, any>;
+    meta: Record<string, unknown>;
     status: string;
     has_token?: boolean;
     token_placeholder?: string;
@@ -155,7 +155,7 @@ export default function Configure({ service, integration }: Props) {
                 success: result.success,
                 message: result.message,
             });
-        } catch (error) {
+        } catch {
             setTestResult({
                 success: false,
                 message: 'Failed to test connection',

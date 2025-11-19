@@ -31,7 +31,7 @@ global.IntersectionObserver = class IntersectionObserver {
         return [];
     }
     unobserve() {}
-} as any;
+} as unknown as typeof IntersectionObserver;
 
 // Mock de window.scrollTo (souvent utilisé)
 global.scrollTo = vi.fn();
@@ -42,7 +42,7 @@ global.ResizeObserver = class ResizeObserver {
     disconnect() {}
     observe() {}
     unobserve() {}
-} as any;
+} as unknown as typeof ResizeObserver;
 
 // Mock de requestAnimationFrame (pour les animations)
 global.requestAnimationFrame = vi.fn((callback) => {

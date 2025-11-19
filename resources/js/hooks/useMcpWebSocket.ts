@@ -2,8 +2,8 @@ import { WebSocketMessage } from '@/types/mcp.types';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface UseMcpWebSocketOptions {
-    onIntegrationUpdate?: (integrationId: string, data: any) => void;
-    onServerStatus?: (status: any) => void;
+    onIntegrationUpdate?: (integrationId: string, data: unknown) => void;
+    onServerStatus?: (status: unknown) => void;
     onError?: (error: string) => void;
     reconnectDelay?: number;
     maxReconnectAttempts?: number;
@@ -12,7 +12,7 @@ interface UseMcpWebSocketOptions {
 interface UseMcpWebSocketReturn {
     isConnected: boolean;
     lastMessage: WebSocketMessage | null;
-    sendMessage: (message: any) => void;
+    sendMessage: (message: unknown) => void;
     reconnect: () => void;
     connectionState: 'connecting' | 'connected' | 'disconnected' | 'error';
 }
@@ -153,7 +153,7 @@ export function useMcpWebSocket({
         setConnectionState('disconnected');
     }, []);
 
-    const sendMessage = useCallback((message: any) => {
+    const sendMessage = useCallback((message: unknown) => {
         if (wsRef.current?.readyState === WebSocket.OPEN) {
             wsRef.current.send(JSON.stringify(message));
         } else {
@@ -194,6 +194,7 @@ export function useMcpWebSocket({
             window.removeEventListener('online', handleOnline);
             disconnect();
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []); // Only run on mount/unmount
 
     // Ping to keep connection alive

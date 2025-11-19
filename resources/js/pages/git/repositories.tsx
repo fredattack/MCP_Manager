@@ -117,7 +117,7 @@ export default function GitRepositories({ repositories = [] }: RepositoriesProps
                                 />
                             </div>
 
-                            <Select value={visibilityFilter} onValueChange={(value: any) => setVisibilityFilter(value)}>
+                            <Select value={visibilityFilter} onValueChange={(value: string) => setVisibilityFilter(value)}>
                                 <SelectTrigger>
                                     <SelectValue placeholder="Visibilité" />
                                 </SelectTrigger>
@@ -128,7 +128,7 @@ export default function GitRepositories({ repositories = [] }: RepositoriesProps
                                 </SelectContent>
                             </Select>
 
-                            <Select value={providerFilter} onValueChange={(value: any) => setProviderFilter(value)}>
+                            <Select value={providerFilter} onValueChange={(value: string) => setProviderFilter(value)}>
                                 <SelectTrigger>
                                     <SelectValue placeholder="Provider" />
                                 </SelectTrigger>

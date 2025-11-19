@@ -9,6 +9,41 @@ export interface LogEntry {
     timestamp: string;
 }
 
+interface PusherError {
+    type: string;
+    error: string;
+    status?: number;
+}
+
+interface WorkflowStatusEventData {
+    id: number;
+    workflow_id: number;
+    status: string;
+    started_at: string;
+    completed_at: string | null;
+    result: unknown;
+}
+
+interface StepCompletedEventData {
+    id: number;
+    execution_id: number;
+    step_name: string;
+    step_order: number;
+    status: string;
+    started_at: string;
+    completed_at: string | null;
+    duration: number | null;
+    output: unknown;
+    error_message: string | null;
+}
+
+interface LogEntryEventData {
+    level: 'info' | 'warning' | 'error' | 'debug';
+    message: string;
+    context?: Record<string, unknown>;
+    timestamp: string;
+}
+
 interface WorkflowUpdateCallbacks {
     onStatusUpdate?: (execution: WorkflowExecution) => void;
     onStepComplete?: (step: WorkflowStep) => void;
@@ -28,7 +63,7 @@ export function useWorkflowUpdates(workflowId: string | number, callbacks?: Work
         error: null,
     });
     const [logs, setLogs] = useState<LogEntry[]>([]);
-    const channelRef = useRef<any>(null);
+    const channelRef = useRef<unknown>(null);
     const reconnectTimeoutRef = useRef<NodeJS.Timeout>();
     const reconnectAttemptsRef = useRef(0);
     const maxReconnectAttempts = 5;
@@ -88,7 +123,7 @@ export function useWorkflowUpdates(workflowId: string | number, callbacks?: Work
             reconnectAttemptsRef.current = 0;
         });
 
-        channel.on('pusher:subscription_error', (error: any) => {
+        channel.on('pusher:subscription_error', (error: PusherError) => {
             console.error('Subscription error:', error);
             setConnectionStatus({
                 isConnected: false,
@@ -98,7 +133,7 @@ export function useWorkflowUpdates(workflowId: string | number, callbacks?: Work
         });
 
         // Workflow status updates
-        channel.listen('.workflow.status.updated', (data: any) => {
+        channel.listen('.workflow.status.updated', (data: WorkflowStatusEventData) => {
             const execution: WorkflowExecution = {
                 id: data.id,
                 workflow_id: data.workflow_id,
@@ -117,7 +152,7 @@ export function useWorkflowUpdates(workflowId: string | number, callbacks?: Work
         });
 
         // Step completion events
-        channel.listen('.step.completed', (data: any) => {
+        channel.listen('.step.completed', (data: StepCompletedEventData) => {
             const step: WorkflowStep = {
                 id: data.id,
                 execution_id: data.execution_id,
@@ -138,7 +173,7 @@ export function useWorkflowUpdates(workflowId: string | number, callbacks?: Work
         });
 
         // Log entries
-        channel.listen('.log.entry.created', (data: any) => {
+        channel.listen('.log.entry.created', (data: LogEntryEventData) => {
             const logEntry: LogEntry = {
                 level: data.level,
                 message: data.message,

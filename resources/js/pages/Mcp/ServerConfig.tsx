@@ -58,7 +58,7 @@ export default function ServerConfig({ server }: Props) {
                 success: result.success,
                 message: result.success ? `Connected! Latency: ${result.status?.latency}ms` : result.error || 'Connection failed',
             });
-        } catch (error) {
+        } catch {
             setTestResult({
                 success: false,
                 message: 'Failed to test connection',

@@ -331,7 +331,7 @@ export function IntegrationFormDynamic({
     const [isLoading, setIsLoading] = React.useState(false);
     const [error, setError] = React.useState<string | null>(null);
 
-    const fieldConfigs = SERVICE_FIELD_CONFIGS[type] || [];
+    const fieldConfigs = React.useMemo(() => SERVICE_FIELD_CONFIGS[type] || [], [type]);
 
     // Initialize default values
     React.useEffect(() => {
@@ -342,7 +342,7 @@ export function IntegrationFormDynamic({
             }
         });
         setCredentials(defaults);
-    }, [type, fieldConfigs]);
+    }, [fieldConfigs]);
 
     const handleFieldChange = (fieldName: string, value: unknown) => {
         setCredentials((prev) => ({

@@ -61,7 +61,7 @@ export default function ConfigureIntegration({ service, integration, serviceConf
                 success: result.success,
                 message: result.success ? 'Integration test successful!' : result.error || 'Integration test failed',
             });
-        } catch (error) {
+        } catch {
             setTestResult({
                 success: false,
                 message: 'Failed to test integration',
