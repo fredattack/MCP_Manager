@@ -109,7 +109,7 @@ jobs:
 
             # Install/Update NPM dependencies
             echo "📦 Installing NPM dependencies..."
-            HUSKY=0 npm ci --omit=dev
+            npm ci --omit=dev --ignore-scripts
 
             # Build frontend assets
             echo "🔨 Building frontend assets..."
