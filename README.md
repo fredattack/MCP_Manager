@@ -4,7 +4,6 @@
 >
 > Laravel 12 · React 19 · TailwindCSS 4 · Vite 6 · TypeScript 5.7 · PostgreSQL
 
-A modern, clean starter kit for building web applications with Laravel and React. This boilerplate provides a solid foundation with authentication, modern UI components, and comprehensive quality tools pre-configured.
 
 ## 🚀 Getting Started
 
