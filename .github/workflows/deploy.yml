@@ -139,8 +139,9 @@ jobs:
             sed -i "s|DB_CONNECTION=.*|DB_CONNECTION=pgsql|" .env
 
             # Add PostgreSQL configuration (uncomment and set values)
-            sed -i "s|^# DB_HOST=.*|DB_HOST=${DB_HOST}|" .env
-            sed -i "s|^# DB_PORT=.*|DB_PORT=${DB_PORT}|" .env
+            # DB_HOST defaults to 127.0.0.1 since Docker exposes PostgreSQL on localhost
+            sed -i "s|^# DB_HOST=.*|DB_HOST=127.0.0.1|" .env
+            sed -i "s|^# DB_PORT=.*|DB_PORT=5432|" .env
             sed -i "s|^# DB_DATABASE=.*|DB_DATABASE=${DB_DATABASE}|" .env
             sed -i "s|^# DB_USERNAME=.*|DB_USERNAME=${DB_USERNAME}|" .env
             sed -i "s|^# DB_PASSWORD=.*|DB_PASSWORD=${DB_PASSWORD}|" .env
@@ -153,6 +154,27 @@ jobs:
               echo "🔑 Generating new application key..."
               php artisan key:generate --force
             fi
+
+            # Start Docker services (PostgreSQL + Redis)
+            echo "🐳 Starting Docker services..."
+
+            # Create .env.docker for Docker Compose
+            cat > .env.docker << EOF
+DB_DATABASE=${DB_DATABASE}
+DB_USERNAME=${DB_USERNAME}
+DB_PASSWORD=${DB_PASSWORD}
+EOF
+
+            # Start containers (detached mode)
+            docker compose -f docker-compose.prod.yml --env-file .env.docker up -d
+
+            # Wait for PostgreSQL to be ready
+            echo "⏳ Waiting for PostgreSQL to be ready..."
+            until docker exec mcp-manager-postgres pg_isready -U ${DB_USERNAME} > /dev/null 2>&1; do
+              echo "   Waiting for database..."
+              sleep 2
+            done
+            echo "✅ PostgreSQL is ready!"
 
             # Install/Update Composer dependencies
             echo "📦 Installing Composer dependencies..."
