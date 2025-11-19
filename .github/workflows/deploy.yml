@@ -176,7 +176,10 @@ jobs:
             # Restore or generate APP_KEY
             if [ -n "$EXISTING_APP_KEY" ]; then
               echo "🔑 Restoring existing application key..."
-              sed -i "s|APP_KEY=.*|APP_KEY=${EXISTING_APP_KEY}|" .env
+              # Use grep -v to remove old APP_KEY line, then append new one
+              grep -v "^APP_KEY=" .env > .env.tmp
+              echo "APP_KEY=${EXISTING_APP_KEY}" >> .env.tmp
+              mv .env.tmp .env
             else
               echo "🔑 Generating new application key..."
               php artisan key:generate --force
