@@ -104,7 +104,13 @@ Route::middleware(['auth:web'])->group(function () {
     });
 
     // Workflow routes
-    Route::apiResource('workflows', WorkflowController::class);
+    Route::apiResource('workflows', WorkflowController::class)->names([
+        'index' => 'api.workflows.index',
+        'store' => 'api.workflows.store',
+        'show' => 'api.workflows.show',
+        'update' => 'api.workflows.update',
+        'destroy' => 'api.workflows.destroy',
+    ]);
     Route::post('workflows/{workflow}/execute', [WorkflowController::class, 'execute'])->name('api.workflows.execute');
     Route::post('workflows/{workflow}/rerun', [WorkflowController::class, 'rerun'])->name('api.workflows.rerun');
     Route::post('workflows/{workflow}/cancel', [WorkflowController::class, 'cancel'])->name('api.workflows.cancel');
