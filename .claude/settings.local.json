@@ -10,7 +10,8 @@
       "Bash(lsof:*)",
       "Bash(xargs kill:*)",
       "WebFetch(domain:mcp-server-app-6gann.ondigitalocean.app)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(./vendor/bin/phpstan:*)"
     ],
     "deny": [],
     "ask": []
