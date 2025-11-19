@@ -159,11 +159,9 @@ jobs:
             echo "🐳 Starting Docker services..."
 
             # Create .env.docker for Docker Compose
-            cat > .env.docker << EOF
-DB_DATABASE=${DB_DATABASE}
-DB_USERNAME=${DB_USERNAME}
-DB_PASSWORD=${DB_PASSWORD}
-EOF
+            echo "DB_DATABASE=${DB_DATABASE}" > .env.docker
+            echo "DB_USERNAME=${DB_USERNAME}" >> .env.docker
+            echo "DB_PASSWORD=${DB_PASSWORD}" >> .env.docker
 
             # Start containers (detached mode)
             docker compose -f docker-compose.prod.yml --env-file .env.docker up -d
