@@ -86,8 +86,25 @@ jobs:
           SSH_HOST: ${{ secrets.SSH_HOST }}
           SSH_USER: ${{ secrets.SSH_USER }}
           SSH_PORT: ${{ secrets.SSH_PORT }}
+          APP_ENV: ${{ secrets.APP_ENV || 'production' }}
+          APP_DEBUG: ${{ secrets.APP_DEBUG || 'false' }}
+          APP_URL: ${{ secrets.APP_URL }}
+          DB_HOST: ${{ secrets.DB_HOST || '127.0.0.1' }}
+          DB_PORT: ${{ secrets.DB_PORT || '5432' }}
+          DB_DATABASE: ${{ secrets.DB_DATABASE }}
+          DB_USERNAME: ${{ secrets.DB_USERNAME }}
+          DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
         run: |
-          ssh -i ~/.ssh/deploy_key -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} << 'ENDSSH'
+          ssh -i ~/.ssh/deploy_key -p ${SSH_PORT} ${SSH_USER}@${SSH_HOST} \
+            "APP_ENV='${APP_ENV}' \
+             APP_DEBUG='${APP_DEBUG}' \
+             APP_URL='${APP_URL}' \
+             DB_HOST='${DB_HOST}' \
+             DB_PORT='${DB_PORT}' \
+             DB_DATABASE='${DB_DATABASE}' \
+             DB_USERNAME='${DB_USERNAME}' \
+             DB_PASSWORD='${DB_PASSWORD}' \
+             bash -s" << 'ENDSSH'
             set -e
 
             echo "🚀 Starting deployment..."
@@ -102,6 +119,40 @@ jobs:
             echo "📥 Pulling latest changes from main..."
             git fetch origin main
             git reset --hard origin/main
+
+            # Configure environment variables
+            echo "⚙️ Configuring environment..."
+
+            # Preserve existing APP_KEY if it exists
+            EXISTING_APP_KEY=""
+            if [ -f .env ] && grep -q "APP_KEY=base64:" .env; then
+              EXISTING_APP_KEY=$(grep "APP_KEY=" .env | cut -d '=' -f2-)
+            fi
+
+            # Create .env from example
+            cp .env.example .env
+
+            # Update critical production values
+            sed -i "s|APP_ENV=.*|APP_ENV=${APP_ENV}|" .env
+            sed -i "s|APP_DEBUG=.*|APP_DEBUG=${APP_DEBUG}|" .env
+            sed -i "s|APP_URL=.*|APP_URL=${APP_URL}|" .env
+            sed -i "s|DB_CONNECTION=.*|DB_CONNECTION=pgsql|" .env
+
+            # Add PostgreSQL configuration (uncomment and set values)
+            sed -i "s|^# DB_HOST=.*|DB_HOST=${DB_HOST}|" .env
+            sed -i "s|^# DB_PORT=.*|DB_PORT=${DB_PORT}|" .env
+            sed -i "s|^# DB_DATABASE=.*|DB_DATABASE=${DB_DATABASE}|" .env
+            sed -i "s|^# DB_USERNAME=.*|DB_USERNAME=${DB_USERNAME}|" .env
+            sed -i "s|^# DB_PASSWORD=.*|DB_PASSWORD=${DB_PASSWORD}|" .env
+
+            # Restore or generate APP_KEY
+            if [ -n "$EXISTING_APP_KEY" ]; then
+              echo "🔑 Restoring existing application key..."
+              sed -i "s|APP_KEY=.*|APP_KEY=${EXISTING_APP_KEY}|" .env
+            else
+              echo "🔑 Generating new application key..."
+              php artisan key:generate --force
+            fi
 
             # Install/Update Composer dependencies
             echo "📦 Installing Composer dependencies..."
