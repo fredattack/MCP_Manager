@@ -186,6 +186,27 @@ jobs:
               php artisan key:generate --force
             fi
 
+            # Fix environment variables with ${VAR} syntax (replace with actual values)
+            echo "🔧 Fixing environment variables with dollar-brace syntax..."
+
+            # Extract values
+            APP_NAME=$(grep "^APP_NAME=" .env | cut -d '=' -f2 | tr -d '"')
+            REVERB_APP_KEY=$(grep "^REVERB_APP_KEY=" .env | cut -d '=' -f2)
+            REVERB_HOST=$(grep "^REVERB_HOST=" .env | cut -d '=' -f2 | tr -d '"')
+            REVERB_PORT=$(grep "^REVERB_PORT=" .env | cut -d '=' -f2)
+            REVERB_SCHEME=$(grep "^REVERB_SCHEME=" .env | cut -d '=' -f2)
+
+            # Replace Vite/Reverb variables
+            sed -i "s|VITE_REVERB_APP_KEY=.*|VITE_REVERB_APP_KEY=${REVERB_APP_KEY}|" .env
+            sed -i "s|VITE_REVERB_HOST=.*|VITE_REVERB_HOST=${REVERB_HOST}|" .env
+            sed -i "s|VITE_REVERB_PORT=.*|VITE_REVERB_PORT=${REVERB_PORT}|" .env
+            sed -i "s|VITE_REVERB_SCHEME=.*|VITE_REVERB_SCHEME=${REVERB_SCHEME}|" .env
+
+            # Replace Mail and OAuth redirect URIs
+            sed -i "s|MAIL_FROM_NAME=.*|MAIL_FROM_NAME=\"${APP_NAME}\"|" .env
+            sed -i "s|GITHUB_REDIRECT_URI=.*|GITHUB_REDIRECT_URI=${APP_URL}/api/git/github/oauth/callback|" .env
+            sed -i "s|GITLAB_REDIRECT_URI=.*|GITLAB_REDIRECT_URI=${APP_URL}/api/git/gitlab/oauth/callback|" .env
+
             # Start Docker services (PostgreSQL + Redis)
             echo "🐳 Starting Docker services..."
 
