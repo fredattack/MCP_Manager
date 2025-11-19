@@ -205,8 +205,8 @@ jobs:
             echo "✅ PostgreSQL is ready!"
 
             # Install/Update Composer dependencies
-            echo "📦 Installing Composer dependencies..."
-            composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev
+            echo "📦 Installing Composer dependencies (this may take 1-2 minutes)..."
+            composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev --no-scripts --verbose
 
             # Note: Frontend assets are built in GitHub Actions and copied via SCP
             # No need to build on the server anymore
@@ -214,17 +214,25 @@ jobs:
             # Run database migrations
             echo "🗄️  Running database migrations..."
             php artisan migrate --force
+            echo "✅ Migrations completed"
 
             # Clear and cache configuration
             echo "🧹 Clearing and optimizing caches..."
             php artisan config:clear
+            echo "  ✓ Config cache cleared"
             php artisan config:cache
+            echo "  ✓ Config cached"
             php artisan route:cache
+            echo "  ✓ Routes cached"
             php artisan view:cache
+            echo "  ✓ Views cached"
             php artisan event:cache
+            echo "  ✓ Events cached"
 
             # Optimize application
+            echo "⚡ Optimizing application..."
             php artisan optimize
+            echo "✅ Optimization completed"
 
             # Set proper permissions
             echo "🔐 Setting permissions..."
