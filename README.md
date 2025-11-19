@@ -1,6 +1,6 @@
 # make installLaravel React Boilerplate
 
-> **Last Updated:** May 2025
+> **Last Updated:** nov 2025
 >
 > Laravel 12 · React 19 · TailwindCSS 4 · Vite 6 · TypeScript 5.7 · PostgreSQL
 
