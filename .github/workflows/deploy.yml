@@ -210,6 +210,9 @@ jobs:
             # Start Docker services (PostgreSQL + Redis)
             echo "🐳 Starting Docker services..."
 
+            # Stop and remove existing containers and volumes (clean slate)
+            docker compose -f docker-compose.prod.yml down -v || true
+
             # Create .env.docker for Docker Compose
             echo "DB_DATABASE=${DB_DATABASE}" > .env.docker
             echo "DB_USERNAME=${DB_USERNAME}" >> .env.docker
@@ -235,7 +238,8 @@ jobs:
 
             # Run database migrations
             echo "🗄️  Running database migrations..."
-            php artisan migrate --force
+            # Use migrate:fresh since we're resetting Docker volumes (TEMPORARY)
+            php artisan migrate:fresh --force --seed
             echo "✅ Migrations completed"
 
             # Clear and cache configuration
