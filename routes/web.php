@@ -3,6 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
+// Health check endpoint (no auth required)
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'ok',
+        'timestamp' => now()->toIso8601String(),
+    ]);
+})->name('health');
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', function () {
         return redirect()->route('dashboard');

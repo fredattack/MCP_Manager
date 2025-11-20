@@ -235,8 +235,7 @@ jobs:
 
             # Run database migrations
             echo "🗄️  Running database migrations..."
-            # Use migrate:fresh for clean slate (TEMPORARY - will be changed back to migrate)
-            php artisan migrate:fresh --force --seed
+            php artisan migrate --force
             echo "✅ Migrations completed"
 
             # Clear and cache configuration
